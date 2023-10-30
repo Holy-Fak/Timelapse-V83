@@ -84,6 +84,9 @@
     <ClInclude Include="ShortcutHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CheatNames.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainForm.cpp">

@@ -4,6 +4,9 @@
 #include "ShortcutManager.h"
 
 using namespace Timelapse;
+using namespace System;
+using namespace System::Threading;
+using namespace System::Collections::Generic;
 
 void toggleFullGodmode(System::Windows::Forms::CheckBox^ cb) {
 	if (cb->Checked)
@@ -32,11 +35,32 @@ void toggleDupeX() {
 	}
 }
 
-void toggleFMA(CheckBox^ cbFullMapAttack) {
+void toggleFMA() {
+	Dictionary<String^, Control^>^ controls = Timelapse::MainForm::ControlMap;
+	CheckBox^ cbFullMapAttack = (CheckBox^)controls["FMA"];
 	if (cbFullMapAttack->Checked)
 		WriteMemory(fullMapAttackAddr, 2, 0x90, 0x90); // nop; nop;
 	else
 		WriteMemory(fullMapAttackAddr, 2, 0x74, 0x22); // je 006785EE
 }
 
+void addItemToFilter() {
+	Dictionary<String^, Control^>^ controls = Timelapse::MainForm::ControlMap;
+	TextBox^ tbItemFilterID = (TextBox^)controls["ItemFilterID"];
+	Button^ bItemFilterAdd = (Button^)controls["ItemFilterAdd"];
+	Button^ bItemFilter = (Button^)controls["ItemFilterEnable"];
+	array<int>^ myArray = { 4031865,
+							4031866,
+							2340000,
+							2049100 };
+	// Create a List and initialize it with the array
+	List<int>^ myList = gcnew List<int>(myArray);
 
+	for each (int item in myList)
+	{
+		tbItemFilterID->Text = String::Format("{0}", item);
+		bItemFilterAdd->PerformClick();
+	}
+
+	bItemFilter->PerformClick();
+}

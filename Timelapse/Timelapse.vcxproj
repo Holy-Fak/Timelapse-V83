@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="Assembly.h" />
     <ClInclude Include="CheatFunctions.h" />
+    <ClInclude Include="CheatNames.h" />
     <ClInclude Include="HelperFunctions.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="detours.h" />

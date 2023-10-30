@@ -827,13 +827,16 @@ namespace Timelapse {
 			   this->tbItemFilterSearch = (gcnew System::Windows::Forms::TextBox());
 			   this->label74 = (gcnew System::Windows::Forms::Label());
 			   this->bItemFilterAdd = (gcnew System::Windows::Forms::Button());
+			   MainForm::ControlMap["ItemFilterAdd"] = this->bItemFilterAdd;
 			   this->tbItemFilterID = (gcnew System::Windows::Forms::TextBox());
+			   MainForm::ControlMap["ItemFilterID"] = this->tbItemFilterID;
 			   this->label73 = (gcnew System::Windows::Forms::Label());
 			   this->tbItemFilterMesos = (gcnew System::Windows::Forms::TextBox());
 			   this->label70 = (gcnew System::Windows::Forms::Label());
 			   this->rbItemFilterWhiteList = (gcnew System::Windows::Forms::RadioButton());
 			   this->rbItemFilterBlackList = (gcnew System::Windows::Forms::RadioButton());
 			   this->bItemFilter = (gcnew System::Windows::Forms::Button());
+			   MainForm::ControlMap["ItemFilterEnable"] = this->bItemFilter;
 			   this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
 			   this->tabControl5 = (gcnew System::Windows::Forms::TabControl());
 			   this->tabPage16 = (gcnew System::Windows::Forms::TabPage());

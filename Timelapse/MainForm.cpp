@@ -2105,7 +2105,7 @@ void MainForm::bUEMIGetCurrentLocation_Click(System::Object^ sender, System::Eve
 // Full Map Attack (CMobPool::FindHitMobInRect())
 void MainForm::cbFullMapAttack_CheckedChanged(Object^ sender, EventArgs^ e)
 {
-	toggleFMA(this->cbFullMapAttack);
+	toggleFMA();
 }
 
 // ZZ Vac
