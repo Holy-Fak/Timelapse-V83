@@ -23,13 +23,14 @@
     <ProjectGuid>{44A8047E-05F5-4443-9EF0-D27730FE8DAF}</ProjectGuid>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>Timelapse</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <ProjectName>Timelapse-v83</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
@@ -37,21 +38,21 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -140,17 +141,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Packet.cpp" />
     <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="ShortcutHelper.cpp" />
+    <ClCompile Include="ShortcutManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Assembly.h" />
+    <ClInclude Include="CheatFunctions.h" />
+    <ClInclude Include="HelperFunctions.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="detours.h" />
     <ClInclude Include="GeneralFunctions.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="MapleFunctions.h" />
@@ -161,8 +169,11 @@
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="RegisterShortcuts.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="ShortcutHelper.h" />
+    <ClInclude Include="ShortcutManager.h" />
     <ClInclude Include="Structs.h" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +192,7 @@
     <None Include="..\LICENSE" />
     <None Include="..\README.md" />
     <None Include="ClassDiagram.cd" />
+    <None Include="Timelapse.aps" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="detours.lib" />

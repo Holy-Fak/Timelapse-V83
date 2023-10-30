@@ -4,6 +4,11 @@
 using namespace System;
 
 #pragma region Helper Functions
+
+void ToggleCheckbox(CheckBox^ cb) {
+
+}
+
 bool IsInGame()
 {
 	int mapID = Convert::ToInt32(PointerFuncs::getMapID());
