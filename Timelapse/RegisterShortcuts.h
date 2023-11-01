@@ -27,38 +27,25 @@ void DupeXAction() {
 	ShortcutHelper::ToggleControl("DupeX", gcnew Action(toggleDupeX));
 }
 
+void FMAAction() {
+	ShortcutHelper::ToggleControl("FMA", gcnew Action(toggleFMA));
+}
 
-//
-//void RegisterFMA() {
-//	Dictionary<String^, Control^>^ controls = Timelapse::MainForm::ControlMap;
-//	CheckBox^ cbFMA = (CheckBox^)controls["FMA"];
-//	BOOL isChecked = cbFMA->Checked;
-//	cbFMA->Checked = isChecked;
-//	cbFMA->Checked = !cbFMA->Checked;
-//	toggleFMA(cbFMA);
-//	String^ state = cbFMA->Checked ? "On" : "Off";
-//	Log::WriteLineToConsole(String::Format("FMA was toggled {0}", state));
-//
-//}
 
-//void RegisterMacros() {
-//	ShortcutManager& sm = ShortcutManager::Instance();
-//	sm.RegisterShortcut(VK_F2, [] {
-//		CheckBox^ cbAttack = (CheckBox^)Timelapse::MainForm::ControlMap["AutoAttack"];
-//		CheckBox^ cbLoot = (CheckBox^)Timelapse::MainForm::ControlMap["AutoLoot"];
-//		BOOL isChecked = cbAttack->Checked || cbLoot->Checked;
-//		cbAttack->Checked = isChecked;
-//		cbLoot->Checked = isChecked;
-//		cbAttack->Checked = !cbAttack->Checked;
-//		cbLoot->Checked = !cbLoot->Checked;
-//		});
-//}
+void AutoAttackAction() {
+	ShortcutHelper::ToggleControl("AutoAttack", gcnew Action(toggleAutoAttack));
+}
+
+
+
 
 
 void RegisterShortcuts() {
 	ShortcutManager^ sm = ShortcutManager::Instance();
 	sm->RegisterShortcut(VK_F1, gcnew ShortcutAction(DupeXAction));
+	sm->RegisterShortcut(VK_F1, gcnew ShortcutAction(FMAAction));
 	sm->RegisterShortcut(VK_F2, gcnew ShortcutAction(addItemToFilter));
+	sm->RegisterShortcut(VK_F3, gcnew ShortcutAction(AutoAttackAction));
 
 }
 

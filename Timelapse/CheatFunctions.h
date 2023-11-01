@@ -15,6 +15,14 @@ void toggleFullGodmode(System::Windows::Forms::CheckBox^ cb) {
 		WriteMemory(fullGodmodeAddr, 2, 0x0F, 0x85); // jne 009596F7 [first 2 bytes]
 }
 
+void toggleMpHack(System::Windows::Forms::CheckBox^ cb) {
+	if (cb->Checked)
+		Jump(mpHackAddr, Assembly::MpHackStartHook, 0);
+	else
+		Jump(mpHackAddr, Assembly::MpHackEndHook, 0);
+
+}
+
 void toggleDupeX() {
 	Dictionary<String^, Control^>^ controls = Timelapse::MainForm::ControlMap;
 	CheckBox^ cbDupeX = (CheckBox^)controls["DupeX"];
@@ -63,4 +71,23 @@ void addItemToFilter() {
 	}
 
 	bItemFilter->PerformClick();
+}
+
+void toggleAutoAttack() {
+	Dictionary<String^, Control^>^ controls = Timelapse::MainForm::ControlMap;
+	CheckBox^ cbAttack = (CheckBox^)controls["AutoAttack"];
+	ComboBox^ comboAttackKey = (ComboBox^)controls["AutoAttackKey"];
+	if (comboAttackKey->SelectedIndex != 13)
+		comboAttackKey->SelectedIndex = 13; // D
+}
+
+void toggleMacros() {
+	Dictionary<String^, Control^>^ controls = Timelapse::MainForm::ControlMap;
+	CheckBox^ cbAttack = (CheckBox^)controls["AutoAttack"];
+	CheckBox^ cbLoot = (CheckBox^)controls["AutoLoot"];
+	BOOL isChecked = cbAttack->Checked || cbLoot->Checked;
+	cbAttack->Checked = isChecked;
+	cbLoot->Checked = isChecked;
+	cbAttack->Checked = !cbAttack->Checked;
+	cbLoot->Checked = !cbLoot->Checked;
 }

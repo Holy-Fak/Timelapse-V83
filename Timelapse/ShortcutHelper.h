@@ -9,5 +9,5 @@ public ref class ShortcutHelper {
 public:
 	static void ToggleControl(String^ controlName, Action^ additionalAction);
 };
-
+	
 

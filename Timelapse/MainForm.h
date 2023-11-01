@@ -127,6 +127,7 @@ namespace Timelapse {
 	private: System::Windows::Forms::CheckBox^ cbClickTeleport;
 	private: System::Windows::Forms::CheckBox^ cbMouseTeleport;
 	private: System::Windows::Forms::CheckBox^ cbFullGodmode;
+	private: System::Windows::Forms::CheckBox^ cbMpHack;
 	private: System::Windows::Forms::Panel^ panel16;
 	public: System::Windows::Forms::TextBox^ tbDupeXFoothold;
 	private:
@@ -263,6 +264,7 @@ namespace Timelapse {
 	private: System::Windows::Forms::CheckBox^ cbAP;
 	public: System::Windows::Forms::CheckBox^ cbNoMapTiles;
 	private: System::Windows::Forms::CheckBox^ cbNoSkillEffects;
+	private: System::Windows::Forms::CheckBox^ cbPetVac;
 	public: System::Windows::Forms::CheckBox^ cbNoMapObjects;
 	private: System::Windows::Forms::CheckBox^ cbInstantLootItems;
 	private: System::Windows::Forms::CheckBox^ cbJumpDownAnyTile;
@@ -646,6 +648,7 @@ namespace Timelapse {
 			   this->comboLootKey = (gcnew System::Windows::Forms::ComboBox());
 			   this->label26 = (gcnew System::Windows::Forms::Label());
 			   this->comboAttackKey = (gcnew System::Windows::Forms::ComboBox());
+			   MainForm::ControlMap["AutoAttackKey"] = this->comboAttackKey;
 			   this->comboMPKey = (gcnew System::Windows::Forms::ComboBox());
 			   this->cbAttack = (gcnew System::Windows::Forms::CheckBox());
 			   MainForm::ControlMap["AutoAttack"] = this->cbAttack;
@@ -701,10 +704,10 @@ namespace Timelapse {
 			   this->cbFullGodmode = (gcnew System::Windows::Forms::CheckBox());
 			   MainForm::ControlMap["GodMode"] = this->cbFullGodmode;
 			   this->cbJumpDownAnyTile = (gcnew System::Windows::Forms::CheckBox());
-			   this->cbNoSkillEffects = (gcnew System::Windows::Forms::CheckBox());
+			   this->cbPetVac = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbNoBreath = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbNoPlayerKnockback = (gcnew System::Windows::Forms::CheckBox());
-			   this->cbFullAccuracy = (gcnew System::Windows::Forms::CheckBox());
+			   this->cbMpHack = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbNoPlayerDeath = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbUnlimitedAttack = (gcnew System::Windows::Forms::CheckBox());
 			   this->tabPage20 = (gcnew System::Windows::Forms::TabPage());
@@ -907,6 +910,8 @@ namespace Timelapse {
 			   this->tbMapRusherSearch = (gcnew System::Windows::Forms::TextBox());
 			   this->label78 = (gcnew System::Windows::Forms::Label());
 			   this->btnClose = (gcnew System::Windows::Forms::Button());
+			   this->cbNoSkillEffects = (gcnew System::Windows::Forms::CheckBox());
+			   this->cbFullAccuracy = (gcnew System::Windows::Forms::CheckBox());
 			   this->GUITimer = (gcnew System::Windows::Forms::Timer(this->components));
 			   this->AutoCCCSTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			   this->tAutoAttack = (gcnew System::Windows::Forms::Timer(this->components));
@@ -1119,7 +1124,7 @@ namespace Timelapse {
 			   this->lbTitle->ForeColor = System::Drawing::Color::Silver;
 			   this->lbTitle->Location = System::Drawing::Point(29, 8);
 			   this->lbTitle->Name = L"lbTitle";
-			   this->lbTitle->Size = System::Drawing::Size(121, 16);
+			   this->lbTitle->Size = System::Drawing::Size(120, 16);
 			   this->lbTitle->TabIndex = 12;
 			   this->lbTitle->Text = L"Timelapse Trainer";
 			   this->lbTitle->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -3733,10 +3738,10 @@ namespace Timelapse {
 			   this->groupBox1->Controls->Add(this->cbNoPlayerNameTag);
 			   this->groupBox1->Controls->Add(this->cbFullGodmode);
 			   this->groupBox1->Controls->Add(this->cbJumpDownAnyTile);
-			   this->groupBox1->Controls->Add(this->cbNoSkillEffects);
+			   this->groupBox1->Controls->Add(this->cbPetVac);
 			   this->groupBox1->Controls->Add(this->cbNoBreath);
 			   this->groupBox1->Controls->Add(this->cbNoPlayerKnockback);
-			   this->groupBox1->Controls->Add(this->cbFullAccuracy);
+			   this->groupBox1->Controls->Add(this->cbMpHack);
 			   this->groupBox1->Controls->Add(this->cbNoPlayerDeath);
 			   this->groupBox1->Controls->Add(this->cbUnlimitedAttack);
 			   this->groupBox1->ForeColor = System::Drawing::Color::WhiteSmoke;
@@ -3922,19 +3927,20 @@ namespace Timelapse {
 			   this->cbJumpDownAnyTile->UseVisualStyleBackColor = false;
 			   this->cbJumpDownAnyTile->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbJumpDownAnyTile_CheckedChanged);
 			   // 
-			   // cbNoSkillEffects
+			   // cbPetVac
 			   // 
-			   this->cbNoSkillEffects->AutoSize = true;
-			   this->cbNoSkillEffects->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
-			   this->cbNoSkillEffects->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->cbNoSkillEffects->ForeColor = System::Drawing::Color::White;
-			   this->cbNoSkillEffects->Location = System::Drawing::Point(133, 70);
-			   this->cbNoSkillEffects->Name = L"cbNoSkillEffects";
-			   this->cbNoSkillEffects->Size = System::Drawing::Size(93, 17);
-			   this->cbNoSkillEffects->TabIndex = 8;
-			   this->cbNoSkillEffects->Text = L"No Skill Effects";
-			   this->cbNoSkillEffects->UseVisualStyleBackColor = false;
-			   this->cbNoSkillEffects->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoSkillEffects_CheckedChanged);
+			   this->cbPetVac->AutoSize = true;
+			   this->cbPetVac->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
+			   this->cbPetVac->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			   this->cbPetVac->ForeColor = System::Drawing::Color::White;
+			   this->cbPetVac->Location = System::Drawing::Point(133, 70);
+			   this->cbPetVac->Name = L"cbPetVac";
+			   this->cbPetVac->Size = System::Drawing::Size(84, 17);
+			   this->cbPetVac->TabIndex = 4;
+			   this->cbPetVac->Text = L"Pet Item Vac";
+			   this->cbPetVac->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			   this->cbPetVac->UseVisualStyleBackColor = false;
+			   this->cbPetVac->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbPetVac_CheckedChanged);
 			   // 
 			   // cbNoBreath
 			   // 
@@ -3964,20 +3970,19 @@ namespace Timelapse {
 			   this->cbNoPlayerKnockback->UseVisualStyleBackColor = false;
 			   this->cbNoPlayerKnockback->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoPlayerKnockback_CheckedChanged);
 			   // 
-			   // cbFullAccuracy
+			   // cbMpHack
 			   // 
-			   this->cbFullAccuracy->AutoSize = true;
-			   this->cbFullAccuracy->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
-			   this->cbFullAccuracy->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->cbFullAccuracy->ForeColor = System::Drawing::Color::White;
-			   this->cbFullAccuracy->Location = System::Drawing::Point(133, 34);
-			   this->cbFullAccuracy->Name = L"cbFullAccuracy";
-			   this->cbFullAccuracy->Size = System::Drawing::Size(86, 17);
-			   this->cbFullAccuracy->TabIndex = 10;
-			   this->cbFullAccuracy->Text = L"Full Accuracy";
-			   this->cbFullAccuracy->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			   this->cbFullAccuracy->UseVisualStyleBackColor = false;
-			   this->cbFullAccuracy->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbFullAccuracy_CheckedChanged);
+			   this->cbMpHack->AutoSize = true;
+			   this->cbMpHack->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
+			   this->cbMpHack->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			   this->cbMpHack->ForeColor = System::Drawing::Color::White;
+			   this->cbMpHack->Location = System::Drawing::Point(133, 34);
+			   this->cbMpHack->Name = L"cbMpHack";
+			   this->cbMpHack->Size = System::Drawing::Size(63, 17);
+			   this->cbMpHack->TabIndex = 10;
+			   this->cbMpHack->Text = L"Mp Hack";
+			   this->cbMpHack->UseVisualStyleBackColor = false;
+			   this->cbMpHack->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbMpHack_CheckedChanged);
 			   // 
 			   // cbNoPlayerDeath
 			   // 
@@ -6454,6 +6459,27 @@ namespace Timelapse {
 			   this->btnClose->UseVisualStyleBackColor = false;
 			   this->btnClose->Click += gcnew System::EventHandler(this, &MainForm::btnClose_Click);
 			   // 
+			   // cbNoSkillEffects
+			   // 
+			   this->cbNoSkillEffects->AutoSize = true;
+			   this->cbNoSkillEffects->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
+			   this->cbNoSkillEffects->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			   this->cbNoSkillEffects->ForeColor = System::Drawing::Color::White;
+			   this->cbNoSkillEffects->Location = System::Drawing::Point(133, 70);
+			   this->cbNoSkillEffects->Name = L"cbNoSkillEffects";
+			   this->cbNoSkillEffects->Size = System::Drawing::Size(93, 17);
+			   this->cbNoSkillEffects->TabIndex = 8;
+			   this->cbNoSkillEffects->Text = L"Pet Vac";
+			   this->cbNoSkillEffects->UseVisualStyleBackColor = false;
+			   this->cbNoSkillEffects->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoSkillEffects_CheckedChanged);
+			   // 
+			   // cbFullAccuracy
+			   // 
+			   this->cbFullAccuracy->Location = System::Drawing::Point(0, 0);
+			   this->cbFullAccuracy->Name = L"cbFullAccuracy";
+			   this->cbFullAccuracy->Size = System::Drawing::Size(104, 24);
+			   this->cbFullAccuracy->TabIndex = 0;
+			   // 
 			   // GUITimer
 			   // 
 			   this->GUITimer->Enabled = true;
@@ -6697,6 +6723,7 @@ namespace Timelapse {
 	private: System::Void cbMouseFly_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void cbSwimInAir_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void cbFullGodmode_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void cbMpHack_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void cbClickTeleport_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void cbMouseTeleport_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void bTeleportGetCurrentLocation_Click(System::Object^ sender, System::EventArgs^ e);
@@ -6713,6 +6740,7 @@ namespace Timelapse {
 	private: System::Void cbNoPlayerKnockback_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void cbJumpDownAnyTile_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void cbNoSkillEffects_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void cbPetVac_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void cbNoAttackDelay_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void cbNoPlayerNameTag_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void cbMobAutoAggro_CheckedChanged(System::Object^ sender, System::EventArgs^ e);

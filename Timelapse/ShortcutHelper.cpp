@@ -12,7 +12,7 @@ void ToggleAndLog(String^ controlName) {
 	Dictionary<String^, Control^>^ controls = Timelapse::MainForm::ControlMap;
 	CheckBox^ cb = (CheckBox^)controls[controlName];
 	cb->Checked = !cb->Checked;
-	String^ state = cb->Checked ? "On" : "Off";
+	String^ state = cb->Checked ? "on" : "off";
 	Log::WriteLineToConsole(String::Format("{0} was toggled {1}", controlName, state));
 }
 

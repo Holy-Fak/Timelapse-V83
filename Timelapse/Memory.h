@@ -25,6 +25,14 @@ static void Jump(ULONG ulAddress, PVOID Function, unsigned Nops) {
 	memset((PVOID)(ulAddress + 5), 0x90, Nops);
 }
 
+
+static void SetupReturnJump(ULONG returnAddress, ULONG originalAddress, unsigned Nops) {
+	MakePageWritable(returnAddress, Nops + 5);
+	*(UCHAR*)returnAddress = 0xE9; // Jump instruction
+	*(ULONG*)(returnAddress + 1) = (int)((originalAddress - returnAddress) - 5); // Relative offset
+	memset((PVOID)(returnAddress + 5), 0x90, Nops); // NOPs for padding
+}
+
 static ULONG ReadPointer(ULONG ulBase, int iOffset) {
 	__try { return *(ULONG*)(*(ULONG*)ulBase + iOffset); }
 	__except (EXCEPTION_EXECUTE_HANDLER) { return 0; }

@@ -14,6 +14,8 @@ ULONG logoSkipAddr = 0x0062F2D6;
 
 //Hacks Tabs
 ULONG fullGodmodeAddr = 0x009581D5;
+ULONG mpHackAddr = 0x00A031F5;
+ULONG mpHackAddrRet = mpHackAddr + 6;
 ULONG missGodmodeAddr = 0x009582E9;
 ULONG blinkGodmodeAddr = 0x00932501;
 ULONG swimInAirAddr = 0x00704704;
@@ -134,8 +136,11 @@ ULONG cOutPacketAddr = 0x0049637B;
 ULONG cOutPacketAddrRet = cOutPacketAddr + 5;
 ULONG dupeXAddr = 0x009B495D;
 ULONG dupeXAddrRet = dupeXAddr + 6;
-#pragma endregion
-
+ULONG PetGetItemSwitch = 1;
+ULONG PetGetItemHookAddr = 0x005049B6;
+ULONG PetGetItemAddrRet = 0x005049D6; // This is where you jump back if PetGetItemSwitch is non-zero
+ULONG NormalPetAddrRet = 0x005049E3;  // This is where you jump back if PetGetItemSwitch is zero
+ULONG FunctionCall = 0x775942B0;
 #pragma region MapleStory Function Hook Addresses
 //Hook Addresses
 ULONG enterCSAddr = 0x00A04DCA;

@@ -70,8 +70,8 @@ BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, PVOID lpvReserved)
 		break;
 	}
 	case DLL_PROCESS_DETACH:
-		FreeLibraryAndExitThread(hModule, 0);
 		FreeConsole();
+		FreeLibraryAndExitThread(hModule, 0);
 	case DLL_THREAD_ATTACH:
 		break;
 	case DLL_THREAD_DETACH:
@@ -94,7 +94,7 @@ void MainForm::MainForm_Load(Object^ sender, EventArgs^ e)
 	Log::WriteLineToConsole("Initializing Timelapse trainer ....");
 	RECT msRect;
 	GetWindowRect(GetMSWindowHandle(), &msRect);
-	this->Left = msRect.right;
+	this->Left = msRect.left;
 	this->Top = msRect.top;
 }
 
@@ -514,6 +514,7 @@ void SendLoginPacket(String^ username, String^ password)
 	writeBytes(packet, gcnew array<BYTE>{0x00, 0x00, 0x00, 0x00, 0x00, 0x00}); // Unknown bytes
 	writeBytes(packet, gcnew array<BYTE>{0x00, 0x00, 0x00, 0x00});			   // Account id? setting to 0 for now
 	// rest of packet unused for now
+	Console::WriteLine(packet);
 	SendPacket(packet);
 }
 
@@ -525,7 +526,8 @@ void SendCharListRequestPacket(int world, int channel)
 	writeByte(packet, world);									   // World
 	writeByte(packet, channel);									   // Channel
 	writeBytes(packet, gcnew array<BYTE>{0x7F, 0x00, 0x00, 0x01}); // Unknown bytes
-	SendPacket(packet);
+	Console::WriteLine(packet);
+	//SendPacket(packet);
 }
 
 void SendSelectCharPacket(int character, bool existsPIC)
@@ -533,25 +535,25 @@ void SendSelectCharPacket(int character, bool existsPIC)
 	String^ packet = "";
 	String^ macAddress = GetMac(true);
 
-	if (existsPIC)
-	{
-		String^ PIC = MainForm::TheInstance->tbAutoLoginPIC->Text;
+	//if (existsPIC)
+	//{
+	//	String^ PIC = MainForm::TheInstance->tbAutoLoginPIC->Text;
 
-		writeBytes(packet, gcnew array<BYTE>{0x1E, 0x00}); // Character Select (With PIC) OpCode
-		writeString(packet, PIC);						   // PIC
-		writeInt(packet, character);					   // Character Number (starts with 1)
-		writeString(packet, macAddress);				   // Mac Address
-		writeString(packet, GetHWID(true, macAddress));	   // HWID
-		SendPacket(packet);
-	}
-	else
-	{
-		writeBytes(packet, gcnew array<BYTE>{0x13, 0x00}); // Character Select (Without PIC) OpCode
-		writeInt(packet, character);					   // Character Number (starts with 1)
-		writeString(packet, macAddress);				   // Mac Address
-		writeString(packet, GetHWID(true, macAddress));	   // HWID
-		SendPacket(packet);
-	}
+	//	writeBytes(packet, gcnew array<BYTE>{0x1E, 0x00}); // Character Select (With PIC) OpCode
+	//	writeString(packet, PIC);						   // PIC
+	//	writeInt(packet, character);					   // Character Number (starts with 1)
+	//	writeString(packet, macAddress);				   // Mac Address
+	//	writeString(packet, GetHWID(true, macAddress));	   // HWID
+	//	SendPacket(packet);
+	//}
+	//else
+	//{
+	//	writeBytes(packet, gcnew array<BYTE>{0x13, 0x00}); // Character Select (Without PIC) OpCode
+	//	writeInt(packet, character);					   // Character Number (starts with 1)
+	//	writeString(packet, macAddress);				   // Mac Address
+	//	writeString(packet, GetHWID(true, macAddress));	   // HWID
+	//	SendPacket(packet);
+	//}
 }
 
 // Only works for HeavenMS as of now, maybe on other private servers that doesn't check the validity of the fake hwid/mac address in the packets
@@ -563,16 +565,16 @@ void AutoLogin()
 		String^ usernameStr = MainForm::TheInstance->tbAutoLoginUsername->Text;
 		String^ passwordStr = MainForm::TheInstance->tbAutoLoginPassword->Text;
 		SendLoginPacket(usernameStr, passwordStr);
-		Sleep(2000);
 
 		int world = MainForm::TheInstance->comboAutoLoginWorld->SelectedIndex;
 		int channel = MainForm::TheInstance->comboAutoLoginChannel->SelectedIndex;
-		SendCharListRequestPacket(world, channel);
+		Console::WriteLine(String::Format("World Index: {0}", world));
+		Console::WriteLine(String::Format("Channel Index: {0}", channel));
 		Sleep(2000);
+		SendCharListRequestPacket(world, channel);
+		Sleep(3000);
 
-		int character = MainForm::TheInstance->comboAutoLoginCharacter->SelectedIndex + 1;
-		bool existsPIC = MainForm::TheInstance->cbAutoLoginPic->Checked;
-		SendSelectCharPacket(character, existsPIC);
+
 		Log::WriteLineToConsole("AutoLogin: Login Completed");
 	}
 }
@@ -1151,6 +1153,13 @@ void MainForm::cbFullGodmode_CheckedChanged(Object^ sender, EventArgs^ e)
 	toggleFullGodmode(this->cbFullGodmode);
 }
 
+void MainForm::cbMpHack_CheckedChanged(Object^ sender, EventArgs^ e)
+{
+	toggleMpHack(this->cbMpHack);
+}
+
+
+
 // TODO: Add number of misses
 // Miss Godmode (CUserLocal::SetDamaged())
 void MainForm::cbMissGodmode_CheckedChanged(Object^ sender, EventArgs^ e)
@@ -1304,7 +1313,6 @@ void MainForm::cbJumpDownAnyTile_CheckedChanged(Object^ sender, EventArgs^ e)
 	else
 		WriteMemory(jumpDownAnywhereAddr, 2, 0x74, 0x1E); // je 0094C70E
 }
-
 // No Skill Effects (CUser::ShowSkillEffect())
 void MainForm::cbNoSkillEffects_CheckedChanged(Object^ sender, EventArgs^ e)
 {
@@ -1313,6 +1321,22 @@ void MainForm::cbNoSkillEffects_CheckedChanged(Object^ sender, EventArgs^ e)
 	else
 		WriteMemory(noSkillEffectAddr, 5, 0xB8, 0x34, 0xC3, 0xAD, 0x00); // mov eax,00ADC334
 }
+
+// Pet Item Vac
+void MainForm::cbPetVac_CheckedChanged(Object^ sender, EventArgs^ e)
+
+{
+	if (this->cbPetVac->Checked)
+	{
+		PetGetItemSwitch = 1;
+		Jump(PetGetItemHookAddr, Assembly::PetItemVacHook, 0);
+	}
+	else
+	{
+		PetGetItemSwitch = 0;
+	}
+}
+
 
 // No Attack Delay (CUser::SetAttackAction())
 void MainForm::cbNoAttackDelay_CheckedChanged(Object^ sender, EventArgs^ e)
@@ -3423,44 +3447,34 @@ void MainForm::lbMapRusherStatus_TextChanged(System::Object^ sender, System::Eve
 
 // typedef int(__stdcall *pfnCLogin__GetLocalMacAddressWithSerialNo)(void*);
 // auto CLogin__GetLocalMacAddressWithSerialNo = (pfnCLogin__GetLocalMacAddressWithSerialNo)0x005FCDED;
-
+int i = 0;
 void Timelapse::MainForm::bTestButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	/*void** result;
-	CLogin__GetLocalMacAddressWithSerialNo(result);
-	String^ test = gcnew String((char*)result);
-	if (String::IsNullOrEmpty(test))
-		MessageBox::Show("Error! Empty string was returned");
-	else
-		MessageBox::Show(test);
-		*/
+	if (i == 0) {
+		Jump(0x005049B6, Assembly::PetItemVacHook, 0);
+		i++;
+	}
+	else {
+		Jump(0x005049B6, Assembly::PetItemVacHook, 0);
 
-		/*char result[300];
-		char* str = *CItemInfo__GetMapString(*(PVOID*)CItemInfo, NULL, result, 100000000, 0);
-		String^ test = Convert::ToString(str);
-		if (String::IsNullOrEmpty(test))
-			MessageBox::Show("Error! Empty string was returned");
-		else
-			MessageBox::Show(test); */
+	}
+	//try
+	//{
 
-			/*//Displays 0th string, but crashes shortly after. What I wanted was the 2nd maplestring
-			char** result;
-			char* str = *StringPool__GetString(*(PVOID*)StringPool, nullptr, (char**)result, 2, 0);
-			String^ test = gcnew String(str);
+	//	Jump(mpHackAddr, Assembly::MyCmpHook, 1);  // Assuming Jump sets up the jump for 6 bytes of the 'cmp' instruction.
+	//}
+	//catch (Exception^ e)
+	//{
+	//	Console::WriteLine("Caught exception: {0}", e->Message);
+	//}
+	//catch (...)
+	//{
+	//	Console::WriteLine("Caught an unknown exception");
+	//}
+	Log::WriteLineToConsole("Extra cheats enabled...");
+	Jump(PetGetItemHookAddr, Assembly::PetItemVacHook, 0);
+	//AutoLogin();
 
-			if (String::IsNullOrEmpty(test))
-				MessageBox::Show("Error! Empty string was returned");
-			else
-				MessageBox::Show(test);*/
-
-				// char result[256];
-				// Jump(0x0079E99E, GetStringHook, 0);
-				/*Jump(0x0079EA53, GetStringRetValHook, 0);
-				String^ test = gcnew String(maplestring);
-				if (String::IsNullOrEmpty(test))
-					MessageBox::Show("Error! Empty string was returned");
-				else
-					MessageBox::Show(test);*/
 }
 
 /*//Start of testing stuff
