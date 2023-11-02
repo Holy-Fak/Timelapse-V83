@@ -8,6 +8,9 @@ using namespace System;
 using namespace System::Threading;
 using namespace System::Collections::Generic;
 
+public delegate void UpdateTabControlDelegate(int index);
+
+
 void toggleFullGodmode(System::Windows::Forms::CheckBox^ cb) {
 	if (cb->Checked)
 		WriteMemory(fullGodmodeAddr, 2, 0x0F, 0x84); // je 009596F7 [first 2 bytes]
@@ -52,16 +55,30 @@ void toggleFMA() {
 		WriteMemory(fullMapAttackAddr, 2, 0x74, 0x22); // je 006785EE
 }
 
+void setFilterTab(int index) {
+	Dictionary<String^, Control^>^ controls = Timelapse::MainForm::ControlMap;
+	TabControl^ tabControl1 = (TabControl^)controls["MainTabs"];
+	Log::WriteLineToConsole(String::Format("{0}",!!tabControl1));
+	tabControl1->SelectedIndex = index;
+}
+
 void addItemToFilter() {
 	Dictionary<String^, Control^>^ controls = Timelapse::MainForm::ControlMap;
+	Button^ bItemFilter = (Button^)controls["ItemFilterEnable"];
+	
+	if (bItemFilter->Text->Contains("Disable")) return;
+
+	TabControl^ tabControl1 = (TabControl^)controls["MainTabs"];
+	ListBox^ lbItemFilter = (ListBox^)controls["ItemFilterListBox"];
 	TextBox^ tbItemFilterID = (TextBox^)controls["ItemFilterID"];
 	Button^ bItemFilterAdd = (Button^)controls["ItemFilterAdd"];
-	Button^ bItemFilter = (Button^)controls["ItemFilterEnable"];
+	lbItemFilter->Items->Clear();
 	array<int>^ myArray = { 4031865,
 							4031866,
 							2340000,
 							2049100 };
-	// Create a List and initialize it with the array
+
+	tabControl1->Invoke(gcnew UpdateTabControlDelegate(setFilterTab), 5);
 	List<int>^ myList = gcnew List<int>(myArray);
 
 	for each (int item in myList)
@@ -71,6 +88,8 @@ void addItemToFilter() {
 	}
 
 	bItemFilter->PerformClick();
+	tabControl1->Invoke(gcnew UpdateTabControlDelegate(setFilterTab), 2);
+
 }
 
 void toggleAutoAttack() {

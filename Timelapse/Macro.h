@@ -7,7 +7,7 @@
 #include "MapleFunctions.h"
 #include "Addresses.h"
 
-bool DBG_Macro = false;
+bool DBG_Macro = true;
 enum class MacroType { LOOTMACRO = 1, ATTACKMACRO = 2, BUFFMACRO = 3, MPPOTMACRO = 4, HPPOTMACRO = 5};
 ref struct MacrosEnabled { static bool bMacroHP = false, bMacroMP = false, bMacroAttack = false, bMacroLoot = false; };
 
@@ -68,8 +68,7 @@ ref struct KeyMacro {
 		for (int i = 0; i < times; i++) {
 			PostMessage(GlobalVars::mapleWindow, WM_KEYDOWN, Key, createKeyData(Key));
 			 if (DBG_Macro) {
-				 Log::WriteLineToConsole("SpamSendKey: ERROR failed to post message to process!");
-				 Log::WriteLineToConsole("Key: " + Key.ToString() + " MSG: WM_KEYDOWN " + "KeyData: " + createKeyData(Key));
+				 Log::WriteLineToConsole(String::Format("Spamming key  {0}!", Key));
 			 }
 		}
 	}
@@ -78,14 +77,11 @@ ref struct KeyMacro {
 	static void PressKey(int Key) {
 		PostMessage(GlobalVars::mapleWindow, WM_KEYDOWN, Key, createKeyData(Key));
 		if (DBG_Macro) {
-			Log::WriteLineToConsole("PressKey: ERROR failed to post message to process!");
-			Log::WriteLineToConsole("Key: " + Key.ToString() + " MSG: WM_KEYDOWN " + "KeyData: " + createKeyData(Key));
+			Log::WriteLineToConsole(String::Format("Sent keydown {0}!", Key));
 		}
 		//WM_CHAR
-		PostMessage(GlobalVars::mapleWindow, WM_KEYUP, Key, createKeyData(Key));
 		if (DBG_Macro) {
-			Log::WriteLineToConsole("PressKey: ERROR failed to post message to process!");
-			Log::WriteLineToConsole("Key: " + Key.ToString() + " MSG: WM_KEYDOWN " + "KeyData: " + createKeyData(Key));
+			Log::WriteLineToConsole(String::Format("Sent keyup {0}!", Key));
 		}
 	}
 

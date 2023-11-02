@@ -457,24 +457,23 @@ namespace Assembly {
 
 
 																	CodeCave(PetItemVacHook) {
-																		pushad                                // Preserve all registers
+																		pushad                               
+																		cmp dword ptr[PetGetItemSwitch], 0  
+																		je NormalPet
 
-																			cmp dword ptr[PetGetItemSwitch], 0   // Your custom logic
-																			je NormalPet
+																		push ebx
+																		mov ebx, [ebp + 0x0C]
+																		mov[ebx], edi
+																		mov[ebx + 0x04], eax
+																		pop ebx
+																		popad                               
 
-																			push ebx
-																			mov ebx, [ebp + 0x0C]
-																			mov[ebx], edi
-																			mov[ebx + 0x04], eax //+20 if needed, based on your comment
-																			pop ebx
-																			popad                                // Restore all registers
-
-																			jmp dword ptr[PetGetItemAddrRet]     // Jump back to 005049D6
-																			NormalPet:
+																		jmp dword ptr[PetGetItemAddrRet]     
+																		NormalPet:
 																			popad; Restore all registers
-																		lea eax, [ebp - 0x34]
+																			lea eax, [ebp - 0x34]
 																			push eax
-																			call dword ptr[FunctionCall]; Call the PtInRect function directly
+																			call dword ptr[User32PtInRectPtr]
 																			jmp dword ptr[NormalPetAddrRet]
 																	} EndCodeCave
 

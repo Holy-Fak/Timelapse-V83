@@ -119,10 +119,7 @@ void MainForm::MainForm_Shown(Object^ sender, EventArgs^ e)
 
 	if (File::Exists(Settings::GetSettingsPath()))
 	{
-		if (MessageBox::Show("A save file has been detected, load save?", "Save File", MessageBoxButtons::YesNo) == System::Windows::Forms::DialogResult::Yes)
-		{
-			Settings::Deserialize(this, Settings::GetSettingsPath());
-		}
+		Settings::Deserialize(this, Settings::GetSettingsPath());
 	}
 }
 
@@ -206,6 +203,7 @@ void MainForm::loadSettingsToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 
 void MainForm::saveSettingsToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 {
+
 	Settings::Serialize(this, Settings::GetSettingsPath());
 }
 
@@ -856,8 +854,11 @@ void MainForm::bBuffAdd_Click(Object^ sender, EventArgs^ e)
 	}
 	ListViewItem^ lvi = gcnew ListViewItem(gcnew array<String^>{tbBuffName->Text, comboBuffKey->Text, tbBuffInterval->Text});
 	lvi->Tag = gcnew Macro(keyCollection[comboBuffKey->SelectedIndex], Convert::ToUInt32(tbBuffInterval->Text) * 1000, MacroType::BUFFMACRO);
-	lvi->Checked = true;
 	lvBuff->Items->Add(lvi);
+	Macro^ macro = (Macro^)lvi->Tag;
+	macro->Toggle(true);
+	KeyMacro::PressKey(macro->keyCode);
+	lvi->Checked = true;
 }
 
 void MainForm::bBuffEnableAll_Click(Object^ sender, EventArgs^ e)
@@ -866,6 +867,7 @@ void MainForm::bBuffEnableAll_Click(Object^ sender, EventArgs^ e)
 	{
 		Macro^ macro = (Macro^)lvi->Tag;
 		macro->Toggle(true);
+		KeyMacro::PressKey(macro->keyCode); // was here
 		lvi->Checked = true;
 	}
 }
@@ -3450,30 +3452,7 @@ void MainForm::lbMapRusherStatus_TextChanged(System::Object^ sender, System::Eve
 int i = 0;
 void Timelapse::MainForm::bTestButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (i == 0) {
-		Jump(0x005049B6, Assembly::PetItemVacHook, 0);
-		i++;
-	}
-	else {
-		Jump(0x005049B6, Assembly::PetItemVacHook, 0);
-
-	}
-	//try
-	//{
-
-	//	Jump(mpHackAddr, Assembly::MyCmpHook, 1);  // Assuming Jump sets up the jump for 6 bytes of the 'cmp' instruction.
-	//}
-	//catch (Exception^ e)
-	//{
-	//	Console::WriteLine("Caught exception: {0}", e->Message);
-	//}
-	//catch (...)
-	//{
-	//	Console::WriteLine("Caught an unknown exception");
-	//}
-	Log::WriteLineToConsole("Extra cheats enabled...");
-	Jump(PetGetItemHookAddr, Assembly::PetItemVacHook, 0);
-	//AutoLogin();
+	addItemToFilter();
 
 }
 

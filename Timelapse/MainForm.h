@@ -317,7 +317,7 @@ namespace Timelapse {
 	private: System::Windows::Forms::Label^ label40;
 	private: System::Windows::Forms::Label^ label41;
 	private: System::Windows::Forms::ComboBox^ comboBuffKey;
-	private: System::Windows::Forms::ListView^ lvBuff;
+	public: System::Windows::Forms::ListView^ lvBuff;
 	private: System::Windows::Forms::ColumnHeader^ lvBuffHeaderName;
 	private: System::Windows::Forms::ColumnHeader^ lvBuffHeaderKey;
 	private: System::Windows::Forms::ColumnHeader^ lvBuffHeaderInterval;
@@ -556,6 +556,7 @@ namespace Timelapse {
 			   this->label4 = (gcnew System::Windows::Forms::Label());
 			   this->label3 = (gcnew System::Windows::Forms::Label());
 			   this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			   MainForm::ControlMap["MainTabs"] = this->tabControl1;
 			   this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			   this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
@@ -825,6 +826,7 @@ namespace Timelapse {
 			   this->panel20 = (gcnew System::Windows::Forms::Panel());
 			   this->lbItemSearchLog = (gcnew System::Windows::Forms::ListBox());
 			   this->lbItemFilter = (gcnew System::Windows::Forms::ListBox());
+			   MainForm::ControlMap["ItemFilterListBox"] = this->lbItemFilter;
 			   this->cbItemFilterLog = (gcnew System::Windows::Forms::CheckBox());
 			   this->bItemSearchLogClear = (gcnew System::Windows::Forms::Button());
 			   this->tbItemFilterSearch = (gcnew System::Windows::Forms::TextBox());
