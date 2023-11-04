@@ -44,6 +44,7 @@ ref struct GlobalRefs
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Application::Run(gcnew MainForm);
+	RegisterShortcuts();
 	Application::Exit();
 }
 
@@ -58,9 +59,8 @@ BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, PVOID lpvReserved)
 	{
 		GlobalVars::hDLL = hModule;
 
-		RegisterShortcuts();
-		CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&Main, nullptr, 0, nullptr);
 		HHOOK keyboardHook = SetWindowsHookEx(WH_KEYBOARD_LL, LowLevelKeyboardProc, NULL, 0);
+		CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&Main, nullptr, 0, nullptr);
 		//AllocConsole();
 
 		//// Redirect stdio streams to the console

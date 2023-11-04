@@ -44,8 +44,21 @@ static LONG ReadPointerSigned(ULONG ulBase, int iOffset) {
 }
 
 static int ReadPointerSignedInt(ULONG ulBase, int iOffset) {
-	__try { return *(LONG*)(*(ULONG*)ulBase + iOffset); }
-	__except (EXCEPTION_EXECUTE_HANDLER) { return 0; }
+	ULONG* basePtr = (ULONG*)ulBase;
+
+	if (basePtr == NULL || *basePtr == 0) {
+		// Log or handle
+		return 0;
+	}
+
+	LONG* valuePtr = (LONG*)(*basePtr + iOffset);
+
+	if (valuePtr == NULL || *valuePtr == 0) {
+		// Log or handle
+		return 0;
+	}
+
+	return *valuePtr;
 }
 
 static double ReadPointerDouble(ULONG ulBase, int iOffset) {
@@ -59,19 +72,38 @@ static LPCSTR ReadPointerString(ULONG ulBase, int iOffset) {
 }
 
 static UINT8 readCharValueZtlSecureFuse(int at) {
-	UINT8 result;
-	try {
-		UCHAR v2 = *(PUCHAR)at;
-		at = *(PUINT8)(at + 1);
-		result = at ^ v2;
+	// Check if the address is null
+	if (at == 0) {
+		return 0;
 	}
-	catch (...) { return 0; }
-	return result;
+
+	// Attempt to read UCHAR value from the address
+	PUCHAR ptr1 = (PUCHAR)at;
+	if (ptr1 == NULL || *ptr1 == 0) {
+		return 0;
+	}
+	UCHAR v2 = *ptr1;
+
+	// Move to the next address and attempt to read UCHAR value from there
+	PUINT8 ptr2 = (PUINT8)(at + 1);
+	if (ptr2 == NULL || *ptr2 == 0) {
+		return 0;
+	}
+	at = *ptr2;
+
+	// Return the XOR'ed value
+	return at ^ v2;
 }
 
 static INT16 readShortValueZtlSecureFuse(int a1) {
 	PUINT8 v2 = (PUINT8)(a1 + 2);
+
+	if (*((PUINT8)(a1 + 2)) == 0) {
+		return 0;
+	}
+
 	DWORD v4 = (DWORD)&a1 - a1;
+
 	try {
 		v2[v4] = *v2 ^ *(v2 - 2);
 		v2++;
@@ -81,7 +113,7 @@ static INT16 readShortValueZtlSecureFuse(int a1) {
 	return HIWORD(a1);
 }
 
-inline unsigned int readLongValueZtlSecureFuse(ULONG *a1) {
+inline unsigned int readLongValueZtlSecureFuse(ULONG* a1) {
 	try {
 		return *a1 ^ _rotl(a1[1], 5);
 	}
@@ -90,26 +122,45 @@ inline unsigned int readLongValueZtlSecureFuse(ULONG *a1) {
 
 #pragma unmanaged
 static LONG_PTR ReadMultiPointerSigned(LONG_PTR ulBase, int level, ...) {
-	LONG_PTR ulResult = 0;
+	if (ulBase == 0) {
+		return 0;
+	}
+
 	va_list vaarg;
 	va_start(vaarg, level);
 
-	if (!IsBadReadPtr((PVOID)ulBase, sizeof(LONG_PTR))) {
-		ulBase = *(LONG_PTR*)ulBase;
-		for (int i = 0; i < level; i++) {
-			const int offset = va_arg(vaarg, int);
-			if (IsBadReadPtr((PVOID)(ulBase + offset), sizeof(LONG_PTR))) {
-				va_end(vaarg);
-				return 0;
-			}
-			ulBase = *(LONG_PTR*)(ulBase + offset);
+	for (int i = 0; i < level; i++) {
+		// Validate before dereferencing
+		if (IsBadReadPtr((PVOID)ulBase, sizeof(LONG_PTR))) {
+			va_end(vaarg);
+			return 0;
 		}
-		ulResult = ulBase;
+
+		// Dereference
+		ulBase = *(LONG_PTR*)ulBase;
+
+		// Check if dereferenced value is null or invalid
+		if (ulBase == 0 || IsBadReadPtr((PVOID)ulBase, sizeof(LONG_PTR))) {
+			va_end(vaarg);
+			return 0;
+		}
+
+		const int offset = va_arg(vaarg, int);
+
+		// Validate before using offset
+		if (IsBadReadPtr((PVOID)(ulBase + offset), sizeof(LONG_PTR))) {
+			va_end(vaarg);
+			return 0;
+		}
+
+		// Apply offset and get the value for the next level
+		ulBase = *(LONG_PTR*)(ulBase + offset);
 	}
 
 	va_end(vaarg);
-	return ulResult;
+	return ulBase;
 }
+
 
 static PCHAR ReadMultiPointerString(LONG_PTR ulBase, int level, ...) {
 	PCHAR ulResult = nullptr;

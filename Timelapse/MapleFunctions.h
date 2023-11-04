@@ -69,14 +69,56 @@ namespace PointerFuncs {
 
 	//Retrieve Char Level
 	static String^ getCharLevel() {
-		const UINT8 level = readCharValueZtlSecureFuse(*(ULONG*)CharacterStatBase + OFS_Level);
-		if (level == 0) return "00";
+		if (CharacterStatBase == 0) {
+			return "00"; // Return default if base is null
+		}
+
+		// Ensure that the pointer is valid and can be dereferenced safely
+		if (IsBadReadPtr((PVOID)CharacterStatBase, sizeof(ULONG))) {
+			return "00"; // Return default if memory is unreadable
+		}
+
+		// Dereference and add offset
+		ULONG address = *(ULONG*)CharacterStatBase + OFS_Level;
+
+		// Check if the address resulting from offset is valid
+		if (*(ULONG*)CharacterStatBase == 0 || IsBadReadPtr((PVOID)address, sizeof(UINT8))) {
+			return "00"; // Return default if resulting memory is unreadable
+		}
+
+		const UINT8 level = readCharValueZtlSecureFuse(address);
+		if (level == 0) {
+			return "00";
+		}
+
 		return Convert::ToString(level);
 	}
 
 	//Retrieve Char Job ID
 	static SHORT getCharJobID() {
-		return readShortValueZtlSecureFuse(*(ULONG*)CharacterStatBase + OFS_JobID);
+		if (CharacterStatBase == 0) {
+			return 'a'; // Return default if base is null
+		}
+
+		// Ensure that the pointer is valid and can be dereferenced safely
+		if (IsBadReadPtr((PVOID)CharacterStatBase, sizeof(ULONG))) {
+			return 'a'; // Return default if memory is unreadable
+		}
+
+		// Dereference and add offset
+		ULONG address = *(ULONG*)CharacterStatBase + OFS_Level;
+
+		// Check if the address resulting from offset is valid
+		if (*(ULONG*)CharacterStatBase == 0 || IsBadReadPtr((PVOID)address, sizeof(UINT8))) {
+			return 'a'; // Return default if resulting memory is unreadable
+		}
+
+		const UINT8 level = readCharValueZtlSecureFuse(address);
+		if (level == 0) {
+			return 'a';
+		}
+
+		return level;
 	}
 
 	//Retrieve Char Job
@@ -137,7 +179,7 @@ namespace PointerFuncs {
 
 		if (Assembly::mapNameAddr == 0x0) return "Waiting..";
 
-		char *mapNameBuff = (char*)(Assembly::mapNameAddr + 12);
+		char* mapNameBuff = (char*)(Assembly::mapNameAddr + 12);
 		return gcnew String(mapNameBuff);
 	}
 
@@ -320,12 +362,41 @@ namespace HelperFuncs {
 
 	static bool IsInGame()
 	{
-		const int mapID = Convert::ToInt32(PointerFuncs::getMapID());
+		try
+		{
+			int mapID = 0;
 
-		if (!mapID == 0) //&& !PointerFuncs::getCharName()->Equals("CharName")
-			return true;
+			// Safely convert the value to an int
+			Object^ mapIDObj = PointerFuncs::getMapID();
+			if (mapIDObj != nullptr)
+			{
+				mapID = Convert::ToInt32(mapIDObj);
+			}
 
-		return false;
+			// Removed the commented out check for CharName for now
+			// If it needs to be added, make sure to handle potential null from getCharName
+			/*
+			String^ charName = PointerFuncs::getCharName();
+			if (charName == nullptr || !charName->Equals("CharName"))
+			{
+				return false;
+			}
+			*/
+
+			return mapID != 0;
+		}
+		catch (InvalidCastException^ ex)
+		{
+			// Handle the case where the conversion fails
+			Log::WriteLineToConsole("Failed to convert mapID: " + ex->Message);
+			return false;
+		}
+		catch (NullReferenceException^ ex)
+		{
+			// Handle potential null references
+			Log::WriteLineToConsole("Null reference encountered: " + ex->Message);
+			return false;
+		}
 	}
 
 	static bool ValidToAttack()
@@ -396,14 +467,14 @@ static void SellAllEQPByMouse() {
 static void SellAtEquipMapId(int mapId) {
 	if (mapId == 220050300) // Ludi-Path of time
 		Log::WriteLineToConsole("Were at Ludi Path of Time ...");
-		Log::WriteLineToConsole("Teleporting close to NPC ...");
-		Teleport(-203, 2922);
-		Sleep(200);
-		Log::WriteLineToConsole("Opening trade UI ...");
-		// Send open trade packet
-		// Todo: this needs more work
-		SendPacket("3A 00 BD 35 00 00 1D FF 6A 0B");																			
-		Sleep(600);
-		//Try selling items by mouse
-		SellAllEQPByMouse();
+	Log::WriteLineToConsole("Teleporting close to NPC ...");
+	Teleport(-203, 2922);
+	Sleep(200);
+	Log::WriteLineToConsole("Opening trade UI ...");
+	// Send open trade packet
+	// Todo: this needs more work
+	SendPacket("3A 00 BD 35 00 00 1D FF 6A 0B");
+	Sleep(600);
+	//Try selling items by mouse
+	SellAllEQPByMouse();
 }
