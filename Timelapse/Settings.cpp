@@ -83,7 +83,7 @@ void Settings::AddChildControls(XmlTextWriter^ xmlSerializedForm, Control^ c) {
 
 		//TODO: save press state of buttons?
 		if (childCtrl->HasChildren || ctrlType == ComboBox::typeid || ctrlType == NumericUpDown::typeid || ctrlType == CheckBox::typeid || 
-			ctrlType == TextBox::typeid || ctrlType == ListBox::typeid || ctrlType == ListView::typeid && c && !isExcluded(childCtrl)) {
+			ctrlType == TextBox::typeid || ctrlType == ListBox::typeid && c && !isExcluded(childCtrl)) {
 			// serialize this control
 			xmlSerializedForm->WriteStartElement("Control");
 			xmlSerializedForm->WriteAttributeString("Name", ctrlName);

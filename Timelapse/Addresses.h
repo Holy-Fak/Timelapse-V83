@@ -140,7 +140,7 @@ ULONG PetGetItemSwitch = 1;
 ULONG PetGetItemHookAddr = 0x005049B6;
 ULONG PetGetItemAddrRet = 0x005049D6; // This is where you jump back if PetGetItemSwitch is non-zero
 ULONG NormalPetAddrRet = 0x005049E3;  // This is where you jump back if PetGetItemSwitch is zero
-ULONG User32PtInRectPtr = 0x765342B0;
+ULONG User32PtInRectPtr = 0x74F242B0;
 #pragma region MapleStory Function Hook Addresses
 //Hook Addresses
 ULONG enterCSAddr = 0x00A04DCA;
@@ -172,6 +172,7 @@ auto CWvsContext__GetCharacterData = reinterpret_cast<pfnCWvsContext__GetCharact
 
 #pragma region Pointer Addresses & Offsets
 ULONG PtInRectAddr = 0xBF0484;
+// current offset 7433 3E2C (0x74F242B0)
 
 ULONG LoginBase = 0xBEDED4; //CLogin
 ULONG OFS_LoginStep = 0x168; //0 = login screen or logged in, 1 = Select World/Channel, 2 = Select Char

@@ -114,6 +114,9 @@ static INT16 readShortValueZtlSecureFuse(int a1) {
 }
 
 inline unsigned int readLongValueZtlSecureFuse(ULONG* a1) {
+	if (a1 == NULL || *a1 == 0) {
+		return 0;
+	}
 	try {
 		return *a1 ^ _rotl(a1[1], 5);
 	}
@@ -122,43 +125,25 @@ inline unsigned int readLongValueZtlSecureFuse(ULONG* a1) {
 
 #pragma unmanaged
 static LONG_PTR ReadMultiPointerSigned(LONG_PTR ulBase, int level, ...) {
-	if (ulBase == 0) {
-		return 0;
-	}
-
+	LONG_PTR ulResult = 0;
 	va_list vaarg;
 	va_start(vaarg, level);
 
-	for (int i = 0; i < level; i++) {
-		// Validate before dereferencing
-		if (IsBadReadPtr((PVOID)ulBase, sizeof(LONG_PTR))) {
-			va_end(vaarg);
-			return 0;
-		}
-
-		// Dereference
+	if (!IsBadReadPtr((PVOID)ulBase, sizeof(LONG_PTR))) {
 		ulBase = *(LONG_PTR*)ulBase;
-
-		// Check if dereferenced value is null or invalid
-		if (ulBase == 0 || IsBadReadPtr((PVOID)ulBase, sizeof(LONG_PTR))) {
-			va_end(vaarg);
-			return 0;
+		for (int i = 0; i < level; i++) {
+			const int offset = va_arg(vaarg, int);
+			if (IsBadReadPtr((PVOID)(ulBase + offset), sizeof(LONG_PTR))) {
+				va_end(vaarg);
+				return 0;
+			}
+			ulBase = *(LONG_PTR*)(ulBase + offset);
 		}
-
-		const int offset = va_arg(vaarg, int);
-
-		// Validate before using offset
-		if (IsBadReadPtr((PVOID)(ulBase + offset), sizeof(LONG_PTR))) {
-			va_end(vaarg);
-			return 0;
-		}
-
-		// Apply offset and get the value for the next level
-		ulBase = *(LONG_PTR*)(ulBase + offset);
+		ulResult = ulBase;
 	}
 
 	va_end(vaarg);
-	return ulBase;
+	return ulResult;
 }
 
 

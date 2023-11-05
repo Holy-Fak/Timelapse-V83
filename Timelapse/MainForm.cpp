@@ -19,6 +19,7 @@ using namespace Timelapse;
 
 // Forward declarations
 void AutoLogin();
+void AutoLoginMouse();
 static void loadMaps();
 static void mapRush(int destMapID);
 
@@ -44,11 +45,28 @@ ref struct GlobalRefs
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Application::Run(gcnew MainForm);
-	RegisterShortcuts();
 	Application::Exit();
 }
 
 #pragma unmanaged
+void KeyboardHookThread()
+{
+	HHOOK keyboardHook = SetWindowsHookEx(WH_KEYBOARD_LL, LowLevelKeyboardProc, NULL, 0);
+	if (!keyboardHook)
+	{
+		DWORD error = GetLastError();
+		return;
+	}
+
+	MSG msg;
+	while (GetMessage(&msg, NULL, 0, 0))
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+
+	UnhookWindowsHookEx(keyboardHook);
+}
 BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, PVOID lpvReserved)
 {
 	GlobalVars::hDLL = hModule;
@@ -58,21 +76,23 @@ BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, PVOID lpvReserved)
 	case DLL_PROCESS_ATTACH:
 	{
 		GlobalVars::hDLL = hModule;
-
-		HHOOK keyboardHook = SetWindowsHookEx(WH_KEYBOARD_LL, LowLevelKeyboardProc, NULL, 0);
+		RegisterShortcuts();
 		CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&Main, nullptr, 0, nullptr);
-		//AllocConsole();
+		CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&KeyboardHookThread, nullptr, 0, nullptr);
+		AllocConsole();
 
-		//// Redirect stdio streams to the console
-		//FILE* pCout;
-		//freopen_s(&pCout, "CONOUT$", "w", stdout);
-		//printf_s("Console attached");
+		// Redirect stdio streams to the console
+		FILE* pCout;
+		freopen_s(&pCout, "CONOUT$", "w", stdout);
+		printf_s("Console attached\n");
+		printf_s("%p\n", GetModuleHandle(NULL));
 		break;
 	}
 	case DLL_PROCESS_DETACH:
 		FreeConsole();
 		FreeLibraryAndExitThread(hModule, 0);
 	case DLL_THREAD_ATTACH:
+
 		break;
 	case DLL_THREAD_DETACH:
 		break;
@@ -94,7 +114,7 @@ void MainForm::MainForm_Load(Object^ sender, EventArgs^ e)
 	Log::WriteLineToConsole("Initializing Timelapse trainer ....");
 	RECT msRect;
 	GetWindowRect(GetMSWindowHandle(), &msRect);
-	this->Left = msRect.left;
+	this->Left = msRect.right;
 	this->Top = msRect.top;
 }
 
@@ -120,6 +140,8 @@ void MainForm::MainForm_Shown(Object^ sender, EventArgs^ e)
 	if (File::Exists(Settings::GetSettingsPath()))
 	{
 		Settings::Deserialize(this, Settings::GetSettingsPath());
+		addItemToFilter();
+		AutoLoginMouse();
 	}
 }
 
@@ -199,11 +221,13 @@ void MainForm::pnlFull_MouseMove(Object^ sender, Windows::Forms::MouseEventArgs^
 void MainForm::loadSettingsToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 {
 	Settings::Deserialize(this, Settings::GetSettingsPath());
+	addItemToFilter();
+	AutoLoginMouse();
 }
 
 void MainForm::saveSettingsToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 {
-
+	w
 	Settings::Serialize(this, Settings::GetSettingsPath());
 }
 
@@ -514,6 +538,8 @@ void SendLoginPacket(String^ username, String^ password)
 	// rest of packet unused for now
 	Console::WriteLine(packet);
 	SendPacket(packet);
+
+
 }
 
 void SendCharListRequestPacket(int world, int channel)
@@ -525,7 +551,7 @@ void SendCharListRequestPacket(int world, int channel)
 	writeByte(packet, channel);									   // Channel
 	writeBytes(packet, gcnew array<BYTE>{0x7F, 0x00, 0x00, 0x01}); // Unknown bytes
 	Console::WriteLine(packet);
-	//SendPacket(packet);
+	SendPacket(packet);
 }
 
 void SendSelectCharPacket(int character, bool existsPIC)
@@ -533,25 +559,11 @@ void SendSelectCharPacket(int character, bool existsPIC)
 	String^ packet = "";
 	String^ macAddress = GetMac(true);
 
-	//if (existsPIC)
-	//{
-	//	String^ PIC = MainForm::TheInstance->tbAutoLoginPIC->Text;
-
-	//	writeBytes(packet, gcnew array<BYTE>{0x1E, 0x00}); // Character Select (With PIC) OpCode
-	//	writeString(packet, PIC);						   // PIC
-	//	writeInt(packet, character);					   // Character Number (starts with 1)
-	//	writeString(packet, macAddress);				   // Mac Address
-	//	writeString(packet, GetHWID(true, macAddress));	   // HWID
-	//	SendPacket(packet);
-	//}
-	//else
-	//{
-	//	writeBytes(packet, gcnew array<BYTE>{0x13, 0x00}); // Character Select (Without PIC) OpCode
-	//	writeInt(packet, character);					   // Character Number (starts with 1)
-	//	writeString(packet, macAddress);				   // Mac Address
-	//	writeString(packet, GetHWID(true, macAddress));	   // HWID
-	//	SendPacket(packet);
-	//}
+	writeBytes(packet, gcnew array<BYTE>{0x13, 0x00}); // Character Select (Without PIC) OpCode
+	writeInt(packet, character);					   // Character Number (starts with 1)
+	writeString(packet, macAddress);				   // Mac Address
+	writeString(packet, GetHWID(true, macAddress));	   // HWID
+	SendPacket(packet);
 }
 
 // Only works for HeavenMS as of now, maybe on other private servers that doesn't check the validity of the fake hwid/mac address in the packets
@@ -563,17 +575,108 @@ void AutoLogin()
 		String^ usernameStr = MainForm::TheInstance->tbAutoLoginUsername->Text;
 		String^ passwordStr = MainForm::TheInstance->tbAutoLoginPassword->Text;
 		SendLoginPacket(usernameStr, passwordStr);
-
+		Sleep(700);
 		int world = MainForm::TheInstance->comboAutoLoginWorld->SelectedIndex;
 		int channel = MainForm::TheInstance->comboAutoLoginChannel->SelectedIndex;
-		Console::WriteLine(String::Format("World Index: {0}", world));
-		Console::WriteLine(String::Format("Channel Index: {0}", channel));
-		Sleep(2000);
 		SendCharListRequestPacket(world, channel);
-		Sleep(3000);
-
+		Sleep(10);
+		SendSelectCharPacket(1, false);
 
 		Log::WriteLineToConsole("AutoLogin: Login Completed");
+	}
+}
+
+void AutoLoginMouse()
+{
+	Thread::Sleep(10000);
+	String^ usernameStr = MainForm::TheInstance->tbAutoLoginUsername->Text;
+	String^ passwordStr = MainForm::TheInstance->tbAutoLoginPassword->Text;
+
+	if (!usernameStr || !passwordStr) {
+		Log::WriteLineToConsole("Auto log in requires username and password to be set");
+		return;
+	}
+
+	while (true) {  // Infinite loop to keep listening
+		int loginScreenState = -1;
+		try {
+			loginScreenState = *(BYTE*)(*(ULONG*)LoginBase + OFS_LoginScreen);
+			if (loginScreenState == 255) {
+
+				MouseInput::Mouse mouse;
+				Log::WriteLineToConsole("AutoLogin: Logging in...");
+				// ... [Any other actions to be performed during login]
+				HelperFuncs::SetMapleWindowToForeground();
+				Sleep(500);
+				mouse.moveTo(540, 275, false, false);
+				Sleep(250);
+				mouse.leftClick();
+				Sleep(250);
+
+				// delete current username
+				KeyMacro::SpamPressKey(VK_BACK, 12);
+				// type username
+				for each (wchar_t character in usernameStr)
+				{
+					Log::WriteLineToConsole(String::Format("{0}", character));
+					KeyMacro::PressKey(static_cast<int>(toupper(character)));
+					Sleep(50);
+				}
+
+				KeyMacro::PressKey(VK_TAB);
+				Sleep(250);
+				// delete current password
+				KeyMacro::SpamPressKey(VK_BACK, 12);
+				Sleep(250);
+
+				// type password
+				
+				for each (wchar_t character in passwordStr)
+				{
+					Log::WriteLineToConsole(String::Format("{0}", character));
+					KeyMacro::PressKey(static_cast<int>(toupper(character)));
+					Sleep(50);
+				}
+
+				// Press enter - log in
+				KeyMacro::PressKey(VK_RETURN);
+				Sleep(1500);
+
+				// Select world 1
+				mouse.moveTo(250, 200, false, false);
+				mouse.leftClick();
+				Sleep(1000);
+
+				// Select channel 1
+				mouse.moveTo(275, 320, false, false);
+				mouse.doubleLeftClick();
+				Sleep(1000);
+
+				int x = 0;
+				int y = 360;
+				int character = MainForm::TheInstance->comboAutoLoginCharacter->SelectedIndex + 1;
+				switch (character) {
+				case 2:
+					x = 380;
+				case 3:
+					x = 510;
+				default:
+					x = 250;
+				};
+
+				mouse.moveTo(x, y, false, false);
+				mouse.doubleLeftClick();
+				Sleep(500);
+
+				Log::WriteLineToConsole("AutoLogin: Login Completed");
+				break;
+			}
+		}
+		catch (const std::exception&) {
+			Log::WriteLineToConsole("Error");
+		}
+
+		Sleep(250);  // Pause for 100ms. Adjust as needed.
 	}
 }
 
@@ -3452,7 +3555,8 @@ void MainForm::lbMapRusherStatus_TextChanged(System::Object^ sender, System::Eve
 int i = 0;
 void Timelapse::MainForm::bTestButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	addItemToFilter();
+	//addItemToFilter();
+	AutoLogin();
 
 }
 

@@ -167,6 +167,22 @@ namespace PointerFuncs {
 
 	//Retrieve Char Mesos
 	static UINT getCharMesos() {
+		if (CharacterStatBase == 0) {
+			return -1; // Return default if base is null
+		}
+
+		// Ensure that the pointer is valid and can be dereferenced safely
+		if (IsBadReadPtr((PVOID)CharacterStatBase, sizeof(ULONG))) {
+			return -1; // Return default if memory is unreadable
+		}
+
+		// Dereference and add offset
+		ULONG address = *(ULONG*)CharacterStatBase + OFS_Mesos;
+
+		// Check if the address resulting from offset is valid
+		if (*(ULONG*)CharacterStatBase == 0 || IsBadReadPtr((PVOID)address, sizeof(UINT8))) {
+			return -1; // Return default if resulting memory is unreadable
+		}
 		return readLongValueZtlSecureFuse((ULONG*)(*(ULONG*)CharacterStatBase + OFS_Mesos));
 	}
 

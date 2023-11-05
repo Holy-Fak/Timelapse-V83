@@ -7,8 +7,8 @@
 #include "MapleFunctions.h"
 #include "Addresses.h"
 
-bool DBG_Macro = true;
-enum class MacroType { LOOTMACRO = 1, ATTACKMACRO = 2, BUFFMACRO = 3, MPPOTMACRO = 4, HPPOTMACRO = 5};
+bool DBG_Macro = false;
+enum class MacroType { LOOTMACRO = 1, ATTACKMACRO = 2, BUFFMACRO = 3, MPPOTMACRO = 4, HPPOTMACRO = 5 };
 ref struct MacrosEnabled { static bool bMacroHP = false, bMacroMP = false, bMacroAttack = false, bMacroLoot = false; };
 
 // Globally defined key data structure
@@ -18,7 +18,7 @@ typedef struct tag_KEYDATA {
 	// additional keys on the enhanced keyboard he extended keys consist of the ALT and CTRL keys on the right-hand side of the keyboard;
 	// the INS, DEL, HOME, END, PAGE UP, PAGE DOWN, and arrow keys in the clusters to the left of the numeric keypad;
 	// the NUM LOCK key; the BREAK (CTRL+PAUSE) key; the PRINT SCRN key; and the divide (/) and ENTER keys in the numeric keypad.
-	BYTE flagExtendedKey : 1; 
+	BYTE flagExtendedKey : 1;
 	BYTE Reserved : 3;
 	BYTE flagAltDown : 1;
 	BYTE flagRepeat : 1;
@@ -64,12 +64,12 @@ ref struct KeyMacro {
 	// we still need much more control over message que and its data :(
 	// if (keyRepeatCnt > 0 && flagRepeat = 1 && flagAltDown = 0)
 	// then OS should lump these into one message and process it much faster
-	static void SpamSendKey(int Key, int times) {	
+	static void SpamSendKey(int Key, int times) {
 		for (int i = 0; i < times; i++) {
 			PostMessage(GlobalVars::mapleWindow, WM_KEYDOWN, Key, createKeyData(Key));
-			 if (DBG_Macro) {
-				 Log::WriteLineToConsole(String::Format("Spamming key  {0}!", Key));
-			 }
+			if (DBG_Macro) {
+				Log::WriteLineToConsole(String::Format("Spamming key  {0}!", Key));
+			}
 		}
 	}
 
@@ -83,6 +83,31 @@ ref struct KeyMacro {
 		if (DBG_Macro) {
 			Log::WriteLineToConsole(String::Format("Sent keyup {0}!", Key));
 		}
+	}
+
+	// This simulates repeated bashing of a keystroke on a regular physical keyboard
+	static void PressKeyWithModifier(int Key, int modifierKey) {
+		INPUT input[4] = {}; // Array of INPUT structs to hold the key presses and releases
+
+		// Press Ctrl key
+		input[0].type = INPUT_KEYBOARD;
+		input[0].ki.wVk = VK_CONTROL;
+
+		// Press A key
+		input[1].type = INPUT_KEYBOARD;
+		input[1].ki.wVk = 'A';
+
+		// Release A key
+		input[2].type = INPUT_KEYBOARD;
+		input[2].ki.wVk = 'A';
+		input[2].ki.dwFlags = KEYEVENTF_KEYUP;
+
+		// Release Ctrl key
+		input[3].type = INPUT_KEYBOARD;
+		input[3].ki.wVk = VK_CONTROL;
+		input[3].ki.dwFlags = KEYEVENTF_KEYUP;
+
+		SendInput(4, input, sizeof(INPUT));
 	}
 
 	// unused for now
@@ -101,42 +126,42 @@ public:
 	static bool closeMacroQueue = false;
 
 	static void MacroQueueWorker() {
-		if (GlobalVars::mapleWindow == nullptr) 
+		if (GlobalVars::mapleWindow == nullptr)
 			GlobalVars::mapleWindow = GetMSWindowHandle();
 
-		while(!closeMacroQueue) {
+		while (!closeMacroQueue) {
 			if (macroQueue == nullptr || macroQueue->empty())
 				continue;
-			
+
 			Threading::Monitor::Enter(macroQueue);
-			KeyMacro ^key = macroQueue->top();
-			macroQueue->pop();		
+			KeyMacro^ key = macroQueue->top();
+			macroQueue->pop();
 			if (DBG_Macro) Log::WriteLineToConsole("MacroQueueSizeAfterPop: " + macroQueue->size());
 
-			switch(key->macroType) {
-				case MacroType::BUFFMACRO:
-					if (HelperFuncs::IsInGame()) {
-						KeyMacro::PressKey(key->keyCode);
-					}
-					break;
-				case MacroType::HPPOTMACRO:
-					if (MacrosEnabled::bMacroHP && HelperFuncs::IsInGame()) {
-						KeyMacro::PressKey(key->keyCode);
-					}
-					break;
-				case MacroType::MPPOTMACRO:
-					if (MacrosEnabled::bMacroMP && HelperFuncs::IsInGame()) {
-						KeyMacro::PressKey(key->keyCode);
-					}
-					break;
-				case MacroType::LOOTMACRO:
-					if (MacrosEnabled::bMacroLoot && HelperFuncs::ValidToLoot())
-						KeyMacro::SpamSendKey(key->keyCode, 2);
-					break;
-				case MacroType::ATTACKMACRO:
-					if (MacrosEnabled::bMacroAttack && HelperFuncs::ValidToAttack())
-						KeyMacro::SpamSendKey(key->keyCode, 2);
-					break;
+			switch (key->macroType) {
+			case MacroType::BUFFMACRO:
+				if (HelperFuncs::IsInGame()) {
+					KeyMacro::PressKey(key->keyCode);
+				}
+				break;
+			case MacroType::HPPOTMACRO:
+				if (MacrosEnabled::bMacroHP && HelperFuncs::IsInGame()) {
+					KeyMacro::PressKey(key->keyCode);
+				}
+				break;
+			case MacroType::MPPOTMACRO:
+				if (MacrosEnabled::bMacroMP && HelperFuncs::IsInGame()) {
+					KeyMacro::PressKey(key->keyCode);
+				}
+				break;
+			case MacroType::LOOTMACRO:
+				if (MacrosEnabled::bMacroLoot && HelperFuncs::ValidToLoot())
+					KeyMacro::SpamSendKey(key->keyCode, 2);
+				break;
+			case MacroType::ATTACKMACRO:
+				if (MacrosEnabled::bMacroAttack && HelperFuncs::ValidToAttack())
+					KeyMacro::SpamSendKey(key->keyCode, 2);
+				break;
 			}
 			Threading::Monitor::Exit(macroQueue);
 		}
@@ -151,61 +176,61 @@ ref class Macro {
 
 		KeyMacro^ keyMacro = gcnew KeyMacro();
 		keyMacro->keyCode = keyCode;
-		keyMacro->macroType = macroType;			
+		keyMacro->macroType = macroType;
 
 		switch (keyMacro->macroType) {
 			// TODO: buffs need better handling
-			case MacroType::BUFFMACRO:		
-				if (DBG_Macro) Log::WriteLineToConsole("Pushing macro to queue: " + MacroTypeToStr(keyMacro->macroType));
-				PriorityQueue::macroQueue->push(keyMacro);
+		case MacroType::BUFFMACRO:
+			if (DBG_Macro) Log::WriteLineToConsole("Pushing macro to queue: " + MacroTypeToStr(keyMacro->macroType));
+			PriorityQueue::macroQueue->push(keyMacro);
 			break;
-			case MacroType::HPPOTMACRO:
-				if (MacrosEnabled::bMacroHP && HelperFuncs::IsInGame()) {
-					if (String::IsNullOrWhiteSpace(Timelapse::MainForm::TheInstance->tbHP->Text)) break;
-					const int hpCntDrinkLimit = Convert::ToUInt32(Timelapse::MainForm::TheInstance->tbHP->Text);
-					const int hpCntCurrent = Assembly::curHP;
+		case MacroType::HPPOTMACRO:
+			if (MacrosEnabled::bMacroHP && HelperFuncs::IsInGame()) {
+				if (String::IsNullOrWhiteSpace(Timelapse::MainForm::TheInstance->tbHP->Text)) break;
+				const int hpCntDrinkLimit = Convert::ToUInt32(Timelapse::MainForm::TheInstance->tbHP->Text);
+				const int hpCntCurrent = Assembly::curHP;
 
-					if (hpCntCurrent < hpCntDrinkLimit) {
-						if (DBG_Macro) Log::WriteLineToConsole("Pushing macro to queue: " + MacroTypeToStr(keyMacro->macroType));
-						PriorityQueue::macroQueue->push(keyMacro);
-					}
+				if (hpCntCurrent < hpCntDrinkLimit) {
+					if (DBG_Macro) Log::WriteLineToConsole("Pushing macro to queue: " + MacroTypeToStr(keyMacro->macroType));
+					PriorityQueue::macroQueue->push(keyMacro);
 				}
+			}
 			break;
-			case MacroType::MPPOTMACRO:
-				if (MacrosEnabled::bMacroMP && HelperFuncs::IsInGame()) {
-					if (String::IsNullOrWhiteSpace(Timelapse::MainForm::TheInstance->tbMP->Text)) break;
-					const int mpCntDrinkLimit = Convert::ToUInt32(Timelapse::MainForm::TheInstance->tbMP->Text);
-					const int mpCntCurrent = Assembly::curMP;
+		case MacroType::MPPOTMACRO:
+			if (MacrosEnabled::bMacroMP && HelperFuncs::IsInGame()) {
+				if (String::IsNullOrWhiteSpace(Timelapse::MainForm::TheInstance->tbMP->Text)) break;
+				const int mpCntDrinkLimit = Convert::ToUInt32(Timelapse::MainForm::TheInstance->tbMP->Text);
+				const int mpCntCurrent = Assembly::curMP;
 
-					if (mpCntCurrent < mpCntDrinkLimit) {
-						if (DBG_Macro) Log::WriteLineToConsole("Pushing macro to queue: " + MacroTypeToStr(keyMacro->macroType));
-						PriorityQueue::macroQueue->push(keyMacro);
-					}
+				if (mpCntCurrent < mpCntDrinkLimit) {
+					if (DBG_Macro) Log::WriteLineToConsole("Pushing macro to queue: " + MacroTypeToStr(keyMacro->macroType));
+					PriorityQueue::macroQueue->push(keyMacro);
 				}
+			}
 			break;
-			case MacroType::LOOTMACRO:
-				if (MacrosEnabled::bMacroLoot && HelperFuncs::ValidToLoot()) {
-					if (String::IsNullOrWhiteSpace(Timelapse::MainForm::TheInstance->tbLootItem->Text)) break;
-					const int itemCntLootLimit = Convert::ToUInt32(Timelapse::MainForm::TheInstance->tbLootItem->Text);
-					const int itemCntCurrent = ReadPointer(DropPoolBase, OFS_ItemCount);
+		case MacroType::LOOTMACRO:
+			if (MacrosEnabled::bMacroLoot && HelperFuncs::ValidToLoot()) {
+				if (String::IsNullOrWhiteSpace(Timelapse::MainForm::TheInstance->tbLootItem->Text)) break;
+				const int itemCntLootLimit = Convert::ToUInt32(Timelapse::MainForm::TheInstance->tbLootItem->Text);
+				const int itemCntCurrent = ReadPointer(DropPoolBase, OFS_ItemCount);
 
-					if (itemCntCurrent > itemCntLootLimit) {
-						if (DBG_Macro) Log::WriteLineToConsole("Pushing macro to queue: " + MacroTypeToStr(keyMacro->macroType));
-						PriorityQueue::macroQueue->push(keyMacro);
-					}
+				if (itemCntCurrent > itemCntLootLimit) {
+					if (DBG_Macro) Log::WriteLineToConsole("Pushing macro to queue: " + MacroTypeToStr(keyMacro->macroType));
+					PriorityQueue::macroQueue->push(keyMacro);
 				}
+			}
 			break;
-			case MacroType::ATTACKMACRO:
-				if (MacrosEnabled::bMacroAttack && HelperFuncs::ValidToAttack()) {
-					if (String::IsNullOrWhiteSpace(Timelapse::MainForm::TheInstance->tbAttackMob->Text)) break;
-					const int mobCntAttackLimit = Convert::ToUInt32(Timelapse::MainForm::TheInstance->tbAttackMob->Text);
-					const int mobCntCurrent = ReadPointer(MobPoolBase, OFS_MobCount);
+		case MacroType::ATTACKMACRO:
+			if (MacrosEnabled::bMacroAttack && HelperFuncs::ValidToAttack()) {
+				if (String::IsNullOrWhiteSpace(Timelapse::MainForm::TheInstance->tbAttackMob->Text)) break;
+				const int mobCntAttackLimit = Convert::ToUInt32(Timelapse::MainForm::TheInstance->tbAttackMob->Text);
+				const int mobCntCurrent = ReadPointer(MobPoolBase, OFS_MobCount);
 
-					if (mobCntCurrent > mobCntAttackLimit) {
-						if (DBG_Macro) Log::WriteLineToConsole("Pushing macro to queue: " + MacroTypeToStr(keyMacro->macroType));
-						PriorityQueue::macroQueue->push(keyMacro);
-					}
+				if (mobCntCurrent > mobCntAttackLimit) {
+					if (DBG_Macro) Log::WriteLineToConsole("Pushing macro to queue: " + MacroTypeToStr(keyMacro->macroType));
+					PriorityQueue::macroQueue->push(keyMacro);
 				}
+			}
 			break;
 		}
 	}
@@ -227,16 +252,16 @@ public:
 
 	static String^ MacroTypeToStr(MacroType macroType) {
 		switch (macroType) {
-			case MacroType::LOOTMACRO:
-				return "LootMacro";
-			case MacroType::ATTACKMACRO:
-				return "AttackMacro";
-			case MacroType::BUFFMACRO:
-				return "BuffMacro";
-			case MacroType::MPPOTMACRO:
-				return "MpPotMacro";
-			case MacroType::HPPOTMACRO:
-				return "HpPotMacro";
+		case MacroType::LOOTMACRO:
+			return "LootMacro";
+		case MacroType::ATTACKMACRO:
+			return "AttackMacro";
+		case MacroType::BUFFMACRO:
+			return "BuffMacro";
+		case MacroType::MPPOTMACRO:
+			return "MpPotMacro";
+		case MacroType::HPPOTMACRO:
+			return "HpPotMacro";
 		}
 		if (DBG_Macro) Log::WriteLineToConsole("Error when parsing enum MacroType, unknown type!");
 		return nullptr;
@@ -253,12 +278,12 @@ public:
 	}
 
 	// TODO: if buffMacro check if i have it present if not cast it for first time
-	void Toggle(bool enable) {	
+	void Toggle(bool enable) {
 		if (enable) {
-			timer->Change(delay, delay);			
-		}				
+			timer->Change(delay, delay);
+		}
 		else {
-			timer->Change(Threading::Timeout::Infinite, Threading::Timeout::Infinite);					
+			timer->Change(Threading::Timeout::Infinite, Threading::Timeout::Infinite);
 		}
 	}
 };
