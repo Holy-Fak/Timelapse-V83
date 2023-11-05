@@ -242,7 +242,7 @@ namespace Timelapse {
 	private:
 
 	public: System::Windows::Forms::CheckBox^ cbAutoLoginSkipLogo;
-	private: System::Windows::Forms::CheckBox^ cbAutoLogin;
+	public: System::Windows::Forms::CheckBox^ cbAutoLogin;
 	private: System::Windows::Forms::TabPage^ tabPage18;
 	private: System::Windows::Forms::TabPage^ tabPage19;
 	private: System::Windows::Forms::Panel^ panel6;

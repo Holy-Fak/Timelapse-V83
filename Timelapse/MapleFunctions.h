@@ -96,29 +96,21 @@ namespace PointerFuncs {
 
 	//Retrieve Char Job ID
 	static SHORT getCharJobID() {
-		if (CharacterStatBase == 0) {
-			return 'a'; // Return default if base is null
+		try {
+			return readShortValueZtlSecureFuse(*(ULONG*)CharacterStatBase + OFS_JobID);
+		}
+		catch (System::Exception^ ex) {
+			// Handle .NET exceptions here
+			System::Console::WriteLine("Managed exception caught: {0}", ex->Message);
+		}
+		catch (...) {
+			// Handle standard C++ exceptions or any unexpected errors here
+			System::Console::WriteLine("Native exception caught.");
 		}
 
-		// Ensure that the pointer is valid and can be dereferenced safely
-		if (IsBadReadPtr((PVOID)CharacterStatBase, sizeof(ULONG))) {
-			return 'a'; // Return default if memory is unreadable
-		}
-
-		// Dereference and add offset
-		ULONG address = *(ULONG*)CharacterStatBase + OFS_Level;
-
-		// Check if the address resulting from offset is valid
-		if (*(ULONG*)CharacterStatBase == 0 || IsBadReadPtr((PVOID)address, sizeof(UINT8))) {
-			return 'a'; // Return default if resulting memory is unreadable
-		}
-
-		const UINT8 level = readCharValueZtlSecureFuse(address);
-		if (level == 0) {
-			return 'a';
-		}
-
-		return level;
+		// Default fallback value in case of an error. 
+		// This could be a specific value that indicates an error or the "beginner" job ID.
+		return 0;
 	}
 
 	//Retrieve Char Job

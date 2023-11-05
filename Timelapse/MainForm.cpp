@@ -7,17 +7,22 @@
 #include "Packet.h"
 #include "Structs.h"
 #include "Settings.h"
-#include "Log.h"
+#include "Log.h"	
 #include "Hooks.h"
 #include "ShortcutManager.h"
 #include "CheatFunctions.h"
 #include "RegisterShortcuts.h"
+#include <map>
 
 [assembly:System::Diagnostics::DebuggableAttribute(true, true)]; // For debugging purposes
 
 using namespace Timelapse;
+using namespace GlobalVars;
 
 // Forward declarations
+Macro^ createBuffMacro(MacroData^ data);
+void EmbedMS(HWND hWnd);
+void enableConsole();
 void AutoLogin();
 void AutoLoginMouse();
 static void loadMaps();
@@ -37,6 +42,7 @@ ref struct GlobalRefs
 	static double formOpacity;
 	static Generic::List<MapData^>^ maps;
 	static bool bSendPacketLog = false, bRecvPacketLog = false;
+	static bool loggedIn = false;
 };
 
 #pragma region General Form
@@ -67,10 +73,28 @@ void KeyboardHookThread()
 
 	UnhookWindowsHookEx(keyboardHook);
 }
+
+void allocateConsole() {
+	if (GlobalVars::enableConsole)
+	{
+		AllocConsole();
+
+		// Redirect stdio streams to the console
+		FILE* pCout;
+		freopen_s(&pCout, "CONOUT$", "w", stdout);
+		printf_s("Console attached\n");
+		printf_s("%p\n", GetModuleHandle(NULL));
+	}
+}
+
+void freeConsole() {
+	if (GlobalVars::enableConsole)
+		FreeConsole();
+}
+
 BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, PVOID lpvReserved)
 {
 	GlobalVars::hDLL = hModule;
-
 	switch (dwReason)
 	{
 	case DLL_PROCESS_ATTACH:
@@ -79,20 +103,14 @@ BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, PVOID lpvReserved)
 		RegisterShortcuts();
 		CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&Main, nullptr, 0, nullptr);
 		CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&KeyboardHookThread, nullptr, 0, nullptr);
-		AllocConsole();
-
-		// Redirect stdio streams to the console
-		FILE* pCout;
-		freopen_s(&pCout, "CONOUT$", "w", stdout);
-		printf_s("Console attached\n");
-		printf_s("%p\n", GetModuleHandle(NULL));
+		allocateConsole();
 		break;
 	}
 	case DLL_PROCESS_DETACH:
 		FreeConsole();
 		FreeLibraryAndExitThread(hModule, 0);
 	case DLL_THREAD_ATTACH:
-
+		FreeConsole();
 		break;
 	case DLL_THREAD_DETACH:
 		break;
@@ -118,6 +136,8 @@ void MainForm::MainForm_Load(Object^ sender, EventArgs^ e)
 	this->Top = msRect.top;
 }
 
+
+
 void MainForm::MainForm_Shown(Object^ sender, EventArgs^ e)
 {
 	this->Refresh();
@@ -140,8 +160,14 @@ void MainForm::MainForm_Shown(Object^ sender, EventArgs^ e)
 	if (File::Exists(Settings::GetSettingsPath()))
 	{
 		Settings::Deserialize(this, Settings::GetSettingsPath());
+
 		addItemToFilter();
 		AutoLoginMouse();
+		// here
+		for each (ListViewItem ^ item in lvBuff->Items) {
+			item->Tag = createBuffMacro((MacroData^)item->Tag);
+			((Macro^)item->Tag)->Toggle(item->Checked);
+		}
 	}
 }
 
@@ -221,14 +247,32 @@ void MainForm::pnlFull_MouseMove(Object^ sender, Windows::Forms::MouseEventArgs^
 void MainForm::loadSettingsToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 {
 	Settings::Deserialize(this, Settings::GetSettingsPath());
+
 	addItemToFilter();
 	AutoLoginMouse();
+	// here
+	for each (ListViewItem ^ item in lvBuff->Items) {
+		item->Tag = createBuffMacro((MacroData^)item->Tag);
+		((Macro^)item->Tag)->Toggle(item->Checked);
+		KeyMacro::PressKey(((Macro^)item->Tag)->keyCode); // was here
+		Sleep(1000);
+	}
 }
 
 void MainForm::saveSettingsToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 {
-	w
+	for each (ListViewItem ^ item in lvBuff->Items) {
+		Macro^ macro = (Macro^)item->Tag;
+		macro->Toggle(false);
+		MacroData^ data = gcnew MacroData(macro->keyCode, macro->delay / 1000, String::Format("{0}", (wchar_t)(macro->keyCode)));
+		item->Tag = data;
+	}
 	Settings::Serialize(this, Settings::GetSettingsPath());
+	// here
+	for each (ListViewItem ^ item in lvBuff->Items) {
+		item->Tag = createBuffMacro((MacroData^)item->Tag);
+		((Macro^)item->Tag)->Toggle(item->Checked);
+	}
 }
 
 void MainForm::closeMapleStoryToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
@@ -588,14 +632,18 @@ void AutoLogin()
 
 void AutoLoginMouse()
 {
-	Thread::Sleep(10000);
-	String^ usernameStr = MainForm::TheInstance->tbAutoLoginUsername->Text;
-	String^ passwordStr = MainForm::TheInstance->tbAutoLoginPassword->Text;
-
-	if (!usernameStr || !passwordStr) {
+	bool autoLogin = MainForm::TheInstance->cbAutoLogin->Checked;
+	String^ usernameStr = MainForm::TheInstance->tbAutoLoginUsername->Text->Trim();
+	String^ passwordStr = MainForm::TheInstance->tbAutoLoginPassword->Text->Trim();
+	if (GlobalRefs::loggedIn) {
+		return;
+	}
+	if (!autoLogin || String::IsNullOrEmpty(usernameStr) || String::IsNullOrEmpty(passwordStr)) {
 		Log::WriteLineToConsole("Auto log in requires username and password to be set");
 		return;
 	}
+
+	Thread::Sleep(8000);
 
 	while (true) {  // Infinite loop to keep listening
 		int loginScreenState = -1;
@@ -630,7 +678,7 @@ void AutoLoginMouse()
 				Sleep(250);
 
 				// type password
-				
+
 				for each (wchar_t character in passwordStr)
 				{
 					Log::WriteLineToConsole(String::Format("{0}", character));
@@ -655,11 +703,14 @@ void AutoLoginMouse()
 				int x = 0;
 				int y = 360;
 				int character = MainForm::TheInstance->comboAutoLoginCharacter->SelectedIndex + 1;
+				Log::WriteLineToConsole(String::Format("Character: {0}", character));
 				switch (character) {
 				case 2:
 					x = 380;
+					break;
 				case 3:
 					x = 510;
+					break;
 				default:
 					x = 250;
 				};
@@ -669,6 +720,7 @@ void AutoLoginMouse()
 				Sleep(500);
 
 				Log::WriteLineToConsole("AutoLogin: Login Completed");
+				GlobalRefs::loggedIn = true;
 				break;
 			}
 		}
@@ -728,6 +780,54 @@ void MainForm::transparencyTrackBar_Scroll(Object^ sender, EventArgs^ e)
 // Keycode based on index selected in combo boxes
 static int keyCollection[] = { 0x10, 0x11, 0x12, 0x20, 0x2D, 0x2E, 0x24, 0x23, 0x21, 0x22, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50, 0x51,
 							  0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39 };
+static std::map<int, const wchar_t*> keyMappings = {
+	{0x10, L" Shift"},
+	{0x11, L" Control"},
+	{0x12, L" Alt"},
+	{0x20, L" Space"},
+	{0x2D, L" Insert"},
+	{0x2E, L" Delete"},
+	{0x24, L" Home"},
+	{0x23, L" End"},
+	{0x21, L" Page Up"},
+	{0x22, L" Page Down"},
+	{0x41, L" A"},
+	{0x42, L" B"},
+	{0x43, L" C"},
+	{0x44, L" D"},
+	{0x45, L" E"},
+	{0x46, L" F"},
+	{0x47, L" G"},
+	{0x48, L" H"},
+	{0x49, L" I"},
+	{0x4A, L" J"},
+	{0x4B, L" K"},
+	{0x4C, L" L"},
+	{0x4D, L" M"},
+	{0x4E, L" N"},
+	{0x4F, L" O"},
+	{0x50, L" P"},
+	{0x51, L" Q"},
+	{0x52, L" R"},
+	{0x53, L" S"},
+	{0x54, L" T"},
+	{0x55, L" U"},
+	{0x56, L" V"},
+	{0x57, L" W"},
+	{0x58, L" X"},
+	{0x59, L" Y"},
+	{0x5A, L" Z"},
+	{0x30, L" 0"},
+	{0x31, L" 1"},
+	{0x32, L" 2"},
+	{0x33, L" 3"},
+	{0x34, L" 4"},
+	{0x35, L" 5"},
+	{0x36, L" 6"},
+	{0x37, L" 7"},
+	{0x38, L" 8"},
+	{0x39, L" 9"}
+};
 
 // Check if keypress is valid
 static bool isKeyValid(Object^ sender, Windows::Forms::KeyPressEventArgs^ e, bool isSigned)
@@ -964,6 +1064,13 @@ void MainForm::bBuffAdd_Click(Object^ sender, EventArgs^ e)
 	lvi->Checked = true;
 }
 
+Macro^ createBuffMacro(
+	MacroData^ data
+) {
+	Macro^ macro = gcnew Macro(data->keyCode, data->interval * 1000, MacroType::BUFFMACRO);
+	return macro;
+}
+
 void MainForm::bBuffEnableAll_Click(Object^ sender, EventArgs^ e)
 {
 	for each (ListViewItem ^ lvi in lvBuff->Items)
@@ -972,6 +1079,7 @@ void MainForm::bBuffEnableAll_Click(Object^ sender, EventArgs^ e)
 		macro->Toggle(true);
 		KeyMacro::PressKey(macro->keyCode); // was here
 		lvi->Checked = true;
+		Sleep(1000);
 	}
 }
 

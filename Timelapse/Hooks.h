@@ -25,7 +25,7 @@ bool SetHook(bool enable, void** function, void* redirection) {
 namespace GlobalVars {
 	static HMODULE hDLL;
 	static HWND mapleWindow = nullptr;
-	static BOOL enableConsole = false;
+	static BOOL enableConsole = true;
 }
 
 namespace Assembly {

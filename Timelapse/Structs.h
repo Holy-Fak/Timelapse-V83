@@ -79,3 +79,4 @@ ref struct MapPath {
 		this->portal = portal;
 	}
 };
+

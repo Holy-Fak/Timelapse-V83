@@ -1,5 +1,6 @@
 #include "Settings.h"
 #include "Log.h"
+#include "MainForm.h"
 
 using namespace Timelapse;
 using namespace System;
@@ -20,7 +21,7 @@ Object^ Settings::Deserialize(String^ path, XmlSerializer^ serializer) {
 		finally {
 			if (stream)
 				delete static_cast<IDisposable^>(stream);
-				
+
 			Log::WriteLine("Loaded " + path);
 		}
 	}
@@ -42,7 +43,7 @@ void Settings::Serialize(String^ path, XmlSerializer^ serializer, Object^ object
 		finally {
 			if (stream)
 				delete static_cast<IDisposable^>(stream);
-			
+
 			Log::WriteLine("Saved " + path);
 		}
 	}
@@ -69,21 +70,25 @@ void Settings::Serialize(Control^ c, String^ XmlFileName) {
 bool Settings::isExcluded(Control^ ctrl) {
 	const auto ctrlName = ctrl->Name;
 	if (ctrlName == "lbConsoleLog" || ctrlName == "tbItemFilterSearch" || ctrlName == "tbItemFilterSearch" || ctrlName == "lbItemSearchLog" ||
-		ctrlName == "lbMobSearchLog" || ctrlName == "tbMobFilterSearch" || ctrlName == "tbSendPacket" || ctrlName == "tbMapRusherSearch" || 
-		ctrlName == "lvMapRusherSearch" || ctrlName == "lvBuff")
+		ctrlName == "lbMobSearchLog" || ctrlName == "tbMobFilterSearch" || ctrlName == "tbSendPacket" || ctrlName == "tbMapRusherSearch" ||
+		ctrlName == "lvMapRusherSearch")
 		return true;
 
 	return false;
 }
 
 void Settings::AddChildControls(XmlTextWriter^ xmlSerializedForm, Control^ c) {
-	for each(Control^ childCtrl in c->Controls) {
+	for each (Control ^ childCtrl in c->Controls) {
+		if (c->Name == "lvBuff")
+		{
+			Console::WriteLine("lvBuff");
+		}
 		auto ctrlType = childCtrl->GetType();
 		auto ctrlName = childCtrl->Name;
 
 		//TODO: save press state of buttons?
-		if (childCtrl->HasChildren || ctrlType == ComboBox::typeid || ctrlType == NumericUpDown::typeid || ctrlType == CheckBox::typeid || 
-			ctrlType == TextBox::typeid || ctrlType == ListBox::typeid && c && !isExcluded(childCtrl)) {
+		if (childCtrl->HasChildren || ctrlType == ComboBox::typeid || ctrlType == NumericUpDown::typeid || ctrlType == CheckBox::typeid ||
+			ctrlType == TextBox::typeid || ctrlType == ListBox::typeid || ctrlType == ListView::typeid && c && !isExcluded(childCtrl)) {
 			// serialize this control
 			xmlSerializedForm->WriteStartElement("Control");
 			xmlSerializedForm->WriteAttributeString("Name", ctrlName);
@@ -109,12 +114,41 @@ void Settings::AddChildControls(XmlTextWriter^ xmlSerializedForm, Control^ c) {
 				}
 			}
 			else if (ctrlType == ListView::typeid) {
-				Log::WriteLineToConsole("list views should be serialized");
+				ListView^ lv = (ListView^)(childCtrl);
+				int lvItemCnt = lv->Items->Count;
+
+				if (ctrlName == "lvBuff") {
+					xmlSerializedForm->WriteAttributeString("ControlName", "lvBuff");
+					xmlSerializedForm->WriteAttributeString("ItemCnt", lvItemCnt.ToString());
+
+					for (int i = 0; i < lvItemCnt; i++) {
+						ListViewItem^ lvItem = lv->Items[i];
+						String^ lvItemStr = lvItem->Text->ToString();
+						String^ lvItemNmbStr = ctrlName + "Item" + i.ToString();
+
+						xmlSerializedForm->WriteStartElement("Control");
+						xmlSerializedForm->WriteAttributeString("Name", lvItemNmbStr);
+						xmlSerializedForm->WriteAttributeString("Text", lvItemStr);
+
+						MacroData^ m = (MacroData^)(lvItem->Tag);
+						if (m != nullptr) {
+							xmlSerializedForm->WriteAttributeString("Interval", m->interval.ToString());
+							xmlSerializedForm->WriteAttributeString("KeyName", m->keyName);
+							xmlSerializedForm->WriteAttributeString("KeyCode", m->keyCode.ToString());
+							xmlSerializedForm->WriteAttributeString("Checked", lvItem->Checked.ToString());
+						}
+
+						xmlSerializedForm->WriteEndElement(); // Close ListViewItem element
+					}
+				}
 			}
+
 
 			// see if this control has any children, and if so, serialize them
 			if (childCtrl->HasChildren && ctrlType != NumericUpDown::typeid)
+			{
 				AddChildControls(xmlSerializedForm, childCtrl);
+			}
 
 			xmlSerializedForm->WriteEndElement(); // Control
 		}
@@ -128,7 +162,7 @@ void Settings::Deserialize(Control^ c, String^ XmlFileName) {
 			xmlSerializedForm->Load(XmlFileName);
 
 			XmlNode^ topLevel = xmlSerializedForm->ChildNodes[1];
-			for each(XmlNode^ n in topLevel->ChildNodes)
+			for each (XmlNode ^ n in topLevel->ChildNodes)
 				SetControlProperties(safe_cast<Control^>(c), n);
 		}
 		catch (Exception^ ex) {
@@ -154,21 +188,45 @@ void Settings::SetControlProperties(Control^ currentCtrl, XmlNode^ n) {
 		else if (n->Attributes["Text"])
 			safe_cast<TextBox^>(ctrl[0])->Text = Convert::ToString(n->Attributes["Text"]->Value);
 		else if (n->Attributes["ItemCnt"]) {
+			// if listview
 			int itemCnt = Convert::ToInt32(n->Attributes["ItemCnt"]->Value);
-			auto collection = safe_cast<ListBox^>(ctrl[0])->Items;
-
 			if (itemCnt < 1) return;
-			for (int i = 0; i < itemCnt; i++) {
-				String^ indexedListBoxItemStr = ctrlName + "Item" + i.ToString();
-				String^ itemToAddStr = Convert::ToString(n->Attributes[indexedListBoxItemStr]->Value);
-				collection->Add(itemToAddStr);
+
+			if (Convert::ToString(n->Attributes["ControlName"]->Value)) {
+				ListView^ listView = safe_cast<ListView^>(ctrl[0]);
+				listView->Items->Clear();  // Clear existing items before deserializing new ones
+				XmlNodeList^ listViewItems = n->SelectNodes("Control");
+				for each (XmlNode ^ listViewItemNode in listViewItems) {
+					String^ itemText = Convert::ToString(listViewItemNode->Attributes["Text"]->Value);
+					int keyCode = Convert::ToInt32(listViewItemNode->Attributes["KeyCode"]->Value);
+					String^ keyName = listViewItemNode->Attributes["KeyName"]->Value;
+					int interval = Convert::ToInt32(listViewItemNode->Attributes["Interval"]->Value);
+					bool checked = Convert::ToBoolean(listViewItemNode->Attributes["Checked"]->Value);
+					MacroData^ m = gcnew MacroData(keyCode, interval, keyName);
+					ListViewItem^ listViewItem = gcnew ListViewItem(gcnew array<String^>{itemText, keyName, Convert::ToString(interval) });
+					listViewItem->Tag = m;
+					listView->Items->Add(listViewItem);
+					listViewItem->Checked = checked;
+				}
 			}
+			else if (currentCtrl->GetType() == ListBox::typeid) {
+				auto collection = safe_cast<ListBox^>(ctrl[0])->Items;
+
+				for (int i = 0; i < itemCnt; i++) {
+					String^ indexedListBoxItemStr = ctrlName + "Item" + i.ToString();
+					String^ itemToAddStr = Convert::ToString(n->Attributes[indexedListBoxItemStr]->Value);
+					collection->Add(itemToAddStr);
+				}
+			}
+
+
+
 		}
 
 		// if n has any children that are controls, deserialize them as well
 		if (n->HasChildNodes && ctrl[0]->HasChildren) {
 			XmlNodeList^ xnlControls = n->SelectNodes("Control");
-			for each(XmlNode^ n2 in xnlControls)
+			for each (XmlNode ^ n2 in xnlControls)
 				SetControlProperties(ctrl[0], n2);
 		}
 	}
