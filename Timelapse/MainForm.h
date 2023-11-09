@@ -1688,7 +1688,7 @@ namespace Timelapse {
 			   this->lbCharName->AutoSize = true;
 			   this->lbCharName->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbCharName->ForeColor = System::Drawing::Color::Gold;
-			   this->lbCharName->Location = System::Drawing::Point(423, 63);
+			   this->lbCharName->Location = System::Drawing::Point(430, 63);
 			   this->lbCharName->Name = L"lbCharName";
 			   this->lbCharName->Size = System::Drawing::Size(57, 13);
 			   this->lbCharName->TabIndex = 27;
@@ -1965,7 +1965,7 @@ namespace Timelapse {
 			   this->label4->Name = L"label4";
 			   this->label4->Size = System::Drawing::Size(22, 13);
 			   this->label4->TabIndex = 5;
-			   this->label4->Text = L"ID:";
+			   this->label4->Text = L"IGN:";
 			   this->label4->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label4->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label4->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
