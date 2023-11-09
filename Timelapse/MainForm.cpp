@@ -125,8 +125,8 @@ void MainForm::MainForm_Load(Object^ sender, EventArgs^ e)
 	Log::WriteLineToConsole(":::::::::::::::::::::::::::::::::::::::::");
 	Log::WriteLineToConsole(":::         Timelapse Trainer         :::");
 	Log::WriteLineToConsole(":::::::::::::::::::::::::::::::::::::::::");
-	Log::WriteLineToConsole("Use: Extreme Injector v3.7.3");
-	Log::WriteLineToConsole("Initializing Timelapse trainer ....");
+	Log::WriteLineToConsole("Use: Maplestory Manager by Knat-Dev");
+	Log::WriteLineToConsole("Initializing...");
 	RECT msRect;
 	GetWindowRect(GetMSWindowHandle(), &msRect);
 	this->Left = msRect.right;
