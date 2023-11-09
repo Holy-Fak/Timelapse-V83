@@ -17,6 +17,7 @@
 [assembly:System::Diagnostics::DebuggableAttribute(true, true)]; // For debugging purposes
 
 using namespace Timelapse;
+using namespace MacroSystem;
 using namespace GlobalVars;
 
 // Forward declarations
@@ -165,8 +166,14 @@ void MainForm::MainForm_Shown(Object^ sender, EventArgs^ e)
 		AutoLoginMouse();
 		// here
 		for each (ListViewItem ^ item in lvBuff->Items) {
-			item->Tag = createBuffMacro((MacroData^)item->Tag);
-			((Macro^)item->Tag)->Toggle(item->Checked);
+			auto macroData = ((MacroData^)item->Tag);
+			auto macro = ((MacroData^)item->Tag)->macro;
+			if (!macro) {
+				macroData->macro = createBuffMacro(macroData);
+			}
+			macroData->macro->Toggle(item->Checked);
+			KeyMacro::PressKey(macroData->keyCode);
+			Sleep(1000);
 		}
 	}
 }
@@ -246,32 +253,67 @@ void MainForm::pnlFull_MouseMove(Object^ sender, Windows::Forms::MouseEventArgs^
 #pragma region ToolStrip
 void MainForm::loadSettingsToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 {
+	List<MacroData^>^ macroDataList = gcnew List<MacroData^>();
+	for each (ListViewItem ^ item in lvBuff->Items)
+	{
+		macroDataList->Add((MacroData^)item->Tag);
+	}
+
 	Settings::Deserialize(this, Settings::GetSettingsPath());
 
 	addItemToFilter();
 	AutoLoginMouse();
 	// here
+	for (int i = 0; i < macroDataList->Count; i++) {
+		if (lvBuff->Items->Count > i)
+		{
+			ListViewItem^ item = lvBuff->Items[i];
+			MacroData^ macroData = macroDataList[i];
+			Macro^ macro = macroData->macro;
+			if (!macro) {
+				macroData->macro = createBuffMacro(macroData);
+			}
+			macroData->macro->Toggle(item->Checked);
+			KeyMacro::PressKey(macroData->keyCode);
+			Sleep(1000);
+		}
+	}
 	for each (ListViewItem ^ item in lvBuff->Items) {
-		item->Tag = createBuffMacro((MacroData^)item->Tag);
-		((Macro^)item->Tag)->Toggle(item->Checked);
-		KeyMacro::PressKey(((Macro^)item->Tag)->keyCode); // was here
+		auto macroData = ((MacroData^)item->Tag);
+		auto macro = ((MacroData^)item->Tag)->macro;
+		if (!macro) {
+			macroData->macro = createBuffMacro((MacroData^)item->Tag);
+		}
+		macroData->macro->Toggle(item->Checked);
+		KeyMacro::PressKey(macroData->keyCode);
 		Sleep(1000);
+	}
+}
+
+// name the function
+void test(List<MacroData^>^ macroDataList, ListView^ lv) {
+	for (int i = 0; i < macroDataList->Count; i++) {
+		if (lv->Items->Count > i)
+		{
+			ListViewItem^ item = lv->Items[i];
+			MacroData^ macroData = macroDataList[i];
+			Macro^ macro = macroData->macro;
+			if (!macro) {
+				macroData->macro = createBuffMacro(macroData);
+			}
+			macroData->macro->Toggle(item->Checked);
+			KeyMacro::PressKey(macroData->keyCode);
+			Sleep(1000);
+		}
 	}
 }
 
 void MainForm::saveSettingsToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 {
-	for each (ListViewItem ^ item in lvBuff->Items) {
-		Macro^ macro = (Macro^)item->Tag;
-		macro->Toggle(false);
-		MacroData^ data = gcnew MacroData(macro->keyCode, macro->delay / 1000, String::Format("{0}", (wchar_t)(macro->keyCode)));
-		item->Tag = data;
-	}
 	Settings::Serialize(this, Settings::GetSettingsPath());
 	// here
 	for each (ListViewItem ^ item in lvBuff->Items) {
-		item->Tag = createBuffMacro((MacroData^)item->Tag);
-		((Macro^)item->Tag)->Toggle(item->Checked);
+		((MacroData^)item->Tag)->macro->Toggle(item->Checked);
 	}
 }
 
@@ -643,7 +685,7 @@ void AutoLoginMouse()
 		return;
 	}
 
-	Thread::Sleep(8000);
+	//Thread::Sleep(8000);
 
 	while (true) {  // Infinite loop to keep listening
 		int loginScreenState = -1;
@@ -724,8 +766,13 @@ void AutoLoginMouse()
 				break;
 			}
 		}
-		catch (const std::exception&) {
-			Log::WriteLineToConsole("Error");
+		catch (System::Exception^ ex) {
+			// Handle .NET exceptions here
+			System::Console::WriteLine("Managed exception caught: {0}", ex->Message);
+		}
+		catch (...) {
+			// Handle standard C++ exceptions or any unexpected errors here
+			System::Console::WriteLine("Native exception caught.");
 		}
 
 		Sleep(250);  // Pause for 100ms. Adjust as needed.
@@ -1067,15 +1114,14 @@ void MainForm::bBuffAdd_Click(Object^ sender, EventArgs^ e)
 Macro^ createBuffMacro(
 	MacroData^ data
 ) {
-	Macro^ macro = gcnew Macro(data->keyCode, data->interval * 1000, MacroType::BUFFMACRO);
-	return macro;
+	return gcnew Macro(data->keyCode, data->interval * 1000, MacroType::BUFFMACRO);
 }
 
 void MainForm::bBuffEnableAll_Click(Object^ sender, EventArgs^ e)
 {
 	for each (ListViewItem ^ lvi in lvBuff->Items)
 	{
-		Macro^ macro = (Macro^)lvi->Tag;
+		Macro^ macro = ((MacroData^)lvi->Tag)->macro;
 		macro->Toggle(true);
 		KeyMacro::PressKey(macro->keyCode); // was here
 		lvi->Checked = true;
@@ -1087,7 +1133,8 @@ void MainForm::bBuffDisableAll_Click(Object^ sender, EventArgs^ e)
 {
 	for each (ListViewItem ^ lvi in lvBuff->Items)
 	{
-		Macro^ macro = (Macro^)lvi->Tag;
+
+		Macro^ macro = ((MacroData^)lvi->Tag)->macro;
 		macro->Toggle(false);
 		lvi->Checked = false;
 	}
@@ -1097,7 +1144,7 @@ void MainForm::bBuffRemove_Click(Object^ sender, EventArgs^ e)
 {
 	for each (ListViewItem ^ lvi in lvBuff->SelectedItems)
 	{
-		Macro^ macro = (Macro^)lvi->Tag;
+		Macro^ macro = ((MacroData^)lvi->Tag)->macro;
 		macro->Toggle(false);
 		lvBuff->Items->Remove(lvi);
 	}

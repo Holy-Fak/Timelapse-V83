@@ -5,7 +5,9 @@ using namespace Xml;
 using namespace Serialization;
 using namespace Collections::Generic;
 
-namespace Timelapse {
+namespace MacroSystem {
+	ref class Macro; // Forward declaration of Macro as a reference class.
+
 	public ref class Settings {
 	public:
 		static Object^ Deserialize(String^ Path, XmlSerializer^ Deserializer);
@@ -24,6 +26,7 @@ namespace Timelapse {
 		int keyCode;
 		String^ keyName;
 		int interval;
+		Macro^ macro;
 		MacroData(int keyCode, int interval, String^ keyName) {
 			this->keyCode = keyCode;
 			this->interval = interval;

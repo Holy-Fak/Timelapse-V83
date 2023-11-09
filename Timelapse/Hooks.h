@@ -11,6 +11,7 @@
 #define CodeCave(name) static void __declspec(naked) ##name() { _asm
 #define EndCodeCave } 
 
+
 //Set Hook for function 
 bool SetHook(bool enable, void** function, void* redirection) {
 	if (DetourTransactionBegin() != NO_ERROR) return FALSE;
@@ -25,7 +26,7 @@ bool SetHook(bool enable, void** function, void* redirection) {
 namespace GlobalVars {
 	static HMODULE hDLL;
 	static HWND mapleWindow = nullptr;
-	static BOOL enableConsole = true;
+	static BOOL enableConsole = false;
 }
 
 namespace Assembly {

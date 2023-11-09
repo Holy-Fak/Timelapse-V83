@@ -7,7 +7,7 @@ using namespace System;
 using namespace IO;
 using namespace Collections::Generic;
 
-Object^ Settings::Deserialize(String^ path, XmlSerializer^ serializer) {
+Object^ MacroSystem::Settings::Deserialize(String^ path, XmlSerializer^ serializer) {
 	if (File::Exists(path)) {
 		FileStream^ stream = {};
 
@@ -29,7 +29,7 @@ Object^ Settings::Deserialize(String^ path, XmlSerializer^ serializer) {
 	return nullptr;
 }
 
-void Settings::Serialize(String^ path, XmlSerializer^ serializer, Object^ object) {
+void MacroSystem::Settings::Serialize(String^ path, XmlSerializer^ serializer, Object^ object) {
 	if (path != nullptr && serializer != nullptr && object != nullptr) {
 		FileStream^ stream = {};
 
@@ -49,7 +49,7 @@ void Settings::Serialize(String^ path, XmlSerializer^ serializer, Object^ object
 	}
 }
 
-void Settings::Serialize(Control^ c, String^ XmlFileName) {
+void MacroSystem::Settings::Serialize(Control^ c, String^ XmlFileName) {
 	XmlTextWriter^ xmlSerializedForm = gcnew XmlTextWriter(XmlFileName, System::Text::Encoding::Default);
 
 	xmlSerializedForm->Formatting = Formatting::Indented;
@@ -67,7 +67,7 @@ void Settings::Serialize(Control^ c, String^ XmlFileName) {
 	Log::WriteLine("Saved " + XmlFileName);
 }
 
-bool Settings::isExcluded(Control^ ctrl) {
+bool MacroSystem::Settings::isExcluded(Control^ ctrl) {
 	const auto ctrlName = ctrl->Name;
 	if (ctrlName == "lbConsoleLog" || ctrlName == "tbItemFilterSearch" || ctrlName == "tbItemFilterSearch" || ctrlName == "lbItemSearchLog" ||
 		ctrlName == "lbMobSearchLog" || ctrlName == "tbMobFilterSearch" || ctrlName == "tbSendPacket" || ctrlName == "tbMapRusherSearch" ||
@@ -77,7 +77,7 @@ bool Settings::isExcluded(Control^ ctrl) {
 	return false;
 }
 
-void Settings::AddChildControls(XmlTextWriter^ xmlSerializedForm, Control^ c) {
+void MacroSystem::Settings::AddChildControls(XmlTextWriter^ xmlSerializedForm, Control^ c) {
 	for each (Control ^ childCtrl in c->Controls) {
 		if (c->Name == "lvBuff")
 		{
@@ -155,7 +155,7 @@ void Settings::AddChildControls(XmlTextWriter^ xmlSerializedForm, Control^ c) {
 	}
 }
 
-void Settings::Deserialize(Control^ c, String^ XmlFileName) {
+void MacroSystem::Settings::Deserialize(Control^ c, String^ XmlFileName) {
 	if (File::Exists(XmlFileName)) {
 		try {
 			XmlDocument^ xmlSerializedForm = gcnew XmlDocument();
@@ -171,7 +171,7 @@ void Settings::Deserialize(Control^ c, String^ XmlFileName) {
 	}
 }
 
-void Settings::SetControlProperties(Control^ currentCtrl, XmlNode^ n) {
+void MacroSystem::Settings::SetControlProperties(Control^ currentCtrl, XmlNode^ n) {
 	try {
 		// get the control's name and type
 		String^ ctrlName = n->Attributes["Name"]->Value;
@@ -192,21 +192,23 @@ void Settings::SetControlProperties(Control^ currentCtrl, XmlNode^ n) {
 			int itemCnt = Convert::ToInt32(n->Attributes["ItemCnt"]->Value);
 			if (itemCnt < 1) return;
 
-			if (Convert::ToString(n->Attributes["ControlName"]->Value)) {
-				ListView^ listView = safe_cast<ListView^>(ctrl[0]);
-				listView->Items->Clear();  // Clear existing items before deserializing new ones
-				XmlNodeList^ listViewItems = n->SelectNodes("Control");
-				for each (XmlNode ^ listViewItemNode in listViewItems) {
-					String^ itemText = Convert::ToString(listViewItemNode->Attributes["Text"]->Value);
-					int keyCode = Convert::ToInt32(listViewItemNode->Attributes["KeyCode"]->Value);
-					String^ keyName = listViewItemNode->Attributes["KeyName"]->Value;
-					int interval = Convert::ToInt32(listViewItemNode->Attributes["Interval"]->Value);
-					bool checked = Convert::ToBoolean(listViewItemNode->Attributes["Checked"]->Value);
-					MacroData^ m = gcnew MacroData(keyCode, interval, keyName);
-					ListViewItem^ listViewItem = gcnew ListViewItem(gcnew array<String^>{itemText, keyName, Convert::ToString(interval) });
-					listViewItem->Tag = m;
-					listView->Items->Add(listViewItem);
-					listViewItem->Checked = checked;
+			if (n != nullptr && n->Attributes != nullptr && n->Attributes["ControlName"] != nullptr) {
+				if (Convert::ToString(n->Attributes["ControlName"]->Value)) {
+					ListView^ listView = safe_cast<ListView^>(ctrl[0]);
+					listView->Items->Clear();  // Clear existing items before deserializing new ones
+					XmlNodeList^ listViewItems = n->SelectNodes("Control");
+					for each (XmlNode ^ listViewItemNode in listViewItems) {
+						String^ itemText = Convert::ToString(listViewItemNode->Attributes["Text"]->Value);
+						int keyCode = Convert::ToInt32(listViewItemNode->Attributes["KeyCode"]->Value);
+						String^ keyName = listViewItemNode->Attributes["KeyName"]->Value;
+						int interval = Convert::ToInt32(listViewItemNode->Attributes["Interval"]->Value);
+						bool checked = Convert::ToBoolean(listViewItemNode->Attributes["Checked"]->Value);
+						MacroData^ m = gcnew MacroData(keyCode, interval, keyName);
+						ListViewItem^ listViewItem = gcnew ListViewItem(gcnew array<String^>{itemText, keyName, Convert::ToString(interval) });
+						listViewItem->Tag = m;
+						listView->Items->Add(listViewItem);
+						listViewItem->Checked = checked;
+					}
 				}
 			}
 			else if (currentCtrl->GetType() == ListBox::typeid) {
@@ -235,7 +237,7 @@ void Settings::SetControlProperties(Control^ currentCtrl, XmlNode^ n) {
 	}
 }
 
-String^ Settings::GetSettingsPath() {
+String^ MacroSystem::Settings::GetSettingsPath() {
 	String^ AppDataFolder = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData);
 	String^ SettingsFilePath = {};
 

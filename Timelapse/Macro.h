@@ -7,7 +7,8 @@
 #include "MapleFunctions.h"
 #include "Addresses.h"
 
-bool DBG_Macro = false;
+namespace MacroSystem {
+	bool DBG_Macro = false;
 enum class MacroType { LOOTMACRO = 1, ATTACKMACRO = 2, BUFFMACRO = 3, MPPOTMACRO = 4, HPPOTMACRO = 5 };
 ref struct MacrosEnabled { static bool bMacroHP = false, bMacroMP = false, bMacroAttack = false, bMacroLoot = false; };
 
@@ -287,3 +288,4 @@ public:
 		}
 	}
 };
+}

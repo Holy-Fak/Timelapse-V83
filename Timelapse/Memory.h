@@ -124,27 +124,44 @@ inline unsigned int readLongValueZtlSecureFuse(ULONG* a1) {
 }
 
 #pragma unmanaged
+bool isValidReadPtr(void* ptr) {
+	__try {
+		// Attempt to read the pointer.
+		volatile auto value = *static_cast<LONG_PTR*>(ptr);
+		(void)value; // To avoid unused variable warning.
+		return true;
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER) {
+		return false;
+	}
+}
+
 static LONG_PTR ReadMultiPointerSigned(LONG_PTR ulBase, int level, ...) {
 	LONG_PTR ulResult = 0;
 	va_list vaarg;
 	va_start(vaarg, level);
 
-	if (!IsBadReadPtr((PVOID)ulBase, sizeof(LONG_PTR))) {
-		ulBase = *(LONG_PTR*)ulBase;
-		for (int i = 0; i < level; i++) {
-			const int offset = va_arg(vaarg, int);
-			if (IsBadReadPtr((PVOID)(ulBase + offset), sizeof(LONG_PTR))) {
-				va_end(vaarg);
-				return 0;
+	__try {
+		if (ulBase != 0 && isValidReadPtr(reinterpret_cast<void*>(ulBase))) {
+			ulBase = *reinterpret_cast<LONG_PTR*>(ulBase);
+			for (int i = 0; i < level; i++) {
+				const int offset = va_arg(vaarg, int);
+				if (ulBase == 0 || !isValidReadPtr(reinterpret_cast<void*>(ulBase + offset))) {
+					throw std::runtime_error("Invalid memory access detected.");
+				}
+				ulBase = *reinterpret_cast<LONG_PTR*>(ulBase + offset);
 			}
-			ulBase = *(LONG_PTR*)(ulBase + offset);
+			ulResult = ulBase;
 		}
-		ulResult = ulBase;
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER) {
+		ulResult = 0; // In case of an exception, set the result to 0 or some sentinel value.
 	}
 
 	va_end(vaarg);
 	return ulResult;
 }
+
 
 
 static PCHAR ReadMultiPointerString(LONG_PTR ulBase, int level, ...) {
