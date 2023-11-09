@@ -58,7 +58,6 @@ void toggleFMA() {
 void setFilterTab(int index) {
 	Dictionary<String^, Control^>^ controls = Timelapse::MainForm::ControlMap;
 	TabControl^ tabControl1 = (TabControl^)controls["MainTabs"];
-	Log::WriteLineToConsole(String::Format("{0}",!!tabControl1));
 	tabControl1->SelectedIndex = index;
 }
 
