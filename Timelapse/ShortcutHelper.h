@@ -8,6 +8,7 @@ using namespace System::Windows::Forms;
 public ref class ShortcutHelper {
 public:
 	static void ToggleControl(String^ controlName, Action^ additionalAction);
+	static void ManualToggleCheckBox(CheckBox^ cb);
 };
 	
 

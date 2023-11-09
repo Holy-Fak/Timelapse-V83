@@ -21,6 +21,8 @@ using namespace MacroSystem;
 using namespace GlobalVars;
 
 // Forward declarations
+List<MacroData^>^ GetMacroDataList(ListView^ lv);
+void ProcessMacroDataList(List<MacroData^>^ macroDataList, ListView^ lv);
 Macro^ createBuffMacro(MacroData^ data);
 void EmbedMS(HWND hWnd);
 void enableConsole();
@@ -93,34 +95,28 @@ void freeConsole() {
 		FreeConsole();
 }
 
-BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, PVOID lpvReserved)
+BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
-	GlobalVars::hDLL = hModule;
-	switch (dwReason)
-	{
-	case DLL_PROCESS_ATTACH:
-	{
-		GlobalVars::hDLL = hModule;
-		RegisterShortcuts();
-		CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&Main, nullptr, 0, nullptr);
-		CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&KeyboardHookThread, nullptr, 0, nullptr);
-		allocateConsole();
-		break;
-	}
-	case DLL_PROCESS_DETACH:
-		FreeConsole();
-		FreeLibraryAndExitThread(hModule, 0);
-	case DLL_THREAD_ATTACH:
-		FreeConsole();
-		break;
-	case DLL_THREAD_DETACH:
-		break;
-	default:
-		break;
-	}
-	//__writefsdword(0x6B0, GetMSThreadID());
+	try {
+		switch (ul_reason_for_call)
+		{
+		case DLL_PROCESS_ATTACH:
 
-	return TRUE;
+			allocateConsole();
+			GlobalVars::hDLL = hModule;
+			RegisterShortcuts();
+			CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&Main, nullptr, 0, nullptr);
+			CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&KeyboardHookThread, nullptr, 0, nullptr);
+			break;
+
+			// ... other cases
+
+			return TRUE;
+		}
+	}
+	catch (...) {
+		return FALSE;
+	}
 }
 
 #pragma managed
@@ -160,21 +156,14 @@ void MainForm::MainForm_Shown(Object^ sender, EventArgs^ e)
 
 	if (File::Exists(Settings::GetSettingsPath()))
 	{
+		Sleep(2000);
 		Settings::Deserialize(this, Settings::GetSettingsPath());
+		Sleep(500);
 
 		addItemToFilter();
 		AutoLoginMouse();
-		// here
-		for each (ListViewItem ^ item in lvBuff->Items) {
-			auto macroData = ((MacroData^)item->Tag);
-			auto macro = ((MacroData^)item->Tag)->macro;
-			if (!macro) {
-				macroData->macro = createBuffMacro(macroData);
-			}
-			macroData->macro->Toggle(item->Checked);
-			KeyMacro::PressKey(macroData->keyCode);
-			Sleep(1000);
-		}
+
+		ProcessMacroDataList(GetMacroDataList(lvBuff), lvBuff);
 	}
 }
 
@@ -253,57 +242,69 @@ void MainForm::pnlFull_MouseMove(Object^ sender, Windows::Forms::MouseEventArgs^
 #pragma region ToolStrip
 void MainForm::loadSettingsToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 {
+
+	List<MacroData^>^ macroDataList = GetMacroDataList(lvBuff);
+	Settings::Deserialize(this, Settings::GetSettingsPath());
+	addItemToFilter();
+	AutoLoginMouse();
+	ProcessMacroDataList(macroDataList, lvBuff);
+
+}
+
+List<MacroData^>^ GetMacroDataList(ListView^ lv) {
 	List<MacroData^>^ macroDataList = gcnew List<MacroData^>();
-	for each (ListViewItem ^ item in lvBuff->Items)
+	for each (ListViewItem ^ item in lv->Items)
 	{
 		macroDataList->Add((MacroData^)item->Tag);
 	}
 
-	Settings::Deserialize(this, Settings::GetSettingsPath());
-
-	addItemToFilter();
-	AutoLoginMouse();
-	// here
-	for (int i = 0; i < macroDataList->Count; i++) {
-		if (lvBuff->Items->Count > i)
-		{
-			ListViewItem^ item = lvBuff->Items[i];
-			MacroData^ macroData = macroDataList[i];
-			Macro^ macro = macroData->macro;
-			if (!macro) {
-				macroData->macro = createBuffMacro(macroData);
-			}
-			macroData->macro->Toggle(item->Checked);
-			KeyMacro::PressKey(macroData->keyCode);
-			Sleep(1000);
-		}
-	}
-	for each (ListViewItem ^ item in lvBuff->Items) {
-		auto macroData = ((MacroData^)item->Tag);
-		auto macro = ((MacroData^)item->Tag)->macro;
-		if (!macro) {
-			macroData->macro = createBuffMacro((MacroData^)item->Tag);
-		}
-		macroData->macro->Toggle(item->Checked);
-		KeyMacro::PressKey(macroData->keyCode);
-		Sleep(1000);
-	}
+	return macroDataList;
 }
 
 // name the function
-void test(List<MacroData^>^ macroDataList, ListView^ lv) {
-	for (int i = 0; i < macroDataList->Count; i++) {
-		if (lv->Items->Count > i)
-		{
-			ListViewItem^ item = lv->Items[i];
-			MacroData^ macroData = macroDataList[i];
-			Macro^ macro = macroData->macro;
-			if (!macro) {
-				macroData->macro = createBuffMacro(macroData);
-			}
-			macroData->macro->Toggle(item->Checked);
-			KeyMacro::PressKey(macroData->keyCode);
+void ProcessMacroDataList(List<MacroData^>^ macroDataList, ListView^ lv) {
+	if (HelperFuncs::IsInGame()) {
+		auto autoAttackChecked = false;
+		auto dupeXChecked = false;
+		auto controls = Timelapse::MainForm::ControlMap;
+		auto cbDupeX = (CheckBox^)controls["DupeX"];
+		auto cbAttack = (CheckBox^)controls["AutoAttack"];
+
+
+		if (cbAttack->Checked) {
+			ShortcutHelper::ManualToggleCheckBox(cbAttack);
+			autoAttackChecked = true;
 			Sleep(1000);
+		}
+		if (cbDupeX->Checked) {
+			ShortcutHelper::ManualToggleCheckBox(cbDupeX);
+			dupeXChecked = true;
+			Sleep(1000);
+		}
+
+		for (int i = 0; i < macroDataList->Count; i++) {
+			if (lv->Items->Count > i)
+			{
+				ListViewItem^ item = lv->Items[i];
+				MacroData^ macroData = macroDataList[i];
+				Macro^ macro = macroData->macro;
+				if (!macro) {
+					macroData->macro = createBuffMacro(macroData);
+				}
+				item->Tag = macroData;
+				macroData->macro->Toggle(item->Checked);
+				KeyMacro::PressKey(macroData->keyCode);
+				Sleep(1250);
+			}
+		}
+
+		if (dupeXChecked) {
+			cbDupeX->Checked = !cbDupeX->Checked;
+			Sleep(1250);
+		}
+		if (autoAttackChecked) {
+			cbAttack->Checked = !cbAttack->Checked;
+			Sleep(2500);
 		}
 	}
 }
@@ -311,10 +312,6 @@ void test(List<MacroData^>^ macroDataList, ListView^ lv) {
 void MainForm::saveSettingsToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
 {
 	Settings::Serialize(this, Settings::GetSettingsPath());
-	// here
-	for each (ListViewItem ^ item in lvBuff->Items) {
-		((MacroData^)item->Tag)->macro->Toggle(item->Checked);
-	}
 }
 
 void MainForm::closeMapleStoryToolStripMenuItem_Click(Object^ sender, EventArgs^ e)
@@ -517,7 +514,6 @@ void MainForm::GUITimer_Tick(Object^ sender, EventArgs^ e)
 
 	if (GetMSThreadID())
 	{
-		;
 		lbActive->Visible = true;
 		lbInactive->Visible = false;
 	}
@@ -677,15 +673,13 @@ void AutoLoginMouse()
 	bool autoLogin = MainForm::TheInstance->cbAutoLogin->Checked;
 	String^ usernameStr = MainForm::TheInstance->tbAutoLoginUsername->Text->Trim();
 	String^ passwordStr = MainForm::TheInstance->tbAutoLoginPassword->Text->Trim();
-	if (GlobalRefs::loggedIn) {
+	if (GlobalRefs::loggedIn || HelperFuncs::IsInGame()) {
 		return;
 	}
 	if (!autoLogin || String::IsNullOrEmpty(usernameStr) || String::IsNullOrEmpty(passwordStr)) {
 		Log::WriteLineToConsole("Auto log in requires username and password to be set");
 		return;
 	}
-
-	//Thread::Sleep(8000);
 
 	while (true) {  // Infinite loop to keep listening
 		int loginScreenState = -1;
@@ -695,7 +689,7 @@ void AutoLoginMouse()
 
 				MouseInput::Mouse mouse;
 				Log::WriteLineToConsole("AutoLogin: Logging in...");
-				// ... [Any other actions to be performed during login]
+				Sleep(500);
 				HelperFuncs::SetMapleWindowToForeground();
 				Sleep(500);
 				mouse.moveTo(540, 275, false, false);
@@ -708,7 +702,6 @@ void AutoLoginMouse()
 				// type username
 				for each (wchar_t character in usernameStr)
 				{
-					Log::WriteLineToConsole(String::Format("{0}", character));
 					KeyMacro::PressKey(static_cast<int>(toupper(character)));
 					Sleep(50);
 				}
@@ -723,7 +716,6 @@ void AutoLoginMouse()
 
 				for each (wchar_t character in passwordStr)
 				{
-					Log::WriteLineToConsole(String::Format("{0}", character));
 					KeyMacro::PressKey(static_cast<int>(toupper(character)));
 					Sleep(50);
 				}
@@ -745,7 +737,7 @@ void AutoLoginMouse()
 				int x = 0;
 				int y = 360;
 				int character = MainForm::TheInstance->comboAutoLoginCharacter->SelectedIndex + 1;
-				Log::WriteLineToConsole(String::Format("Character: {0}", character));
+
 				switch (character) {
 				case 2:
 					x = 380;
@@ -759,23 +751,31 @@ void AutoLoginMouse()
 
 				mouse.moveTo(x, y, false, false);
 				mouse.doubleLeftClick();
-				Sleep(500);
+				Sleep(1000);
 
 				Log::WriteLineToConsole("AutoLogin: Login Completed");
-				GlobalRefs::loggedIn = true;
+
+				Sleep(2000);
+				if (!HelperFuncs::IsInGame()) {
+					KeyMacro::PressKey(VK_RETURN);
+					AutoLoginMouse();
+				}
+				else {
+					GlobalRefs::loggedIn = true;
+				}
 				break;
 			}
 		}
 		catch (System::Exception^ ex) {
 			// Handle .NET exceptions here
-			System::Console::WriteLine("Managed exception caught: {0}", ex->Message);
+			Log::WriteLine(String::Format("Managed exception caught: {0}", ex->Message));
 		}
 		catch (...) {
 			// Handle standard C++ exceptions or any unexpected errors here
-			System::Console::WriteLine("Native exception caught.");
+			Log::WriteLine(String::Format("Native exception caught."));
 		}
 
-		Sleep(250);  // Pause for 100ms. Adjust as needed.
+		Sleep(5000);  // Pause for 100ms. Adjust as needed.
 	}
 }
 
@@ -827,7 +827,7 @@ void MainForm::transparencyTrackBar_Scroll(Object^ sender, EventArgs^ e)
 // Keycode based on index selected in combo boxes
 static int keyCollection[] = { 0x10, 0x11, 0x12, 0x20, 0x2D, 0x2E, 0x24, 0x23, 0x21, 0x22, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50, 0x51,
 							  0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39 };
-static std::map<int, const wchar_t*> keyMappings = {
+static std::unordered_map<int, wchar_t*> keyMappings = {
 	{0x10, L" Shift"},
 	{0x11, L" Control"},
 	{0x12, L" Alt"},
@@ -1103,12 +1103,22 @@ void MainForm::bBuffAdd_Click(Object^ sender, EventArgs^ e)
 		return;
 	}
 	ListViewItem^ lvi = gcnew ListViewItem(gcnew array<String^>{tbBuffName->Text, comboBuffKey->Text, tbBuffInterval->Text});
-	lvi->Tag = gcnew Macro(keyCollection[comboBuffKey->SelectedIndex], Convert::ToUInt32(tbBuffInterval->Text) * 1000, MacroType::BUFFMACRO);
-	lvBuff->Items->Add(lvi);
-	Macro^ macro = (Macro^)lvi->Tag;
-	macro->Toggle(true);
-	KeyMacro::PressKey(macro->keyCode);
-	lvi->Checked = true;
+	Macro^ macro = gcnew Macro(keyCollection[comboBuffKey->SelectedIndex], Convert::ToUInt32(tbBuffInterval->Text) * 1000, MacroType::BUFFMACRO);
+	auto it = keyMappings.find(keyCollection[comboBuffKey->SelectedIndex]);
+
+	if (it != keyMappings.end()) {
+		// Found the key code, it->second is the wchar_t value.
+		MacroData^ data = gcnew MacroData(macro->keyCode, macro->delay / 1000, gcnew String(it->second));
+		data->macro = macro;
+		lvi->Tag = data;
+		lvBuff->Items->Add(lvi);
+		macro->Toggle(true);
+		KeyMacro::PressKey(macro->keyCode);
+		lvi->Checked = true;
+	}
+	else {
+		// The key code was not found in the map.
+	}
 }
 
 Macro^ createBuffMacro(
@@ -1145,7 +1155,10 @@ void MainForm::bBuffRemove_Click(Object^ sender, EventArgs^ e)
 	for each (ListViewItem ^ lvi in lvBuff->SelectedItems)
 	{
 		Macro^ macro = ((MacroData^)lvi->Tag)->macro;
-		macro->Toggle(false);
+		if (macro)
+		{
+			macro->Toggle(false);
+		}
 		lvBuff->Items->Remove(lvi);
 	}
 }
@@ -1154,15 +1167,20 @@ void MainForm::bBuffClear_Click(Object^ sender, EventArgs^ e)
 {
 	for each (ListViewItem ^ lvi in lvBuff->Items)
 	{
-		Macro^ macro = (Macro^)lvi->Tag;
-		macro->Toggle(false);
+		MacroData^ data = ((MacroData^)lvi->Tag);
+		Macro^ macro = ((MacroData^)lvi->Tag)->macro;
+		if (macro)
+		{
+			macro->Toggle(false);
+			data->macro = nullptr;
+		}
 		lvBuff->Items->Remove(lvi);
 	}
 }
 
 void MainForm::lvBuff_ItemChecked(Object^ sender, Windows::Forms::ItemCheckedEventArgs^ e)
 {
-	Macro^ macro = (Macro^)e->Item->Tag;
+	Macro^ macro = ((MacroData^)e->Item->Tag)->macro;
 	macro->Toggle(e->Item->Checked);
 }
 

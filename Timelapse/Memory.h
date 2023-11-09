@@ -7,15 +7,31 @@
 #define NewThread(threadFunc) CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)&threadFunc, NULL, NULL, NULL);
 
 #pragma region General Functions
-static void MakePageWritable(ULONG ulAddress, ULONG ulSize) {
-	MEMORY_BASIC_INFORMATION* mbi = new MEMORY_BASIC_INFORMATION;
-	VirtualQuery((PVOID)ulAddress, mbi, ulSize);
-	if (mbi->Protect != PAGE_EXECUTE_READWRITE) {
-		ULONG* ulProtect = new unsigned long;
-		VirtualProtect((PVOID)ulAddress, ulSize, PAGE_EXECUTE_READWRITE, ulProtect);
-		delete ulProtect;
+static bool MakePageWritable(ULONG_PTR ulAddress, SIZE_T ulSize) {
+	MEMORY_BASIC_INFORMATION mbi;
+	// Instead of allocating MEMORY_BASIC_INFORMATION on the heap, we use the stack
+
+	// Securely initialize mbi with the result of VirtualQuery
+	if (VirtualQuery(reinterpret_cast<LPCVOID>(ulAddress), &mbi, sizeof(mbi)) == 0) {
+		// Handle error if VirtualQuery failed
+		// Log with GetLastError() for diagnostics
+		return false;
 	}
-	delete mbi;
+
+	// Check if the current protection already allows for write access
+	if (mbi.Protect & PAGE_EXECUTE_READWRITE) {
+		return true; // No action needed
+	}
+
+	DWORD flOldProtect;
+	// Use VirtualProtect to change the page protection, checking for success
+	if (!VirtualProtect(reinterpret_cast<LPVOID>(ulAddress), ulSize, PAGE_EXECUTE_READWRITE, &flOldProtect)) {
+		// Handle error if VirtualProtect failed
+		// Log with GetLastError() for diagnostics
+		return false;
+	}
+
+	return true; // Success
 }
 
 static void Jump(ULONG ulAddress, PVOID Function, unsigned Nops) {

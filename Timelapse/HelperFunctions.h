@@ -39,4 +39,5 @@ bool ValidToLoot()
 
 	return false;
 }
+
 #pragma endregion

@@ -88,7 +88,7 @@ void addItemToFilter() {
 	}
 
 	bItemFilter->PerformClick();
-	tabControl1->Invoke(gcnew UpdateTabControlDelegate(setFilterTab), 2);
+	tabControl1->Invoke(gcnew UpdateTabControlDelegate(setFilterTab), 0);
 
 }
 

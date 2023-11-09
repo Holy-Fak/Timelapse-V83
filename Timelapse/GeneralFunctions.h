@@ -60,3 +60,5 @@ inline String^ IntToHex(int c) {
 	sprintf_s(a, "%X", c);
 	return gcnew String(a);
 }
+
+

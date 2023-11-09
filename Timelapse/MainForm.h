@@ -1362,6 +1362,7 @@ namespace Timelapse {
 			   this->bTestButton->Text = L"Test";
 			   this->bTestButton->UseVisualStyleBackColor = true;
 			   this->bTestButton->Click += gcnew System::EventHandler(this, &MainForm::bTestButton_Click);
+			   this->bTestButton->Visible = false;
 			   // 
 			   // lbInactive
 			   // 
@@ -2538,7 +2539,7 @@ namespace Timelapse {
 			   // lvBuffHeaderInterval
 			   // 
 			   this->lvBuffHeaderInterval->DisplayIndex = 1;
-			   this->lvBuffHeaderInterval->Text = L"Interval [ms]";
+			   this->lvBuffHeaderInterval->Text = L"Interval [s]";
 			   this->lvBuffHeaderInterval->Width = 80;
 			   // 
 			   // tabPage12
@@ -6485,7 +6486,7 @@ namespace Timelapse {
 			   // GUITimer
 			   // 
 			   this->GUITimer->Enabled = true;
-			   this->GUITimer->Interval = 250;
+			   this->GUITimer->Interval = 17;
 			   this->GUITimer->Tick += gcnew System::EventHandler(this, &MainForm::GUITimer_Tick);
 			   // 
 			   // AutoCCCSTimer
