@@ -137,10 +137,9 @@ ULONG cOutPacketAddrRet = cOutPacketAddr + 5;
 ULONG dupeXAddr = 0x009B495D;
 ULONG dupeXAddrRet = dupeXAddr + 6;
 ULONG PetGetItemSwitch = 1;
-ULONG PetGetItemHookAddr = 0x005049B6;
-ULONG PetGetItemAddrRet = 0x005049D6; // This is where you jump back if PetGetItemSwitch is non-zero
-ULONG NormalPetAddrRet = 0x005049E3;  // This is where you jump back if PetGetItemSwitch is zero
-ULONG User32PtInRectPtr = 0x74F242B0;
+ULONG PetGetItemHookAddr = 0x005049B4;
+ULONG PetGetItemAddrRet = 0x005049C0; // This is where you jump back if PetGetItemSwitch is non-zero
+ULONG NormalPetAddrRet = PetGetItemHookAddr + 5;  // This is where you jump back if PetGetItemSwitch is zero
 #pragma region MapleStory Function Hook Addresses
 //Hook Addresses
 ULONG enterCSAddr = 0x00A04DCA;
