@@ -45,7 +45,7 @@ ref struct GlobalRefs
 	static double formOpacity;
 	static Generic::List<MapData^>^ maps;
 	static bool bSendPacketLog = false, bRecvPacketLog = false;
-	static bool loggedIn = false;
+	static int autoLoginRetries = 3;
 };
 
 #pragma region General Form
@@ -673,7 +673,7 @@ void AutoLoginMouse()
 	bool autoLogin = MainForm::TheInstance->cbAutoLogin->Checked;
 	String^ usernameStr = MainForm::TheInstance->tbAutoLoginUsername->Text->Trim();
 	String^ passwordStr = MainForm::TheInstance->tbAutoLoginPassword->Text->Trim();
-	if (GlobalRefs::loggedIn || HelperFuncs::IsInGame()) {
+	if (HelperFuncs::IsInGame()) {
 		return;
 	}
 	if (!autoLogin || String::IsNullOrEmpty(usernameStr) || String::IsNullOrEmpty(passwordStr)) {
@@ -756,12 +756,13 @@ void AutoLoginMouse()
 				Log::WriteLineToConsole("AutoLogin: Login Completed");
 
 				Sleep(2000);
-				if (!HelperFuncs::IsInGame()) {
+				if (!HelperFuncs::IsInGame() && GlobalRefs::autoLoginRetries > 0) {
 					KeyMacro::PressKey(VK_RETURN);
 					AutoLoginMouse();
+					GlobalRefs::autoLoginRetries--;
 				}
 				else {
-					GlobalRefs::loggedIn = true;
+					GlobalRefs::autoLoginRetries = 3;
 				}
 				break;
 			}
