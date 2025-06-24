@@ -1305,7 +1305,7 @@ namespace Timelapse {
 			   this->label96->Name = L"label96";
 			   this->label96->Size = System::Drawing::Size(119, 21);
 			   this->label96->TabIndex = 58;
-			   this->label96->Text = L"Char 立足点:";
+			   this->label96->Text = L"角色立足点:";
 			   // 
 			   // lbCharAnimation
 			   // 
@@ -1328,7 +1328,7 @@ namespace Timelapse {
 			   this->label94->Name = L"label94";
 			   this->label94->Size = System::Drawing::Size(130, 21);
 			   this->label94->TabIndex = 56;
-			   this->label94->Text = L"Char 动画:";
+			   this->label94->Text = L"角色动画:";
 			   // 
 			   // lbWalls
 			   // 
@@ -1886,7 +1886,7 @@ namespace Timelapse {
 			   this->label13->Name = L"label13";
 			   this->label13->Size = System::Drawing::Size(103, 21);
 			   this->label13->TabIndex = 14;
-			   this->label13->Text = L"Attack 数量:";
+			   this->label13->Text = L"攻击次数:";
 			   this->label13->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label13->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label13->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1900,7 +1900,7 @@ namespace Timelapse {
 			   this->label12->Name = L"label12";
 			   this->label12->Size = System::Drawing::Size(81, 21);
 			   this->label12->TabIndex = 13;
-			   this->label12->Text = L"Char 坐标:";
+			   this->label12->Text = L"角色坐标:";
 			   this->label12->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label12->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label12->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -4138,7 +4138,7 @@ namespace Timelapse {
 			   this->cbPetVac->Name = L"cbPetVac";
 			   this->cbPetVac->Size = System::Drawing::Size(127, 25);
 			   this->cbPetVac->TabIndex = 4;
-			   this->cbPetVac->Text = L"宠吸";
+			   this->cbPetVac->Text = L"宠物全图吸";
 			   this->cbPetVac->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			   this->cbPetVac->UseVisualStyleBackColor = false;
 			   this->cbPetVac->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbPetVac_CheckedChanged);

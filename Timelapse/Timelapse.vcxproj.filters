@@ -116,9 +116,6 @@
     <ClCompile Include="ShortcutHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Macro.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">
