@@ -22,7 +22,7 @@ Object^ MacroSystem::Settings::Deserialize(String^ path, XmlSerializer^ serializ
 			if (stream)
 				delete static_cast<IDisposable^>(stream);
 
-			Log::WriteLine("Loaded " + path);
+			Log::WriteLine("加载 " + path);
 		}
 	}
 
@@ -44,7 +44,7 @@ void MacroSystem::Settings::Serialize(String^ path, XmlSerializer^ serializer, O
 			if (stream)
 				delete static_cast<IDisposable^>(stream);
 
-			Log::WriteLine("Saved " + path);
+			Log::WriteLine("保存 " + path);
 		}
 	}
 }
@@ -64,7 +64,7 @@ void MacroSystem::Settings::Serialize(Control^ c, String^ XmlFileName) {
 	xmlSerializedForm->Flush();
 	xmlSerializedForm->Close();
 
-	Log::WriteLine("Saved " + XmlFileName);
+	Log::WriteLine("已保存 " + XmlFileName);
 }
 
 bool MacroSystem::Settings::isExcluded(Control^ ctrl) {

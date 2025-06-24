@@ -1040,7 +1040,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->embedMSWindowToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->embedMSWindowToolStripMenuItem->Name = L"embedMSWindowToolStripMenuItem";
-			   this->embedMSWindowToolStripMenuItem->Size = System::Drawing::Size(270, 34);
+			   this->embedMSWindowToolStripMenuItem->Size = System::Drawing::Size(236, 34);
 			   this->embedMSWindowToolStripMenuItem->Text = L"显示冒险岛窗口";
 			   this->embedMSWindowToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::embedMSWindowToolStripMenuItem_Click);
 			   // 
@@ -1050,7 +1050,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->hideMSWindowToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->hideMSWindowToolStripMenuItem->Name = L"hideMSWindowToolStripMenuItem";
-			   this->hideMSWindowToolStripMenuItem->Size = System::Drawing::Size(270, 34);
+			   this->hideMSWindowToolStripMenuItem->Size = System::Drawing::Size(236, 34);
 			   this->hideMSWindowToolStripMenuItem->Text = L"隐藏冒险岛窗口";
 			   this->hideMSWindowToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::hideMSWindowToolStripMenuItem_Click);
 			   // 
@@ -1060,7 +1060,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->pauseMSToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->pauseMSToolStripMenuItem->Name = L"pauseMSToolStripMenuItem";
-			   this->pauseMSToolStripMenuItem->Size = System::Drawing::Size(270, 34);
+			   this->pauseMSToolStripMenuItem->Size = System::Drawing::Size(236, 34);
 			   this->pauseMSToolStripMenuItem->Text = L"暂停冒险岛";
 			   this->pauseMSToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::pauseMSToolStripMenuItem_Click);
 			   // 
@@ -1070,7 +1070,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->injectDllToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->injectDllToolStripMenuItem->Name = L"injectDllToolStripMenuItem";
-			   this->injectDllToolStripMenuItem->Size = System::Drawing::Size(270, 34);
+			   this->injectDllToolStripMenuItem->Size = System::Drawing::Size(236, 34);
 			   this->injectDllToolStripMenuItem->Text = L"注入Dll";
 			   // 
 			   // helpToolStripMenuItem
@@ -1086,7 +1086,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->aboutToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->aboutToolStripMenuItem->Name = L"aboutToolStripMenuItem";
-			   this->aboutToolStripMenuItem->Size = System::Drawing::Size(270, 34);
+			   this->aboutToolStripMenuItem->Size = System::Drawing::Size(146, 34);
 			   this->aboutToolStripMenuItem->Text = L"&关于";
 			   // 
 			   // label1
@@ -1116,9 +1116,9 @@ namespace Timelapse {
 			   this->lbTitle->Location = System::Drawing::Point(44, 11);
 			   this->lbTitle->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbTitle->Name = L"lbTitle";
-			   this->lbTitle->Size = System::Drawing::Size(191, 24);
+			   this->lbTitle->Size = System::Drawing::Size(272, 24);
 			   this->lbTitle->TabIndex = 12;
-			   this->lbTitle->Text = L"Timelapse Trainer";
+			   this->lbTitle->Text = L"Timelapse Trainer   汉化版";
 			   this->lbTitle->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->lbTitle->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->lbTitle->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1305,7 +1305,7 @@ namespace Timelapse {
 			   this->label96->Name = L"label96";
 			   this->label96->Size = System::Drawing::Size(101, 21);
 			   this->label96->TabIndex = 58;
-			   this->label96->Text = L"角色立足点:";
+			   this->label96->Text = L"角色站立点:";
 			   // 
 			   // lbCharAnimation
 			   // 
@@ -2022,12 +2022,12 @@ namespace Timelapse {
 			   this->label3->AutoSize = true;
 			   this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label3->Location = System::Drawing::Point(602, 54);
+			   this->label3->Location = System::Drawing::Point(605, 50);
 			   this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label3->Name = L"label3";
-			   this->label3->Size = System::Drawing::Size(90, 37);
+			   this->label3->Size = System::Drawing::Size(154, 37);
 			   this->label3->TabIndex = 4;
-			   this->label3->Text = L"信息:";
+			   this->label3->Text = L"基本信息:";
 			   this->label3->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label3->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label3->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -2684,7 +2684,7 @@ namespace Timelapse {
 			   this->label48->Location = System::Drawing::Point(21, 219);
 			   this->label48->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label48->Name = L"label48";
-			   this->label48->Size = System::Drawing::Size(117, 42);
+			   this->label48->Size = System::Drawing::Size(91, 42);
 			   this->label48->TabIndex = 18;
 			   this->label48->Text = L"离开商场 \r\n延迟 (ms):";
 			   // 
@@ -2912,7 +2912,7 @@ namespace Timelapse {
 			   this->rbCS->Location = System::Drawing::Point(168, 8);
 			   this->rbCS->Margin = System::Windows::Forms::Padding(4);
 			   this->rbCS->Name = L"rbCS";
-			   this->rbCS->Size = System::Drawing::Size(101, 25);
+			   this->rbCS->Size = System::Drawing::Size(67, 25);
 			   this->rbCS->TabIndex = 5;
 			   this->rbCS->Text = L"商场";
 			   this->rbCS->UseVisualStyleBackColor = true;
@@ -3436,7 +3436,7 @@ namespace Timelapse {
 			   this->tabPage5->Padding = System::Windows::Forms::Padding(4);
 			   this->tabPage5->Size = System::Drawing::Size(589, 535);
 			   this->tabPage5->TabIndex = 2;
-			   this->tabPage5->Text = L"Hacks I";
+			   this->tabPage5->Text = L"版本1";
 			   // 
 			   // groupBox6
 			   // 
@@ -3494,7 +3494,7 @@ namespace Timelapse {
 			   this->cbNoBlueBoxes->Location = System::Drawing::Point(15, 172);
 			   this->cbNoBlueBoxes->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoBlueBoxes->Name = L"cbNoBlueBoxes";
-			   this->cbNoBlueBoxes->Size = System::Drawing::Size(137, 25);
+			   this->cbNoBlueBoxes->Size = System::Drawing::Size(116, 25);
 			   this->cbNoBlueBoxes->TabIndex = 10;
 			   this->cbNoBlueBoxes->Text = L"无蓝色天空";
 			   this->cbNoBlueBoxes->UseVisualStyleBackColor = false;
@@ -3570,7 +3570,7 @@ namespace Timelapse {
 			   this->cbNoMapFadeEffect->Location = System::Drawing::Point(15, 97);
 			   this->cbNoMapFadeEffect->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoMapFadeEffect->Name = L"cbNoMapFadeEffect";
-			   this->cbNoMapFadeEffect->Size = System::Drawing::Size(176, 25);
+			   this->cbNoMapFadeEffect->Size = System::Drawing::Size(184, 25);
 			   this->cbNoMapFadeEffect->TabIndex = 5;
 			   this->cbNoMapFadeEffect->Text = L"无贴图淡入淡出效果";
 			   this->cbNoMapFadeEffect->UseVisualStyleBackColor = false;
@@ -3585,7 +3585,7 @@ namespace Timelapse {
 			   this->cbNoMapObjects->Location = System::Drawing::Point(15, 47);
 			   this->cbNoMapObjects->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoMapObjects->Name = L"cbNoMapObjects";
-			   this->cbNoMapObjects->Size = System::Drawing::Size(149, 25);
+			   this->cbNoMapObjects->Size = System::Drawing::Size(116, 25);
 			   this->cbNoMapObjects->TabIndex = 7;
 			   this->cbNoMapObjects->Text = L"无地图对象";
 			   this->cbNoMapObjects->UseVisualStyleBackColor = false;
@@ -4167,7 +4167,7 @@ namespace Timelapse {
 			   this->cbNoPlayerKnockback->Location = System::Drawing::Point(15, 97);
 			   this->cbNoPlayerKnockback->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoPlayerKnockback->Name = L"cbNoPlayerKnockback";
-			   this->cbNoPlayerKnockback->Size = System::Drawing::Size(184, 25);
+			   this->cbNoPlayerKnockback->Size = System::Drawing::Size(150, 25);
 			   this->cbNoPlayerKnockback->TabIndex = 5;
 			   this->cbNoPlayerKnockback->Text = L"玩家无法被击退";
 			   this->cbNoPlayerKnockback->UseVisualStyleBackColor = false;
@@ -4212,7 +4212,7 @@ namespace Timelapse {
 			   this->cbUnlimitedAttack->Location = System::Drawing::Point(15, 47);
 			   this->cbUnlimitedAttack->Margin = System::Windows::Forms::Padding(4);
 			   this->cbUnlimitedAttack->Name = L"cbUnlimitedAttack";
-			   this->cbUnlimitedAttack->Size = System::Drawing::Size(154, 25);
+			   this->cbUnlimitedAttack->Size = System::Drawing::Size(99, 25);
 			   this->cbUnlimitedAttack->TabIndex = 6;
 			   this->cbUnlimitedAttack->Text = L"无限攻击";
 			   this->cbUnlimitedAttack->UseVisualStyleBackColor = false;
@@ -4230,7 +4230,7 @@ namespace Timelapse {
 			   this->tabPage20->Padding = System::Windows::Forms::Padding(4);
 			   this->tabPage20->Size = System::Drawing::Size(589, 535);
 			   this->tabPage20->TabIndex = 7;
-			   this->tabPage20->Text = L"Hacks II";
+			   this->tabPage20->Text = L"版本2";
 			   // 
 			   // panel27
 			   // 
@@ -4775,9 +4775,9 @@ namespace Timelapse {
 			   this->cbVacLeft->Location = System::Drawing::Point(195, 65);
 			   this->cbVacLeft->Margin = System::Windows::Forms::Padding(4);
 			   this->cbVacLeft->Name = L"cbVacLeft";
-			   this->cbVacLeft->Size = System::Drawing::Size(121, 25);
+			   this->cbVacLeft->Size = System::Drawing::Size(133, 25);
 			   this->cbVacLeft->TabIndex = 27;
-			   this->cbVacLeft->Text = L"最左侧 吸怪";
+			   this->cbVacLeft->Text = L"向左自动吸怪";
 			   this->cbVacLeft->UseVisualStyleBackColor = false;
 			   this->cbVacLeft->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbVacLeft_CheckedChanged);
 			   // 
@@ -4820,9 +4820,9 @@ namespace Timelapse {
 			   this->cbVacRight->Location = System::Drawing::Point(195, 37);
 			   this->cbVacRight->Margin = System::Windows::Forms::Padding(4);
 			   this->cbVacRight->Name = L"cbVacRight";
-			   this->cbVacRight->Size = System::Drawing::Size(121, 25);
+			   this->cbVacRight->Size = System::Drawing::Size(133, 25);
 			   this->cbVacRight->TabIndex = 26;
-			   this->cbVacRight->Text = L"最右侧 吸怪";
+			   this->cbVacRight->Text = L"向右自动吸怪";
 			   this->cbVacRight->UseVisualStyleBackColor = false;
 			   this->cbVacRight->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbVacRight_CheckedChanged);
 			   // 
@@ -4835,9 +4835,9 @@ namespace Timelapse {
 			   this->cbVacForceRight->Location = System::Drawing::Point(195, 10);
 			   this->cbVacForceRight->Margin = System::Windows::Forms::Padding(4);
 			   this->cbVacForceRight->Name = L"cbVacForceRight";
-			   this->cbVacForceRight->Size = System::Drawing::Size(155, 25);
+			   this->cbVacForceRight->Size = System::Drawing::Size(167, 25);
 			   this->cbVacForceRight->TabIndex = 25;
-			   this->cbVacForceRight->Text = L"强制最右侧 吸怪";
+			   this->cbVacForceRight->Text = L"强制向右自动吸怪";
 			   this->cbVacForceRight->UseVisualStyleBackColor = false;
 			   this->cbVacForceRight->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbVacForceRight_CheckedChanged);
 			   // 
@@ -5067,7 +5067,7 @@ namespace Timelapse {
 			   this->label60->Name = L"label60";
 			   this->label60->Size = System::Drawing::Size(101, 21);
 			   this->label60->TabIndex = 17;
-			   this->label60->Text = L"立足点编号:";
+			   this->label60->Text = L"站立点编号:";
 			   // 
 			   // bDupeXGetFoothold
 			   // 
@@ -5079,7 +5079,7 @@ namespace Timelapse {
 			   this->bDupeXGetFoothold->Name = L"bDupeXGetFoothold";
 			   this->bDupeXGetFoothold->Size = System::Drawing::Size(141, 29);
 			   this->bDupeXGetFoothold->TabIndex = 15;
-			   this->bDupeXGetFoothold->Text = L"获取立足点";
+			   this->bDupeXGetFoothold->Text = L"获取站立点";
 			   this->bDupeXGetFoothold->UseVisualStyleBackColor = true;
 			   this->bDupeXGetFoothold->Click += gcnew System::EventHandler(this, &MainForm::bDupeXGetFoothold_Click);
 			   // 
@@ -5092,9 +5092,9 @@ namespace Timelapse {
 			   this->cbDupeX->Location = System::Drawing::Point(9, 1);
 			   this->cbDupeX->Margin = System::Windows::Forms::Padding(4);
 			   this->cbDupeX->Name = L"cbDupeX";
-			   this->cbDupeX->Size = System::Drawing::Size(80, 25);
+			   this->cbDupeX->Size = System::Drawing::Size(99, 25);
 			   this->cbDupeX->TabIndex = 1;
-			   this->cbDupeX->Text = L"DupeX";
+			   this->cbDupeX->Text = L"物品复制";
 			   this->cbDupeX->UseVisualStyleBackColor = false;
 			   this->cbDupeX->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbDupeX_CheckedChanged);
 			   // 
@@ -5323,9 +5323,9 @@ namespace Timelapse {
 			   this->cbKamiLoot->Location = System::Drawing::Point(9, 4);
 			   this->cbKamiLoot->Margin = System::Windows::Forms::Padding(4);
 			   this->cbKamiLoot->Name = L"cbKamiLoot";
-			   this->cbKamiLoot->Size = System::Drawing::Size(107, 25);
+			   this->cbKamiLoot->Size = System::Drawing::Size(133, 25);
 			   this->cbKamiLoot->TabIndex = 1;
-			   this->cbKamiLoot->Text = L"Kami 物品";
+			   this->cbKamiLoot->Text = L"自动拾取物品";
 			   this->cbKamiLoot->UseVisualStyleBackColor = false;
 			   this->cbKamiLoot->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbKamiLoot_CheckedChanged);
 			   // 
@@ -5459,9 +5459,9 @@ namespace Timelapse {
 			   this->cbKami->Location = System::Drawing::Point(9, 1);
 			   this->cbKami->Margin = System::Windows::Forms::Padding(4);
 			   this->cbKami->Name = L"cbKami";
-			   this->cbKami->Size = System::Drawing::Size(68, 25);
+			   this->cbKami->Size = System::Drawing::Size(133, 25);
 			   this->cbKami->TabIndex = 1;
-			   this->cbKami->Text = L"Kami";
+			   this->cbKami->Text = L"自动击杀怪物";
 			   this->cbKami->UseVisualStyleBackColor = false;
 			   this->cbKami->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbKami_CheckedChanged);
 			   // 
@@ -5906,7 +5906,7 @@ namespace Timelapse {
 			   this->tabPage8->Name = L"tabPage8";
 			   this->tabPage8->Size = System::Drawing::Size(589, 535);
 			   this->tabPage8->TabIndex = 5;
-			   this->tabPage8->Text = L"Packets";
+			   this->tabPage8->Text = L"数据包";
 			   // 
 			   // tabControl5
 			   // 
