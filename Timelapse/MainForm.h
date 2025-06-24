@@ -556,7 +556,6 @@ namespace Timelapse {
 			   this->label4 = (gcnew System::Windows::Forms::Label());
 			   this->label3 = (gcnew System::Windows::Forms::Label());
 			   this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
-			   MainForm::ControlMap["MainTabs"] = this->tabControl1;
 			   this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			   this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			   this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
@@ -644,15 +643,12 @@ namespace Timelapse {
 			   this->label28 = (gcnew System::Windows::Forms::Label());
 			   this->label27 = (gcnew System::Windows::Forms::Label());
 			   this->cbLoot = (gcnew System::Windows::Forms::CheckBox());
-			   MainForm::ControlMap["AutoLoot"] = this->cbLoot;
 			   this->label30 = (gcnew System::Windows::Forms::Label());
 			   this->comboLootKey = (gcnew System::Windows::Forms::ComboBox());
 			   this->label26 = (gcnew System::Windows::Forms::Label());
 			   this->comboAttackKey = (gcnew System::Windows::Forms::ComboBox());
-			   MainForm::ControlMap["AutoAttackKey"] = this->comboAttackKey;
 			   this->comboMPKey = (gcnew System::Windows::Forms::ComboBox());
 			   this->cbAttack = (gcnew System::Windows::Forms::CheckBox());
-			   MainForm::ControlMap["AutoAttack"] = this->cbAttack;
 			   this->comboHPKey = (gcnew System::Windows::Forms::ComboBox());
 			   this->tbMP = (gcnew System::Windows::Forms::TextBox());
 			   this->tbHP = (gcnew System::Windows::Forms::TextBox());
@@ -703,7 +699,6 @@ namespace Timelapse {
 			   this->cbNoAttackDelay = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbNoPlayerNameTag = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbFullGodmode = (gcnew System::Windows::Forms::CheckBox());
-			   MainForm::ControlMap["GodMode"] = this->cbFullGodmode;
 			   this->cbJumpDownAnyTile = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbPetVac = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbNoBreath = (gcnew System::Windows::Forms::CheckBox());
@@ -756,7 +751,6 @@ namespace Timelapse {
 			   this->cbVacLeft = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbZzVac = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbFullMapAttack = (gcnew System::Windows::Forms::CheckBox());
-			   MainForm::ControlMap["FMA"] = this->cbFullMapAttack;
 			   this->cbVacRight = (gcnew System::Windows::Forms::CheckBox());
 			   this->cbVacForceRight = (gcnew System::Windows::Forms::CheckBox());
 			   this->panel17 = (gcnew System::Windows::Forms::Panel());
@@ -775,12 +769,9 @@ namespace Timelapse {
 			   this->label62 = (gcnew System::Windows::Forms::Label());
 			   this->label67 = (gcnew System::Windows::Forms::Label());
 			   this->tbDupeXFoothold = (gcnew System::Windows::Forms::TextBox());
-			   MainForm::ControlMap["DupexFoothold"] = this->tbDupeXFoothold;
 			   this->label60 = (gcnew System::Windows::Forms::Label());
 			   this->bDupeXGetFoothold = (gcnew System::Windows::Forms::Button());
-			   MainForm::ControlMap["DupexGetFoothold"] = this->bDupeXGetFoothold;
 			   this->cbDupeX = (gcnew System::Windows::Forms::CheckBox());
-			   MainForm::ControlMap["DupeX"] = this->cbDupeX;
 			   this->panel15 = (gcnew System::Windows::Forms::Panel());
 			   this->tbWallVacRangeY = (gcnew System::Windows::Forms::TextBox());
 			   this->label61 = (gcnew System::Windows::Forms::Label());
@@ -826,22 +817,18 @@ namespace Timelapse {
 			   this->panel20 = (gcnew System::Windows::Forms::Panel());
 			   this->lbItemSearchLog = (gcnew System::Windows::Forms::ListBox());
 			   this->lbItemFilter = (gcnew System::Windows::Forms::ListBox());
-			   MainForm::ControlMap["ItemFilterListBox"] = this->lbItemFilter;
 			   this->cbItemFilterLog = (gcnew System::Windows::Forms::CheckBox());
 			   this->bItemSearchLogClear = (gcnew System::Windows::Forms::Button());
 			   this->tbItemFilterSearch = (gcnew System::Windows::Forms::TextBox());
 			   this->label74 = (gcnew System::Windows::Forms::Label());
 			   this->bItemFilterAdd = (gcnew System::Windows::Forms::Button());
-			   MainForm::ControlMap["ItemFilterAdd"] = this->bItemFilterAdd;
 			   this->tbItemFilterID = (gcnew System::Windows::Forms::TextBox());
-			   MainForm::ControlMap["ItemFilterID"] = this->tbItemFilterID;
 			   this->label73 = (gcnew System::Windows::Forms::Label());
 			   this->tbItemFilterMesos = (gcnew System::Windows::Forms::TextBox());
 			   this->label70 = (gcnew System::Windows::Forms::Label());
 			   this->rbItemFilterWhiteList = (gcnew System::Windows::Forms::RadioButton());
 			   this->rbItemFilterBlackList = (gcnew System::Windows::Forms::RadioButton());
 			   this->bItemFilter = (gcnew System::Windows::Forms::Button());
-			   MainForm::ControlMap["ItemFilterEnable"] = this->bItemFilter;
 			   this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
 			   this->tabControl5 = (gcnew System::Windows::Forms::TabControl());
 			   this->tabPage16 = (gcnew System::Windows::Forms::TabPage());
@@ -981,14 +968,15 @@ namespace Timelapse {
 			   this->MenuStrip->BackColor = System::Drawing::Color::Transparent;
 			   this->MenuStrip->Dock = System::Windows::Forms::DockStyle::None;
 			   this->MenuStrip->ForeColor = System::Drawing::Color::White;
+			   this->MenuStrip->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			   this->MenuStrip->ImageScalingSize = System::Drawing::Size(32, 32);
 			   this->MenuStrip->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				   this->fileToolStripMenuItem,
 					   this->mapleStoryToolStripMenuItem, this->helpToolStripMenuItem
 			   });
-			   this->MenuStrip->Location = System::Drawing::Point(0, 2);
+			   this->MenuStrip->Location = System::Drawing::Point(0, 3);
 			   this->MenuStrip->Name = L"MenuStrip";
-			   this->MenuStrip->Size = System::Drawing::Size(168, 24);
+			   this->MenuStrip->Size = System::Drawing::Size(257, 32);
 			   this->MenuStrip->TabIndex = 1;
 			   this->MenuStrip->Text = L"menuStrip1";
 			   // 
@@ -1001,7 +989,7 @@ namespace Timelapse {
 					   this->saveSettingsToolStripMenuItem, this->closeMapleStoryToolStripMenuItem
 			   });
 			   this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			   this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
+			   this->fileToolStripMenuItem->Size = System::Drawing::Size(56, 28);
 			   this->fileToolStripMenuItem->Text = L"File";
 			   // 
 			   // openSettingsToolStripMenuItem
@@ -1010,7 +998,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->openSettingsToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->openSettingsToolStripMenuItem->Name = L"openSettingsToolStripMenuItem";
-			   this->openSettingsToolStripMenuItem->Size = System::Drawing::Size(166, 22);
+			   this->openSettingsToolStripMenuItem->Size = System::Drawing::Size(261, 34);
 			   this->openSettingsToolStripMenuItem->Text = L"Open Settings";
 			   this->openSettingsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::loadSettingsToolStripMenuItem_Click);
 			   // 
@@ -1020,7 +1008,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->saveSettingsToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->saveSettingsToolStripMenuItem->Name = L"saveSettingsToolStripMenuItem";
-			   this->saveSettingsToolStripMenuItem->Size = System::Drawing::Size(166, 22);
+			   this->saveSettingsToolStripMenuItem->Size = System::Drawing::Size(261, 34);
 			   this->saveSettingsToolStripMenuItem->Text = L"Save Settings";
 			   this->saveSettingsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::saveSettingsToolStripMenuItem_Click);
 			   // 
@@ -1030,7 +1018,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->closeMapleStoryToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->closeMapleStoryToolStripMenuItem->Name = L"closeMapleStoryToolStripMenuItem";
-			   this->closeMapleStoryToolStripMenuItem->Size = System::Drawing::Size(166, 22);
+			   this->closeMapleStoryToolStripMenuItem->Size = System::Drawing::Size(261, 34);
 			   this->closeMapleStoryToolStripMenuItem->Text = L"&Close MapleStory";
 			   this->closeMapleStoryToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::closeMapleStoryToolStripMenuItem_Click);
 			   // 
@@ -1043,7 +1031,7 @@ namespace Timelapse {
 					   this->hideMSWindowToolStripMenuItem, this->pauseMSToolStripMenuItem, this->injectDllToolStripMenuItem
 			   });
 			   this->mapleStoryToolStripMenuItem->Name = L"mapleStoryToolStripMenuItem";
-			   this->mapleStoryToolStripMenuItem->Size = System::Drawing::Size(79, 20);
+			   this->mapleStoryToolStripMenuItem->Size = System::Drawing::Size(126, 28);
 			   this->mapleStoryToolStripMenuItem->Text = L"MapleStory";
 			   // 
 			   // embedMSWindowToolStripMenuItem
@@ -1052,7 +1040,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->embedMSWindowToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->embedMSWindowToolStripMenuItem->Name = L"embedMSWindowToolStripMenuItem";
-			   this->embedMSWindowToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+			   this->embedMSWindowToolStripMenuItem->Size = System::Drawing::Size(280, 34);
 			   this->embedMSWindowToolStripMenuItem->Text = L"Embed MS Window";
 			   this->embedMSWindowToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::embedMSWindowToolStripMenuItem_Click);
 			   // 
@@ -1062,7 +1050,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->hideMSWindowToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->hideMSWindowToolStripMenuItem->Name = L"hideMSWindowToolStripMenuItem";
-			   this->hideMSWindowToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+			   this->hideMSWindowToolStripMenuItem->Size = System::Drawing::Size(280, 34);
 			   this->hideMSWindowToolStripMenuItem->Text = L"Hide MS Window";
 			   this->hideMSWindowToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::hideMSWindowToolStripMenuItem_Click);
 			   // 
@@ -1072,7 +1060,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->pauseMSToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->pauseMSToolStripMenuItem->Name = L"pauseMSToolStripMenuItem";
-			   this->pauseMSToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+			   this->pauseMSToolStripMenuItem->Size = System::Drawing::Size(280, 34);
 			   this->pauseMSToolStripMenuItem->Text = L"Pause MS";
 			   this->pauseMSToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::pauseMSToolStripMenuItem_Click);
 			   // 
@@ -1082,14 +1070,14 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->injectDllToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->injectDllToolStripMenuItem->Name = L"injectDllToolStripMenuItem";
-			   this->injectDllToolStripMenuItem->Size = System::Drawing::Size(178, 22);
+			   this->injectDllToolStripMenuItem->Size = System::Drawing::Size(280, 34);
 			   this->injectDllToolStripMenuItem->Text = L"Inject Dll";
 			   // 
 			   // helpToolStripMenuItem
 			   // 
 			   this->helpToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->aboutToolStripMenuItem });
 			   this->helpToolStripMenuItem->Name = L"helpToolStripMenuItem";
-			   this->helpToolStripMenuItem->Size = System::Drawing::Size(44, 20);
+			   this->helpToolStripMenuItem->Size = System::Drawing::Size(67, 28);
 			   this->helpToolStripMenuItem->Text = L"Help";
 			   // 
 			   // aboutToolStripMenuItem
@@ -1098,7 +1086,7 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)), static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->aboutToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			   this->aboutToolStripMenuItem->Name = L"aboutToolStripMenuItem";
-			   this->aboutToolStripMenuItem->Size = System::Drawing::Size(107, 22);
+			   this->aboutToolStripMenuItem->Size = System::Drawing::Size(164, 34);
 			   this->aboutToolStripMenuItem->Text = L"&About";
 			   // 
 			   // label1
@@ -1108,9 +1096,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(16)));
 			   this->label1->Font = (gcnew System::Drawing::Font(L"Tahoma", 6.75F));
 			   this->label1->ForeColor = System::Drawing::Color::Gray;
-			   this->label1->Location = System::Drawing::Point(484, 2);
+			   this->label1->Location = System::Drawing::Point(726, 3);
+			   this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label1->Name = L"label1";
-			   this->label1->Size = System::Drawing::Size(70, 22);
+			   this->label1->Size = System::Drawing::Size(100, 34);
 			   this->label1->TabIndex = 3;
 			   this->label1->Text = L"MS Version: 83\r\nPrivate Servers";
 			   this->label1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1124,9 +1113,10 @@ namespace Timelapse {
 			   this->lbTitle->Font = (gcnew System::Drawing::Font(L"Tahoma", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->lbTitle->ForeColor = System::Drawing::Color::Silver;
-			   this->lbTitle->Location = System::Drawing::Point(29, 8);
+			   this->lbTitle->Location = System::Drawing::Point(44, 11);
+			   this->lbTitle->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbTitle->Name = L"lbTitle";
-			   this->lbTitle->Size = System::Drawing::Size(120, 16);
+			   this->lbTitle->Size = System::Drawing::Size(191, 24);
 			   this->lbTitle->TabIndex = 12;
 			   this->lbTitle->Text = L"Timelapse Trainer";
 			   this->lbTitle->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1137,9 +1127,10 @@ namespace Timelapse {
 			   // 
 			   this->pictureBox2->Anchor = System::Windows::Forms::AnchorStyles::None;
 			   this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			   this->pictureBox2->Location = System::Drawing::Point(7, 6);
+			   this->pictureBox2->Location = System::Drawing::Point(10, 8);
+			   this->pictureBox2->Margin = System::Windows::Forms::Padding(4);
 			   this->pictureBox2->Name = L"pictureBox2";
-			   this->pictureBox2->Size = System::Drawing::Size(20, 21);
+			   this->pictureBox2->Size = System::Drawing::Size(30, 29);
 			   this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			   this->pictureBox2->TabIndex = 11;
 			   this->pictureBox2->TabStop = false;
@@ -1161,8 +1152,9 @@ namespace Timelapse {
 			   this->pnlFull->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->pnlFull->ForeColor = System::Drawing::Color::White;
 			   this->pnlFull->Location = System::Drawing::Point(0, 0);
+			   this->pnlFull->Margin = System::Windows::Forms::Padding(4);
 			   this->pnlFull->Name = L"pnlFull";
-			   this->pnlFull->Size = System::Drawing::Size(560, 500);
+			   this->pnlFull->Size = System::Drawing::Size(839, 692);
 			   this->pnlFull->TabIndex = 13;
 			   this->pnlFull->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->pnlFull->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
@@ -1175,11 +1167,12 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->lbMapName->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbMapName->ForeColor = System::Drawing::Color::Silver;
-			   this->lbMapName->Location = System::Drawing::Point(65, 479);
+			   this->lbMapName->Location = System::Drawing::Point(98, 663);
+			   this->lbMapName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbMapName->Name = L"lbMapName";
-			   this->lbMapName->Size = System::Drawing::Size(55, 13);
+			   this->lbMapName->Size = System::Drawing::Size(81, 21);
 			   this->lbMapName->TabIndex = 42;
-			   this->lbMapName->Text = L"Waiting...";
+			   this->lbMapName->Text = L"等待...";
 			   this->lbMapName->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->lbMapName->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->lbMapName->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1191,11 +1184,12 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(19)));
 			   this->label21->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->label21->ForeColor = System::Drawing::Color::Silver;
-			   this->label21->Location = System::Drawing::Point(5, 479);
+			   this->label21->Location = System::Drawing::Point(8, 663);
+			   this->label21->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label21->Name = L"label21";
-			   this->label21->Size = System::Drawing::Size(61, 13);
+			   this->label21->Size = System::Drawing::Size(95, 21);
 			   this->label21->TabIndex = 22;
-			   this->label21->Text = L"Map Name:";
+			   this->label21->Text = L"地图名称:";
 			   this->label21->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label21->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label21->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1212,9 +1206,10 @@ namespace Timelapse {
 			   this->btnMinimize->Font = (gcnew System::Drawing::Font(L"Lucida Console", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->btnMinimize->ForeColor = System::Drawing::Color::Silver;
-			   this->btnMinimize->Location = System::Drawing::Point(494, -1);
+			   this->btnMinimize->Location = System::Drawing::Point(741, -1);
+			   this->btnMinimize->Margin = System::Windows::Forms::Padding(4);
 			   this->btnMinimize->Name = L"btnMinimize";
-			   this->btnMinimize->Size = System::Drawing::Size(29, 29);
+			   this->btnMinimize->Size = System::Drawing::Size(44, 40);
 			   this->btnMinimize->TabIndex = 9;
 			   this->btnMinimize->Text = L"_";
 			   this->btnMinimize->UseVisualStyleBackColor = false;
@@ -1280,9 +1275,10 @@ namespace Timelapse {
 			   this->pnlMiddle->Controls->Add(this->label1);
 			   this->pnlMiddle->Controls->Add(this->MenuStrip);
 			   this->pnlMiddle->Controls->Add(this->tabControl1);
-			   this->pnlMiddle->Location = System::Drawing::Point(0, 28);
+			   this->pnlMiddle->Location = System::Drawing::Point(0, 39);
+			   this->pnlMiddle->Margin = System::Windows::Forms::Padding(4);
 			   this->pnlMiddle->Name = L"pnlMiddle";
-			   this->pnlMiddle->Size = System::Drawing::Size(560, 445);
+			   this->pnlMiddle->Size = System::Drawing::Size(839, 615);
 			   this->pnlMiddle->TabIndex = 3;
 			   this->pnlMiddle->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->pnlMiddle->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
@@ -1293,9 +1289,10 @@ namespace Timelapse {
 			   this->lbCharFoothold->AutoSize = true;
 			   this->lbCharFoothold->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbCharFoothold->ForeColor = System::Drawing::Color::SkyBlue;
-			   this->lbCharFoothold->Location = System::Drawing::Point(487, 237);
+			   this->lbCharFoothold->Location = System::Drawing::Point(730, 328);
+			   this->lbCharFoothold->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbCharFoothold->Name = L"lbCharFoothold";
-			   this->lbCharFoothold->Size = System::Drawing::Size(25, 13);
+			   this->lbCharFoothold->Size = System::Drawing::Size(37, 21);
 			   this->lbCharFoothold->TabIndex = 59;
 			   this->lbCharFoothold->Text = L"000";
 			   // 
@@ -1303,20 +1300,22 @@ namespace Timelapse {
 			   // 
 			   this->label96->AutoSize = true;
 			   this->label96->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label96->Location = System::Drawing::Point(405, 238);
+			   this->label96->Location = System::Drawing::Point(608, 330);
+			   this->label96->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label96->Name = L"label96";
-			   this->label96->Size = System::Drawing::Size(79, 13);
+			   this->label96->Size = System::Drawing::Size(119, 21);
 			   this->label96->TabIndex = 58;
-			   this->label96->Text = L"Char Foothold:";
+			   this->label96->Text = L"Char 立足点:";
 			   // 
 			   // lbCharAnimation
 			   // 
 			   this->lbCharAnimation->AutoSize = true;
 			   this->lbCharAnimation->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbCharAnimation->ForeColor = System::Drawing::Color::Chartreuse;
-			   this->lbCharAnimation->Location = System::Drawing::Point(491, 253);
+			   this->lbCharAnimation->Location = System::Drawing::Point(736, 350);
+			   this->lbCharAnimation->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbCharAnimation->Name = L"lbCharAnimation";
-			   this->lbCharAnimation->Size = System::Drawing::Size(25, 13);
+			   this->lbCharAnimation->Size = System::Drawing::Size(37, 21);
 			   this->lbCharAnimation->TabIndex = 57;
 			   this->lbCharAnimation->Text = L"000";
 			   // 
@@ -1324,20 +1323,22 @@ namespace Timelapse {
 			   // 
 			   this->label94->AutoSize = true;
 			   this->label94->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label94->Location = System::Drawing::Point(405, 253);
+			   this->label94->Location = System::Drawing::Point(608, 350);
+			   this->label94->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label94->Name = L"label94";
-			   this->label94->Size = System::Drawing::Size(84, 13);
+			   this->label94->Size = System::Drawing::Size(130, 21);
 			   this->label94->TabIndex = 56;
-			   this->label94->Text = L"Char Animation:";
+			   this->label94->Text = L"Char 动画:";
 			   // 
 			   // lbWalls
 			   // 
 			   this->lbWalls->AutoSize = true;
 			   this->lbWalls->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbWalls->ForeColor = System::Drawing::Color::MediumOrchid;
-			   this->lbWalls->Location = System::Drawing::Point(436, 218);
+			   this->lbWalls->Location = System::Drawing::Point(654, 302);
+			   this->lbWalls->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbWalls->Name = L"lbWalls";
-			   this->lbWalls->Size = System::Drawing::Size(120, 13);
+			   this->lbWalls->Size = System::Drawing::Size(181, 21);
 			   this->lbWalls->TabIndex = 55;
 			   this->lbWalls->Text = L"-0000 0000 -0000 0000";
 			   // 
@@ -1345,36 +1346,39 @@ namespace Timelapse {
 			   // 
 			   this->label92->AutoSize = true;
 			   this->label92->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label92->Location = System::Drawing::Point(405, 218);
+			   this->label92->Location = System::Drawing::Point(608, 302);
+			   this->label92->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label92->Name = L"label92";
-			   this->label92->Size = System::Drawing::Size(36, 13);
+			   this->label92->Size = System::Drawing::Size(56, 21);
 			   this->label92->TabIndex = 54;
-			   this->label92->Text = L"Walls:";
+			   this->label92->Text = L"墙体:";
 			   // 
 			   // bTestButton
 			   // 
 			   this->bTestButton->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bTestButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bTestButton->Location = System::Drawing::Point(408, 3);
+			   this->bTestButton->Location = System::Drawing::Point(612, 4);
+			   this->bTestButton->Margin = System::Windows::Forms::Padding(4);
 			   this->bTestButton->Name = L"bTestButton";
-			   this->bTestButton->Size = System::Drawing::Size(56, 24);
+			   this->bTestButton->Size = System::Drawing::Size(84, 33);
 			   this->bTestButton->TabIndex = 51;
 			   this->bTestButton->Text = L"Test";
 			   this->bTestButton->UseVisualStyleBackColor = true;
-			   this->bTestButton->Click += gcnew System::EventHandler(this, &MainForm::bTestButton_Click);
 			   this->bTestButton->Visible = false;
+			   this->bTestButton->Click += gcnew System::EventHandler(this, &MainForm::bTestButton_Click);
 			   // 
 			   // lbInactive
 			   // 
 			   this->lbInactive->AutoSize = true;
 			   this->lbInactive->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbInactive->ForeColor = System::Drawing::Color::Red;
-			   this->lbInactive->Location = System::Drawing::Point(508, 24);
+			   this->lbInactive->Location = System::Drawing::Point(762, 33);
+			   this->lbInactive->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbInactive->Name = L"lbInactive";
 			   this->lbInactive->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->lbInactive->Size = System::Drawing::Size(46, 13);
+			   this->lbInactive->Size = System::Drawing::Size(69, 21);
 			   this->lbInactive->TabIndex = 50;
-			   this->lbInactive->Text = L"Inactive";
+			   this->lbInactive->Text = L"未激活";
 			   this->lbInactive->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			   this->lbInactive->Visible = false;
 			   this->lbInactive->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1386,12 +1390,13 @@ namespace Timelapse {
 			   this->lbActive->AutoSize = true;
 			   this->lbActive->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbActive->ForeColor = System::Drawing::Color::Green;
-			   this->lbActive->Location = System::Drawing::Point(517, 24);
+			   this->lbActive->Location = System::Drawing::Point(776, 33);
+			   this->lbActive->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbActive->Name = L"lbActive";
 			   this->lbActive->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->lbActive->Size = System::Drawing::Size(37, 13);
+			   this->lbActive->Size = System::Drawing::Size(56, 21);
 			   this->lbActive->TabIndex = 49;
-			   this->lbActive->Text = L"Active";
+			   this->lbActive->Text = L"激活";
 			   this->lbActive->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			   this->lbActive->Visible = false;
 			   this->lbActive->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1403,9 +1408,10 @@ namespace Timelapse {
 			   this->lbThreadID->AutoSize = true;
 			   this->lbThreadID->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbThreadID->ForeColor = System::Drawing::Color::SpringGreen;
-			   this->lbThreadID->Location = System::Drawing::Point(468, 427);
+			   this->lbThreadID->Location = System::Drawing::Point(702, 591);
+			   this->lbThreadID->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbThreadID->Name = L"lbThreadID";
-			   this->lbThreadID->Size = System::Drawing::Size(43, 13);
+			   this->lbThreadID->Size = System::Drawing::Size(63, 21);
 			   this->lbThreadID->TabIndex = 48;
 			   this->lbThreadID->Text = L"0x0000";
 			   this->lbThreadID->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1417,9 +1423,10 @@ namespace Timelapse {
 			   this->lbNPCCount->AutoSize = true;
 			   this->lbNPCCount->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbNPCCount->ForeColor = System::Drawing::Color::PaleTurquoise;
-			   this->lbNPCCount->Location = System::Drawing::Point(485, 408);
+			   this->lbNPCCount->Location = System::Drawing::Point(728, 565);
+			   this->lbNPCCount->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbNPCCount->Name = L"lbNPCCount";
-			   this->lbNPCCount->Size = System::Drawing::Size(25, 13);
+			   this->lbNPCCount->Size = System::Drawing::Size(37, 21);
 			   this->lbNPCCount->TabIndex = 47;
 			   this->lbNPCCount->Text = L"000";
 			   this->lbNPCCount->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1431,9 +1438,10 @@ namespace Timelapse {
 			   this->lbPortalCount->AutoSize = true;
 			   this->lbPortalCount->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbPortalCount->ForeColor = System::Drawing::Color::PaleTurquoise;
-			   this->lbPortalCount->Location = System::Drawing::Point(485, 393);
+			   this->lbPortalCount->Location = System::Drawing::Point(728, 544);
+			   this->lbPortalCount->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbPortalCount->Name = L"lbPortalCount";
-			   this->lbPortalCount->Size = System::Drawing::Size(25, 13);
+			   this->lbPortalCount->Size = System::Drawing::Size(37, 21);
 			   this->lbPortalCount->TabIndex = 46;
 			   this->lbPortalCount->Text = L"000";
 			   this->lbPortalCount->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1445,9 +1453,10 @@ namespace Timelapse {
 			   this->lbItemCount->AutoSize = true;
 			   this->lbItemCount->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbItemCount->ForeColor = System::Drawing::Color::PaleTurquoise;
-			   this->lbItemCount->Location = System::Drawing::Point(485, 378);
+			   this->lbItemCount->Location = System::Drawing::Point(728, 523);
+			   this->lbItemCount->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbItemCount->Name = L"lbItemCount";
-			   this->lbItemCount->Size = System::Drawing::Size(25, 13);
+			   this->lbItemCount->Size = System::Drawing::Size(37, 21);
 			   this->lbItemCount->TabIndex = 45;
 			   this->lbItemCount->Text = L"000";
 			   this->lbItemCount->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1459,9 +1468,10 @@ namespace Timelapse {
 			   this->lbMobCount->AutoSize = true;
 			   this->lbMobCount->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbMobCount->ForeColor = System::Drawing::Color::PaleTurquoise;
-			   this->lbMobCount->Location = System::Drawing::Point(485, 363);
+			   this->lbMobCount->Location = System::Drawing::Point(728, 503);
+			   this->lbMobCount->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbMobCount->Name = L"lbMobCount";
-			   this->lbMobCount->Size = System::Drawing::Size(25, 13);
+			   this->lbMobCount->Size = System::Drawing::Size(37, 21);
 			   this->lbMobCount->TabIndex = 44;
 			   this->lbMobCount->Text = L"000";
 			   this->lbMobCount->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1473,9 +1483,10 @@ namespace Timelapse {
 			   this->lbPeopleCount->AutoSize = true;
 			   this->lbPeopleCount->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbPeopleCount->ForeColor = System::Drawing::Color::PaleTurquoise;
-			   this->lbPeopleCount->Location = System::Drawing::Point(485, 348);
+			   this->lbPeopleCount->Location = System::Drawing::Point(728, 482);
+			   this->lbPeopleCount->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbPeopleCount->Name = L"lbPeopleCount";
-			   this->lbPeopleCount->Size = System::Drawing::Size(25, 13);
+			   this->lbPeopleCount->Size = System::Drawing::Size(37, 21);
 			   this->lbPeopleCount->TabIndex = 43;
 			   this->lbPeopleCount->Text = L"000";
 			   this->lbPeopleCount->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1487,9 +1498,10 @@ namespace Timelapse {
 			   this->lbBreathCount->AutoSize = true;
 			   this->lbBreathCount->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbBreathCount->ForeColor = System::Drawing::Color::PaleTurquoise;
-			   this->lbBreathCount->Location = System::Drawing::Point(485, 333);
+			   this->lbBreathCount->Location = System::Drawing::Point(728, 461);
+			   this->lbBreathCount->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbBreathCount->Name = L"lbBreathCount";
-			   this->lbBreathCount->Size = System::Drawing::Size(25, 13);
+			   this->lbBreathCount->Size = System::Drawing::Size(37, 21);
 			   this->lbBreathCount->TabIndex = 42;
 			   this->lbBreathCount->Text = L"000";
 			   this->lbBreathCount->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1501,9 +1513,10 @@ namespace Timelapse {
 			   this->lbBuffCount->AutoSize = true;
 			   this->lbBuffCount->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbBuffCount->ForeColor = System::Drawing::Color::PaleTurquoise;
-			   this->lbBuffCount->Location = System::Drawing::Point(485, 318);
+			   this->lbBuffCount->Location = System::Drawing::Point(728, 440);
+			   this->lbBuffCount->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbBuffCount->Name = L"lbBuffCount";
-			   this->lbBuffCount->Size = System::Drawing::Size(25, 13);
+			   this->lbBuffCount->Size = System::Drawing::Size(37, 21);
 			   this->lbBuffCount->TabIndex = 41;
 			   this->lbBuffCount->Text = L"000";
 			   this->lbBuffCount->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1515,9 +1528,10 @@ namespace Timelapse {
 			   this->lbAttackCount->AutoSize = true;
 			   this->lbAttackCount->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbAttackCount->ForeColor = System::Drawing::Color::PaleTurquoise;
-			   this->lbAttackCount->Location = System::Drawing::Point(485, 303);
+			   this->lbAttackCount->Location = System::Drawing::Point(728, 420);
+			   this->lbAttackCount->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbAttackCount->Name = L"lbAttackCount";
-			   this->lbAttackCount->Size = System::Drawing::Size(25, 13);
+			   this->lbAttackCount->Size = System::Drawing::Size(37, 21);
 			   this->lbAttackCount->TabIndex = 40;
 			   this->lbAttackCount->Text = L"000";
 			   this->lbAttackCount->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1529,9 +1543,10 @@ namespace Timelapse {
 			   this->lbMousePos->AutoSize = true;
 			   this->lbMousePos->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbMousePos->ForeColor = System::Drawing::Color::LightGreen;
-			   this->lbMousePos->Location = System::Drawing::Point(470, 283);
+			   this->lbMousePos->Location = System::Drawing::Point(705, 392);
+			   this->lbMousePos->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbMousePos->Name = L"lbMousePos";
-			   this->lbMousePos->Size = System::Drawing::Size(70, 13);
+			   this->lbMousePos->Size = System::Drawing::Size(106, 21);
 			   this->lbMousePos->TabIndex = 39;
 			   this->lbMousePos->Text = L"(0000, 0000)";
 			   this->lbMousePos->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1543,9 +1558,10 @@ namespace Timelapse {
 			   this->lbCharPos->AutoSize = true;
 			   this->lbCharPos->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbCharPos->ForeColor = System::Drawing::Color::Khaki;
-			   this->lbCharPos->Location = System::Drawing::Point(459, 268);
+			   this->lbCharPos->Location = System::Drawing::Point(688, 371);
+			   this->lbCharPos->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbCharPos->Name = L"lbCharPos";
-			   this->lbCharPos->Size = System::Drawing::Size(70, 13);
+			   this->lbCharPos->Size = System::Drawing::Size(106, 21);
 			   this->lbCharPos->TabIndex = 38;
 			   this->lbCharPos->Text = L"(0000, 0000)";
 			   this->lbCharPos->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1557,9 +1573,10 @@ namespace Timelapse {
 			   this->lbMapID->AutoSize = true;
 			   this->lbMapID->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbMapID->ForeColor = System::Drawing::Color::MediumPurple;
-			   this->lbMapID->Location = System::Drawing::Point(452, 203);
+			   this->lbMapID->Location = System::Drawing::Point(678, 281);
+			   this->lbMapID->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbMapID->Name = L"lbMapID";
-			   this->lbMapID->Size = System::Drawing::Size(61, 13);
+			   this->lbMapID->Size = System::Drawing::Size(91, 21);
 			   this->lbMapID->TabIndex = 37;
 			   this->lbMapID->Text = L"000000000";
 			   this->lbMapID->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1571,9 +1588,10 @@ namespace Timelapse {
 			   this->lbChannel->AutoSize = true;
 			   this->lbChannel->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbChannel->ForeColor = System::Drawing::Color::LightPink;
-			   this->lbChannel->Location = System::Drawing::Point(457, 188);
+			   this->lbChannel->Location = System::Drawing::Point(686, 260);
+			   this->lbChannel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbChannel->Name = L"lbChannel";
-			   this->lbChannel->Size = System::Drawing::Size(19, 13);
+			   this->lbChannel->Size = System::Drawing::Size(28, 21);
 			   this->lbChannel->TabIndex = 35;
 			   this->lbChannel->Text = L"00";
 			   this->lbChannel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1585,9 +1603,10 @@ namespace Timelapse {
 			   this->lbWorld->AutoSize = true;
 			   this->lbWorld->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbWorld->ForeColor = System::Drawing::Color::LightCoral;
-			   this->lbWorld->Location = System::Drawing::Point(443, 173);
+			   this->lbWorld->Location = System::Drawing::Point(664, 240);
+			   this->lbWorld->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbWorld->Name = L"lbWorld";
-			   this->lbWorld->Size = System::Drawing::Size(24, 13);
+			   this->lbWorld->Size = System::Drawing::Size(38, 21);
 			   this->lbWorld->TabIndex = 34;
 			   this->lbWorld->Text = L"Null";
 			   this->lbWorld->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1600,9 +1619,10 @@ namespace Timelapse {
 			   this->lbMesos->AutoSize = true;
 			   this->lbMesos->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbMesos->ForeColor = System::Drawing::Color::Yellow;
-			   this->lbMesos->Location = System::Drawing::Point(447, 153);
+			   this->lbMesos->Location = System::Drawing::Point(670, 212);
+			   this->lbMesos->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbMesos->Name = L"lbMesos";
-			   this->lbMesos->Size = System::Drawing::Size(13, 13);
+			   this->lbMesos->Size = System::Drawing::Size(19, 21);
 			   this->lbMesos->TabIndex = 33;
 			   this->lbMesos->Text = L"0";
 			   this->lbMesos->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1614,9 +1634,10 @@ namespace Timelapse {
 			   this->lbEXP->AutoSize = true;
 			   this->lbEXP->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbEXP->ForeColor = System::Drawing::Color::Lime;
-			   this->lbEXP->Location = System::Drawing::Point(433, 138);
+			   this->lbEXP->Location = System::Drawing::Point(650, 191);
+			   this->lbEXP->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbEXP->Name = L"lbEXP";
-			   this->lbEXP->Size = System::Drawing::Size(40, 13);
+			   this->lbEXP->Size = System::Drawing::Size(59, 21);
 			   this->lbEXP->TabIndex = 32;
 			   this->lbEXP->Text = L"0.00%";
 			   this->lbEXP->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1629,9 +1650,10 @@ namespace Timelapse {
 			   this->lbMP->AutoSize = true;
 			   this->lbMP->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbMP->ForeColor = System::Drawing::Color::Aqua;
-			   this->lbMP->Location = System::Drawing::Point(433, 123);
+			   this->lbMP->Location = System::Drawing::Point(650, 170);
+			   this->lbMP->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbMP->Name = L"lbMP";
-			   this->lbMP->Size = System::Drawing::Size(40, 13);
+			   this->lbMP->Size = System::Drawing::Size(59, 21);
 			   this->lbMP->TabIndex = 31;
 			   this->lbMP->Text = L"0.00%";
 			   this->lbMP->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1644,9 +1666,10 @@ namespace Timelapse {
 			   this->lbHP->AutoSize = true;
 			   this->lbHP->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbHP->ForeColor = System::Drawing::Color::Red;
-			   this->lbHP->Location = System::Drawing::Point(432, 108);
+			   this->lbHP->Location = System::Drawing::Point(648, 150);
+			   this->lbHP->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbHP->Name = L"lbHP";
-			   this->lbHP->Size = System::Drawing::Size(40, 13);
+			   this->lbHP->Size = System::Drawing::Size(59, 21);
 			   this->lbHP->TabIndex = 30;
 			   this->lbHP->Text = L"0.00%";
 			   this->lbHP->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1659,9 +1682,10 @@ namespace Timelapse {
 			   this->lbJob->AutoSize = true;
 			   this->lbJob->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbJob->ForeColor = System::Drawing::Color::DodgerBlue;
-			   this->lbJob->Location = System::Drawing::Point(432, 93);
+			   this->lbJob->Location = System::Drawing::Point(648, 129);
+			   this->lbJob->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbJob->Name = L"lbJob";
-			   this->lbJob->Size = System::Drawing::Size(24, 13);
+			   this->lbJob->Size = System::Drawing::Size(38, 21);
 			   this->lbJob->TabIndex = 29;
 			   this->lbJob->Text = L"Null";
 			   this->lbJob->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1674,9 +1698,10 @@ namespace Timelapse {
 			   this->lbLevel->AutoSize = true;
 			   this->lbLevel->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbLevel->ForeColor = System::Drawing::Color::Orange;
-			   this->lbLevel->Location = System::Drawing::Point(440, 78);
+			   this->lbLevel->Location = System::Drawing::Point(660, 108);
+			   this->lbLevel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbLevel->Name = L"lbLevel";
-			   this->lbLevel->Size = System::Drawing::Size(13, 13);
+			   this->lbLevel->Size = System::Drawing::Size(19, 21);
 			   this->lbLevel->TabIndex = 28;
 			   this->lbLevel->Text = L"0";
 			   this->lbLevel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1688,9 +1713,10 @@ namespace Timelapse {
 			   this->lbCharName->AutoSize = true;
 			   this->lbCharName->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->lbCharName->ForeColor = System::Drawing::Color::Gold;
-			   this->lbCharName->Location = System::Drawing::Point(430, 63);
+			   this->lbCharName->Location = System::Drawing::Point(645, 87);
+			   this->lbCharName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbCharName->Name = L"lbCharName";
-			   this->lbCharName->Size = System::Drawing::Size(57, 13);
+			   this->lbCharName->Size = System::Drawing::Size(87, 21);
 			   this->lbCharName->TabIndex = 27;
 			   this->lbCharName->Text = L"CharName";
 			   this->lbCharName->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1701,11 +1727,12 @@ namespace Timelapse {
 			   // 
 			   this->label25->AutoSize = true;
 			   this->label25->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label25->Location = System::Drawing::Point(405, 318);
+			   this->label25->Location = System::Drawing::Point(608, 440);
+			   this->label25->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label25->Name = L"label25";
-			   this->label25->Size = System::Drawing::Size(63, 13);
+			   this->label25->Size = System::Drawing::Size(79, 21);
 			   this->label25->TabIndex = 26;
-			   this->label25->Text = L"Buff Count:";
+			   this->label25->Text = L"Buff数量:";
 			   this->label25->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label25->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label25->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1714,11 +1741,12 @@ namespace Timelapse {
 			   // 
 			   this->label24->AutoSize = true;
 			   this->label24->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label24->Location = System::Drawing::Point(405, 408);
+			   this->label24->Location = System::Drawing::Point(608, 565);
+			   this->label24->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label24->Name = L"label24";
-			   this->label24->Size = System::Drawing::Size(59, 13);
+			   this->label24->Size = System::Drawing::Size(74, 21);
 			   this->label24->TabIndex = 25;
-			   this->label24->Text = L"NPC Count";
+			   this->label24->Text = L"NPC数量";
 			   this->label24->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label24->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label24->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1727,11 +1755,12 @@ namespace Timelapse {
 			   // 
 			   this->label23->AutoSize = true;
 			   this->label23->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label23->Location = System::Drawing::Point(405, 283);
+			   this->label23->Location = System::Drawing::Point(608, 392);
+			   this->label23->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label23->Name = L"label23";
-			   this->label23->Size = System::Drawing::Size(62, 13);
+			   this->label23->Size = System::Drawing::Size(84, 21);
 			   this->label23->TabIndex = 24;
-			   this->label23->Text = L"Mouse Pos:";
+			   this->label23->Text = L"鼠标坐标:";
 			   this->label23->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label23->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label23->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1740,9 +1769,10 @@ namespace Timelapse {
 			   // 
 			   this->label22->AutoSize = true;
 			   this->label22->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label22->Location = System::Drawing::Point(405, 428);
+			   this->label22->Location = System::Drawing::Point(608, 593);
+			   this->label22->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label22->Name = L"label22";
-			   this->label22->Size = System::Drawing::Size(62, 13);
+			   this->label22->Size = System::Drawing::Size(96, 21);
 			   this->label22->TabIndex = 23;
 			   this->label22->Text = L"Thread ID: ";
 			   this->label22->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1753,9 +1783,10 @@ namespace Timelapse {
 			   // 
 			   this->label20->AutoSize = true;
 			   this->label20->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label20->Location = System::Drawing::Point(405, 333);
+			   this->label20->Location = System::Drawing::Point(608, 461);
+			   this->label20->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label20->Name = L"label20";
-			   this->label20->Size = System::Drawing::Size(75, 13);
+			   this->label20->Size = System::Drawing::Size(113, 21);
 			   this->label20->TabIndex = 21;
 			   this->label20->Text = L"Breath Count:";
 			   this->label20->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1766,11 +1797,12 @@ namespace Timelapse {
 			   // 
 			   this->label19->AutoSize = true;
 			   this->label19->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label19->Location = System::Drawing::Point(405, 153);
+			   this->label19->Location = System::Drawing::Point(608, 212);
+			   this->label19->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label19->Name = L"label19";
-			   this->label19->Size = System::Drawing::Size(41, 13);
+			   this->label19->Size = System::Drawing::Size(50, 21);
 			   this->label19->TabIndex = 20;
-			   this->label19->Text = L"Mesos:";
+			   this->label19->Text = L"金币:";
 			   this->label19->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label19->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label19->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1779,11 +1811,12 @@ namespace Timelapse {
 			   // 
 			   this->label18->AutoSize = true;
 			   this->label18->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label18->Location = System::Drawing::Point(405, 93);
+			   this->label18->Location = System::Drawing::Point(608, 129);
+			   this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label18->Name = L"label18";
-			   this->label18->Size = System::Drawing::Size(28, 13);
+			   this->label18->Size = System::Drawing::Size(50, 21);
 			   this->label18->TabIndex = 19;
-			   this->label18->Text = L"Job:";
+			   this->label18->Text = L"职业:";
 			   this->label18->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label18->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label18->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1792,11 +1825,12 @@ namespace Timelapse {
 			   // 
 			   this->label17->AutoSize = true;
 			   this->label17->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label17->Location = System::Drawing::Point(405, 393);
+			   this->label17->Location = System::Drawing::Point(608, 544);
+			   this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label17->Name = L"label17";
-			   this->label17->Size = System::Drawing::Size(67, 13);
+			   this->label17->Size = System::Drawing::Size(95, 21);
 			   this->label17->TabIndex = 18;
-			   this->label17->Text = L"Portal Count";
+			   this->label17->Text = L"传送门数量";
 			   this->label17->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label17->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label17->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1805,11 +1839,12 @@ namespace Timelapse {
 			   // 
 			   this->label16->AutoSize = true;
 			   this->label16->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label16->Location = System::Drawing::Point(405, 378);
+			   this->label16->Location = System::Drawing::Point(608, 523);
+			   this->label16->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label16->Name = L"label16";
-			   this->label16->Size = System::Drawing::Size(65, 13);
+			   this->label16->Size = System::Drawing::Size(84, 21);
 			   this->label16->TabIndex = 17;
-			   this->label16->Text = L"Item Count:";
+			   this->label16->Text = L"物品数量:";
 			   this->label16->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label16->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label16->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1818,11 +1853,12 @@ namespace Timelapse {
 			   // 
 			   this->label15->AutoSize = true;
 			   this->label15->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label15->Location = System::Drawing::Point(405, 363);
+			   this->label15->Location = System::Drawing::Point(608, 503);
+			   this->label15->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label15->Name = L"label15";
-			   this->label15->Size = System::Drawing::Size(66, 13);
+			   this->label15->Size = System::Drawing::Size(89, 21);
 			   this->label15->TabIndex = 16;
-			   this->label15->Text = L"Mob Count: ";
+			   this->label15->Text = L"怪物数量: ";
 			   this->label15->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label15->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label15->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1831,11 +1867,12 @@ namespace Timelapse {
 			   // 
 			   this->label14->AutoSize = true;
 			   this->label14->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label14->Location = System::Drawing::Point(405, 348);
+			   this->label14->Location = System::Drawing::Point(608, 482);
+			   this->label14->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label14->Name = L"label14";
-			   this->label14->Size = System::Drawing::Size(75, 13);
+			   this->label14->Size = System::Drawing::Size(84, 21);
 			   this->label14->TabIndex = 15;
-			   this->label14->Text = L"People Count:";
+			   this->label14->Text = L"人物数量:";
 			   this->label14->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label14->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label14->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1844,11 +1881,12 @@ namespace Timelapse {
 			   // 
 			   this->label13->AutoSize = true;
 			   this->label13->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label13->Location = System::Drawing::Point(405, 303);
+			   this->label13->Location = System::Drawing::Point(608, 420);
+			   this->label13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label13->Name = L"label13";
-			   this->label13->Size = System::Drawing::Size(74, 13);
+			   this->label13->Size = System::Drawing::Size(103, 21);
 			   this->label13->TabIndex = 14;
-			   this->label13->Text = L"Attack Count:";
+			   this->label13->Text = L"Attack 数量:";
 			   this->label13->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label13->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label13->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1857,11 +1895,12 @@ namespace Timelapse {
 			   // 
 			   this->label12->AutoSize = true;
 			   this->label12->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label12->Location = System::Drawing::Point(405, 268);
+			   this->label12->Location = System::Drawing::Point(608, 371);
+			   this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label12->Name = L"label12";
-			   this->label12->Size = System::Drawing::Size(54, 13);
+			   this->label12->Size = System::Drawing::Size(81, 21);
 			   this->label12->TabIndex = 13;
-			   this->label12->Text = L"Char Pos:";
+			   this->label12->Text = L"Char 坐标:";
 			   this->label12->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label12->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label12->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1870,11 +1909,12 @@ namespace Timelapse {
 			   // 
 			   this->label11->AutoSize = true;
 			   this->label11->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label11->Location = System::Drawing::Point(405, 203);
+			   this->label11->Location = System::Drawing::Point(608, 281);
+			   this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label11->Name = L"label11";
-			   this->label11->Size = System::Drawing::Size(48, 13);
+			   this->label11->Size = System::Drawing::Size(73, 21);
 			   this->label11->TabIndex = 12;
-			   this->label11->Text = L"Map ID: ";
+			   this->label11->Text = L"地图ID: ";
 			   this->label11->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label11->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label11->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1883,11 +1923,12 @@ namespace Timelapse {
 			   // 
 			   this->label10->AutoSize = true;
 			   this->label10->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label10->Location = System::Drawing::Point(405, 188);
+			   this->label10->Location = System::Drawing::Point(608, 260);
+			   this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label10->Name = L"label10";
-			   this->label10->Size = System::Drawing::Size(50, 13);
+			   this->label10->Size = System::Drawing::Size(50, 21);
 			   this->label10->TabIndex = 11;
-			   this->label10->Text = L"Channel:";
+			   this->label10->Text = L"频道:";
 			   this->label10->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label10->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label10->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1896,11 +1937,12 @@ namespace Timelapse {
 			   // 
 			   this->label9->AutoSize = true;
 			   this->label9->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label9->Location = System::Drawing::Point(405, 173);
+			   this->label9->Location = System::Drawing::Point(608, 240);
+			   this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label9->Name = L"label9";
-			   this->label9->Size = System::Drawing::Size(39, 13);
+			   this->label9->Size = System::Drawing::Size(50, 21);
 			   this->label9->TabIndex = 10;
-			   this->label9->Text = L"World:";
+			   this->label9->Text = L"世界:";
 			   this->label9->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label9->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label9->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1909,9 +1951,10 @@ namespace Timelapse {
 			   // 
 			   this->label8->AutoSize = true;
 			   this->label8->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label8->Location = System::Drawing::Point(405, 138);
+			   this->label8->Location = System::Drawing::Point(608, 191);
+			   this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label8->Name = L"label8";
-			   this->label8->Size = System::Drawing::Size(29, 13);
+			   this->label8->Size = System::Drawing::Size(45, 21);
 			   this->label8->TabIndex = 9;
 			   this->label8->Text = L"EXP:";
 			   this->label8->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1922,9 +1965,10 @@ namespace Timelapse {
 			   // 
 			   this->label7->AutoSize = true;
 			   this->label7->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label7->Location = System::Drawing::Point(405, 123);
+			   this->label7->Location = System::Drawing::Point(608, 170);
+			   this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label7->Name = L"label7";
-			   this->label7->Size = System::Drawing::Size(25, 13);
+			   this->label7->Size = System::Drawing::Size(38, 21);
 			   this->label7->TabIndex = 8;
 			   this->label7->Text = L"MP:";
 			   this->label7->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1935,9 +1979,10 @@ namespace Timelapse {
 			   // 
 			   this->label6->AutoSize = true;
 			   this->label6->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label6->Location = System::Drawing::Point(405, 108);
+			   this->label6->Location = System::Drawing::Point(608, 150);
+			   this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label6->Name = L"label6";
-			   this->label6->Size = System::Drawing::Size(24, 13);
+			   this->label6->Size = System::Drawing::Size(36, 21);
 			   this->label6->TabIndex = 7;
 			   this->label6->Text = L"HP:";
 			   this->label6->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -1948,11 +1993,12 @@ namespace Timelapse {
 			   // 
 			   this->label5->AutoSize = true;
 			   this->label5->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label5->Location = System::Drawing::Point(405, 78);
+			   this->label5->Location = System::Drawing::Point(608, 108);
+			   this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label5->Name = L"label5";
-			   this->label5->Size = System::Drawing::Size(39, 13);
+			   this->label5->Size = System::Drawing::Size(55, 21);
 			   this->label5->TabIndex = 6;
-			   this->label5->Text = L"Level: ";
+			   this->label5->Text = L"等级: ";
 			   this->label5->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label5->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label5->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1961,11 +2007,12 @@ namespace Timelapse {
 			   // 
 			   this->label4->AutoSize = true;
 			   this->label4->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label4->Location = System::Drawing::Point(405, 63);
+			   this->label4->Location = System::Drawing::Point(608, 87);
+			   this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label4->Name = L"label4";
-			   this->label4->Size = System::Drawing::Size(22, 13);
+			   this->label4->Size = System::Drawing::Size(34, 21);
 			   this->label4->TabIndex = 5;
-			   this->label4->Text = L"IGN:";
+			   this->label4->Text = L"ID:";
 			   this->label4->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label4->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label4->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1975,11 +2022,12 @@ namespace Timelapse {
 			   this->label3->AutoSize = true;
 			   this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->label3->Location = System::Drawing::Point(401, 39);
+			   this->label3->Location = System::Drawing::Point(602, 54);
+			   this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label3->Name = L"label3";
-			   this->label3->Size = System::Drawing::Size(53, 25);
+			   this->label3->Size = System::Drawing::Size(90, 37);
 			   this->label3->TabIndex = 4;
-			   this->label3->Text = L"Info:";
+			   this->label3->Text = L"信息:";
 			   this->label3->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
 			   this->label3->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseMove);
 			   this->label3->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseUp);
@@ -1995,10 +2043,11 @@ namespace Timelapse {
 			   this->tabControl1->Controls->Add(this->tabPage8);
 			   this->tabControl1->Controls->Add(this->tabPage9);
 			   this->tabControl1->ForeColor = System::Drawing::Color::White;
-			   this->tabControl1->Location = System::Drawing::Point(2, 29);
+			   this->tabControl1->Location = System::Drawing::Point(3, 40);
+			   this->tabControl1->Margin = System::Windows::Forms::Padding(4);
 			   this->tabControl1->Name = L"tabControl1";
 			   this->tabControl1->SelectedIndex = 0;
-			   this->tabControl1->Size = System::Drawing::Size(398, 411);
+			   this->tabControl1->Size = System::Drawing::Size(597, 569);
 			   this->tabControl1->TabIndex = 2;
 			   // 
 			   // tabPage1
@@ -2008,20 +2057,22 @@ namespace Timelapse {
 			   this->tabPage1->Controls->Add(this->pictureBox1);
 			   this->tabPage1->Controls->Add(this->tabControl2);
 			   this->tabPage1->ForeColor = System::Drawing::Color::White;
-			   this->tabPage1->Location = System::Drawing::Point(4, 22);
+			   this->tabPage1->Location = System::Drawing::Point(4, 30);
+			   this->tabPage1->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage1->Name = L"tabPage1";
-			   this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage1->Size = System::Drawing::Size(390, 385);
+			   this->tabPage1->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage1->Size = System::Drawing::Size(589, 535);
 			   this->tabPage1->TabIndex = 0;
-			   this->tabPage1->Text = L"Main";
+			   this->tabPage1->Text = L"主页";
 			   // 
 			   // pictureBox1
 			   // 
 			   this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			   this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			   this->pictureBox1->Location = System::Drawing::Point(6, 6);
+			   this->pictureBox1->Location = System::Drawing::Point(9, 8);
+			   this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
 			   this->pictureBox1->Name = L"pictureBox1";
-			   this->pictureBox1->Size = System::Drawing::Size(379, 89);
+			   this->pictureBox1->Size = System::Drawing::Size(568, 123);
 			   this->pictureBox1->TabIndex = 0;
 			   this->pictureBox1->TabStop = false;
 			   this->pictureBox1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pnlFull_MouseDown);
@@ -2033,10 +2084,11 @@ namespace Timelapse {
 			   this->tabControl2->Controls->Add(this->tabPage3);
 			   this->tabControl2->Controls->Add(this->tabPage17);
 			   this->tabControl2->Controls->Add(this->tabPage4);
-			   this->tabControl2->Location = System::Drawing::Point(15, 101);
+			   this->tabControl2->Location = System::Drawing::Point(22, 140);
+			   this->tabControl2->Margin = System::Windows::Forms::Padding(4);
 			   this->tabControl2->Name = L"tabControl2";
 			   this->tabControl2->SelectedIndex = 0;
-			   this->tabControl2->Size = System::Drawing::Size(361, 265);
+			   this->tabControl2->Size = System::Drawing::Size(542, 367);
 			   this->tabControl2->TabIndex = 0;
 			   // 
 			   // tabPage3
@@ -2044,13 +2096,14 @@ namespace Timelapse {
 			   this->tabPage3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->tabPage3->Controls->Add(this->lbConsoleLog);
-			   this->tabPage3->Location = System::Drawing::Point(4, 22);
+			   this->tabPage3->Location = System::Drawing::Point(4, 30);
+			   this->tabPage3->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage3->Name = L"tabPage3";
-			   this->tabPage3->Padding = System::Windows::Forms::Padding(3);
+			   this->tabPage3->Padding = System::Windows::Forms::Padding(4);
 			   this->tabPage3->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->tabPage3->Size = System::Drawing::Size(353, 239);
+			   this->tabPage3->Size = System::Drawing::Size(534, 333);
 			   this->tabPage3->TabIndex = 0;
-			   this->tabPage3->Text = L"Log";
+			   this->tabPage3->Text = L"日志";
 			   // 
 			   // lbConsoleLog
 			   // 
@@ -2059,10 +2112,12 @@ namespace Timelapse {
 			   this->lbConsoleLog->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			   this->lbConsoleLog->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->lbConsoleLog->ForeColor = System::Drawing::Color::White;
-			   this->lbConsoleLog->Location = System::Drawing::Point(3, 3);
+			   this->lbConsoleLog->ItemHeight = 21;
+			   this->lbConsoleLog->Location = System::Drawing::Point(4, 4);
+			   this->lbConsoleLog->Margin = System::Windows::Forms::Padding(4);
 			   this->lbConsoleLog->Name = L"lbConsoleLog";
 			   this->lbConsoleLog->SelectionMode = System::Windows::Forms::SelectionMode::MultiExtended;
-			   this->lbConsoleLog->Size = System::Drawing::Size(347, 233);
+			   this->lbConsoleLog->Size = System::Drawing::Size(526, 325);
 			   this->lbConsoleLog->TabIndex = 1;
 			   this->lbConsoleLog->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::lbConsoleLog_KeyDown);
 			   // 
@@ -2073,11 +2128,12 @@ namespace Timelapse {
 			   this->tabPage17->Controls->Add(this->panel22);
 			   this->tabPage17->Controls->Add(this->cbAutoLoginSkipLogo);
 			   this->tabPage17->Controls->Add(this->cbAutoLogin);
-			   this->tabPage17->Location = System::Drawing::Point(4, 22);
+			   this->tabPage17->Location = System::Drawing::Point(4, 30);
+			   this->tabPage17->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage17->Name = L"tabPage17";
-			   this->tabPage17->Size = System::Drawing::Size(353, 239);
+			   this->tabPage17->Size = System::Drawing::Size(534, 333);
 			   this->tabPage17->TabIndex = 2;
-			   this->tabPage17->Text = L"Auto Login";
+			   this->tabPage17->Text = L"自动登录";
 			   // 
 			   // panel22
 			   // 
@@ -2095,9 +2151,10 @@ namespace Timelapse {
 			   this->panel22->Controls->Add(this->label83);
 			   this->panel22->Controls->Add(this->tbAutoLoginPassword);
 			   this->panel22->Controls->Add(this->tbAutoLoginUsername);
-			   this->panel22->Location = System::Drawing::Point(18, 16);
+			   this->panel22->Location = System::Drawing::Point(27, 22);
+			   this->panel22->Margin = System::Windows::Forms::Padding(4);
 			   this->panel22->Name = L"panel22";
-			   this->panel22->Size = System::Drawing::Size(221, 193);
+			   this->panel22->Size = System::Drawing::Size(330, 266);
 			   this->panel22->TabIndex = 26;
 			   // 
 			   // comboAutoLoginWorld
@@ -2112,21 +2169,23 @@ namespace Timelapse {
 					   L" Khaini", L" Bellocan", L" Mardia", L" Kradia", L" Yellonde", L" Demethos", L" Galicia", L" El Nido", L" Zenith", L" Arcania",
 					   L" Chaos", L" Nova", L" Regenades"
 			   });
-			   this->comboAutoLoginWorld->Location = System::Drawing::Point(69, 99);
+			   this->comboAutoLoginWorld->Location = System::Drawing::Point(104, 137);
+			   this->comboAutoLoginWorld->Margin = System::Windows::Forms::Padding(4);
 			   this->comboAutoLoginWorld->Name = L"comboAutoLoginWorld";
 			   this->comboAutoLoginWorld->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->comboAutoLoginWorld->Size = System::Drawing::Size(133, 21);
+			   this->comboAutoLoginWorld->Size = System::Drawing::Size(198, 29);
 			   this->comboAutoLoginWorld->TabIndex = 31;
 			   this->comboAutoLoginWorld->Text = L" Scania";
 			   // 
 			   // label95
 			   // 
 			   this->label95->AutoSize = true;
-			   this->label95->Location = System::Drawing::Point(28, 103);
+			   this->label95->Location = System::Drawing::Point(12, 145);
+			   this->label95->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label95->Name = L"label95";
-			   this->label95->Size = System::Drawing::Size(39, 13);
+			   this->label95->Size = System::Drawing::Size(50, 21);
 			   this->label95->TabIndex = 30;
-			   this->label95->Text = L"World:";
+			   this->label95->Text = L"世界:";
 			   // 
 			   // cbAutoLoginPic
 			   // 
@@ -2134,9 +2193,10 @@ namespace Timelapse {
 			   this->cbAutoLoginPic->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbAutoLoginPic->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbAutoLoginPic->ForeColor = System::Drawing::Color::White;
-			   this->cbAutoLoginPic->Location = System::Drawing::Point(166, 74);
+			   this->cbAutoLoginPic->Location = System::Drawing::Point(249, 102);
+			   this->cbAutoLoginPic->Margin = System::Windows::Forms::Padding(4);
 			   this->cbAutoLoginPic->Name = L"cbAutoLoginPic";
-			   this->cbAutoLoginPic->Size = System::Drawing::Size(40, 17);
+			   this->cbAutoLoginPic->Size = System::Drawing::Size(56, 25);
 			   this->cbAutoLoginPic->TabIndex = 29;
 			   this->cbAutoLoginPic->Text = L"PIC";
 			   this->cbAutoLoginPic->UseVisualStyleBackColor = false;
@@ -2144,9 +2204,10 @@ namespace Timelapse {
 			   // label82
 			   // 
 			   this->label82->AutoSize = true;
-			   this->label82->Location = System::Drawing::Point(39, 76);
+			   this->label82->Location = System::Drawing::Point(12, 106);
+			   this->label82->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label82->Name = L"label82";
-			   this->label82->Size = System::Drawing::Size(28, 13);
+			   this->label82->Size = System::Drawing::Size(41, 21);
 			   this->label82->TabIndex = 19;
 			   this->label82->Text = L"PIC:";
 			   // 
@@ -2161,30 +2222,33 @@ namespace Timelapse {
 				   L" 1", L" 2", L" 3", L" 4", L" 5",
 					   L" 6", L" 7", L" 8", L" 9", L" 10", L" 11", L" 12", L" 13", L" 14", L" 15"
 			   });
-			   this->comboAutoLoginCharacter->Location = System::Drawing::Point(69, 151);
+			   this->comboAutoLoginCharacter->Location = System::Drawing::Point(104, 209);
+			   this->comboAutoLoginCharacter->Margin = System::Windows::Forms::Padding(4);
 			   this->comboAutoLoginCharacter->Name = L"comboAutoLoginCharacter";
 			   this->comboAutoLoginCharacter->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->comboAutoLoginCharacter->Size = System::Drawing::Size(133, 21);
+			   this->comboAutoLoginCharacter->Size = System::Drawing::Size(198, 29);
 			   this->comboAutoLoginCharacter->TabIndex = 25;
 			   this->comboAutoLoginCharacter->Text = L" 1";
 			   // 
 			   // label85
 			   // 
 			   this->label85->AutoSize = true;
-			   this->label85->Location = System::Drawing::Point(8, 22);
+			   this->label85->Location = System::Drawing::Point(12, 30);
+			   this->label85->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label85->Name = L"label85";
-			   this->label85->Size = System::Drawing::Size(59, 13);
+			   this->label85->Size = System::Drawing::Size(67, 21);
 			   this->label85->TabIndex = 18;
-			   this->label85->Text = L"Username:";
+			   this->label85->Text = L"用户名:";
 			   // 
 			   // label80
 			   // 
 			   this->label80->AutoSize = true;
-			   this->label80->Location = System::Drawing::Point(9, 155);
+			   this->label80->Location = System::Drawing::Point(12, 217);
+			   this->label80->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label80->Name = L"label80";
-			   this->label80->Size = System::Drawing::Size(59, 13);
+			   this->label80->Size = System::Drawing::Size(50, 21);
 			   this->label80->TabIndex = 20;
-			   this->label80->Text = L"Character:";
+			   this->label80->Text = L"角色:";
 			   // 
 			   // comboAutoLoginChannel
 			   // 
@@ -2197,21 +2261,23 @@ namespace Timelapse {
 				   L" 1", L" 2", L" 3", L" 4", L" 5",
 					   L" 6", L" 7", L" 8", L" 9", L" 10", L" 11", L" 12", L" 13", L" 14", L" 15", L" 16", L" 17", L" 18", L" 19", L" 20"
 			   });
-			   this->comboAutoLoginChannel->Location = System::Drawing::Point(69, 125);
+			   this->comboAutoLoginChannel->Location = System::Drawing::Point(104, 173);
+			   this->comboAutoLoginChannel->Margin = System::Windows::Forms::Padding(4);
 			   this->comboAutoLoginChannel->Name = L"comboAutoLoginChannel";
 			   this->comboAutoLoginChannel->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->comboAutoLoginChannel->Size = System::Drawing::Size(133, 21);
+			   this->comboAutoLoginChannel->Size = System::Drawing::Size(198, 29);
 			   this->comboAutoLoginChannel->TabIndex = 24;
 			   this->comboAutoLoginChannel->Text = L" 1";
 			   // 
 			   // label84
 			   // 
 			   this->label84->AutoSize = true;
-			   this->label84->Location = System::Drawing::Point(10, 49);
+			   this->label84->Location = System::Drawing::Point(12, 68);
+			   this->label84->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label84->Name = L"label84";
-			   this->label84->Size = System::Drawing::Size(57, 13);
+			   this->label84->Size = System::Drawing::Size(50, 21);
 			   this->label84->TabIndex = 17;
-			   this->label84->Text = L"Password:";
+			   this->label84->Text = L"密码:";
 			   // 
 			   // tbAutoLoginPIC
 			   // 
@@ -2219,20 +2285,22 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAutoLoginPIC->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAutoLoginPIC->ForeColor = System::Drawing::Color::White;
-			   this->tbAutoLoginPIC->Location = System::Drawing::Point(69, 72);
+			   this->tbAutoLoginPIC->Location = System::Drawing::Point(104, 100);
+			   this->tbAutoLoginPIC->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAutoLoginPIC->Name = L"tbAutoLoginPIC";
-			   this->tbAutoLoginPIC->Size = System::Drawing::Size(88, 21);
+			   this->tbAutoLoginPIC->Size = System::Drawing::Size(131, 27);
 			   this->tbAutoLoginPIC->TabIndex = 23;
 			   this->tbAutoLoginPIC->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			   // 
 			   // label83
 			   // 
 			   this->label83->AutoSize = true;
-			   this->label83->Location = System::Drawing::Point(17, 129);
+			   this->label83->Location = System::Drawing::Point(12, 181);
+			   this->label83->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label83->Name = L"label83";
-			   this->label83->Size = System::Drawing::Size(50, 13);
+			   this->label83->Size = System::Drawing::Size(50, 21);
 			   this->label83->TabIndex = 16;
-			   this->label83->Text = L"Channel:";
+			   this->label83->Text = L"频道:";
 			   // 
 			   // tbAutoLoginPassword
 			   // 
@@ -2240,10 +2308,11 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAutoLoginPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAutoLoginPassword->ForeColor = System::Drawing::Color::White;
-			   this->tbAutoLoginPassword->Location = System::Drawing::Point(69, 45);
+			   this->tbAutoLoginPassword->Location = System::Drawing::Point(104, 62);
+			   this->tbAutoLoginPassword->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAutoLoginPassword->Name = L"tbAutoLoginPassword";
 			   this->tbAutoLoginPassword->PasswordChar = '*';
-			   this->tbAutoLoginPassword->Size = System::Drawing::Size(133, 21);
+			   this->tbAutoLoginPassword->Size = System::Drawing::Size(198, 27);
 			   this->tbAutoLoginPassword->TabIndex = 22;
 			   this->tbAutoLoginPassword->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			   // 
@@ -2253,9 +2322,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAutoLoginUsername->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAutoLoginUsername->ForeColor = System::Drawing::Color::White;
-			   this->tbAutoLoginUsername->Location = System::Drawing::Point(69, 18);
+			   this->tbAutoLoginUsername->Location = System::Drawing::Point(104, 25);
+			   this->tbAutoLoginUsername->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAutoLoginUsername->Name = L"tbAutoLoginUsername";
-			   this->tbAutoLoginUsername->Size = System::Drawing::Size(133, 21);
+			   this->tbAutoLoginUsername->Size = System::Drawing::Size(198, 27);
 			   this->tbAutoLoginUsername->TabIndex = 21;
 			   this->tbAutoLoginUsername->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			   // 
@@ -2265,11 +2335,12 @@ namespace Timelapse {
 			   this->cbAutoLoginSkipLogo->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbAutoLoginSkipLogo->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbAutoLoginSkipLogo->ForeColor = System::Drawing::Color::White;
-			   this->cbAutoLoginSkipLogo->Location = System::Drawing::Point(261, 48);
+			   this->cbAutoLoginSkipLogo->Location = System::Drawing::Point(392, 66);
+			   this->cbAutoLoginSkipLogo->Margin = System::Windows::Forms::Padding(4);
 			   this->cbAutoLoginSkipLogo->Name = L"cbAutoLoginSkipLogo";
-			   this->cbAutoLoginSkipLogo->Size = System::Drawing::Size(68, 17);
+			   this->cbAutoLoginSkipLogo->Size = System::Drawing::Size(100, 25);
 			   this->cbAutoLoginSkipLogo->TabIndex = 28;
-			   this->cbAutoLoginSkipLogo->Text = L"Skip Logo";
+			   this->cbAutoLoginSkipLogo->Text = L"跳过Logo";
 			   this->cbAutoLoginSkipLogo->UseVisualStyleBackColor = false;
 			   this->cbAutoLoginSkipLogo->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbAutoLoginSkipLogo_CheckedChanged);
 			   // 
@@ -2281,11 +2352,12 @@ namespace Timelapse {
 			   this->cbAutoLogin->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbAutoLogin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbAutoLogin->ForeColor = System::Drawing::Color::White;
-			   this->cbAutoLogin->Location = System::Drawing::Point(261, 25);
+			   this->cbAutoLogin->Location = System::Drawing::Point(392, 35);
+			   this->cbAutoLogin->Margin = System::Windows::Forms::Padding(4);
 			   this->cbAutoLogin->Name = L"cbAutoLogin";
-			   this->cbAutoLogin->Size = System::Drawing::Size(74, 17);
+			   this->cbAutoLogin->Size = System::Drawing::Size(99, 25);
 			   this->cbAutoLogin->TabIndex = 27;
-			   this->cbAutoLogin->Text = L"Auto Login";
+			   this->cbAutoLogin->Text = L"自动登录";
 			   this->cbAutoLogin->UseVisualStyleBackColor = false;
 			   this->cbAutoLogin->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbAutoLogin_CheckedChanged);
 			   // 
@@ -2295,20 +2367,22 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->tabPage4->Controls->Add(this->transparencyTrackBar);
 			   this->tabPage4->Controls->Add(this->label2);
-			   this->tabPage4->Location = System::Drawing::Point(4, 22);
+			   this->tabPage4->Location = System::Drawing::Point(4, 30);
+			   this->tabPage4->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage4->Name = L"tabPage4";
-			   this->tabPage4->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage4->Size = System::Drawing::Size(353, 239);
+			   this->tabPage4->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage4->Size = System::Drawing::Size(534, 333);
 			   this->tabPage4->TabIndex = 1;
-			   this->tabPage4->Text = L"Options";
+			   this->tabPage4->Text = L"选项";
 			   // 
 			   // transparencyTrackBar
 			   // 
-			   this->transparencyTrackBar->Location = System::Drawing::Point(90, 10);
+			   this->transparencyTrackBar->Location = System::Drawing::Point(135, 14);
+			   this->transparencyTrackBar->Margin = System::Windows::Forms::Padding(4);
 			   this->transparencyTrackBar->Maximum = 100;
 			   this->transparencyTrackBar->Minimum = 50;
 			   this->transparencyTrackBar->Name = L"transparencyTrackBar";
-			   this->transparencyTrackBar->Size = System::Drawing::Size(257, 45);
+			   this->transparencyTrackBar->Size = System::Drawing::Size(386, 69);
 			   this->transparencyTrackBar->TabIndex = 1;
 			   this->transparencyTrackBar->TickStyle = System::Windows::Forms::TickStyle::None;
 			   this->transparencyTrackBar->Value = 100;
@@ -2317,11 +2391,12 @@ namespace Timelapse {
 			   // label2
 			   // 
 			   this->label2->AutoSize = true;
-			   this->label2->Location = System::Drawing::Point(6, 13);
+			   this->label2->Location = System::Drawing::Point(9, 18);
+			   this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label2->Name = L"label2";
-			   this->label2->Size = System::Drawing::Size(77, 13);
+			   this->label2->Size = System::Drawing::Size(67, 21);
 			   this->label2->TabIndex = 0;
-			   this->label2->Text = L"Transparency:";
+			   this->label2->Text = L"透明度:";
 			   // 
 			   // tabPage2
 			   // 
@@ -2330,22 +2405,24 @@ namespace Timelapse {
 			   this->tabPage2->Controls->Add(this->tabControl3);
 			   this->tabPage2->Controls->Add(this->panel2);
 			   this->tabPage2->ForeColor = System::Drawing::Color::White;
-			   this->tabPage2->Location = System::Drawing::Point(4, 22);
+			   this->tabPage2->Location = System::Drawing::Point(4, 30);
+			   this->tabPage2->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage2->Name = L"tabPage2";
-			   this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage2->Size = System::Drawing::Size(390, 385);
+			   this->tabPage2->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage2->Size = System::Drawing::Size(589, 535);
 			   this->tabPage2->TabIndex = 1;
-			   this->tabPage2->Text = L"Bots";
+			   this->tabPage2->Text = L"自动化";
 			   // 
 			   // tabControl3
 			   // 
 			   this->tabControl3->Controls->Add(this->tabPage11);
 			   this->tabControl3->Controls->Add(this->tabPage12);
 			   this->tabControl3->Controls->Add(this->tabPage10);
-			   this->tabControl3->Location = System::Drawing::Point(-6, 151);
+			   this->tabControl3->Location = System::Drawing::Point(-9, 209);
+			   this->tabControl3->Margin = System::Windows::Forms::Padding(4);
 			   this->tabControl3->Name = L"tabControl3";
 			   this->tabControl3->SelectedIndex = 0;
-			   this->tabControl3->Size = System::Drawing::Size(402, 238);
+			   this->tabControl3->Size = System::Drawing::Size(603, 330);
 			   this->tabControl3->TabIndex = 10;
 			   // 
 			   // tabPage11
@@ -2358,22 +2435,24 @@ namespace Timelapse {
 			   this->tabPage11->Controls->Add(this->bBuffClear);
 			   this->tabPage11->Controls->Add(this->panel5);
 			   this->tabPage11->Controls->Add(this->lvBuff);
-			   this->tabPage11->Location = System::Drawing::Point(4, 22);
+			   this->tabPage11->Location = System::Drawing::Point(4, 30);
+			   this->tabPage11->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage11->Name = L"tabPage11";
-			   this->tabPage11->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage11->Size = System::Drawing::Size(394, 212);
+			   this->tabPage11->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage11->Size = System::Drawing::Size(595, 296);
 			   this->tabPage11->TabIndex = 1;
-			   this->tabPage11->Text = L"Auto Buff";
+			   this->tabPage11->Text = L"自动Buff";
 			   // 
 			   // bBuffEnableAll
 			   // 
 			   this->bBuffEnableAll->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bBuffEnableAll->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bBuffEnableAll->Location = System::Drawing::Point(265, 158);
+			   this->bBuffEnableAll->Location = System::Drawing::Point(398, 219);
+			   this->bBuffEnableAll->Margin = System::Windows::Forms::Padding(4);
 			   this->bBuffEnableAll->Name = L"bBuffEnableAll";
-			   this->bBuffEnableAll->Size = System::Drawing::Size(124, 24);
+			   this->bBuffEnableAll->Size = System::Drawing::Size(186, 33);
 			   this->bBuffEnableAll->TabIndex = 15;
-			   this->bBuffEnableAll->Text = L"Enable All";
+			   this->bBuffEnableAll->Text = L"开启所有";
 			   this->bBuffEnableAll->UseVisualStyleBackColor = true;
 			   this->bBuffEnableAll->Click += gcnew System::EventHandler(this, &MainForm::bBuffEnableAll_Click);
 			   // 
@@ -2381,11 +2460,12 @@ namespace Timelapse {
 			   // 
 			   this->bBuffDisableAll->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bBuffDisableAll->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bBuffDisableAll->Location = System::Drawing::Point(265, 185);
+			   this->bBuffDisableAll->Location = System::Drawing::Point(398, 256);
+			   this->bBuffDisableAll->Margin = System::Windows::Forms::Padding(4);
 			   this->bBuffDisableAll->Name = L"bBuffDisableAll";
-			   this->bBuffDisableAll->Size = System::Drawing::Size(124, 24);
+			   this->bBuffDisableAll->Size = System::Drawing::Size(186, 33);
 			   this->bBuffDisableAll->TabIndex = 14;
-			   this->bBuffDisableAll->Text = L"Disable All";
+			   this->bBuffDisableAll->Text = L"关闭所有";
 			   this->bBuffDisableAll->UseVisualStyleBackColor = true;
 			   this->bBuffDisableAll->Click += gcnew System::EventHandler(this, &MainForm::bBuffDisableAll_Click);
 			   // 
@@ -2393,11 +2473,12 @@ namespace Timelapse {
 			   // 
 			   this->bBuffRemove->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bBuffRemove->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bBuffRemove->Location = System::Drawing::Point(138, 184);
+			   this->bBuffRemove->Location = System::Drawing::Point(207, 255);
+			   this->bBuffRemove->Margin = System::Windows::Forms::Padding(4);
 			   this->bBuffRemove->Name = L"bBuffRemove";
-			   this->bBuffRemove->Size = System::Drawing::Size(125, 25);
+			   this->bBuffRemove->Size = System::Drawing::Size(188, 35);
 			   this->bBuffRemove->TabIndex = 13;
-			   this->bBuffRemove->Text = L"Remove Selected";
+			   this->bBuffRemove->Text = L"移除选择";
 			   this->bBuffRemove->UseVisualStyleBackColor = true;
 			   this->bBuffRemove->Click += gcnew System::EventHandler(this, &MainForm::bBuffRemove_Click);
 			   // 
@@ -2405,11 +2486,12 @@ namespace Timelapse {
 			   // 
 			   this->bBuffClear->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bBuffClear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bBuffClear->Location = System::Drawing::Point(5, 184);
+			   this->bBuffClear->Location = System::Drawing::Point(8, 255);
+			   this->bBuffClear->Margin = System::Windows::Forms::Padding(4);
 			   this->bBuffClear->Name = L"bBuffClear";
-			   this->bBuffClear->Size = System::Drawing::Size(131, 25);
+			   this->bBuffClear->Size = System::Drawing::Size(196, 35);
 			   this->bBuffClear->TabIndex = 12;
-			   this->bBuffClear->Text = L"Clear All";
+			   this->bBuffClear->Text = L"清除所有";
 			   this->bBuffClear->UseVisualStyleBackColor = true;
 			   this->bBuffClear->Click += gcnew System::EventHandler(this, &MainForm::bBuffClear_Click);
 			   // 
@@ -2422,9 +2504,10 @@ namespace Timelapse {
 			   this->panel5->Controls->Add(this->label40);
 			   this->panel5->Controls->Add(this->label41);
 			   this->panel5->Controls->Add(this->comboBuffKey);
-			   this->panel5->Location = System::Drawing::Point(265, 4);
+			   this->panel5->Location = System::Drawing::Point(398, 6);
+			   this->panel5->Margin = System::Windows::Forms::Padding(4);
 			   this->panel5->Name = L"panel5";
-			   this->panel5->Size = System::Drawing::Size(124, 118);
+			   this->panel5->Size = System::Drawing::Size(185, 163);
 			   this->panel5->TabIndex = 5;
 			   // 
 			   // tbBuffName
@@ -2433,9 +2516,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbBuffName->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbBuffName->ForeColor = System::Drawing::Color::White;
-			   this->tbBuffName->Location = System::Drawing::Point(40, 6);
+			   this->tbBuffName->Location = System::Drawing::Point(60, 8);
+			   this->tbBuffName->Margin = System::Windows::Forms::Padding(4);
 			   this->tbBuffName->Name = L"tbBuffName";
-			   this->tbBuffName->Size = System::Drawing::Size(78, 21);
+			   this->tbBuffName->Size = System::Drawing::Size(116, 27);
 			   this->tbBuffName->TabIndex = 12;
 			   this->tbBuffName->Text = L"Buff";
 			   this->tbBuffName->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -2444,11 +2528,12 @@ namespace Timelapse {
 			   // 
 			   this->bBuffAdd->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bBuffAdd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bBuffAdd->Location = System::Drawing::Point(5, 89);
+			   this->bBuffAdd->Location = System::Drawing::Point(8, 123);
+			   this->bBuffAdd->Margin = System::Windows::Forms::Padding(4);
 			   this->bBuffAdd->Name = L"bBuffAdd";
-			   this->bBuffAdd->Size = System::Drawing::Size(113, 21);
+			   this->bBuffAdd->Size = System::Drawing::Size(170, 29);
 			   this->bBuffAdd->TabIndex = 11;
-			   this->bBuffAdd->Text = L"Add";
+			   this->bBuffAdd->Text = L"添加";
 			   this->bBuffAdd->UseVisualStyleBackColor = true;
 			   this->bBuffAdd->Click += gcnew System::EventHandler(this, &MainForm::bBuffAdd_Click);
 			   // 
@@ -2458,9 +2543,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbBuffInterval->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbBuffInterval->ForeColor = System::Drawing::Color::White;
-			   this->tbBuffInterval->Location = System::Drawing::Point(82, 33);
+			   this->tbBuffInterval->Location = System::Drawing::Point(123, 46);
+			   this->tbBuffInterval->Margin = System::Windows::Forms::Padding(4);
 			   this->tbBuffInterval->Name = L"tbBuffInterval";
-			   this->tbBuffInterval->Size = System::Drawing::Size(36, 21);
+			   this->tbBuffInterval->Size = System::Drawing::Size(53, 27);
 			   this->tbBuffInterval->TabIndex = 3;
 			   this->tbBuffInterval->Text = L"60";
 			   this->tbBuffInterval->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -2469,9 +2555,10 @@ namespace Timelapse {
 			   // label40
 			   // 
 			   this->label40->AutoSize = true;
-			   this->label40->Location = System::Drawing::Point(2, 9);
+			   this->label40->Location = System::Drawing::Point(3, 12);
+			   this->label40->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label40->Name = L"label40";
-			   this->label40->Size = System::Drawing::Size(38, 13);
+			   this->label40->Size = System::Drawing::Size(59, 21);
 			   this->label40->TabIndex = 10;
 			   this->label40->Text = L"Name:";
 			   // 
@@ -2479,9 +2566,10 @@ namespace Timelapse {
 			   // 
 			   this->label41->AutoSize = true;
 			   this->label41->BackColor = System::Drawing::Color::Transparent;
-			   this->label41->Location = System::Drawing::Point(3, 36);
+			   this->label41->Location = System::Drawing::Point(4, 50);
+			   this->label41->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label41->Name = L"label41";
-			   this->label41->Size = System::Drawing::Size(65, 13);
+			   this->label41->Size = System::Drawing::Size(100, 21);
 			   this->label41->TabIndex = 7;
 			   this->label41->Text = L"Interval [s]:";
 			   // 
@@ -2498,10 +2586,11 @@ namespace Timelapse {
 					   L" I", L" J", L" K", L" L", L" M", L" N", L" O", L" P", L" Q", L" R", L" S", L" T", L" U", L" V", L" W", L" X", L" Y", L" Z",
 					   L" 0", L" 1", L" 2", L" 3", L" 4", L" 5", L" 6", L" 7", L" 8", L" 9"
 			   });
-			   this->comboBuffKey->Location = System::Drawing::Point(5, 61);
+			   this->comboBuffKey->Location = System::Drawing::Point(8, 84);
+			   this->comboBuffKey->Margin = System::Windows::Forms::Padding(4);
 			   this->comboBuffKey->Name = L"comboBuffKey";
 			   this->comboBuffKey->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->comboBuffKey->Size = System::Drawing::Size(113, 21);
+			   this->comboBuffKey->Size = System::Drawing::Size(168, 29);
 			   this->comboBuffKey->TabIndex = 5;
 			   this->comboBuffKey->Text = L" Shift";
 			   // 
@@ -2519,27 +2608,28 @@ namespace Timelapse {
 			   this->lvBuff->FullRowSelect = true;
 			   this->lvBuff->HeaderStyle = System::Windows::Forms::ColumnHeaderStyle::Nonclickable;
 			   this->lvBuff->HideSelection = false;
-			   this->lvBuff->Location = System::Drawing::Point(6, 4);
+			   this->lvBuff->Location = System::Drawing::Point(9, 6);
+			   this->lvBuff->Margin = System::Windows::Forms::Padding(4);
 			   this->lvBuff->Name = L"lvBuff";
-			   this->lvBuff->Size = System::Drawing::Size(257, 178);
+			   this->lvBuff->Size = System::Drawing::Size(384, 246);
 			   this->lvBuff->TabIndex = 0;
 			   this->lvBuff->UseCompatibleStateImageBehavior = false;
 			   this->lvBuff->View = System::Windows::Forms::View::Details;
 			   // 
 			   // lvBuffHeaderName
 			   // 
-			   this->lvBuffHeaderName->Text = L"Name";
+			   this->lvBuffHeaderName->Text = L"名字";
 			   this->lvBuffHeaderName->Width = 100;
 			   // 
 			   // lvBuffHeaderKey
 			   // 
 			   this->lvBuffHeaderKey->DisplayIndex = 2;
-			   this->lvBuffHeaderKey->Text = L"Key";
+			   this->lvBuffHeaderKey->Text = L"热键";
 			   // 
 			   // lvBuffHeaderInterval
 			   // 
 			   this->lvBuffHeaderInterval->DisplayIndex = 1;
-			   this->lvBuffHeaderInterval->Text = L"Interval [s]";
+			   this->lvBuffHeaderInterval->Text = L"间隔 [s]";
 			   this->lvBuffHeaderInterval->Width = 80;
 			   // 
 			   // tabPage12
@@ -2550,10 +2640,11 @@ namespace Timelapse {
 			   this->tabPage12->Controls->Add(this->panel7);
 			   this->tabPage12->Controls->Add(this->rbFunction);
 			   this->tabPage12->Controls->Add(this->rbPacket);
-			   this->tabPage12->Location = System::Drawing::Point(4, 22);
+			   this->tabPage12->Location = System::Drawing::Point(4, 30);
+			   this->tabPage12->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage12->Name = L"tabPage12";
-			   this->tabPage12->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage12->Size = System::Drawing::Size(394, 212);
+			   this->tabPage12->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage12->Size = System::Drawing::Size(595, 296);
 			   this->tabPage12->TabIndex = 2;
 			   this->tabPage12->Text = L"Auto CC/CS";
 			   // 
@@ -2565,9 +2656,10 @@ namespace Timelapse {
 			   this->panel8->Controls->Add(this->bCS);
 			   this->panel8->Controls->Add(this->bRandomCC);
 			   this->panel8->Controls->Add(this->panel9);
-			   this->panel8->Location = System::Drawing::Point(213, 0);
+			   this->panel8->Location = System::Drawing::Point(320, 0);
+			   this->panel8->Margin = System::Windows::Forms::Padding(4);
 			   this->panel8->Name = L"panel8";
-			   this->panel8->Size = System::Drawing::Size(183, 216);
+			   this->panel8->Size = System::Drawing::Size(274, 298);
 			   this->panel8->TabIndex = 17;
 			   // 
 			   // tbCSDelay
@@ -2576,9 +2668,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbCSDelay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbCSDelay->ForeColor = System::Drawing::Color::White;
-			   this->tbCSDelay->Location = System::Drawing::Point(100, 162);
+			   this->tbCSDelay->Location = System::Drawing::Point(150, 224);
+			   this->tbCSDelay->Margin = System::Windows::Forms::Padding(4);
 			   this->tbCSDelay->Name = L"tbCSDelay";
-			   this->tbCSDelay->Size = System::Drawing::Size(67, 21);
+			   this->tbCSDelay->Size = System::Drawing::Size(100, 27);
 			   this->tbCSDelay->TabIndex = 19;
 			   this->tbCSDelay->Text = L"2000";
 			   this->tbCSDelay->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -2588,21 +2681,23 @@ namespace Timelapse {
 			   // 
 			   this->label48->AutoSize = true;
 			   this->label48->ForeColor = System::Drawing::Color::Silver;
-			   this->label48->Location = System::Drawing::Point(14, 158);
+			   this->label48->Location = System::Drawing::Point(21, 219);
+			   this->label48->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label48->Name = L"label48";
-			   this->label48->Size = System::Drawing::Size(82, 26);
+			   this->label48->Size = System::Drawing::Size(125, 42);
 			   this->label48->TabIndex = 18;
-			   this->label48->Text = L"Exit Cash Shop \r\nDelay (ms):";
+			   this->label48->Text = L"离开现金商店 \r\n延迟 (ms):";
 			   // 
 			   // bCS
 			   // 
 			   this->bCS->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bCS->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bCS->Location = System::Drawing::Point(17, 129);
+			   this->bCS->Location = System::Drawing::Point(26, 179);
+			   this->bCS->Margin = System::Windows::Forms::Padding(4);
 			   this->bCS->Name = L"bCS";
-			   this->bCS->Size = System::Drawing::Size(146, 23);
+			   this->bCS->Size = System::Drawing::Size(219, 32);
 			   this->bCS->TabIndex = 17;
-			   this->bCS->Text = L"Auto Cash Shop";
+			   this->bCS->Text = L"自动现金商店";
 			   this->bCS->UseVisualStyleBackColor = true;
 			   this->bCS->Click += gcnew System::EventHandler(this, &MainForm::bCS_Click);
 			   // 
@@ -2610,11 +2705,12 @@ namespace Timelapse {
 			   // 
 			   this->bRandomCC->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bRandomCC->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bRandomCC->Location = System::Drawing::Point(17, 97);
+			   this->bRandomCC->Location = System::Drawing::Point(26, 134);
+			   this->bRandomCC->Margin = System::Windows::Forms::Padding(4);
 			   this->bRandomCC->Name = L"bRandomCC";
-			   this->bRandomCC->Size = System::Drawing::Size(146, 23);
+			   this->bRandomCC->Size = System::Drawing::Size(219, 32);
 			   this->bRandomCC->TabIndex = 16;
-			   this->bRandomCC->Text = L"Random Channel";
+			   this->bRandomCC->Text = L"随机频道";
 			   this->bRandomCC->UseVisualStyleBackColor = true;
 			   this->bRandomCC->Click += gcnew System::EventHandler(this, &MainForm::bRandomCC_Click);
 			   // 
@@ -2624,20 +2720,22 @@ namespace Timelapse {
 			   this->panel9->Controls->Add(this->bCC);
 			   this->panel9->Controls->Add(this->comboChannelKey);
 			   this->panel9->Controls->Add(this->label47);
-			   this->panel9->Location = System::Drawing::Point(11, 20);
+			   this->panel9->Location = System::Drawing::Point(16, 28);
+			   this->panel9->Margin = System::Windows::Forms::Padding(4);
 			   this->panel9->Name = L"panel9";
-			   this->panel9->Size = System::Drawing::Size(159, 63);
+			   this->panel9->Size = System::Drawing::Size(238, 86);
 			   this->panel9->TabIndex = 15;
 			   // 
 			   // bCC
 			   // 
 			   this->bCC->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bCC->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bCC->Location = System::Drawing::Point(5, 32);
+			   this->bCC->Location = System::Drawing::Point(8, 44);
+			   this->bCC->Margin = System::Windows::Forms::Padding(4);
 			   this->bCC->Name = L"bCC";
-			   this->bCC->Size = System::Drawing::Size(146, 23);
+			   this->bCC->Size = System::Drawing::Size(219, 32);
 			   this->bCC->TabIndex = 14;
-			   this->bCC->Text = L"Specific Channel";
+			   this->bCC->Text = L"特定通道";
 			   this->bCC->UseVisualStyleBackColor = true;
 			   this->bCC->Click += gcnew System::EventHandler(this, &MainForm::bCC_Click);
 			   // 
@@ -2652,21 +2750,23 @@ namespace Timelapse {
 				   L" 1", L" 2", L" 3", L" 4", L" 5", L" 6",
 					   L" 7", L" 8", L" 9", L" 10", L" 11", L" 12", L" 13", L" 14", L" 15", L" 16", L" 17", L" 18", L" 19", L" 20"
 			   });
-			   this->comboChannelKey->Location = System::Drawing::Point(65, 3);
+			   this->comboChannelKey->Location = System::Drawing::Point(98, 4);
+			   this->comboChannelKey->Margin = System::Windows::Forms::Padding(4);
 			   this->comboChannelKey->Name = L"comboChannelKey";
 			   this->comboChannelKey->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->comboChannelKey->Size = System::Drawing::Size(86, 21);
+			   this->comboChannelKey->Size = System::Drawing::Size(127, 29);
 			   this->comboChannelKey->TabIndex = 6;
 			   this->comboChannelKey->Text = L" 1";
 			   // 
 			   // label47
 			   // 
 			   this->label47->AutoSize = true;
-			   this->label47->Location = System::Drawing::Point(9, 7);
+			   this->label47->Location = System::Drawing::Point(14, 10);
+			   this->label47->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label47->Name = L"label47";
-			   this->label47->Size = System::Drawing::Size(50, 13);
+			   this->label47->Size = System::Drawing::Size(75, 21);
 			   this->label47->TabIndex = 7;
-			   this->label47->Text = L"Channel:";
+			   this->label47->Text = L"频道:";
 			   // 
 			   // panel7
 			   // 
@@ -2685,9 +2785,10 @@ namespace Timelapse {
 			   this->panel7->Controls->Add(this->cbCCCSPeople);
 			   this->panel7->Controls->Add(this->rbCC);
 			   this->panel7->Controls->Add(this->cbCCCSTime);
-			   this->panel7->Location = System::Drawing::Point(10, 35);
+			   this->panel7->Location = System::Drawing::Point(15, 48);
+			   this->panel7->Margin = System::Windows::Forms::Padding(4);
 			   this->panel7->Name = L"panel7";
-			   this->panel7->Size = System::Drawing::Size(197, 164);
+			   this->panel7->Size = System::Drawing::Size(294, 226);
 			   this->panel7->TabIndex = 2;
 			   // 
 			   // tbCCCSMob
@@ -2696,9 +2797,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbCCCSMob->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbCCCSMob->ForeColor = System::Drawing::Color::White;
-			   this->tbCCCSMob->Location = System::Drawing::Point(111, 132);
+			   this->tbCCCSMob->Location = System::Drawing::Point(166, 183);
+			   this->tbCCCSMob->Margin = System::Windows::Forms::Padding(4);
 			   this->tbCCCSMob->Name = L"tbCCCSMob";
-			   this->tbCCCSMob->Size = System::Drawing::Size(78, 21);
+			   this->tbCCCSMob->Size = System::Drawing::Size(116, 27);
 			   this->tbCCCSMob->TabIndex = 16;
 			   this->tbCCCSMob->Text = L"1";
 			   this->tbCCCSMob->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -2710,9 +2812,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbCCCSAttack->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbCCCSAttack->ForeColor = System::Drawing::Color::White;
-			   this->tbCCCSAttack->Location = System::Drawing::Point(111, 102);
+			   this->tbCCCSAttack->Location = System::Drawing::Point(166, 141);
+			   this->tbCCCSAttack->Margin = System::Windows::Forms::Padding(4);
 			   this->tbCCCSAttack->Name = L"tbCCCSAttack";
-			   this->tbCCCSAttack->Size = System::Drawing::Size(78, 21);
+			   this->tbCCCSAttack->Size = System::Drawing::Size(116, 27);
 			   this->tbCCCSAttack->TabIndex = 15;
 			   this->tbCCCSAttack->Text = L"99";
 			   this->tbCCCSAttack->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -2724,9 +2827,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbCCCSPeople->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbCCCSPeople->ForeColor = System::Drawing::Color::White;
-			   this->tbCCCSPeople->Location = System::Drawing::Point(111, 72);
+			   this->tbCCCSPeople->Location = System::Drawing::Point(166, 100);
+			   this->tbCCCSPeople->Margin = System::Windows::Forms::Padding(4);
 			   this->tbCCCSPeople->Name = L"tbCCCSPeople";
-			   this->tbCCCSPeople->Size = System::Drawing::Size(78, 21);
+			   this->tbCCCSPeople->Size = System::Drawing::Size(116, 27);
 			   this->tbCCCSPeople->TabIndex = 14;
 			   this->tbCCCSPeople->Text = L"0";
 			   this->tbCCCSPeople->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -2738,9 +2842,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbCCCSTime->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbCCCSTime->ForeColor = System::Drawing::Color::White;
-			   this->tbCCCSTime->Location = System::Drawing::Point(111, 42);
+			   this->tbCCCSTime->Location = System::Drawing::Point(166, 58);
+			   this->tbCCCSTime->Margin = System::Windows::Forms::Padding(4);
 			   this->tbCCCSTime->Name = L"tbCCCSTime";
-			   this->tbCCCSTime->Size = System::Drawing::Size(78, 21);
+			   this->tbCCCSTime->Size = System::Drawing::Size(116, 27);
 			   this->tbCCCSTime->TabIndex = 13;
 			   this->tbCCCSTime->Text = L"30";
 			   this->tbCCCSTime->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -2749,36 +2854,40 @@ namespace Timelapse {
 			   // label46
 			   // 
 			   this->label46->AutoSize = true;
-			   this->label46->Location = System::Drawing::Point(92, 134);
+			   this->label46->Location = System::Drawing::Point(138, 186);
+			   this->label46->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label46->Name = L"label46";
-			   this->label46->Size = System::Drawing::Size(15, 13);
+			   this->label46->Size = System::Drawing::Size(22, 21);
 			   this->label46->TabIndex = 10;
 			   this->label46->Text = L"<";
 			   // 
 			   // label45
 			   // 
 			   this->label45->AutoSize = true;
-			   this->label45->Location = System::Drawing::Point(92, 104);
+			   this->label45->Location = System::Drawing::Point(138, 144);
+			   this->label45->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label45->Name = L"label45";
-			   this->label45->Size = System::Drawing::Size(15, 13);
+			   this->label45->Size = System::Drawing::Size(22, 21);
 			   this->label45->TabIndex = 9;
 			   this->label45->Text = L">";
 			   // 
 			   // label44
 			   // 
 			   this->label44->AutoSize = true;
-			   this->label44->Location = System::Drawing::Point(92, 74);
+			   this->label44->Location = System::Drawing::Point(138, 102);
+			   this->label44->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label44->Name = L"label44";
-			   this->label44->Size = System::Drawing::Size(15, 13);
+			   this->label44->Size = System::Drawing::Size(22, 21);
 			   this->label44->TabIndex = 8;
 			   this->label44->Text = L">";
 			   // 
 			   // label43
 			   // 
 			   this->label43->AutoSize = true;
-			   this->label43->Location = System::Drawing::Point(92, 45);
+			   this->label43->Location = System::Drawing::Point(138, 62);
+			   this->label43->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label43->Name = L"label43";
-			   this->label43->Size = System::Drawing::Size(15, 13);
+			   this->label43->Size = System::Drawing::Size(22, 21);
 			   this->label43->TabIndex = 7;
 			   this->label43->Text = L">";
 			   // 
@@ -2788,22 +2897,24 @@ namespace Timelapse {
 			   this->cbCCCSMob->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbCCCSMob->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbCCCSMob->ForeColor = System::Drawing::Color::White;
-			   this->cbCCCSMob->Location = System::Drawing::Point(10, 132);
+			   this->cbCCCSMob->Location = System::Drawing::Point(15, 183);
+			   this->cbCCCSMob->Margin = System::Windows::Forms::Padding(4);
 			   this->cbCCCSMob->Name = L"cbCCCSMob";
-			   this->cbCCCSMob->Size = System::Drawing::Size(48, 17);
+			   this->cbCCCSMob->Size = System::Drawing::Size(70, 25);
 			   this->cbCCCSMob->TabIndex = 5;
-			   this->cbCCCSMob->Text = L"Mobs";
+			   this->cbCCCSMob->Text = L"怪物";
 			   this->cbCCCSMob->UseVisualStyleBackColor = false;
 			   // 
 			   // rbCS
 			   // 
 			   this->rbCS->AutoSize = true;
 			   this->rbCS->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->rbCS->Location = System::Drawing::Point(112, 6);
+			   this->rbCS->Location = System::Drawing::Point(168, 8);
+			   this->rbCS->Margin = System::Windows::Forms::Padding(4);
 			   this->rbCS->Name = L"rbCS";
-			   this->rbCS->Size = System::Drawing::Size(75, 17);
+			   this->rbCS->Size = System::Drawing::Size(110, 25);
 			   this->rbCS->TabIndex = 5;
-			   this->rbCS->Text = L"Cash Shop";
+			   this->rbCS->Text = L"现金商店";
 			   this->rbCS->UseVisualStyleBackColor = true;
 			   // 
 			   // cbCCCSAttack
@@ -2812,11 +2923,12 @@ namespace Timelapse {
 			   this->cbCCCSAttack->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbCCCSAttack->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbCCCSAttack->ForeColor = System::Drawing::Color::White;
-			   this->cbCCCSAttack->Location = System::Drawing::Point(10, 102);
+			   this->cbCCCSAttack->Location = System::Drawing::Point(15, 141);
+			   this->cbCCCSAttack->Margin = System::Windows::Forms::Padding(4);
 			   this->cbCCCSAttack->Name = L"cbCCCSAttack";
-			   this->cbCCCSAttack->Size = System::Drawing::Size(59, 17);
+			   this->cbCCCSAttack->Size = System::Drawing::Size(87, 25);
 			   this->cbCCCSAttack->TabIndex = 4;
-			   this->cbCCCSAttack->Text = L"Attacks";
+			   this->cbCCCSAttack->Text = L"攻击";
 			   this->cbCCCSAttack->UseVisualStyleBackColor = false;
 			   // 
 			   // cbCCCSPeople
@@ -2825,11 +2937,12 @@ namespace Timelapse {
 			   this->cbCCCSPeople->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbCCCSPeople->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbCCCSPeople->ForeColor = System::Drawing::Color::White;
-			   this->cbCCCSPeople->Location = System::Drawing::Point(10, 72);
+			   this->cbCCCSPeople->Location = System::Drawing::Point(15, 100);
+			   this->cbCCCSPeople->Margin = System::Windows::Forms::Padding(4);
 			   this->cbCCCSPeople->Name = L"cbCCCSPeople";
-			   this->cbCCCSPeople->Size = System::Drawing::Size(55, 17);
+			   this->cbCCCSPeople->Size = System::Drawing::Size(80, 25);
 			   this->cbCCCSPeople->TabIndex = 3;
-			   this->cbCCCSPeople->Text = L"People";
+			   this->cbCCCSPeople->Text = L"人物";
 			   this->cbCCCSPeople->UseVisualStyleBackColor = false;
 			   // 
 			   // rbCC
@@ -2837,12 +2950,13 @@ namespace Timelapse {
 			   this->rbCC->AutoSize = true;
 			   this->rbCC->Checked = true;
 			   this->rbCC->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->rbCC->Location = System::Drawing::Point(6, 6);
+			   this->rbCC->Location = System::Drawing::Point(9, 8);
+			   this->rbCC->Margin = System::Windows::Forms::Padding(4);
 			   this->rbCC->Name = L"rbCC";
-			   this->rbCC->Size = System::Drawing::Size(103, 17);
+			   this->rbCC->Size = System::Drawing::Size(152, 25);
 			   this->rbCC->TabIndex = 4;
 			   this->rbCC->TabStop = true;
-			   this->rbCC->Text = L"Change Channel";
+			   this->rbCC->Text = L"更改频道";
 			   this->rbCC->UseVisualStyleBackColor = true;
 			   this->rbCC->CheckedChanged += gcnew System::EventHandler(this, &MainForm::rbCC_CheckedChanged);
 			   // 
@@ -2852,22 +2966,24 @@ namespace Timelapse {
 			   this->cbCCCSTime->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbCCCSTime->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbCCCSTime->ForeColor = System::Drawing::Color::White;
-			   this->cbCCCSTime->Location = System::Drawing::Point(10, 42);
+			   this->cbCCCSTime->Location = System::Drawing::Point(15, 58);
+			   this->cbCCCSTime->Margin = System::Windows::Forms::Padding(4);
 			   this->cbCCCSTime->Name = L"cbCCCSTime";
-			   this->cbCCCSTime->Size = System::Drawing::Size(77, 17);
+			   this->cbCCCSTime->Size = System::Drawing::Size(120, 25);
 			   this->cbCCCSTime->TabIndex = 2;
-			   this->cbCCCSTime->Text = L"Time (secs)";
+			   this->cbCCCSTime->Text = L"时间 (secs)";
 			   this->cbCCCSTime->UseVisualStyleBackColor = false;
 			   // 
 			   // rbFunction
 			   // 
 			   this->rbFunction->AutoSize = true;
 			   this->rbFunction->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->rbFunction->Location = System::Drawing::Point(116, 6);
+			   this->rbFunction->Location = System::Drawing::Point(174, 8);
+			   this->rbFunction->Margin = System::Windows::Forms::Padding(4);
 			   this->rbFunction->Name = L"rbFunction";
-			   this->rbFunction->Size = System::Drawing::Size(65, 17);
+			   this->rbFunction->Size = System::Drawing::Size(96, 25);
 			   this->rbFunction->TabIndex = 1;
-			   this->rbFunction->Text = L"Function";
+			   this->rbFunction->Text = L"功能";
 			   this->rbFunction->UseVisualStyleBackColor = true;
 			   this->rbFunction->CheckedChanged += gcnew System::EventHandler(this, &MainForm::rbFunction_CheckedChanged);
 			   // 
@@ -2876,9 +2992,10 @@ namespace Timelapse {
 			   this->rbPacket->AutoSize = true;
 			   this->rbPacket->Checked = true;
 			   this->rbPacket->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->rbPacket->Location = System::Drawing::Point(23, 6);
+			   this->rbPacket->Location = System::Drawing::Point(34, 8);
+			   this->rbPacket->Margin = System::Windows::Forms::Padding(4);
 			   this->rbPacket->Name = L"rbPacket";
-			   this->rbPacket->Size = System::Drawing::Size(56, 17);
+			   this->rbPacket->Size = System::Drawing::Size(82, 25);
 			   this->rbPacket->TabIndex = 0;
 			   this->rbPacket->TabStop = true;
 			   this->rbPacket->Text = L"Packet";
@@ -2889,31 +3006,34 @@ namespace Timelapse {
 			   this->tabPage10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->tabPage10->Controls->Add(this->panel10);
-			   this->tabPage10->Location = System::Drawing::Point(4, 22);
+			   this->tabPage10->Location = System::Drawing::Point(4, 30);
+			   this->tabPage10->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage10->Name = L"tabPage10";
-			   this->tabPage10->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage10->Size = System::Drawing::Size(394, 212);
+			   this->tabPage10->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage10->Size = System::Drawing::Size(595, 296);
 			   this->tabPage10->TabIndex = 3;
-			   this->tabPage10->Text = L"Auto Sell";
+			   this->tabPage10->Text = L"自动售卖";
 			   // 
 			   // panel10
 			   // 
 			   this->panel10->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->panel10->Controls->Add(this->cbSellAll);
-			   this->panel10->Location = System::Drawing::Point(6, 7);
+			   this->panel10->Location = System::Drawing::Point(9, 10);
+			   this->panel10->Margin = System::Windows::Forms::Padding(4);
 			   this->panel10->Name = L"panel10";
-			   this->panel10->Size = System::Drawing::Size(200, 199);
+			   this->panel10->Size = System::Drawing::Size(299, 275);
 			   this->panel10->TabIndex = 0;
 			   // 
 			   // cbSellAll
 			   // 
 			   this->cbSellAll->AutoSize = true;
 			   this->cbSellAll->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->cbSellAll->Location = System::Drawing::Point(5, 6);
+			   this->cbSellAll->Location = System::Drawing::Point(8, 8);
+			   this->cbSellAll->Margin = System::Windows::Forms::Padding(4);
 			   this->cbSellAll->Name = L"cbSellAll";
-			   this->cbSellAll->Size = System::Drawing::Size(178, 17);
+			   this->cbSellAll->Size = System::Drawing::Size(277, 25);
 			   this->cbSellAll->TabIndex = 2;
-			   this->cbSellAll->Text = L"Sell All When Inv Full (heuristics)";
+			   this->cbSellAll->Text = L"背包满时全部出售 (heuristics)";
 			   this->cbSellAll->UseVisualStyleBackColor = false;
 			   this->cbSellAll->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbSellAll_CheckedChanged);
 			   // 
@@ -2944,9 +3064,10 @@ namespace Timelapse {
 			   this->panel2->Controls->Add(this->tbHP);
 			   this->panel2->Controls->Add(this->cbHP);
 			   this->panel2->Controls->Add(this->cbMP);
-			   this->panel2->Location = System::Drawing::Point(6, 6);
+			   this->panel2->Location = System::Drawing::Point(9, 8);
+			   this->panel2->Margin = System::Windows::Forms::Padding(4);
 			   this->panel2->Name = L"panel2";
-			   this->panel2->Size = System::Drawing::Size(378, 139);
+			   this->panel2->Size = System::Drawing::Size(566, 192);
 			   this->panel2->TabIndex = 7;
 			   // 
 			   // MPPotDelay
@@ -2955,9 +3076,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->MPPotDelay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->MPPotDelay->ForeColor = System::Drawing::Color::White;
-			   this->MPPotDelay->Location = System::Drawing::Point(224, 28);
+			   this->MPPotDelay->Location = System::Drawing::Point(336, 39);
+			   this->MPPotDelay->Margin = System::Windows::Forms::Padding(4);
 			   this->MPPotDelay->Name = L"MPPotDelay";
-			   this->MPPotDelay->Size = System::Drawing::Size(57, 21);
+			   this->MPPotDelay->Size = System::Drawing::Size(84, 27);
 			   this->MPPotDelay->TabIndex = 14;
 			   this->MPPotDelay->Text = L"500";
 			   this->MPPotDelay->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -2968,9 +3090,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->HPPotDelay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->HPPotDelay->ForeColor = System::Drawing::Color::White;
-			   this->HPPotDelay->Location = System::Drawing::Point(224, 3);
+			   this->HPPotDelay->Location = System::Drawing::Point(336, 4);
+			   this->HPPotDelay->Margin = System::Windows::Forms::Padding(4);
 			   this->HPPotDelay->Name = L"HPPotDelay";
-			   this->HPPotDelay->Size = System::Drawing::Size(57, 21);
+			   this->HPPotDelay->Size = System::Drawing::Size(84, 27);
 			   this->HPPotDelay->TabIndex = 13;
 			   this->HPPotDelay->Text = L"500";
 			   this->HPPotDelay->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -2980,21 +3103,23 @@ namespace Timelapse {
 			   // 
 			   this->label93->AutoSize = true;
 			   this->label93->BackColor = System::Drawing::Color::Transparent;
-			   this->label93->Location = System::Drawing::Point(165, 30);
+			   this->label93->Location = System::Drawing::Point(248, 42);
+			   this->label93->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label93->Name = L"label93";
-			   this->label93->Size = System::Drawing::Size(59, 13);
+			   this->label93->Size = System::Drawing::Size(86, 21);
 			   this->label93->TabIndex = 12;
-			   this->label93->Text = L"Delay[ms]:";
+			   this->label93->Text = L"延迟[ms]:";
 			   // 
 			   // label91
 			   // 
 			   this->label91->AutoSize = true;
 			   this->label91->BackColor = System::Drawing::Color::Transparent;
-			   this->label91->Location = System::Drawing::Point(165, 5);
+			   this->label91->Location = System::Drawing::Point(248, 7);
+			   this->label91->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label91->Name = L"label91";
-			   this->label91->Size = System::Drawing::Size(59, 13);
+			   this->label91->Size = System::Drawing::Size(86, 21);
 			   this->label91->TabIndex = 11;
-			   this->label91->Text = L"Delay[ms]:";
+			   this->label91->Text = L"延迟[ms]:";
 			   // 
 			   // tbLootItem
 			   // 
@@ -3002,9 +3127,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbLootItem->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbLootItem->ForeColor = System::Drawing::Color::White;
-			   this->tbLootItem->Location = System::Drawing::Point(132, 78);
+			   this->tbLootItem->Location = System::Drawing::Point(198, 108);
+			   this->tbLootItem->Margin = System::Windows::Forms::Padding(4);
 			   this->tbLootItem->Name = L"tbLootItem";
-			   this->tbLootItem->Size = System::Drawing::Size(28, 21);
+			   this->tbLootItem->Size = System::Drawing::Size(41, 27);
 			   this->tbLootItem->TabIndex = 9;
 			   this->tbLootItem->Text = L"0";
 			   this->tbLootItem->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3016,9 +3142,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAttackInterval->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAttackInterval->ForeColor = System::Drawing::Color::White;
-			   this->tbAttackInterval->Location = System::Drawing::Point(224, 53);
+			   this->tbAttackInterval->Location = System::Drawing::Point(336, 73);
+			   this->tbAttackInterval->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAttackInterval->Name = L"tbAttackInterval";
-			   this->tbAttackInterval->Size = System::Drawing::Size(57, 21);
+			   this->tbAttackInterval->Size = System::Drawing::Size(84, 27);
 			   this->tbAttackInterval->TabIndex = 3;
 			   this->tbAttackInterval->Text = L"200";
 			   this->tbAttackInterval->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3030,9 +3157,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbLootInterval->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbLootInterval->ForeColor = System::Drawing::Color::White;
-			   this->tbLootInterval->Location = System::Drawing::Point(224, 78);
+			   this->tbLootInterval->Location = System::Drawing::Point(336, 108);
+			   this->tbLootInterval->Margin = System::Windows::Forms::Padding(4);
 			   this->tbLootInterval->Name = L"tbLootInterval";
-			   this->tbLootInterval->Size = System::Drawing::Size(57, 21);
+			   this->tbLootInterval->Size = System::Drawing::Size(84, 27);
 			   this->tbLootInterval->TabIndex = 3;
 			   this->tbLootInterval->Text = L"100";
 			   this->tbLootInterval->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3044,9 +3172,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAttackMob->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAttackMob->ForeColor = System::Drawing::Color::White;
-			   this->tbAttackMob->Location = System::Drawing::Point(132, 53);
+			   this->tbAttackMob->Location = System::Drawing::Point(198, 73);
+			   this->tbAttackMob->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAttackMob->Name = L"tbAttackMob";
-			   this->tbAttackMob->Size = System::Drawing::Size(28, 21);
+			   this->tbAttackMob->Size = System::Drawing::Size(41, 27);
 			   this->tbAttackMob->TabIndex = 9;
 			   this->tbAttackMob->Text = L"0";
 			   this->tbAttackMob->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3056,37 +3185,41 @@ namespace Timelapse {
 			   // 
 			   this->label31->AutoSize = true;
 			   this->label31->BackColor = System::Drawing::Color::Transparent;
-			   this->label31->Location = System::Drawing::Point(165, 80);
+			   this->label31->Location = System::Drawing::Point(248, 111);
+			   this->label31->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label31->Name = L"label31";
-			   this->label31->Size = System::Drawing::Size(59, 13);
+			   this->label31->Size = System::Drawing::Size(86, 21);
 			   this->label31->TabIndex = 7;
-			   this->label31->Text = L"Delay[ms]:";
+			   this->label31->Text = L"延迟[ms]:";
 			   // 
 			   // label29
 			   // 
 			   this->label29->AutoSize = true;
-			   this->label29->Location = System::Drawing::Point(85, 80);
+			   this->label29->Location = System::Drawing::Point(128, 111);
+			   this->label29->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label29->Name = L"label29";
-			   this->label29->Size = System::Drawing::Size(45, 13);
+			   this->label29->Size = System::Drawing::Size(95, 21);
 			   this->label29->TabIndex = 10;
-			   this->label29->Text = L"Items >";
+			   this->label29->Text = L"物品数量 >";
 			   // 
 			   // label28
 			   // 
 			   this->label28->AutoSize = true;
 			   this->label28->BackColor = System::Drawing::Color::Transparent;
-			   this->label28->Location = System::Drawing::Point(165, 55);
+			   this->label28->Location = System::Drawing::Point(248, 76);
+			   this->label28->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label28->Name = L"label28";
-			   this->label28->Size = System::Drawing::Size(59, 13);
+			   this->label28->Size = System::Drawing::Size(86, 21);
 			   this->label28->TabIndex = 7;
-			   this->label28->Text = L"Delay[ms]:";
+			   this->label28->Text = L"延迟[ms]:";
 			   // 
 			   // label27
 			   // 
 			   this->label27->AutoSize = true;
-			   this->label27->Location = System::Drawing::Point(67, 30);
+			   this->label27->Location = System::Drawing::Point(100, 42);
+			   this->label27->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label27->Name = L"label27";
-			   this->label27->Size = System::Drawing::Size(32, 13);
+			   this->label27->Size = System::Drawing::Size(49, 21);
 			   this->label27->TabIndex = 8;
 			   this->label27->Text = L"MP <";
 			   // 
@@ -3096,22 +3229,24 @@ namespace Timelapse {
 			   this->cbLoot->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbLoot->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbLoot->ForeColor = System::Drawing::Color::White;
-			   this->cbLoot->Location = System::Drawing::Point(5, 78);
+			   this->cbLoot->Location = System::Drawing::Point(8, 108);
+			   this->cbLoot->Margin = System::Windows::Forms::Padding(4);
 			   this->cbLoot->Name = L"cbLoot";
-			   this->cbLoot->Size = System::Drawing::Size(70, 17);
+			   this->cbLoot->Size = System::Drawing::Size(99, 25);
 			   this->cbLoot->TabIndex = 1;
-			   this->cbLoot->Text = L"Auto Loot";
+			   this->cbLoot->Text = L"自动拾取";
 			   this->cbLoot->UseVisualStyleBackColor = false;
 			   this->cbLoot->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbLoot_CheckedChanged);
 			   // 
 			   // label30
 			   // 
 			   this->label30->AutoSize = true;
-			   this->label30->Location = System::Drawing::Point(87, 55);
+			   this->label30->Location = System::Drawing::Point(130, 76);
+			   this->label30->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label30->Name = L"label30";
-			   this->label30->Size = System::Drawing::Size(43, 13);
+			   this->label30->Size = System::Drawing::Size(95, 21);
 			   this->label30->TabIndex = 10;
-			   this->label30->Text = L"Mobs >";
+			   this->label30->Text = L"怪物数量 >";
 			   // 
 			   // comboLootKey
 			   // 
@@ -3126,10 +3261,11 @@ namespace Timelapse {
 					   L" I", L" J", L" K", L" L", L" M", L" N", L" O", L" P", L" Q", L" R", L" S", L" T", L" U", L" V", L" W", L" X", L" Y", L" Z",
 					   L" 0", L" 1", L" 2", L" 3", L" 4", L" 5", L" 6", L" 7", L" 8", L" 9"
 			   });
-			   this->comboLootKey->Location = System::Drawing::Point(287, 78);
+			   this->comboLootKey->Location = System::Drawing::Point(430, 108);
+			   this->comboLootKey->Margin = System::Windows::Forms::Padding(4);
 			   this->comboLootKey->Name = L"comboLootKey";
 			   this->comboLootKey->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->comboLootKey->Size = System::Drawing::Size(83, 21);
+			   this->comboLootKey->Size = System::Drawing::Size(122, 29);
 			   this->comboLootKey->TabIndex = 5;
 			   this->comboLootKey->Text = L" Z";
 			   this->comboLootKey->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::comboLootKey_SelectedIndexChanged);
@@ -3137,9 +3273,10 @@ namespace Timelapse {
 			   // label26
 			   // 
 			   this->label26->AutoSize = true;
-			   this->label26->Location = System::Drawing::Point(67, 5);
+			   this->label26->Location = System::Drawing::Point(100, 7);
+			   this->label26->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label26->Name = L"label26";
-			   this->label26->Size = System::Drawing::Size(31, 13);
+			   this->label26->Size = System::Drawing::Size(47, 21);
 			   this->label26->TabIndex = 7;
 			   this->label26->Text = L"HP <";
 			   // 
@@ -3156,10 +3293,11 @@ namespace Timelapse {
 					   L" I", L" J", L" K", L" L", L" M", L" N", L" O", L" P", L" Q", L" R", L" S", L" T", L" U", L" V", L" W", L" X", L" Y", L" Z",
 					   L" 0", L" 1", L" 2", L" 3", L" 4", L" 5", L" 6", L" 7", L" 8", L" 9"
 			   });
-			   this->comboAttackKey->Location = System::Drawing::Point(287, 53);
+			   this->comboAttackKey->Location = System::Drawing::Point(430, 73);
+			   this->comboAttackKey->Margin = System::Windows::Forms::Padding(4);
 			   this->comboAttackKey->Name = L"comboAttackKey";
 			   this->comboAttackKey->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->comboAttackKey->Size = System::Drawing::Size(83, 21);
+			   this->comboAttackKey->Size = System::Drawing::Size(122, 29);
 			   this->comboAttackKey->TabIndex = 5;
 			   this->comboAttackKey->Text = L" Control";
 			   this->comboAttackKey->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::comboAttackKey_SelectedIndexChanged);
@@ -3177,9 +3315,10 @@ namespace Timelapse {
 					   L" K", L" L", L" M", L" N", L" O", L" P", L" Q", L" R", L" S", L" T", L" U", L" V", L" W", L" X", L" Y", L" Z", L" 0", L" 1",
 					   L" 2", L" 3", L" 4", L" 5", L" 6", L" 7", L" 8", L" 9"
 			   });
-			   this->comboMPKey->Location = System::Drawing::Point(287, 28);
+			   this->comboMPKey->Location = System::Drawing::Point(430, 39);
+			   this->comboMPKey->Margin = System::Windows::Forms::Padding(4);
 			   this->comboMPKey->Name = L"comboMPKey";
-			   this->comboMPKey->Size = System::Drawing::Size(83, 21);
+			   this->comboMPKey->Size = System::Drawing::Size(122, 29);
 			   this->comboMPKey->TabIndex = 6;
 			   this->comboMPKey->Text = L" Page Down";
 			   this->comboMPKey->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::comboMPKey_SelectedIndexChanged);
@@ -3190,11 +3329,12 @@ namespace Timelapse {
 			   this->cbAttack->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbAttack->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbAttack->ForeColor = System::Drawing::Color::White;
-			   this->cbAttack->Location = System::Drawing::Point(5, 53);
+			   this->cbAttack->Location = System::Drawing::Point(8, 73);
+			   this->cbAttack->Margin = System::Windows::Forms::Padding(4);
 			   this->cbAttack->Name = L"cbAttack";
-			   this->cbAttack->Size = System::Drawing::Size(80, 17);
+			   this->cbAttack->Size = System::Drawing::Size(99, 25);
 			   this->cbAttack->TabIndex = 1;
-			   this->cbAttack->Text = L"Auto Attack";
+			   this->cbAttack->Text = L"自动攻击";
 			   this->cbAttack->UseVisualStyleBackColor = false;
 			   this->cbAttack->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbAttack_CheckedChanged);
 			   // 
@@ -3211,10 +3351,11 @@ namespace Timelapse {
 					   L" K", L" L", L" M", L" N", L" O", L" P", L" Q", L" R", L" S", L" T", L" U", L" V", L" W", L" X", L" Y", L" Z", L" 0", L" 1",
 					   L" 2", L" 3", L" 4", L" 5", L" 6", L" 7", L" 8", L" 9"
 			   });
-			   this->comboHPKey->Location = System::Drawing::Point(287, 3);
+			   this->comboHPKey->Location = System::Drawing::Point(430, 4);
+			   this->comboHPKey->Margin = System::Windows::Forms::Padding(4);
 			   this->comboHPKey->Name = L"comboHPKey";
 			   this->comboHPKey->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			   this->comboHPKey->Size = System::Drawing::Size(83, 21);
+			   this->comboHPKey->Size = System::Drawing::Size(122, 29);
 			   this->comboHPKey->TabIndex = 5;
 			   this->comboHPKey->Text = L" Page Up";
 			   this->comboHPKey->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::comboHPKey_SelectedIndexChanged);
@@ -3225,9 +3366,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbMP->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbMP->ForeColor = System::Drawing::Color::White;
-			   this->tbMP->Location = System::Drawing::Point(102, 28);
+			   this->tbMP->Location = System::Drawing::Point(153, 39);
+			   this->tbMP->Margin = System::Windows::Forms::Padding(4);
 			   this->tbMP->Name = L"tbMP";
-			   this->tbMP->Size = System::Drawing::Size(58, 21);
+			   this->tbMP->Size = System::Drawing::Size(86, 27);
 			   this->tbMP->TabIndex = 4;
 			   this->tbMP->Text = L"50";
 			   this->tbMP->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3239,9 +3381,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbHP->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbHP->ForeColor = System::Drawing::Color::White;
-			   this->tbHP->Location = System::Drawing::Point(102, 3);
+			   this->tbHP->Location = System::Drawing::Point(153, 4);
+			   this->tbHP->Margin = System::Windows::Forms::Padding(4);
 			   this->tbHP->Name = L"tbHP";
-			   this->tbHP->Size = System::Drawing::Size(58, 21);
+			   this->tbHP->Size = System::Drawing::Size(86, 27);
 			   this->tbHP->TabIndex = 3;
 			   this->tbHP->Text = L"200";
 			   this->tbHP->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3253,11 +3396,12 @@ namespace Timelapse {
 			   this->cbHP->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbHP->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbHP->ForeColor = System::Drawing::Color::White;
-			   this->cbHP->Location = System::Drawing::Point(5, 3);
+			   this->cbHP->Location = System::Drawing::Point(8, 4);
+			   this->cbHP->Margin = System::Windows::Forms::Padding(4);
 			   this->cbHP->Name = L"cbHP";
-			   this->cbHP->Size = System::Drawing::Size(62, 17);
+			   this->cbHP->Size = System::Drawing::Size(85, 25);
 			   this->cbHP->TabIndex = 1;
-			   this->cbHP->Text = L"Auto HP";
+			   this->cbHP->Text = L"自动HP";
 			   this->cbHP->UseVisualStyleBackColor = false;
 			   this->cbHP->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbHP_CheckedChanged);
 			   // 
@@ -3267,11 +3411,12 @@ namespace Timelapse {
 			   this->cbMP->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMP->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMP->ForeColor = System::Drawing::Color::White;
-			   this->cbMP->Location = System::Drawing::Point(5, 28);
+			   this->cbMP->Location = System::Drawing::Point(8, 39);
+			   this->cbMP->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMP->Name = L"cbMP";
-			   this->cbMP->Size = System::Drawing::Size(63, 17);
+			   this->cbMP->Size = System::Drawing::Size(87, 25);
 			   this->cbMP->TabIndex = 2;
-			   this->cbMP->Text = L"Auto MP";
+			   this->cbMP->Text = L"自动MP";
 			   this->cbMP->UseVisualStyleBackColor = false;
 			   this->cbMP->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbMP_CheckedChanged);
 			   // 
@@ -3285,10 +3430,11 @@ namespace Timelapse {
 			   this->tabPage5->Controls->Add(this->groupBox3);
 			   this->tabPage5->Controls->Add(this->groupBox2);
 			   this->tabPage5->Controls->Add(this->groupBox1);
-			   this->tabPage5->Location = System::Drawing::Point(4, 22);
+			   this->tabPage5->Location = System::Drawing::Point(4, 30);
+			   this->tabPage5->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage5->Name = L"tabPage5";
-			   this->tabPage5->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage5->Size = System::Drawing::Size(390, 385);
+			   this->tabPage5->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage5->Size = System::Drawing::Size(589, 535);
 			   this->tabPage5->TabIndex = 2;
 			   this->tabPage5->Text = L"Hacks I";
 			   // 
@@ -3296,12 +3442,14 @@ namespace Timelapse {
 			   // 
 			   this->groupBox6->Controls->Add(this->cbNoWalkingFriction);
 			   this->groupBox6->ForeColor = System::Drawing::Color::WhiteSmoke;
-			   this->groupBox6->Location = System::Drawing::Point(249, 175);
+			   this->groupBox6->Location = System::Drawing::Point(374, 242);
+			   this->groupBox6->Margin = System::Windows::Forms::Padding(4);
 			   this->groupBox6->Name = L"groupBox6";
-			   this->groupBox6->Size = System::Drawing::Size(135, 133);
+			   this->groupBox6->Padding = System::Windows::Forms::Padding(4);
+			   this->groupBox6->Size = System::Drawing::Size(202, 184);
 			   this->groupBox6->TabIndex = 28;
 			   this->groupBox6->TabStop = false;
-			   this->groupBox6->Text = L"Physics Hacks";
+			   this->groupBox6->Text = L"物理设置";
 			   // 
 			   // cbNoWalkingFriction
 			   // 
@@ -3309,11 +3457,12 @@ namespace Timelapse {
 			   this->cbNoWalkingFriction->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoWalkingFriction->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoWalkingFriction->ForeColor = System::Drawing::Color::White;
-			   this->cbNoWalkingFriction->Location = System::Drawing::Point(10, 16);
+			   this->cbNoWalkingFriction->Location = System::Drawing::Point(15, 22);
+			   this->cbNoWalkingFriction->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoWalkingFriction->Name = L"cbNoWalkingFriction";
-			   this->cbNoWalkingFriction->Size = System::Drawing::Size(114, 17);
+			   this->cbNoWalkingFriction->Size = System::Drawing::Size(174, 25);
 			   this->cbNoWalkingFriction->TabIndex = 11;
-			   this->cbNoWalkingFriction->Text = L"No Walking Friction";
+			   this->cbNoWalkingFriction->Text = L"无行走摩擦";
 			   this->cbNoWalkingFriction->UseVisualStyleBackColor = false;
 			   this->cbNoWalkingFriction->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoWalkingFriction_CheckedChanged);
 			   // 
@@ -3327,12 +3476,14 @@ namespace Timelapse {
 			   this->groupBox5->Controls->Add(this->cbNoMapFadeEffect);
 			   this->groupBox5->Controls->Add(this->cbNoMapObjects);
 			   this->groupBox5->ForeColor = System::Drawing::Color::WhiteSmoke;
-			   this->groupBox5->Location = System::Drawing::Point(247, 4);
+			   this->groupBox5->Location = System::Drawing::Point(370, 6);
+			   this->groupBox5->Margin = System::Windows::Forms::Padding(4);
 			   this->groupBox5->Name = L"groupBox5";
-			   this->groupBox5->Size = System::Drawing::Size(137, 169);
+			   this->groupBox5->Padding = System::Windows::Forms::Padding(4);
+			   this->groupBox5->Size = System::Drawing::Size(206, 234);
 			   this->groupBox5->TabIndex = 27;
 			   this->groupBox5->TabStop = false;
-			   this->groupBox5->Text = L"Map Hacks";
+			   this->groupBox5->Text = L"地图设置";
 			   // 
 			   // cbNoBlueBoxes
 			   // 
@@ -3340,9 +3491,10 @@ namespace Timelapse {
 			   this->cbNoBlueBoxes->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoBlueBoxes->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoBlueBoxes->ForeColor = System::Drawing::Color::White;
-			   this->cbNoBlueBoxes->Location = System::Drawing::Point(10, 124);
+			   this->cbNoBlueBoxes->Location = System::Drawing::Point(15, 172);
+			   this->cbNoBlueBoxes->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoBlueBoxes->Name = L"cbNoBlueBoxes";
-			   this->cbNoBlueBoxes->Size = System::Drawing::Size(91, 17);
+			   this->cbNoBlueBoxes->Size = System::Drawing::Size(137, 25);
 			   this->cbNoBlueBoxes->TabIndex = 10;
 			   this->cbNoBlueBoxes->Text = L"No Blue Boxes";
 			   this->cbNoBlueBoxes->UseVisualStyleBackColor = false;
@@ -3354,11 +3506,12 @@ namespace Timelapse {
 			   this->cbNoMapBackground->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoMapBackground->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoMapBackground->ForeColor = System::Drawing::Color::White;
-			   this->cbNoMapBackground->Location = System::Drawing::Point(10, 16);
+			   this->cbNoMapBackground->Location = System::Drawing::Point(15, 22);
+			   this->cbNoMapBackground->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoMapBackground->Name = L"cbNoMapBackground";
-			   this->cbNoMapBackground->Size = System::Drawing::Size(118, 17);
+			   this->cbNoMapBackground->Size = System::Drawing::Size(178, 25);
 			   this->cbNoMapBackground->TabIndex = 4;
-			   this->cbNoMapBackground->Text = L"No Map Background";
+			   this->cbNoMapBackground->Text = L"无地图背景";
 			   this->cbNoMapBackground->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			   this->cbNoMapBackground->UseVisualStyleBackColor = false;
 			   this->cbNoMapBackground->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoMapBackground_CheckedChanged);
@@ -3369,11 +3522,12 @@ namespace Timelapse {
 			   this->cbNoMapTiles->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoMapTiles->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoMapTiles->ForeColor = System::Drawing::Color::White;
-			   this->cbNoMapTiles->Location = System::Drawing::Point(10, 52);
+			   this->cbNoMapTiles->Location = System::Drawing::Point(15, 72);
+			   this->cbNoMapTiles->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoMapTiles->Name = L"cbNoMapTiles";
-			   this->cbNoMapTiles->Size = System::Drawing::Size(83, 17);
+			   this->cbNoMapTiles->Size = System::Drawing::Size(127, 25);
 			   this->cbNoMapTiles->TabIndex = 9;
-			   this->cbNoMapTiles->Text = L"No Map Tiles";
+			   this->cbNoMapTiles->Text = L"无地图标题";
 			   this->cbNoMapTiles->UseVisualStyleBackColor = false;
 			   this->cbNoMapTiles->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoMapTiles_CheckedChanged);
 			   // 
@@ -3383,11 +3537,12 @@ namespace Timelapse {
 			   this->cbInfiniteChat->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbInfiniteChat->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbInfiniteChat->ForeColor = System::Drawing::Color::White;
-			   this->cbInfiniteChat->Location = System::Drawing::Point(10, 106);
+			   this->cbInfiniteChat->Location = System::Drawing::Point(15, 147);
+			   this->cbInfiniteChat->Margin = System::Windows::Forms::Padding(4);
 			   this->cbInfiniteChat->Name = L"cbInfiniteChat";
-			   this->cbInfiniteChat->Size = System::Drawing::Size(83, 17);
+			   this->cbInfiniteChat->Size = System::Drawing::Size(122, 25);
 			   this->cbInfiniteChat->TabIndex = 8;
-			   this->cbInfiniteChat->Text = L"Infinite Chat";
+			   this->cbInfiniteChat->Text = L"无限制聊天";
 			   this->cbInfiniteChat->UseVisualStyleBackColor = false;
 			   this->cbInfiniteChat->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbInfiniteChat_CheckedChanged);
 			   // 
@@ -3397,9 +3552,10 @@ namespace Timelapse {
 			   this->cbMapSpeedUp->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMapSpeedUp->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMapSpeedUp->ForeColor = System::Drawing::Color::White;
-			   this->cbMapSpeedUp->Location = System::Drawing::Point(10, 88);
+			   this->cbMapSpeedUp->Location = System::Drawing::Point(15, 122);
+			   this->cbMapSpeedUp->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMapSpeedUp->Name = L"cbMapSpeedUp";
-			   this->cbMapSpeedUp->Size = System::Drawing::Size(92, 17);
+			   this->cbMapSpeedUp->Size = System::Drawing::Size(137, 25);
 			   this->cbMapSpeedUp->TabIndex = 8;
 			   this->cbMapSpeedUp->Text = L"Map Speed Up";
 			   this->cbMapSpeedUp->UseVisualStyleBackColor = false;
@@ -3411,9 +3567,10 @@ namespace Timelapse {
 			   this->cbNoMapFadeEffect->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoMapFadeEffect->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoMapFadeEffect->ForeColor = System::Drawing::Color::White;
-			   this->cbNoMapFadeEffect->Location = System::Drawing::Point(10, 70);
+			   this->cbNoMapFadeEffect->Location = System::Drawing::Point(15, 97);
+			   this->cbNoMapFadeEffect->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoMapFadeEffect->Name = L"cbNoMapFadeEffect";
-			   this->cbNoMapFadeEffect->Size = System::Drawing::Size(118, 17);
+			   this->cbNoMapFadeEffect->Size = System::Drawing::Size(176, 25);
 			   this->cbNoMapFadeEffect->TabIndex = 5;
 			   this->cbNoMapFadeEffect->Text = L"No Map Fade Effect";
 			   this->cbNoMapFadeEffect->UseVisualStyleBackColor = false;
@@ -3425,9 +3582,10 @@ namespace Timelapse {
 			   this->cbNoMapObjects->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoMapObjects->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoMapObjects->ForeColor = System::Drawing::Color::White;
-			   this->cbNoMapObjects->Location = System::Drawing::Point(10, 34);
+			   this->cbNoMapObjects->Location = System::Drawing::Point(15, 47);
+			   this->cbNoMapObjects->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoMapObjects->Name = L"cbNoMapObjects";
-			   this->cbNoMapObjects->Size = System::Drawing::Size(99, 17);
+			   this->cbNoMapObjects->Size = System::Drawing::Size(149, 25);
 			   this->cbNoMapObjects->TabIndex = 7;
 			   this->cbNoMapObjects->Text = L"No Map Objects";
 			   this->cbNoMapObjects->UseVisualStyleBackColor = false;
@@ -3444,12 +3602,14 @@ namespace Timelapse {
 			   this->groupBox4->Controls->Add(this->tbMouseTeleport);
 			   this->groupBox4->Controls->Add(this->tbClickTeleport);
 			   this->groupBox4->ForeColor = System::Drawing::Color::WhiteSmoke;
-			   this->groupBox4->Location = System::Drawing::Point(6, 313);
+			   this->groupBox4->Location = System::Drawing::Point(9, 433);
+			   this->groupBox4->Margin = System::Windows::Forms::Padding(4);
 			   this->groupBox4->Name = L"groupBox4";
-			   this->groupBox4->Size = System::Drawing::Size(378, 66);
+			   this->groupBox4->Padding = System::Windows::Forms::Padding(4);
+			   this->groupBox4->Size = System::Drawing::Size(567, 91);
 			   this->groupBox4->TabIndex = 26;
 			   this->groupBox4->TabStop = false;
-			   this->groupBox4->Text = L"Movement Hacks";
+			   this->groupBox4->Text = L"移动设置";
 			   // 
 			   // cbMouseFly
 			   // 
@@ -3457,11 +3617,12 @@ namespace Timelapse {
 			   this->cbMouseFly->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMouseFly->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMouseFly->ForeColor = System::Drawing::Color::White;
-			   this->cbMouseFly->Location = System::Drawing::Point(251, 16);
+			   this->cbMouseFly->Location = System::Drawing::Point(376, 22);
+			   this->cbMouseFly->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMouseFly->Name = L"cbMouseFly";
-			   this->cbMouseFly->Size = System::Drawing::Size(95, 17);
+			   this->cbMouseFly->Size = System::Drawing::Size(132, 25);
 			   this->cbMouseFly->TabIndex = 9;
-			   this->cbMouseFly->Text = L"Mouse Fly [CS]";
+			   this->cbMouseFly->Text = L"鼠标飞行[CS]";
 			   this->cbMouseFly->UseVisualStyleBackColor = false;
 			   this->cbMouseFly->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbMouseFly_CheckedChanged);
 			   // 
@@ -3471,22 +3632,24 @@ namespace Timelapse {
 			   this->cbClickTeleport->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbClickTeleport->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbClickTeleport->ForeColor = System::Drawing::Color::White;
-			   this->cbClickTeleport->Location = System::Drawing::Point(10, 16);
+			   this->cbClickTeleport->Location = System::Drawing::Point(15, 22);
+			   this->cbClickTeleport->Margin = System::Windows::Forms::Padding(4);
 			   this->cbClickTeleport->Name = L"cbClickTeleport";
-			   this->cbClickTeleport->Size = System::Drawing::Size(87, 17);
+			   this->cbClickTeleport->Size = System::Drawing::Size(133, 25);
 			   this->cbClickTeleport->TabIndex = 1;
-			   this->cbClickTeleport->Text = L"Click Teleport";
+			   this->cbClickTeleport->Text = L"鼠标点击传送";
 			   this->cbClickTeleport->UseVisualStyleBackColor = false;
 			   this->cbClickTeleport->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbClickTeleport_CheckedChanged);
 			   // 
 			   // label49
 			   // 
 			   this->label49->AutoSize = true;
-			   this->label49->Location = System::Drawing::Point(113, 41);
+			   this->label49->Location = System::Drawing::Point(170, 57);
+			   this->label49->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label49->Name = L"label49";
-			   this->label49->Size = System::Drawing::Size(73, 13);
+			   this->label49->Size = System::Drawing::Size(86, 21);
 			   this->label49->TabIndex = 8;
-			   this->label49->Text = L"Interval [ms]:";
+			   this->label49->Text = L"间隔[ms]:";
 			   // 
 			   // cbMouseTeleport
 			   // 
@@ -3494,22 +3657,24 @@ namespace Timelapse {
 			   this->cbMouseTeleport->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMouseTeleport->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMouseTeleport->ForeColor = System::Drawing::Color::White;
-			   this->cbMouseTeleport->Location = System::Drawing::Point(10, 38);
+			   this->cbMouseTeleport->Location = System::Drawing::Point(15, 53);
+			   this->cbMouseTeleport->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMouseTeleport->Name = L"cbMouseTeleport";
-			   this->cbMouseTeleport->Size = System::Drawing::Size(97, 17);
+			   this->cbMouseTeleport->Size = System::Drawing::Size(99, 25);
 			   this->cbMouseTeleport->TabIndex = 2;
-			   this->cbMouseTeleport->Text = L"Mouse Teleport";
+			   this->cbMouseTeleport->Text = L"鼠标传送";
 			   this->cbMouseTeleport->UseVisualStyleBackColor = false;
 			   this->cbMouseTeleport->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbMouseTeleport_CheckedChanged);
 			   // 
 			   // label50
 			   // 
 			   this->label50->AutoSize = true;
-			   this->label50->Location = System::Drawing::Point(113, 17);
+			   this->label50->Location = System::Drawing::Point(170, 24);
+			   this->label50->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label50->Name = L"label50";
-			   this->label50->Size = System::Drawing::Size(73, 13);
+			   this->label50->Size = System::Drawing::Size(86, 21);
 			   this->label50->TabIndex = 7;
-			   this->label50->Text = L"Interval [ms]:";
+			   this->label50->Text = L"间隔[ms]:";
 			   // 
 			   // cbSwimInAir
 			   // 
@@ -3517,11 +3682,12 @@ namespace Timelapse {
 			   this->cbSwimInAir->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbSwimInAir->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbSwimInAir->ForeColor = System::Drawing::Color::White;
-			   this->cbSwimInAir->Location = System::Drawing::Point(251, 38);
+			   this->cbSwimInAir->Location = System::Drawing::Point(376, 53);
+			   this->cbSwimInAir->Margin = System::Windows::Forms::Padding(4);
 			   this->cbSwimInAir->Name = L"cbSwimInAir";
-			   this->cbSwimInAir->Size = System::Drawing::Size(76, 17);
+			   this->cbSwimInAir->Size = System::Drawing::Size(116, 25);
 			   this->cbSwimInAir->TabIndex = 7;
-			   this->cbSwimInAir->Text = L"Swim In Air";
+			   this->cbSwimInAir->Text = L"在空中游泳";
 			   this->cbSwimInAir->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			   this->cbSwimInAir->UseVisualStyleBackColor = false;
 			   this->cbSwimInAir->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbSwimInAir_CheckedChanged);
@@ -3532,9 +3698,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbMouseTeleport->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbMouseTeleport->ForeColor = System::Drawing::Color::White;
-			   this->tbMouseTeleport->Location = System::Drawing::Point(187, 39);
+			   this->tbMouseTeleport->Location = System::Drawing::Point(280, 54);
+			   this->tbMouseTeleport->Margin = System::Windows::Forms::Padding(4);
 			   this->tbMouseTeleport->Name = L"tbMouseTeleport";
-			   this->tbMouseTeleport->Size = System::Drawing::Size(49, 21);
+			   this->tbMouseTeleport->Size = System::Drawing::Size(72, 27);
 			   this->tbMouseTeleport->TabIndex = 4;
 			   this->tbMouseTeleport->Text = L"100";
 			   this->tbMouseTeleport->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3546,9 +3713,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbClickTeleport->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbClickTeleport->ForeColor = System::Drawing::Color::White;
-			   this->tbClickTeleport->Location = System::Drawing::Point(187, 15);
+			   this->tbClickTeleport->Location = System::Drawing::Point(280, 21);
+			   this->tbClickTeleport->Margin = System::Windows::Forms::Padding(4);
 			   this->tbClickTeleport->Name = L"tbClickTeleport";
-			   this->tbClickTeleport->Size = System::Drawing::Size(49, 21);
+			   this->tbClickTeleport->Size = System::Drawing::Size(72, 27);
 			   this->tbClickTeleport->TabIndex = 3;
 			   this->tbClickTeleport->Text = L"100";
 			   this->tbClickTeleport->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3563,12 +3731,14 @@ namespace Timelapse {
 			   this->groupBox3->Controls->Add(this->cbNoMobDeathEffect);
 			   this->groupBox3->Controls->Add(this->cbNoMobKnockback);
 			   this->groupBox3->ForeColor = System::Drawing::Color::WhiteSmoke;
-			   this->groupBox3->Location = System::Drawing::Point(6, 175);
+			   this->groupBox3->Location = System::Drawing::Point(9, 242);
+			   this->groupBox3->Margin = System::Windows::Forms::Padding(4);
 			   this->groupBox3->Name = L"groupBox3";
-			   this->groupBox3->Size = System::Drawing::Size(236, 75);
+			   this->groupBox3->Padding = System::Windows::Forms::Padding(4);
+			   this->groupBox3->Size = System::Drawing::Size(354, 104);
 			   this->groupBox3->TabIndex = 25;
 			   this->groupBox3->TabStop = false;
-			   this->groupBox3->Text = L"Mob Hacks";
+			   this->groupBox3->Text = L"怪物设置";
 			   // 
 			   // cbMobAutoAggro
 			   // 
@@ -3576,9 +3746,10 @@ namespace Timelapse {
 			   this->cbMobAutoAggro->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMobAutoAggro->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMobAutoAggro->ForeColor = System::Drawing::Color::White;
-			   this->cbMobAutoAggro->Location = System::Drawing::Point(133, 52);
+			   this->cbMobAutoAggro->Location = System::Drawing::Point(200, 72);
+			   this->cbMobAutoAggro->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMobAutoAggro->Name = L"cbMobAutoAggro";
-			   this->cbMobAutoAggro->Size = System::Drawing::Size(101, 17);
+			   this->cbMobAutoAggro->Size = System::Drawing::Size(151, 25);
 			   this->cbMobAutoAggro->TabIndex = 23;
 			   this->cbMobAutoAggro->Text = L"Mob Auto Aggro";
 			   this->cbMobAutoAggro->UseVisualStyleBackColor = false;
@@ -3590,11 +3761,12 @@ namespace Timelapse {
 			   this->cbNoMobReaction->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoMobReaction->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoMobReaction->ForeColor = System::Drawing::Color::White;
-			   this->cbNoMobReaction->Location = System::Drawing::Point(10, 16);
+			   this->cbNoMobReaction->Location = System::Drawing::Point(15, 22);
+			   this->cbNoMobReaction->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoMobReaction->Name = L"cbNoMobReaction";
-			   this->cbNoMobReaction->Size = System::Drawing::Size(104, 17);
+			   this->cbNoMobReaction->Size = System::Drawing::Size(157, 25);
 			   this->cbNoMobReaction->TabIndex = 6;
-			   this->cbNoMobReaction->Text = L"No Mob Reaction";
+			   this->cbNoMobReaction->Text = L"无怪物反应";
 			   this->cbNoMobReaction->UseVisualStyleBackColor = false;
 			   this->cbNoMobReaction->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoMobReaction_CheckedChanged);
 			   // 
@@ -3604,11 +3776,12 @@ namespace Timelapse {
 			   this->cbMobDisarm->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMobDisarm->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMobDisarm->ForeColor = System::Drawing::Color::White;
-			   this->cbMobDisarm->Location = System::Drawing::Point(133, 34);
+			   this->cbMobDisarm->Location = System::Drawing::Point(200, 47);
+			   this->cbMobDisarm->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMobDisarm->Name = L"cbMobDisarm";
-			   this->cbMobDisarm->Size = System::Drawing::Size(78, 17);
+			   this->cbMobDisarm->Size = System::Drawing::Size(120, 25);
 			   this->cbMobDisarm->TabIndex = 7;
-			   this->cbMobDisarm->Text = L"Mob Disarm";
+			   this->cbMobDisarm->Text = L"怪物缴械";
 			   this->cbMobDisarm->UseVisualStyleBackColor = false;
 			   this->cbMobDisarm->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbMobDisarm_CheckedChanged);
 			   // 
@@ -3618,11 +3791,12 @@ namespace Timelapse {
 			   this->cbMobFreeze->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMobFreeze->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMobFreeze->ForeColor = System::Drawing::Color::White;
-			   this->cbMobFreeze->Location = System::Drawing::Point(133, 16);
+			   this->cbMobFreeze->Location = System::Drawing::Point(200, 22);
+			   this->cbMobFreeze->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMobFreeze->Name = L"cbMobFreeze";
-			   this->cbMobFreeze->Size = System::Drawing::Size(79, 17);
+			   this->cbMobFreeze->Size = System::Drawing::Size(117, 25);
 			   this->cbMobFreeze->TabIndex = 9;
-			   this->cbMobFreeze->Text = L"Mob Freeze";
+			   this->cbMobFreeze->Text = L"怪物冻结";
 			   this->cbMobFreeze->UseVisualStyleBackColor = false;
 			   this->cbMobFreeze->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbMobFreeze_CheckedChanged);
 			   // 
@@ -3632,11 +3806,12 @@ namespace Timelapse {
 			   this->cbNoMobDeathEffect->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoMobDeathEffect->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoMobDeathEffect->ForeColor = System::Drawing::Color::White;
-			   this->cbNoMobDeathEffect->Location = System::Drawing::Point(10, 34);
+			   this->cbNoMobDeathEffect->Location = System::Drawing::Point(15, 47);
+			   this->cbNoMobDeathEffect->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoMobDeathEffect->Name = L"cbNoMobDeathEffect";
-			   this->cbNoMobDeathEffect->Size = System::Drawing::Size(123, 17);
+			   this->cbNoMobDeathEffect->Size = System::Drawing::Size(185, 25);
 			   this->cbNoMobDeathEffect->TabIndex = 8;
-			   this->cbNoMobDeathEffect->Text = L"No Mob Death Effect";
+			   this->cbNoMobDeathEffect->Text = L"无怪物死亡特效";
 			   this->cbNoMobDeathEffect->UseVisualStyleBackColor = false;
 			   this->cbNoMobDeathEffect->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoMobDeathEffect_CheckedChanged);
 			   // 
@@ -3646,11 +3821,12 @@ namespace Timelapse {
 			   this->cbNoMobKnockback->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoMobKnockback->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoMobKnockback->ForeColor = System::Drawing::Color::White;
-			   this->cbNoMobKnockback->Location = System::Drawing::Point(10, 52);
+			   this->cbNoMobKnockback->Location = System::Drawing::Point(15, 72);
+			   this->cbNoMobKnockback->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoMobKnockback->Name = L"cbNoMobKnockback";
-			   this->cbNoMobKnockback->Size = System::Drawing::Size(112, 17);
+			   this->cbNoMobKnockback->Size = System::Drawing::Size(170, 25);
 			   this->cbNoMobKnockback->TabIndex = 4;
-			   this->cbNoMobKnockback->Text = L"No Mob Knockback";
+			   this->cbNoMobKnockback->Text = L"无怪物反击";
 			   this->cbNoMobKnockback->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			   this->cbNoMobKnockback->UseVisualStyleBackColor = false;
 			   this->cbNoMobKnockback->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoMobKnockback_CheckedChanged);
@@ -3662,12 +3838,14 @@ namespace Timelapse {
 			   this->groupBox2->Controls->Add(this->cbItemVac);
 			   this->groupBox2->Controls->Add(this->cbInstantLootItems);
 			   this->groupBox2->ForeColor = System::Drawing::Color::WhiteSmoke;
-			   this->groupBox2->Location = System::Drawing::Point(6, 253);
+			   this->groupBox2->Location = System::Drawing::Point(9, 350);
+			   this->groupBox2->Margin = System::Windows::Forms::Padding(4);
 			   this->groupBox2->Name = L"groupBox2";
-			   this->groupBox2->Size = System::Drawing::Size(236, 55);
+			   this->groupBox2->Padding = System::Windows::Forms::Padding(4);
+			   this->groupBox2->Size = System::Drawing::Size(354, 76);
 			   this->groupBox2->TabIndex = 24;
 			   this->groupBox2->TabStop = false;
-			   this->groupBox2->Text = L"Item Hacks";
+			   this->groupBox2->Text = L"物品设置";
 			   // 
 			   // cbTubi
 			   // 
@@ -3675,9 +3853,10 @@ namespace Timelapse {
 			   this->cbTubi->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbTubi->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbTubi->ForeColor = System::Drawing::Color::White;
-			   this->cbTubi->Location = System::Drawing::Point(133, 16);
+			   this->cbTubi->Location = System::Drawing::Point(200, 22);
+			   this->cbTubi->Margin = System::Windows::Forms::Padding(4);
 			   this->cbTubi->Name = L"cbTubi";
-			   this->cbTubi->Size = System::Drawing::Size(43, 17);
+			   this->cbTubi->Size = System::Drawing::Size(63, 25);
 			   this->cbTubi->TabIndex = 5;
 			   this->cbTubi->Text = L"Tubi";
 			   this->cbTubi->UseVisualStyleBackColor = false;
@@ -3689,9 +3868,10 @@ namespace Timelapse {
 			   this->cbInstantDropItems->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbInstantDropItems->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbInstantDropItems->ForeColor = System::Drawing::Color::White;
-			   this->cbInstantDropItems->Location = System::Drawing::Point(10, 16);
+			   this->cbInstantDropItems->Location = System::Drawing::Point(15, 22);
+			   this->cbInstantDropItems->Margin = System::Windows::Forms::Padding(4);
 			   this->cbInstantDropItems->Name = L"cbInstantDropItems";
-			   this->cbInstantDropItems->Size = System::Drawing::Size(114, 17);
+			   this->cbInstantDropItems->Size = System::Drawing::Size(173, 25);
 			   this->cbInstantDropItems->TabIndex = 4;
 			   this->cbInstantDropItems->Text = L"Instant Drop Items";
 			   this->cbInstantDropItems->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -3704,11 +3884,12 @@ namespace Timelapse {
 			   this->cbItemVac->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbItemVac->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbItemVac->ForeColor = System::Drawing::Color::White;
-			   this->cbItemVac->Location = System::Drawing::Point(133, 34);
+			   this->cbItemVac->Location = System::Drawing::Point(200, 47);
+			   this->cbItemVac->Margin = System::Windows::Forms::Padding(4);
 			   this->cbItemVac->Name = L"cbItemVac";
-			   this->cbItemVac->Size = System::Drawing::Size(65, 17);
+			   this->cbItemVac->Size = System::Drawing::Size(98, 25);
 			   this->cbItemVac->TabIndex = 13;
-			   this->cbItemVac->Text = L"Item Vac";
+			   this->cbItemVac->Text = L"全图吸物";
 			   this->cbItemVac->UseVisualStyleBackColor = false;
 			   this->cbItemVac->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbItemVac_CheckedChanged);
 			   // 
@@ -3718,9 +3899,10 @@ namespace Timelapse {
 			   this->cbInstantLootItems->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbInstantLootItems->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbInstantLootItems->ForeColor = System::Drawing::Color::White;
-			   this->cbInstantLootItems->Location = System::Drawing::Point(10, 34);
+			   this->cbInstantLootItems->Location = System::Drawing::Point(15, 47);
+			   this->cbInstantLootItems->Margin = System::Windows::Forms::Padding(4);
 			   this->cbInstantLootItems->Name = L"cbInstantLootItems";
-			   this->cbInstantLootItems->Size = System::Drawing::Size(112, 17);
+			   this->cbInstantLootItems->Size = System::Drawing::Size(169, 25);
 			   this->cbInstantLootItems->TabIndex = 6;
 			   this->cbInstantLootItems->Text = L"Instant Loot Items";
 			   this->cbInstantLootItems->UseVisualStyleBackColor = false;
@@ -3748,21 +3930,24 @@ namespace Timelapse {
 			   this->groupBox1->Controls->Add(this->cbNoPlayerDeath);
 			   this->groupBox1->Controls->Add(this->cbUnlimitedAttack);
 			   this->groupBox1->ForeColor = System::Drawing::Color::WhiteSmoke;
-			   this->groupBox1->Location = System::Drawing::Point(6, 4);
+			   this->groupBox1->Location = System::Drawing::Point(9, 6);
+			   this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			   this->groupBox1->Name = L"groupBox1";
-			   this->groupBox1->Size = System::Drawing::Size(236, 169);
+			   this->groupBox1->Padding = System::Windows::Forms::Padding(4);
+			   this->groupBox1->Size = System::Drawing::Size(354, 234);
 			   this->groupBox1->TabIndex = 23;
 			   this->groupBox1->TabStop = false;
-			   this->groupBox1->Text = L"Character Hacks";
+			   this->groupBox1->Text = L"角色设置";
 			   // 
 			   // label90
 			   // 
 			   this->label90->AutoSize = true;
-			   this->label90->Location = System::Drawing::Point(124, 145);
+			   this->label90->Location = System::Drawing::Point(186, 201);
+			   this->label90->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label90->Name = L"label90";
-			   this->label90->Size = System::Drawing::Size(38, 13);
+			   this->label90->Size = System::Drawing::Size(50, 21);
 			   this->label90->TabIndex = 48;
-			   this->label90->Text = L"Delay:";
+			   this->label90->Text = L"延迟:";
 			   // 
 			   // tbAttackDelay
 			   // 
@@ -3771,9 +3956,10 @@ namespace Timelapse {
 			   this->tbAttackDelay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAttackDelay->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
 			   this->tbAttackDelay->ForeColor = System::Drawing::Color::White;
-			   this->tbAttackDelay->Location = System::Drawing::Point(166, 144);
+			   this->tbAttackDelay->Location = System::Drawing::Point(249, 199);
+			   this->tbAttackDelay->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAttackDelay->Name = L"tbAttackDelay";
-			   this->tbAttackDelay->Size = System::Drawing::Size(64, 21);
+			   this->tbAttackDelay->Size = System::Drawing::Size(95, 27);
 			   this->tbAttackDelay->TabIndex = 47;
 			   this->tbAttackDelay->Text = L"10";
 			   this->tbAttackDelay->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3783,9 +3969,10 @@ namespace Timelapse {
 			   // 
 			   this->label89->AutoSize = true;
 			   this->label89->Enabled = false;
-			   this->label89->Location = System::Drawing::Point(124, 127);
+			   this->label89->Location = System::Drawing::Point(186, 176);
+			   this->label89->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label89->Name = L"label89";
-			   this->label89->Size = System::Drawing::Size(37, 13);
+			   this->label89->Size = System::Drawing::Size(59, 21);
 			   this->label89->TabIndex = 46;
 			   this->label89->Text = L"Blinks:";
 			   // 
@@ -3793,9 +3980,10 @@ namespace Timelapse {
 			   // 
 			   this->label88->AutoSize = true;
 			   this->label88->Enabled = false;
-			   this->label88->Location = System::Drawing::Point(119, 108);
+			   this->label88->Location = System::Drawing::Point(178, 150);
+			   this->label88->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label88->Name = L"label88";
-			   this->label88->Size = System::Drawing::Size(42, 13);
+			   this->label88->Size = System::Drawing::Size(66, 21);
 			   this->label88->TabIndex = 45;
 			   this->label88->Text = L"Misses:";
 			   // 
@@ -3808,9 +3996,10 @@ namespace Timelapse {
 			   this->tbBlinkGodmodeBlinks->Font = (gcnew System::Drawing::Font(L"Tahoma", 6, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->tbBlinkGodmodeBlinks->ForeColor = System::Drawing::Color::White;
-			   this->tbBlinkGodmodeBlinks->Location = System::Drawing::Point(166, 125);
+			   this->tbBlinkGodmodeBlinks->Location = System::Drawing::Point(249, 173);
+			   this->tbBlinkGodmodeBlinks->Margin = System::Windows::Forms::Padding(4);
 			   this->tbBlinkGodmodeBlinks->Name = L"tbBlinkGodmodeBlinks";
-			   this->tbBlinkGodmodeBlinks->Size = System::Drawing::Size(64, 17);
+			   this->tbBlinkGodmodeBlinks->Size = System::Drawing::Size(95, 22);
 			   this->tbBlinkGodmodeBlinks->TabIndex = 44;
 			   this->tbBlinkGodmodeBlinks->Text = L"-";
 			   this->tbBlinkGodmodeBlinks->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3825,9 +4014,10 @@ namespace Timelapse {
 			   this->tbMissGodmodeMisses->Font = (gcnew System::Drawing::Font(L"Tahoma", 6, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->tbMissGodmodeMisses->ForeColor = System::Drawing::Color::White;
-			   this->tbMissGodmodeMisses->Location = System::Drawing::Point(166, 106);
+			   this->tbMissGodmodeMisses->Location = System::Drawing::Point(249, 147);
+			   this->tbMissGodmodeMisses->Margin = System::Windows::Forms::Padding(4);
 			   this->tbMissGodmodeMisses->Name = L"tbMissGodmodeMisses";
-			   this->tbMissGodmodeMisses->Size = System::Drawing::Size(64, 17);
+			   this->tbMissGodmodeMisses->Size = System::Drawing::Size(95, 22);
 			   this->tbMissGodmodeMisses->TabIndex = 43;
 			   this->tbMissGodmodeMisses->Text = L"-";
 			   this->tbMissGodmodeMisses->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -3838,9 +4028,10 @@ namespace Timelapse {
 			   this->cbMissGodmode->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMissGodmode->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMissGodmode->ForeColor = System::Drawing::Color::White;
-			   this->cbMissGodmode->Location = System::Drawing::Point(10, 106);
+			   this->cbMissGodmode->Location = System::Drawing::Point(15, 147);
+			   this->cbMissGodmode->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMissGodmode->Name = L"cbMissGodmode";
-			   this->cbMissGodmode->Size = System::Drawing::Size(91, 17);
+			   this->cbMissGodmode->Size = System::Drawing::Size(139, 25);
 			   this->cbMissGodmode->TabIndex = 41;
 			   this->cbMissGodmode->Text = L"Miss Godmode";
 			   this->cbMissGodmode->UseVisualStyleBackColor = false;
@@ -3851,11 +4042,12 @@ namespace Timelapse {
 			   this->cbAttackDelay->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbAttackDelay->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbAttackDelay->ForeColor = System::Drawing::Color::White;
-			   this->cbAttackDelay->Location = System::Drawing::Point(10, 142);
+			   this->cbAttackDelay->Location = System::Drawing::Point(15, 197);
+			   this->cbAttackDelay->Margin = System::Windows::Forms::Padding(4);
 			   this->cbAttackDelay->Name = L"cbAttackDelay";
-			   this->cbAttackDelay->Size = System::Drawing::Size(84, 17);
+			   this->cbAttackDelay->Size = System::Drawing::Size(99, 25);
 			   this->cbAttackDelay->TabIndex = 42;
-			   this->cbAttackDelay->Text = L"Attack Delay";
+			   this->cbAttackDelay->Text = L"攻击延迟";
 			   this->cbAttackDelay->UseVisualStyleBackColor = false;
 			   this->cbAttackDelay->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbAttackDelay_CheckedChanged);
 			   // 
@@ -3865,9 +4057,10 @@ namespace Timelapse {
 			   this->cbBlinkGodmode->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbBlinkGodmode->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbBlinkGodmode->ForeColor = System::Drawing::Color::White;
-			   this->cbBlinkGodmode->Location = System::Drawing::Point(10, 124);
+			   this->cbBlinkGodmode->Location = System::Drawing::Point(15, 172);
+			   this->cbBlinkGodmode->Margin = System::Windows::Forms::Padding(4);
 			   this->cbBlinkGodmode->Name = L"cbBlinkGodmode";
-			   this->cbBlinkGodmode->Size = System::Drawing::Size(92, 17);
+			   this->cbBlinkGodmode->Size = System::Drawing::Size(141, 25);
 			   this->cbBlinkGodmode->TabIndex = 40;
 			   this->cbBlinkGodmode->Text = L"Blink Godmode";
 			   this->cbBlinkGodmode->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -3879,11 +4072,12 @@ namespace Timelapse {
 			   this->cbNoAttackDelay->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoAttackDelay->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoAttackDelay->ForeColor = System::Drawing::Color::White;
-			   this->cbNoAttackDelay->Location = System::Drawing::Point(133, 88);
+			   this->cbNoAttackDelay->Location = System::Drawing::Point(200, 122);
+			   this->cbNoAttackDelay->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoAttackDelay->Name = L"cbNoAttackDelay";
-			   this->cbNoAttackDelay->Size = System::Drawing::Size(100, 17);
+			   this->cbNoAttackDelay->Size = System::Drawing::Size(151, 25);
 			   this->cbNoAttackDelay->TabIndex = 23;
-			   this->cbNoAttackDelay->Text = L"No Attack Delay";
+			   this->cbNoAttackDelay->Text = L"无攻击延迟";
 			   this->cbNoAttackDelay->UseVisualStyleBackColor = false;
 			   this->cbNoAttackDelay->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoAttackDelay_CheckedChanged);
 			   // 
@@ -3893,11 +4087,12 @@ namespace Timelapse {
 			   this->cbNoPlayerNameTag->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoPlayerNameTag->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoPlayerNameTag->ForeColor = System::Drawing::Color::White;
-			   this->cbNoPlayerNameTag->Location = System::Drawing::Point(10, 88);
+			   this->cbNoPlayerNameTag->Location = System::Drawing::Point(15, 122);
+			   this->cbNoPlayerNameTag->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoPlayerNameTag->Name = L"cbNoPlayerNameTag";
-			   this->cbNoPlayerNameTag->Size = System::Drawing::Size(120, 17);
+			   this->cbNoPlayerNameTag->Size = System::Drawing::Size(182, 25);
 			   this->cbNoPlayerNameTag->TabIndex = 24;
-			   this->cbNoPlayerNameTag->Text = L"No Player Name Tag";
+			   this->cbNoPlayerNameTag->Text = L"无玩家姓名标签";
 			   this->cbNoPlayerNameTag->UseVisualStyleBackColor = false;
 			   this->cbNoPlayerNameTag->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoPlayerNameTag_CheckedChanged);
 			   // 
@@ -3907,11 +4102,12 @@ namespace Timelapse {
 			   this->cbFullGodmode->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbFullGodmode->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbFullGodmode->ForeColor = System::Drawing::Color::White;
-			   this->cbFullGodmode->Location = System::Drawing::Point(10, 16);
+			   this->cbFullGodmode->Location = System::Drawing::Point(15, 22);
+			   this->cbFullGodmode->Margin = System::Windows::Forms::Padding(4);
 			   this->cbFullGodmode->Name = L"cbFullGodmode";
-			   this->cbFullGodmode->Size = System::Drawing::Size(87, 17);
+			   this->cbFullGodmode->Size = System::Drawing::Size(132, 25);
 			   this->cbFullGodmode->TabIndex = 6;
-			   this->cbFullGodmode->Text = L"Full Godmode";
+			   this->cbFullGodmode->Text = L"上帝模式";
 			   this->cbFullGodmode->UseVisualStyleBackColor = false;
 			   this->cbFullGodmode->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbFullGodmode_CheckedChanged);
 			   // 
@@ -3921,9 +4117,10 @@ namespace Timelapse {
 			   this->cbJumpDownAnyTile->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbJumpDownAnyTile->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbJumpDownAnyTile->ForeColor = System::Drawing::Color::White;
-			   this->cbJumpDownAnyTile->Location = System::Drawing::Point(10, 52);
+			   this->cbJumpDownAnyTile->Location = System::Drawing::Point(15, 72);
+			   this->cbJumpDownAnyTile->Margin = System::Windows::Forms::Padding(4);
 			   this->cbJumpDownAnyTile->Name = L"cbJumpDownAnyTile";
-			   this->cbJumpDownAnyTile->Size = System::Drawing::Size(119, 17);
+			   this->cbJumpDownAnyTile->Size = System::Drawing::Size(183, 25);
 			   this->cbJumpDownAnyTile->TabIndex = 4;
 			   this->cbJumpDownAnyTile->Text = L"Jump Down Any Tile";
 			   this->cbJumpDownAnyTile->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -3936,11 +4133,12 @@ namespace Timelapse {
 			   this->cbPetVac->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbPetVac->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbPetVac->ForeColor = System::Drawing::Color::White;
-			   this->cbPetVac->Location = System::Drawing::Point(133, 70);
+			   this->cbPetVac->Location = System::Drawing::Point(200, 97);
+			   this->cbPetVac->Margin = System::Windows::Forms::Padding(4);
 			   this->cbPetVac->Name = L"cbPetVac";
-			   this->cbPetVac->Size = System::Drawing::Size(84, 17);
+			   this->cbPetVac->Size = System::Drawing::Size(127, 25);
 			   this->cbPetVac->TabIndex = 4;
-			   this->cbPetVac->Text = L"Pet Item Vac";
+			   this->cbPetVac->Text = L"宠吸";
 			   this->cbPetVac->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			   this->cbPetVac->UseVisualStyleBackColor = false;
 			   this->cbPetVac->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbPetVac_CheckedChanged);
@@ -3951,11 +4149,12 @@ namespace Timelapse {
 			   this->cbNoBreath->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoBreath->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoBreath->ForeColor = System::Drawing::Color::White;
-			   this->cbNoBreath->Location = System::Drawing::Point(133, 16);
+			   this->cbNoBreath->Location = System::Drawing::Point(200, 22);
+			   this->cbNoBreath->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoBreath->Name = L"cbNoBreath";
-			   this->cbNoBreath->Size = System::Drawing::Size(71, 17);
+			   this->cbNoBreath->Size = System::Drawing::Size(105, 25);
 			   this->cbNoBreath->TabIndex = 12;
-			   this->cbNoBreath->Text = L"No Breath";
+			   this->cbNoBreath->Text = L"无呼吸";
 			   this->cbNoBreath->UseVisualStyleBackColor = false;
 			   this->cbNoBreath->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoBreath_CheckedChanged);
 			   // 
@@ -3965,9 +4164,10 @@ namespace Timelapse {
 			   this->cbNoPlayerKnockback->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoPlayerKnockback->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoPlayerKnockback->ForeColor = System::Drawing::Color::White;
-			   this->cbNoPlayerKnockback->Location = System::Drawing::Point(10, 70);
+			   this->cbNoPlayerKnockback->Location = System::Drawing::Point(15, 97);
+			   this->cbNoPlayerKnockback->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoPlayerKnockback->Name = L"cbNoPlayerKnockback";
-			   this->cbNoPlayerKnockback->Size = System::Drawing::Size(122, 17);
+			   this->cbNoPlayerKnockback->Size = System::Drawing::Size(184, 25);
 			   this->cbNoPlayerKnockback->TabIndex = 5;
 			   this->cbNoPlayerKnockback->Text = L"No Player Knockback";
 			   this->cbNoPlayerKnockback->UseVisualStyleBackColor = false;
@@ -3979,9 +4179,10 @@ namespace Timelapse {
 			   this->cbMpHack->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMpHack->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMpHack->ForeColor = System::Drawing::Color::White;
-			   this->cbMpHack->Location = System::Drawing::Point(133, 34);
+			   this->cbMpHack->Location = System::Drawing::Point(200, 47);
+			   this->cbMpHack->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMpHack->Name = L"cbMpHack";
-			   this->cbMpHack->Size = System::Drawing::Size(63, 17);
+			   this->cbMpHack->Size = System::Drawing::Size(94, 25);
 			   this->cbMpHack->TabIndex = 10;
 			   this->cbMpHack->Text = L"Mp Hack";
 			   this->cbMpHack->UseVisualStyleBackColor = false;
@@ -3993,11 +4194,12 @@ namespace Timelapse {
 			   this->cbNoPlayerDeath->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbNoPlayerDeath->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbNoPlayerDeath->ForeColor = System::Drawing::Color::White;
-			   this->cbNoPlayerDeath->Location = System::Drawing::Point(133, 52);
+			   this->cbNoPlayerDeath->Location = System::Drawing::Point(200, 72);
+			   this->cbNoPlayerDeath->Margin = System::Windows::Forms::Padding(4);
 			   this->cbNoPlayerDeath->Name = L"cbNoPlayerDeath";
-			   this->cbNoPlayerDeath->Size = System::Drawing::Size(101, 17);
+			   this->cbNoPlayerDeath->Size = System::Drawing::Size(151, 25);
 			   this->cbNoPlayerDeath->TabIndex = 9;
-			   this->cbNoPlayerDeath->Text = L"No Player Death";
+			   this->cbNoPlayerDeath->Text = L"无玩家死亡";
 			   this->cbNoPlayerDeath->UseVisualStyleBackColor = false;
 			   this->cbNoPlayerDeath->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbNoPlayerDeath_CheckedChanged);
 			   // 
@@ -4007,9 +4209,10 @@ namespace Timelapse {
 			   this->cbUnlimitedAttack->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbUnlimitedAttack->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbUnlimitedAttack->ForeColor = System::Drawing::Color::White;
-			   this->cbUnlimitedAttack->Location = System::Drawing::Point(10, 34);
+			   this->cbUnlimitedAttack->Location = System::Drawing::Point(15, 47);
+			   this->cbUnlimitedAttack->Margin = System::Windows::Forms::Padding(4);
 			   this->cbUnlimitedAttack->Name = L"cbUnlimitedAttack";
-			   this->cbUnlimitedAttack->Size = System::Drawing::Size(100, 17);
+			   this->cbUnlimitedAttack->Size = System::Drawing::Size(154, 25);
 			   this->cbUnlimitedAttack->TabIndex = 6;
 			   this->cbUnlimitedAttack->Text = L"Unlimited Attack";
 			   this->cbUnlimitedAttack->UseVisualStyleBackColor = false;
@@ -4021,10 +4224,11 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->tabPage20->Controls->Add(this->panel27);
 			   this->tabPage20->Controls->Add(this->panel26);
-			   this->tabPage20->Location = System::Drawing::Point(4, 22);
+			   this->tabPage20->Location = System::Drawing::Point(4, 30);
+			   this->tabPage20->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage20->Name = L"tabPage20";
-			   this->tabPage20->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage20->Size = System::Drawing::Size(390, 385);
+			   this->tabPage20->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage20->Size = System::Drawing::Size(589, 535);
 			   this->tabPage20->TabIndex = 7;
 			   this->tabPage20->Text = L"Hacks II";
 			   // 
@@ -4036,20 +4240,22 @@ namespace Timelapse {
 			   this->panel27->Controls->Add(this->label65);
 			   this->panel27->Controls->Add(this->lvSpawnControl);
 			   this->panel27->Controls->Add(this->bSpawnControlDelete);
-			   this->panel27->Location = System::Drawing::Point(4, 195);
+			   this->panel27->Location = System::Drawing::Point(6, 270);
+			   this->panel27->Margin = System::Windows::Forms::Padding(4);
 			   this->panel27->Name = L"panel27";
-			   this->panel27->Size = System::Drawing::Size(383, 185);
+			   this->panel27->Size = System::Drawing::Size(574, 255);
 			   this->panel27->TabIndex = 23;
 			   // 
 			   // bSpawnControl
 			   // 
 			   this->bSpawnControl->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSpawnControl->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSpawnControl->Location = System::Drawing::Point(204, 154);
+			   this->bSpawnControl->Location = System::Drawing::Point(306, 213);
+			   this->bSpawnControl->Margin = System::Windows::Forms::Padding(4);
 			   this->bSpawnControl->Name = L"bSpawnControl";
-			   this->bSpawnControl->Size = System::Drawing::Size(173, 25);
+			   this->bSpawnControl->Size = System::Drawing::Size(260, 35);
 			   this->bSpawnControl->TabIndex = 41;
-			   this->bSpawnControl->Text = L"Enable Spawn Control";
+			   this->bSpawnControl->Text = L"开启生成控制";
 			   this->bSpawnControl->UseVisualStyleBackColor = true;
 			   this->bSpawnControl->Click += gcnew System::EventHandler(this, &MainForm::bSpawnControl_Click);
 			   // 
@@ -4064,9 +4270,10 @@ namespace Timelapse {
 			   this->panel1->Controls->Add(this->label69);
 			   this->panel1->Controls->Add(this->bSpawnControlGetCurrentLocation);
 			   this->panel1->Controls->Add(this->label68);
-			   this->panel1->Location = System::Drawing::Point(204, 19);
+			   this->panel1->Location = System::Drawing::Point(306, 26);
+			   this->panel1->Margin = System::Windows::Forms::Padding(4);
 			   this->panel1->Name = L"panel1";
-			   this->panel1->Size = System::Drawing::Size(173, 131);
+			   this->panel1->Size = System::Drawing::Size(258, 181);
 			   this->panel1->TabIndex = 40;
 			   // 
 			   // tbSpawnControlMapID
@@ -4075,9 +4282,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbSpawnControlMapID->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbSpawnControlMapID->ForeColor = System::Drawing::Color::White;
-			   this->tbSpawnControlMapID->Location = System::Drawing::Point(103, 7);
+			   this->tbSpawnControlMapID->Location = System::Drawing::Point(154, 10);
+			   this->tbSpawnControlMapID->Margin = System::Windows::Forms::Padding(4);
 			   this->tbSpawnControlMapID->Name = L"tbSpawnControlMapID";
-			   this->tbSpawnControlMapID->Size = System::Drawing::Size(60, 21);
+			   this->tbSpawnControlMapID->Size = System::Drawing::Size(89, 27);
 			   this->tbSpawnControlMapID->TabIndex = 51;
 			   this->tbSpawnControlMapID->Text = L"0";
 			   this->tbSpawnControlMapID->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4087,11 +4295,12 @@ namespace Timelapse {
 			   // 
 			   this->label71->AutoSize = true;
 			   this->label71->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F));
-			   this->label71->Location = System::Drawing::Point(60, 11);
+			   this->label71->Location = System::Drawing::Point(90, 15);
+			   this->label71->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label71->Name = L"label71";
-			   this->label71->Size = System::Drawing::Size(48, 13);
+			   this->label71->Size = System::Drawing::Size(78, 21);
 			   this->label71->TabIndex = 38;
-			   this->label71->Text = L"Map ID: ";
+			   this->label71->Text = L"地图 ID: ";
 			   // 
 			   // tbSpawnControlY
 			   // 
@@ -4099,9 +4308,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbSpawnControlY->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbSpawnControlY->ForeColor = System::Drawing::Color::White;
-			   this->tbSpawnControlY->Location = System::Drawing::Point(103, 36);
+			   this->tbSpawnControlY->Location = System::Drawing::Point(154, 50);
+			   this->tbSpawnControlY->Margin = System::Windows::Forms::Padding(4);
 			   this->tbSpawnControlY->Name = L"tbSpawnControlY";
-			   this->tbSpawnControlY->Size = System::Drawing::Size(60, 21);
+			   this->tbSpawnControlY->Size = System::Drawing::Size(89, 27);
 			   this->tbSpawnControlY->TabIndex = 30;
 			   this->tbSpawnControlY->Text = L"0";
 			   this->tbSpawnControlY->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4111,11 +4321,12 @@ namespace Timelapse {
 			   // 
 			   this->bSpawnControlAdd->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSpawnControlAdd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSpawnControlAdd->Location = System::Drawing::Point(10, 97);
+			   this->bSpawnControlAdd->Location = System::Drawing::Point(15, 134);
+			   this->bSpawnControlAdd->Margin = System::Windows::Forms::Padding(4);
 			   this->bSpawnControlAdd->Name = L"bSpawnControlAdd";
-			   this->bSpawnControlAdd->Size = System::Drawing::Size(153, 25);
+			   this->bSpawnControlAdd->Size = System::Drawing::Size(230, 35);
 			   this->bSpawnControlAdd->TabIndex = 26;
-			   this->bSpawnControlAdd->Text = L"Add";
+			   this->bSpawnControlAdd->Text = L"添加";
 			   this->bSpawnControlAdd->UseVisualStyleBackColor = true;
 			   this->bSpawnControlAdd->Click += gcnew System::EventHandler(this, &MainForm::bSpawnControlAdd_Click);
 			   // 
@@ -4125,9 +4336,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbSpawnControlX->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbSpawnControlX->ForeColor = System::Drawing::Color::White;
-			   this->tbSpawnControlX->Location = System::Drawing::Point(22, 36);
+			   this->tbSpawnControlX->Location = System::Drawing::Point(33, 50);
+			   this->tbSpawnControlX->Margin = System::Windows::Forms::Padding(4);
 			   this->tbSpawnControlX->Name = L"tbSpawnControlX";
-			   this->tbSpawnControlX->Size = System::Drawing::Size(60, 21);
+			   this->tbSpawnControlX->Size = System::Drawing::Size(89, 27);
 			   this->tbSpawnControlX->TabIndex = 28;
 			   this->tbSpawnControlX->Text = L"0";
 			   this->tbSpawnControlX->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4137,9 +4349,10 @@ namespace Timelapse {
 			   // 
 			   this->label69->AutoSize = true;
 			   this->label69->BackColor = System::Drawing::Color::Transparent;
-			   this->label69->Location = System::Drawing::Point(7, 40);
+			   this->label69->Location = System::Drawing::Point(10, 55);
+			   this->label69->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label69->Name = L"label69";
-			   this->label69->Size = System::Drawing::Size(17, 13);
+			   this->label69->Size = System::Drawing::Size(26, 21);
 			   this->label69->TabIndex = 29;
 			   this->label69->Text = L"X:";
 			   // 
@@ -4147,11 +4360,12 @@ namespace Timelapse {
 			   // 
 			   this->bSpawnControlGetCurrentLocation->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSpawnControlGetCurrentLocation->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSpawnControlGetCurrentLocation->Location = System::Drawing::Point(10, 66);
+			   this->bSpawnControlGetCurrentLocation->Location = System::Drawing::Point(15, 91);
+			   this->bSpawnControlGetCurrentLocation->Margin = System::Windows::Forms::Padding(4);
 			   this->bSpawnControlGetCurrentLocation->Name = L"bSpawnControlGetCurrentLocation";
-			   this->bSpawnControlGetCurrentLocation->Size = System::Drawing::Size(153, 25);
+			   this->bSpawnControlGetCurrentLocation->Size = System::Drawing::Size(230, 35);
 			   this->bSpawnControlGetCurrentLocation->TabIndex = 31;
-			   this->bSpawnControlGetCurrentLocation->Text = L"Get Current Location";
+			   this->bSpawnControlGetCurrentLocation->Text = L"获取当前位置";
 			   this->bSpawnControlGetCurrentLocation->UseVisualStyleBackColor = true;
 			   this->bSpawnControlGetCurrentLocation->Click += gcnew System::EventHandler(this, &MainForm::bSpawnControlGetCurrentLocation_Click);
 			   // 
@@ -4159,9 +4373,10 @@ namespace Timelapse {
 			   // 
 			   this->label68->AutoSize = true;
 			   this->label68->BackColor = System::Drawing::Color::Transparent;
-			   this->label68->Location = System::Drawing::Point(88, 40);
+			   this->label68->Location = System::Drawing::Point(132, 55);
+			   this->label68->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label68->Name = L"label68";
-			   this->label68->Size = System::Drawing::Size(17, 13);
+			   this->label68->Size = System::Drawing::Size(26, 21);
 			   this->label68->TabIndex = 32;
 			   this->label68->Text = L"Y:";
 			   // 
@@ -4169,11 +4384,12 @@ namespace Timelapse {
 			   // 
 			   this->label65->AutoSize = true;
 			   this->label65->BackColor = System::Drawing::Color::Transparent;
-			   this->label65->Location = System::Drawing::Point(3, 2);
+			   this->label65->Location = System::Drawing::Point(4, 3);
+			   this->label65->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label65->Name = L"label65";
-			   this->label65->Size = System::Drawing::Size(81, 13);
+			   this->label65->Size = System::Drawing::Size(84, 21);
 			   this->label65->TabIndex = 25;
-			   this->label65->Text = L"Spawn Control:";
+			   this->label65->Text = L"生成控制:";
 			   // 
 			   // lvSpawnControl
 			   // 
@@ -4188,16 +4404,17 @@ namespace Timelapse {
 			   this->lvSpawnControl->FullRowSelect = true;
 			   this->lvSpawnControl->HeaderStyle = System::Windows::Forms::ColumnHeaderStyle::Nonclickable;
 			   this->lvSpawnControl->HideSelection = false;
-			   this->lvSpawnControl->Location = System::Drawing::Point(4, 19);
+			   this->lvSpawnControl->Location = System::Drawing::Point(6, 26);
+			   this->lvSpawnControl->Margin = System::Windows::Forms::Padding(4);
 			   this->lvSpawnControl->Name = L"lvSpawnControl";
-			   this->lvSpawnControl->Size = System::Drawing::Size(197, 131);
+			   this->lvSpawnControl->Size = System::Drawing::Size(294, 181);
 			   this->lvSpawnControl->TabIndex = 25;
 			   this->lvSpawnControl->UseCompatibleStateImageBehavior = false;
 			   this->lvSpawnControl->View = System::Windows::Forms::View::Details;
 			   // 
 			   // columnHeader3
 			   // 
-			   this->columnHeader3->Text = L"Map ID:";
+			   this->columnHeader3->Text = L"地图 ID:";
 			   this->columnHeader3->Width = 70;
 			   // 
 			   // columnHeader4
@@ -4214,11 +4431,12 @@ namespace Timelapse {
 			   // 
 			   this->bSpawnControlDelete->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSpawnControlDelete->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSpawnControlDelete->Location = System::Drawing::Point(4, 154);
+			   this->bSpawnControlDelete->Location = System::Drawing::Point(6, 213);
+			   this->bSpawnControlDelete->Margin = System::Windows::Forms::Padding(4);
 			   this->bSpawnControlDelete->Name = L"bSpawnControlDelete";
-			   this->bSpawnControlDelete->Size = System::Drawing::Size(197, 25);
+			   this->bSpawnControlDelete->Size = System::Drawing::Size(296, 35);
 			   this->bSpawnControlDelete->TabIndex = 27;
-			   this->bSpawnControlDelete->Text = L"Delete";
+			   this->bSpawnControlDelete->Text = L"删除";
 			   this->bSpawnControlDelete->UseVisualStyleBackColor = true;
 			   this->bSpawnControlDelete->Click += gcnew System::EventHandler(this, &MainForm::bSpawnControlDelete_Click);
 			   // 
@@ -4233,20 +4451,22 @@ namespace Timelapse {
 			   this->panel26->Controls->Add(this->bTeleport);
 			   this->panel26->Controls->Add(this->lvTeleport);
 			   this->panel26->Controls->Add(this->panel18);
-			   this->panel26->Location = System::Drawing::Point(4, 6);
+			   this->panel26->Location = System::Drawing::Point(6, 8);
+			   this->panel26->Margin = System::Windows::Forms::Padding(4);
 			   this->panel26->Name = L"panel26";
-			   this->panel26->Size = System::Drawing::Size(383, 185);
+			   this->panel26->Size = System::Drawing::Size(574, 255);
 			   this->panel26->TabIndex = 22;
 			   // 
 			   // label42
 			   // 
 			   this->label42->AutoSize = true;
 			   this->label42->BackColor = System::Drawing::Color::Transparent;
-			   this->label42->Location = System::Drawing::Point(3, 2);
+			   this->label42->Location = System::Drawing::Point(4, 3);
+			   this->label42->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label42->Name = L"label42";
-			   this->label42->Size = System::Drawing::Size(87, 13);
+			   this->label42->Size = System::Drawing::Size(96, 21);
 			   this->label42->TabIndex = 24;
-			   this->label42->Text = L"Teleport to (x,y)";
+			   this->label42->Text = L"传送到(x,y)";
 			   // 
 			   // tbTeleportLoopDelay
 			   // 
@@ -4254,9 +4474,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbTeleportLoopDelay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbTeleportLoopDelay->ForeColor = System::Drawing::Color::White;
-			   this->tbTeleportLoopDelay->Location = System::Drawing::Point(318, 157);
+			   this->tbTeleportLoopDelay->Location = System::Drawing::Point(477, 217);
+			   this->tbTeleportLoopDelay->Margin = System::Windows::Forms::Padding(4);
 			   this->tbTeleportLoopDelay->Name = L"tbTeleportLoopDelay";
-			   this->tbTeleportLoopDelay->Size = System::Drawing::Size(57, 21);
+			   this->tbTeleportLoopDelay->Size = System::Drawing::Size(84, 27);
 			   this->tbTeleportLoopDelay->TabIndex = 33;
 			   this->tbTeleportLoopDelay->Text = L"250";
 			   this->tbTeleportLoopDelay->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4266,19 +4487,21 @@ namespace Timelapse {
 			   // 
 			   this->label86->AutoSize = true;
 			   this->label86->BackColor = System::Drawing::Color::Transparent;
-			   this->label86->Location = System::Drawing::Point(278, 159);
+			   this->label86->Location = System::Drawing::Point(417, 220);
+			   this->label86->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label86->Name = L"label86";
-			   this->label86->Size = System::Drawing::Size(38, 13);
+			   this->label86->Size = System::Drawing::Size(50, 21);
 			   this->label86->TabIndex = 34;
-			   this->label86->Text = L"Delay:";
+			   this->label86->Text = L"延迟:";
 			   // 
 			   // bTeleportLoop
 			   // 
 			   this->bTeleportLoop->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bTeleportLoop->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bTeleportLoop->Location = System::Drawing::Point(204, 154);
+			   this->bTeleportLoop->Location = System::Drawing::Point(306, 213);
+			   this->bTeleportLoop->Margin = System::Windows::Forms::Padding(4);
 			   this->bTeleportLoop->Name = L"bTeleportLoop";
-			   this->bTeleportLoop->Size = System::Drawing::Size(68, 25);
+			   this->bTeleportLoop->Size = System::Drawing::Size(102, 35);
 			   this->bTeleportLoop->TabIndex = 32;
 			   this->bTeleportLoop->Text = L"Loop";
 			   this->bTeleportLoop->UseVisualStyleBackColor = true;
@@ -4288,11 +4511,12 @@ namespace Timelapse {
 			   // 
 			   this->bTeleportDelete->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bTeleportDelete->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bTeleportDelete->Location = System::Drawing::Point(4, 154);
+			   this->bTeleportDelete->Location = System::Drawing::Point(6, 213);
+			   this->bTeleportDelete->Margin = System::Windows::Forms::Padding(4);
 			   this->bTeleportDelete->Name = L"bTeleportDelete";
-			   this->bTeleportDelete->Size = System::Drawing::Size(97, 25);
+			   this->bTeleportDelete->Size = System::Drawing::Size(146, 35);
 			   this->bTeleportDelete->TabIndex = 31;
-			   this->bTeleportDelete->Text = L"Delete";
+			   this->bTeleportDelete->Text = L"删除";
 			   this->bTeleportDelete->UseVisualStyleBackColor = true;
 			   this->bTeleportDelete->Click += gcnew System::EventHandler(this, &MainForm::bTeleportDelete_Click);
 			   // 
@@ -4300,11 +4524,12 @@ namespace Timelapse {
 			   // 
 			   this->bTeleport->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bTeleport->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bTeleport->Location = System::Drawing::Point(104, 154);
+			   this->bTeleport->Location = System::Drawing::Point(156, 213);
+			   this->bTeleport->Margin = System::Windows::Forms::Padding(4);
 			   this->bTeleport->Name = L"bTeleport";
-			   this->bTeleport->Size = System::Drawing::Size(97, 25);
+			   this->bTeleport->Size = System::Drawing::Size(146, 35);
 			   this->bTeleport->TabIndex = 30;
-			   this->bTeleport->Text = L"Teleport";
+			   this->bTeleport->Text = L"传送";
 			   this->bTeleport->UseVisualStyleBackColor = true;
 			   this->bTeleport->Click += gcnew System::EventHandler(this, &MainForm::bTeleport_Click);
 			   // 
@@ -4318,9 +4543,10 @@ namespace Timelapse {
 			   this->lvTeleport->FullRowSelect = true;
 			   this->lvTeleport->HeaderStyle = System::Windows::Forms::ColumnHeaderStyle::Nonclickable;
 			   this->lvTeleport->HideSelection = false;
-			   this->lvTeleport->Location = System::Drawing::Point(4, 19);
+			   this->lvTeleport->Location = System::Drawing::Point(6, 26);
+			   this->lvTeleport->Margin = System::Windows::Forms::Padding(4);
 			   this->lvTeleport->Name = L"lvTeleport";
-			   this->lvTeleport->Size = System::Drawing::Size(197, 131);
+			   this->lvTeleport->Size = System::Drawing::Size(294, 181);
 			   this->lvTeleport->TabIndex = 29;
 			   this->lvTeleport->UseCompatibleStateImageBehavior = false;
 			   this->lvTeleport->View = System::Windows::Forms::View::Details;
@@ -4345,20 +4571,22 @@ namespace Timelapse {
 			   this->panel18->Controls->Add(this->bTeleportAdd);
 			   this->panel18->Controls->Add(this->label63);
 			   this->panel18->Controls->Add(this->tbTeleportY);
-			   this->panel18->Location = System::Drawing::Point(204, 19);
+			   this->panel18->Location = System::Drawing::Point(306, 26);
+			   this->panel18->Margin = System::Windows::Forms::Padding(4);
 			   this->panel18->Name = L"panel18";
-			   this->panel18->Size = System::Drawing::Size(173, 131);
+			   this->panel18->Size = System::Drawing::Size(258, 181);
 			   this->panel18->TabIndex = 35;
 			   // 
 			   // bTeleportGetCurrentLocation
 			   // 
 			   this->bTeleportGetCurrentLocation->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bTeleportGetCurrentLocation->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bTeleportGetCurrentLocation->Location = System::Drawing::Point(7, 50);
+			   this->bTeleportGetCurrentLocation->Location = System::Drawing::Point(10, 69);
+			   this->bTeleportGetCurrentLocation->Margin = System::Windows::Forms::Padding(4);
 			   this->bTeleportGetCurrentLocation->Name = L"bTeleportGetCurrentLocation";
-			   this->bTeleportGetCurrentLocation->Size = System::Drawing::Size(156, 25);
+			   this->bTeleportGetCurrentLocation->Size = System::Drawing::Size(234, 35);
 			   this->bTeleportGetCurrentLocation->TabIndex = 22;
-			   this->bTeleportGetCurrentLocation->Text = L"Get Current Location";
+			   this->bTeleportGetCurrentLocation->Text = L"获取当前位置";
 			   this->bTeleportGetCurrentLocation->UseVisualStyleBackColor = true;
 			   this->bTeleportGetCurrentLocation->Click += gcnew System::EventHandler(this, &MainForm::bTeleportGetCurrentLocation_Click);
 			   // 
@@ -4366,9 +4594,10 @@ namespace Timelapse {
 			   // 
 			   this->label64->AutoSize = true;
 			   this->label64->BackColor = System::Drawing::Color::Transparent;
-			   this->label64->Location = System::Drawing::Point(5, 18);
+			   this->label64->Location = System::Drawing::Point(8, 25);
+			   this->label64->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label64->Name = L"label64";
-			   this->label64->Size = System::Drawing::Size(17, 13);
+			   this->label64->Size = System::Drawing::Size(26, 21);
 			   this->label64->TabIndex = 20;
 			   this->label64->Text = L"X:";
 			   // 
@@ -4378,9 +4607,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbTeleportX->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbTeleportX->ForeColor = System::Drawing::Color::White;
-			   this->tbTeleportX->Location = System::Drawing::Point(26, 15);
+			   this->tbTeleportX->Location = System::Drawing::Point(39, 21);
+			   this->tbTeleportX->Margin = System::Windows::Forms::Padding(4);
 			   this->tbTeleportX->Name = L"tbTeleportX";
-			   this->tbTeleportX->Size = System::Drawing::Size(55, 21);
+			   this->tbTeleportX->Size = System::Drawing::Size(82, 27);
 			   this->tbTeleportX->TabIndex = 19;
 			   this->tbTeleportX->Text = L"0";
 			   this->tbTeleportX->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4390,11 +4620,12 @@ namespace Timelapse {
 			   // 
 			   this->bTeleportAdd->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bTeleportAdd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bTeleportAdd->Location = System::Drawing::Point(7, 80);
+			   this->bTeleportAdd->Location = System::Drawing::Point(10, 111);
+			   this->bTeleportAdd->Margin = System::Windows::Forms::Padding(4);
 			   this->bTeleportAdd->Name = L"bTeleportAdd";
-			   this->bTeleportAdd->Size = System::Drawing::Size(156, 25);
+			   this->bTeleportAdd->Size = System::Drawing::Size(234, 35);
 			   this->bTeleportAdd->TabIndex = 24;
-			   this->bTeleportAdd->Text = L"Add to List";
+			   this->bTeleportAdd->Text = L"添加到列表";
 			   this->bTeleportAdd->UseVisualStyleBackColor = true;
 			   this->bTeleportAdd->Click += gcnew System::EventHandler(this, &MainForm::bTeleportAdd_Click);
 			   // 
@@ -4402,9 +4633,10 @@ namespace Timelapse {
 			   // 
 			   this->label63->AutoSize = true;
 			   this->label63->BackColor = System::Drawing::Color::Transparent;
-			   this->label63->Location = System::Drawing::Point(87, 18);
+			   this->label63->Location = System::Drawing::Point(130, 25);
+			   this->label63->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label63->Name = L"label63";
-			   this->label63->Size = System::Drawing::Size(17, 13);
+			   this->label63->Size = System::Drawing::Size(26, 21);
 			   this->label63->TabIndex = 23;
 			   this->label63->Text = L"Y:";
 			   // 
@@ -4414,9 +4646,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbTeleportY->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbTeleportY->ForeColor = System::Drawing::Color::White;
-			   this->tbTeleportY->Location = System::Drawing::Point(108, 15);
+			   this->tbTeleportY->Location = System::Drawing::Point(162, 21);
+			   this->tbTeleportY->Margin = System::Windows::Forms::Padding(4);
 			   this->tbTeleportY->Name = L"tbTeleportY";
-			   this->tbTeleportY->Size = System::Drawing::Size(55, 21);
+			   this->tbTeleportY->Size = System::Drawing::Size(82, 27);
 			   this->tbTeleportY->TabIndex = 21;
 			   this->tbTeleportY->Text = L"0";
 			   this->tbTeleportY->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4432,11 +4665,12 @@ namespace Timelapse {
 			   this->tabPage6->Controls->Add(this->panel15);
 			   this->tabPage6->Controls->Add(this->panel13);
 			   this->tabPage6->Controls->Add(this->panel14);
-			   this->tabPage6->Location = System::Drawing::Point(4, 22);
+			   this->tabPage6->Location = System::Drawing::Point(4, 30);
+			   this->tabPage6->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage6->Name = L"tabPage6";
-			   this->tabPage6->Size = System::Drawing::Size(390, 385);
+			   this->tabPage6->Size = System::Drawing::Size(589, 535);
 			   this->tabPage6->TabIndex = 3;
-			   this->tabPage6->Text = L"Vacs";
+			   this->tabPage6->Text = L"吸怪";
 			   // 
 			   // panel28
 			   // 
@@ -4451,9 +4685,10 @@ namespace Timelapse {
 			   this->panel28->Controls->Add(this->cbFullMapAttack);
 			   this->panel28->Controls->Add(this->cbVacRight);
 			   this->panel28->Controls->Add(this->cbVacForceRight);
-			   this->panel28->Location = System::Drawing::Point(142, 178);
+			   this->panel28->Location = System::Drawing::Point(213, 246);
+			   this->panel28->Margin = System::Windows::Forms::Padding(4);
 			   this->panel28->Name = L"panel28";
-			   this->panel28->Size = System::Drawing::Size(245, 113);
+			   this->panel28->Size = System::Drawing::Size(366, 156);
 			   this->panel28->TabIndex = 31;
 			   // 
 			   // checkBox10
@@ -4463,9 +4698,10 @@ namespace Timelapse {
 			   this->checkBox10->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->checkBox10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->checkBox10->ForeColor = System::Drawing::Color::White;
-			   this->checkBox10->Location = System::Drawing::Point(6, 87);
+			   this->checkBox10->Location = System::Drawing::Point(9, 120);
+			   this->checkBox10->Margin = System::Windows::Forms::Padding(4);
 			   this->checkBox10->Name = L"checkBox10";
-			   this->checkBox10->Size = System::Drawing::Size(75, 17);
+			   this->checkBox10->Size = System::Drawing::Size(113, 25);
 			   this->checkBox10->TabIndex = 32;
 			   this->checkBox10->Text = L"CSEAX Vac";
 			   this->checkBox10->UseVisualStyleBackColor = false;
@@ -4477,9 +4713,10 @@ namespace Timelapse {
 			   this->checkBox9->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->checkBox9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->checkBox9->ForeColor = System::Drawing::Color::White;
-			   this->checkBox9->Location = System::Drawing::Point(6, 67);
+			   this->checkBox9->Location = System::Drawing::Point(9, 93);
+			   this->checkBox9->Margin = System::Windows::Forms::Padding(4);
 			   this->checkBox9->Name = L"checkBox9";
-			   this->checkBox9->Size = System::Drawing::Size(46, 17);
+			   this->checkBox9->Size = System::Drawing::Size(67, 25);
 			   this->checkBox9->TabIndex = 31;
 			   this->checkBox9->Text = L"pVac";
 			   this->checkBox9->UseVisualStyleBackColor = false;
@@ -4491,9 +4728,10 @@ namespace Timelapse {
 			   this->checkBox8->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->checkBox8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->checkBox8->ForeColor = System::Drawing::Color::White;
-			   this->checkBox8->Location = System::Drawing::Point(6, 47);
+			   this->checkBox8->Location = System::Drawing::Point(9, 65);
+			   this->checkBox8->Margin = System::Windows::Forms::Padding(4);
 			   this->checkBox8->Name = L"checkBox8";
-			   this->checkBox8->Size = System::Drawing::Size(77, 17);
+			   this->checkBox8->Size = System::Drawing::Size(114, 25);
 			   this->checkBox8->TabIndex = 30;
 			   this->checkBox8->Text = L"Fangor Vac";
 			   this->checkBox8->UseVisualStyleBackColor = false;
@@ -4504,9 +4742,10 @@ namespace Timelapse {
 			   this->cbVacJumpLeft->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbVacJumpLeft->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbVacJumpLeft->ForeColor = System::Drawing::Color::White;
-			   this->cbVacJumpLeft->Location = System::Drawing::Point(130, 87);
+			   this->cbVacJumpLeft->Location = System::Drawing::Point(195, 120);
+			   this->cbVacJumpLeft->Margin = System::Windows::Forms::Padding(4);
 			   this->cbVacJumpLeft->Name = L"cbVacJumpLeft";
-			   this->cbVacJumpLeft->Size = System::Drawing::Size(90, 17);
+			   this->cbVacJumpLeft->Size = System::Drawing::Size(135, 25);
 			   this->cbVacJumpLeft->TabIndex = 29;
 			   this->cbVacJumpLeft->Text = L"Vac Jump Left";
 			   this->cbVacJumpLeft->UseVisualStyleBackColor = false;
@@ -4518,9 +4757,10 @@ namespace Timelapse {
 			   this->cbVacJumpRight->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbVacJumpRight->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbVacJumpRight->ForeColor = System::Drawing::Color::White;
-			   this->cbVacJumpRight->Location = System::Drawing::Point(130, 67);
+			   this->cbVacJumpRight->Location = System::Drawing::Point(195, 93);
+			   this->cbVacJumpRight->Margin = System::Windows::Forms::Padding(4);
 			   this->cbVacJumpRight->Name = L"cbVacJumpRight";
-			   this->cbVacJumpRight->Size = System::Drawing::Size(96, 17);
+			   this->cbVacJumpRight->Size = System::Drawing::Size(146, 25);
 			   this->cbVacJumpRight->TabIndex = 28;
 			   this->cbVacJumpRight->Text = L"Vac Jump Right";
 			   this->cbVacJumpRight->UseVisualStyleBackColor = false;
@@ -4532,11 +4772,12 @@ namespace Timelapse {
 			   this->cbVacLeft->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbVacLeft->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbVacLeft->ForeColor = System::Drawing::Color::White;
-			   this->cbVacLeft->Location = System::Drawing::Point(130, 47);
+			   this->cbVacLeft->Location = System::Drawing::Point(195, 65);
+			   this->cbVacLeft->Margin = System::Windows::Forms::Padding(4);
 			   this->cbVacLeft->Name = L"cbVacLeft";
-			   this->cbVacLeft->Size = System::Drawing::Size(62, 17);
+			   this->cbVacLeft->Size = System::Drawing::Size(121, 25);
 			   this->cbVacLeft->TabIndex = 27;
-			   this->cbVacLeft->Text = L"Vac Left";
+			   this->cbVacLeft->Text = L"最左侧 吸怪";
 			   this->cbVacLeft->UseVisualStyleBackColor = false;
 			   this->cbVacLeft->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbVacLeft_CheckedChanged);
 			   // 
@@ -4546,9 +4787,10 @@ namespace Timelapse {
 			   this->cbZzVac->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbZzVac->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbZzVac->ForeColor = System::Drawing::Color::White;
-			   this->cbZzVac->Location = System::Drawing::Point(6, 27);
+			   this->cbZzVac->Location = System::Drawing::Point(9, 37);
+			   this->cbZzVac->Margin = System::Windows::Forms::Padding(4);
 			   this->cbZzVac->Name = L"cbZzVac";
-			   this->cbZzVac->Size = System::Drawing::Size(55, 17);
+			   this->cbZzVac->Size = System::Drawing::Size(83, 25);
 			   this->cbZzVac->TabIndex = 24;
 			   this->cbZzVac->Text = L"ZZ Vac";
 			   this->cbZzVac->UseVisualStyleBackColor = false;
@@ -4560,11 +4802,12 @@ namespace Timelapse {
 			   this->cbFullMapAttack->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbFullMapAttack->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbFullMapAttack->ForeColor = System::Drawing::Color::White;
-			   this->cbFullMapAttack->Location = System::Drawing::Point(6, 7);
+			   this->cbFullMapAttack->Location = System::Drawing::Point(9, 10);
+			   this->cbFullMapAttack->Margin = System::Windows::Forms::Padding(4);
 			   this->cbFullMapAttack->Name = L"cbFullMapAttack";
-			   this->cbFullMapAttack->Size = System::Drawing::Size(96, 17);
+			   this->cbFullMapAttack->Size = System::Drawing::Size(99, 25);
 			   this->cbFullMapAttack->TabIndex = 23;
-			   this->cbFullMapAttack->Text = L"Full Map Attack";
+			   this->cbFullMapAttack->Text = L"全图攻击";
 			   this->cbFullMapAttack->UseVisualStyleBackColor = false;
 			   this->cbFullMapAttack->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbFullMapAttack_CheckedChanged);
 			   // 
@@ -4574,11 +4817,12 @@ namespace Timelapse {
 			   this->cbVacRight->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbVacRight->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbVacRight->ForeColor = System::Drawing::Color::White;
-			   this->cbVacRight->Location = System::Drawing::Point(130, 27);
+			   this->cbVacRight->Location = System::Drawing::Point(195, 37);
+			   this->cbVacRight->Margin = System::Windows::Forms::Padding(4);
 			   this->cbVacRight->Name = L"cbVacRight";
-			   this->cbVacRight->Size = System::Drawing::Size(68, 17);
+			   this->cbVacRight->Size = System::Drawing::Size(121, 25);
 			   this->cbVacRight->TabIndex = 26;
-			   this->cbVacRight->Text = L"Vac Right";
+			   this->cbVacRight->Text = L"最右侧 吸怪";
 			   this->cbVacRight->UseVisualStyleBackColor = false;
 			   this->cbVacRight->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbVacRight_CheckedChanged);
 			   // 
@@ -4588,11 +4832,12 @@ namespace Timelapse {
 			   this->cbVacForceRight->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbVacForceRight->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbVacForceRight->ForeColor = System::Drawing::Color::White;
-			   this->cbVacForceRight->Location = System::Drawing::Point(130, 7);
+			   this->cbVacForceRight->Location = System::Drawing::Point(195, 10);
+			   this->cbVacForceRight->Margin = System::Windows::Forms::Padding(4);
 			   this->cbVacForceRight->Name = L"cbVacForceRight";
-			   this->cbVacForceRight->Size = System::Drawing::Size(98, 17);
+			   this->cbVacForceRight->Size = System::Drawing::Size(155, 25);
 			   this->cbVacForceRight->TabIndex = 25;
-			   this->cbVacForceRight->Text = L"Vac Force Right";
+			   this->cbVacForceRight->Text = L"强制最右侧 吸怪";
 			   this->cbVacForceRight->UseVisualStyleBackColor = false;
 			   this->cbVacForceRight->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbVacForceRight_CheckedChanged);
 			   // 
@@ -4605,20 +4850,22 @@ namespace Timelapse {
 			   this->panel17->Controls->Add(this->label72);
 			   this->panel17->Controls->Add(this->label87);
 			   this->panel17->Controls->Add(this->tbUEMIx);
-			   this->panel17->Location = System::Drawing::Point(6, 178);
+			   this->panel17->Location = System::Drawing::Point(9, 246);
+			   this->panel17->Margin = System::Windows::Forms::Padding(4);
 			   this->panel17->Name = L"panel17";
-			   this->panel17->Size = System::Drawing::Size(132, 87);
+			   this->panel17->Size = System::Drawing::Size(197, 120);
 			   this->panel17->TabIndex = 30;
 			   // 
 			   // bUEMIGetCurrentLocation
 			   // 
 			   this->bUEMIGetCurrentLocation->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bUEMIGetCurrentLocation->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bUEMIGetCurrentLocation->Location = System::Drawing::Point(3, 53);
+			   this->bUEMIGetCurrentLocation->Location = System::Drawing::Point(4, 73);
+			   this->bUEMIGetCurrentLocation->Margin = System::Windows::Forms::Padding(4);
 			   this->bUEMIGetCurrentLocation->Name = L"bUEMIGetCurrentLocation";
-			   this->bUEMIGetCurrentLocation->Size = System::Drawing::Size(124, 25);
+			   this->bUEMIGetCurrentLocation->Size = System::Drawing::Size(186, 35);
 			   this->bUEMIGetCurrentLocation->TabIndex = 30;
-			   this->bUEMIGetCurrentLocation->Text = L"Get Current Location";
+			   this->bUEMIGetCurrentLocation->Text = L"获取当前位置";
 			   this->bUEMIGetCurrentLocation->UseVisualStyleBackColor = true;
 			   this->bUEMIGetCurrentLocation->Click += gcnew System::EventHandler(this, &MainForm::bUEMIGetCurrentLocation_Click);
 			   // 
@@ -4628,9 +4875,10 @@ namespace Timelapse {
 			   this->cbUEMI->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbUEMI->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbUEMI->ForeColor = System::Drawing::Color::White;
-			   this->cbUEMI->Location = System::Drawing::Point(6, 3);
+			   this->cbUEMI->Location = System::Drawing::Point(9, 4);
+			   this->cbUEMI->Margin = System::Windows::Forms::Padding(4);
 			   this->cbUEMI->Name = L"cbUEMI";
-			   this->cbUEMI->Size = System::Drawing::Size(47, 17);
+			   this->cbUEMI->Size = System::Drawing::Size(69, 25);
 			   this->cbUEMI->TabIndex = 24;
 			   this->cbUEMI->Text = L"uEMI";
 			   this->cbUEMI->UseVisualStyleBackColor = false;
@@ -4642,9 +4890,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbUEMIy->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbUEMIy->ForeColor = System::Drawing::Color::White;
-			   this->tbUEMIy->Location = System::Drawing::Point(87, 24);
+			   this->tbUEMIy->Location = System::Drawing::Point(130, 33);
+			   this->tbUEMIy->Margin = System::Windows::Forms::Padding(4);
 			   this->tbUEMIy->Name = L"tbUEMIy";
-			   this->tbUEMIy->Size = System::Drawing::Size(40, 21);
+			   this->tbUEMIy->Size = System::Drawing::Size(59, 27);
 			   this->tbUEMIy->TabIndex = 28;
 			   this->tbUEMIy->Text = L"0";
 			   this->tbUEMIy->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4653,9 +4902,10 @@ namespace Timelapse {
 			   // 
 			   this->label72->AutoSize = true;
 			   this->label72->BackColor = System::Drawing::Color::Transparent;
-			   this->label72->Location = System::Drawing::Point(70, 27);
+			   this->label72->Location = System::Drawing::Point(105, 37);
+			   this->label72->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label72->Name = L"label72";
-			   this->label72->Size = System::Drawing::Size(17, 13);
+			   this->label72->Size = System::Drawing::Size(26, 21);
 			   this->label72->TabIndex = 29;
 			   this->label72->Text = L"Y:";
 			   // 
@@ -4663,9 +4913,10 @@ namespace Timelapse {
 			   // 
 			   this->label87->AutoSize = true;
 			   this->label87->BackColor = System::Drawing::Color::Transparent;
-			   this->label87->Location = System::Drawing::Point(7, 28);
+			   this->label87->Location = System::Drawing::Point(10, 39);
+			   this->label87->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label87->Name = L"label87";
-			   this->label87->Size = System::Drawing::Size(17, 13);
+			   this->label87->Size = System::Drawing::Size(26, 21);
 			   this->label87->TabIndex = 27;
 			   this->label87->Text = L"X:";
 			   // 
@@ -4675,9 +4926,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbUEMIx->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbUEMIx->ForeColor = System::Drawing::Color::White;
-			   this->tbUEMIx->Location = System::Drawing::Point(24, 25);
+			   this->tbUEMIx->Location = System::Drawing::Point(36, 35);
+			   this->tbUEMIx->Margin = System::Windows::Forms::Padding(4);
 			   this->tbUEMIx->Name = L"tbUEMIx";
-			   this->tbUEMIx->Size = System::Drawing::Size(40, 21);
+			   this->tbUEMIx->Size = System::Drawing::Size(59, 27);
 			   this->tbUEMIx->TabIndex = 26;
 			   this->tbUEMIx->Text = L"30";
 			   this->tbUEMIx->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4690,9 +4942,10 @@ namespace Timelapse {
 			   this->panel16->Controls->Add(this->label60);
 			   this->panel16->Controls->Add(this->bDupeXGetFoothold);
 			   this->panel16->Controls->Add(this->cbDupeX);
-			   this->panel16->Location = System::Drawing::Point(142, 104);
+			   this->panel16->Location = System::Drawing::Point(213, 144);
+			   this->panel16->Margin = System::Windows::Forms::Padding(4);
 			   this->panel16->Name = L"panel16";
-			   this->panel16->Size = System::Drawing::Size(245, 70);
+			   this->panel16->Size = System::Drawing::Size(366, 96);
 			   this->panel16->TabIndex = 9;
 			   // 
 			   // panel19
@@ -4704,20 +4957,22 @@ namespace Timelapse {
 			   this->panel19->Controls->Add(this->cbMMC);
 			   this->panel19->Controls->Add(this->label62);
 			   this->panel19->Controls->Add(this->label67);
-			   this->panel19->Location = System::Drawing::Point(100, -1);
+			   this->panel19->Location = System::Drawing::Point(150, -1);
+			   this->panel19->Margin = System::Windows::Forms::Padding(4);
 			   this->panel19->Name = L"panel19";
-			   this->panel19->Size = System::Drawing::Size(143, 72);
+			   this->panel19->Size = System::Drawing::Size(214, 99);
 			   this->panel19->TabIndex = 11;
 			   // 
 			   // button1
 			   // 
 			   this->button1->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->button1->Location = System::Drawing::Point(6, 43);
+			   this->button1->Location = System::Drawing::Point(9, 60);
+			   this->button1->Margin = System::Windows::Forms::Padding(4);
 			   this->button1->Name = L"button1";
-			   this->button1->Size = System::Drawing::Size(131, 21);
+			   this->button1->Size = System::Drawing::Size(196, 29);
 			   this->button1->TabIndex = 31;
-			   this->button1->Text = L"Get Current Location";
+			   this->button1->Text = L"获取当前位置";
 			   this->button1->UseVisualStyleBackColor = true;
 			   // 
 			   // tbMMCX
@@ -4726,9 +4981,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbMMCX->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbMMCX->ForeColor = System::Drawing::Color::White;
-			   this->tbMMCX->Location = System::Drawing::Point(19, 19);
+			   this->tbMMCX->Location = System::Drawing::Point(28, 26);
+			   this->tbMMCX->Margin = System::Windows::Forms::Padding(4);
 			   this->tbMMCX->Name = L"tbMMCX";
-			   this->tbMMCX->Size = System::Drawing::Size(45, 21);
+			   this->tbMMCX->Size = System::Drawing::Size(66, 27);
 			   this->tbMMCX->TabIndex = 16;
 			   this->tbMMCX->Text = L"30";
 			   this->tbMMCX->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4740,9 +4996,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbMMCY->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbMMCY->ForeColor = System::Drawing::Color::White;
-			   this->tbMMCY->Location = System::Drawing::Point(92, 19);
+			   this->tbMMCY->Location = System::Drawing::Point(138, 26);
+			   this->tbMMCY->Margin = System::Windows::Forms::Padding(4);
 			   this->tbMMCY->Name = L"tbMMCY";
-			   this->tbMMCY->Size = System::Drawing::Size(45, 21);
+			   this->tbMMCY->Size = System::Drawing::Size(66, 27);
 			   this->tbMMCY->TabIndex = 18;
 			   this->tbMMCY->Text = L"0";
 			   this->tbMMCY->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4754,9 +5011,10 @@ namespace Timelapse {
 			   this->cbMMC->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMMC->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMMC->ForeColor = System::Drawing::Color::White;
-			   this->cbMMC->Location = System::Drawing::Point(6, 1);
+			   this->cbMMC->Location = System::Drawing::Point(9, 1);
+			   this->cbMMC->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMMC->Name = L"cbMMC";
-			   this->cbMMC->Size = System::Drawing::Size(46, 17);
+			   this->cbMMC->Size = System::Drawing::Size(67, 25);
 			   this->cbMMC->TabIndex = 15;
 			   this->cbMMC->Text = L"MMC";
 			   this->cbMMC->UseVisualStyleBackColor = false;
@@ -4765,9 +5023,10 @@ namespace Timelapse {
 			   // 
 			   this->label62->AutoSize = true;
 			   this->label62->BackColor = System::Drawing::Color::Transparent;
-			   this->label62->Location = System::Drawing::Point(74, 23);
+			   this->label62->Location = System::Drawing::Point(111, 32);
+			   this->label62->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label62->Name = L"label62";
-			   this->label62->Size = System::Drawing::Size(17, 13);
+			   this->label62->Size = System::Drawing::Size(26, 21);
 			   this->label62->TabIndex = 19;
 			   this->label62->Text = L"Y:";
 			   // 
@@ -4775,9 +5034,10 @@ namespace Timelapse {
 			   // 
 			   this->label67->AutoSize = true;
 			   this->label67->BackColor = System::Drawing::Color::Transparent;
-			   this->label67->Location = System::Drawing::Point(2, 23);
+			   this->label67->Location = System::Drawing::Point(3, 32);
+			   this->label67->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label67->Name = L"label67";
-			   this->label67->Size = System::Drawing::Size(17, 13);
+			   this->label67->Size = System::Drawing::Size(26, 21);
 			   this->label67->TabIndex = 17;
 			   this->label67->Text = L"X:";
 			   // 
@@ -4788,9 +5048,10 @@ namespace Timelapse {
 			   this->tbDupeXFoothold->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbDupeXFoothold->Enabled = false;
 			   this->tbDupeXFoothold->ForeColor = System::Drawing::Color::White;
-			   this->tbDupeXFoothold->Location = System::Drawing::Point(73, 19);
+			   this->tbDupeXFoothold->Location = System::Drawing::Point(110, 26);
+			   this->tbDupeXFoothold->Margin = System::Windows::Forms::Padding(4);
 			   this->tbDupeXFoothold->Name = L"tbDupeXFoothold";
-			   this->tbDupeXFoothold->Size = System::Drawing::Size(24, 21);
+			   this->tbDupeXFoothold->Size = System::Drawing::Size(35, 27);
 			   this->tbDupeXFoothold->TabIndex = 16;
 			   this->tbDupeXFoothold->Text = L"0";
 			   this->tbDupeXFoothold->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4801,22 +5062,24 @@ namespace Timelapse {
 			   // 
 			   this->label60->AutoSize = true;
 			   this->label60->Enabled = false;
-			   this->label60->Location = System::Drawing::Point(3, 23);
+			   this->label60->Location = System::Drawing::Point(4, 32);
+			   this->label60->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label60->Name = L"label60";
-			   this->label60->Size = System::Drawing::Size(69, 13);
+			   this->label60->Size = System::Drawing::Size(101, 21);
 			   this->label60->TabIndex = 17;
-			   this->label60->Text = L"Foothold No:";
+			   this->label60->Text = L"立足点编号:";
 			   // 
 			   // bDupeXGetFoothold
 			   // 
 			   this->bDupeXGetFoothold->Enabled = false;
 			   this->bDupeXGetFoothold->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bDupeXGetFoothold->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bDupeXGetFoothold->Location = System::Drawing::Point(3, 43);
+			   this->bDupeXGetFoothold->Location = System::Drawing::Point(4, 60);
+			   this->bDupeXGetFoothold->Margin = System::Windows::Forms::Padding(4);
 			   this->bDupeXGetFoothold->Name = L"bDupeXGetFoothold";
-			   this->bDupeXGetFoothold->Size = System::Drawing::Size(94, 21);
+			   this->bDupeXGetFoothold->Size = System::Drawing::Size(141, 29);
 			   this->bDupeXGetFoothold->TabIndex = 15;
-			   this->bDupeXGetFoothold->Text = L"Get Foothold";
+			   this->bDupeXGetFoothold->Text = L"获取立足点";
 			   this->bDupeXGetFoothold->UseVisualStyleBackColor = true;
 			   this->bDupeXGetFoothold->Click += gcnew System::EventHandler(this, &MainForm::bDupeXGetFoothold_Click);
 			   // 
@@ -4826,9 +5089,10 @@ namespace Timelapse {
 			   this->cbDupeX->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbDupeX->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbDupeX->ForeColor = System::Drawing::Color::White;
-			   this->cbDupeX->Location = System::Drawing::Point(6, 1);
+			   this->cbDupeX->Location = System::Drawing::Point(9, 1);
+			   this->cbDupeX->Margin = System::Windows::Forms::Padding(4);
 			   this->cbDupeX->Name = L"cbDupeX";
-			   this->cbDupeX->Size = System::Drawing::Size(54, 17);
+			   this->cbDupeX->Size = System::Drawing::Size(80, 25);
 			   this->cbDupeX->TabIndex = 1;
 			   this->cbDupeX->Text = L"DupeX";
 			   this->cbDupeX->UseVisualStyleBackColor = false;
@@ -4847,9 +5111,10 @@ namespace Timelapse {
 			   this->panel15->Controls->Add(this->tbWallVacX);
 			   this->panel15->Controls->Add(this->label52);
 			   this->panel15->Controls->Add(this->cbWallVac);
-			   this->panel15->Location = System::Drawing::Point(142, 4);
+			   this->panel15->Location = System::Drawing::Point(213, 6);
+			   this->panel15->Margin = System::Windows::Forms::Padding(4);
 			   this->panel15->Name = L"panel15";
-			   this->panel15->Size = System::Drawing::Size(245, 96);
+			   this->panel15->Size = System::Drawing::Size(366, 132);
 			   this->panel15->TabIndex = 8;
 			   // 
 			   // tbWallVacRangeY
@@ -4858,9 +5123,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbWallVacRangeY->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbWallVacRangeY->ForeColor = System::Drawing::Color::White;
-			   this->tbWallVacRangeY->Location = System::Drawing::Point(182, 41);
+			   this->tbWallVacRangeY->Location = System::Drawing::Point(273, 57);
+			   this->tbWallVacRangeY->Margin = System::Windows::Forms::Padding(4);
 			   this->tbWallVacRangeY->Name = L"tbWallVacRangeY";
-			   this->tbWallVacRangeY->Size = System::Drawing::Size(57, 21);
+			   this->tbWallVacRangeY->Size = System::Drawing::Size(84, 27);
 			   this->tbWallVacRangeY->TabIndex = 17;
 			   this->tbWallVacRangeY->Text = L"0";
 			   this->tbWallVacRangeY->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4870,21 +5136,23 @@ namespace Timelapse {
 			   // 
 			   this->label61->AutoSize = true;
 			   this->label61->BackColor = System::Drawing::Color::Transparent;
-			   this->label61->Location = System::Drawing::Point(130, 45);
+			   this->label61->Location = System::Drawing::Point(195, 62);
+			   this->label61->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label61->Name = L"label61";
-			   this->label61->Size = System::Drawing::Size(51, 13);
+			   this->label61->Size = System::Drawing::Size(65, 21);
 			   this->label61->TabIndex = 18;
-			   this->label61->Text = L"Range Y:";
+			   this->label61->Text = L"Y 范围:";
 			   // 
 			   // bWallVacGetCurrentLocation
 			   // 
 			   this->bWallVacGetCurrentLocation->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bWallVacGetCurrentLocation->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bWallVacGetCurrentLocation->Location = System::Drawing::Point(7, 65);
+			   this->bWallVacGetCurrentLocation->Location = System::Drawing::Point(10, 90);
+			   this->bWallVacGetCurrentLocation->Margin = System::Windows::Forms::Padding(4);
 			   this->bWallVacGetCurrentLocation->Name = L"bWallVacGetCurrentLocation";
-			   this->bWallVacGetCurrentLocation->Size = System::Drawing::Size(232, 25);
+			   this->bWallVacGetCurrentLocation->Size = System::Drawing::Size(348, 35);
 			   this->bWallVacGetCurrentLocation->TabIndex = 14;
-			   this->bWallVacGetCurrentLocation->Text = L"Get Current Location";
+			   this->bWallVacGetCurrentLocation->Text = L"获取当前位置";
 			   this->bWallVacGetCurrentLocation->UseVisualStyleBackColor = true;
 			   this->bWallVacGetCurrentLocation->Click += gcnew System::EventHandler(this, &MainForm::bWallVacGetCurrentLocation_Click);
 			   // 
@@ -4894,9 +5162,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbWallVacRangeX->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbWallVacRangeX->ForeColor = System::Drawing::Color::White;
-			   this->tbWallVacRangeX->Location = System::Drawing::Point(57, 41);
+			   this->tbWallVacRangeX->Location = System::Drawing::Point(86, 57);
+			   this->tbWallVacRangeX->Margin = System::Windows::Forms::Padding(4);
 			   this->tbWallVacRangeX->Name = L"tbWallVacRangeX";
-			   this->tbWallVacRangeX->Size = System::Drawing::Size(57, 21);
+			   this->tbWallVacRangeX->Size = System::Drawing::Size(84, 27);
 			   this->tbWallVacRangeX->TabIndex = 15;
 			   this->tbWallVacRangeX->Text = L"15";
 			   this->tbWallVacRangeX->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4906,11 +5175,12 @@ namespace Timelapse {
 			   // 
 			   this->label59->AutoSize = true;
 			   this->label59->BackColor = System::Drawing::Color::Transparent;
-			   this->label59->Location = System::Drawing::Point(5, 45);
+			   this->label59->Location = System::Drawing::Point(8, 62);
+			   this->label59->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label59->Name = L"label59";
-			   this->label59->Size = System::Drawing::Size(51, 13);
+			   this->label59->Size = System::Drawing::Size(65, 21);
 			   this->label59->TabIndex = 16;
-			   this->label59->Text = L"Range X:";
+			   this->label59->Text = L"X 范围:";
 			   // 
 			   // tbWallVacY
 			   // 
@@ -4918,9 +5188,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbWallVacY->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbWallVacY->ForeColor = System::Drawing::Color::White;
-			   this->tbWallVacY->Location = System::Drawing::Point(182, 3);
+			   this->tbWallVacY->Location = System::Drawing::Point(273, 4);
+			   this->tbWallVacY->Margin = System::Windows::Forms::Padding(4);
 			   this->tbWallVacY->Name = L"tbWallVacY";
-			   this->tbWallVacY->Size = System::Drawing::Size(57, 21);
+			   this->tbWallVacY->Size = System::Drawing::Size(84, 27);
 			   this->tbWallVacY->TabIndex = 13;
 			   this->tbWallVacY->Text = L"0";
 			   this->tbWallVacY->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4930,9 +5201,10 @@ namespace Timelapse {
 			   // 
 			   this->label51->AutoSize = true;
 			   this->label51->BackColor = System::Drawing::Color::Transparent;
-			   this->label51->Location = System::Drawing::Point(164, 7);
+			   this->label51->Location = System::Drawing::Point(246, 10);
+			   this->label51->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label51->Name = L"label51";
-			   this->label51->Size = System::Drawing::Size(17, 13);
+			   this->label51->Size = System::Drawing::Size(26, 21);
 			   this->label51->TabIndex = 14;
 			   this->label51->Text = L"Y:";
 			   // 
@@ -4942,9 +5214,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbWallVacX->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbWallVacX->ForeColor = System::Drawing::Color::White;
-			   this->tbWallVacX->Location = System::Drawing::Point(101, 3);
+			   this->tbWallVacX->Location = System::Drawing::Point(152, 4);
+			   this->tbWallVacX->Margin = System::Windows::Forms::Padding(4);
 			   this->tbWallVacX->Name = L"tbWallVacX";
-			   this->tbWallVacX->Size = System::Drawing::Size(57, 21);
+			   this->tbWallVacX->Size = System::Drawing::Size(84, 27);
 			   this->tbWallVacX->TabIndex = 11;
 			   this->tbWallVacX->Text = L"0";
 			   this->tbWallVacX->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -4954,9 +5227,10 @@ namespace Timelapse {
 			   // 
 			   this->label52->AutoSize = true;
 			   this->label52->BackColor = System::Drawing::Color::Transparent;
-			   this->label52->Location = System::Drawing::Point(83, 7);
+			   this->label52->Location = System::Drawing::Point(124, 10);
+			   this->label52->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label52->Name = L"label52";
-			   this->label52->Size = System::Drawing::Size(17, 13);
+			   this->label52->Size = System::Drawing::Size(26, 21);
 			   this->label52->TabIndex = 12;
 			   this->label52->Text = L"X:";
 			   // 
@@ -4966,11 +5240,12 @@ namespace Timelapse {
 			   this->cbWallVac->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbWallVac->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbWallVac->ForeColor = System::Drawing::Color::White;
-			   this->cbWallVac->Location = System::Drawing::Point(7, 5);
+			   this->cbWallVac->Location = System::Drawing::Point(10, 7);
+			   this->cbWallVac->Margin = System::Windows::Forms::Padding(4);
 			   this->cbWallVac->Name = L"cbWallVac";
-			   this->cbWallVac->Size = System::Drawing::Size(63, 17);
+			   this->cbWallVac->Size = System::Drawing::Size(99, 25);
 			   this->cbWallVac->TabIndex = 1;
-			   this->cbWallVac->Text = L"Wall Vac";
+			   this->cbWallVac->Text = L"墙体吸怪";
 			   this->cbWallVac->UseVisualStyleBackColor = false;
 			   this->cbWallVac->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbWallVac_CheckedChanged);
 			   // 
@@ -4982,9 +5257,10 @@ namespace Timelapse {
 			   this->panel13->Controls->Add(this->label57);
 			   this->panel13->Controls->Add(this->label58);
 			   this->panel13->Controls->Add(this->cbKamiLoot);
-			   this->panel13->Location = System::Drawing::Point(6, 104);
+			   this->panel13->Location = System::Drawing::Point(9, 144);
+			   this->panel13->Margin = System::Windows::Forms::Padding(4);
 			   this->panel13->Name = L"panel13";
-			   this->panel13->Size = System::Drawing::Size(132, 70);
+			   this->panel13->Size = System::Drawing::Size(197, 96);
 			   this->panel13->TabIndex = 7;
 			   // 
 			   // tbKamiLootItem
@@ -4993,9 +5269,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbKamiLootItem->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbKamiLootItem->ForeColor = System::Drawing::Color::White;
-			   this->tbKamiLootItem->Location = System::Drawing::Point(87, 42);
+			   this->tbKamiLootItem->Location = System::Drawing::Point(130, 58);
+			   this->tbKamiLootItem->Margin = System::Windows::Forms::Padding(4);
 			   this->tbKamiLootItem->Name = L"tbKamiLootItem";
-			   this->tbKamiLootItem->Size = System::Drawing::Size(40, 21);
+			   this->tbKamiLootItem->Size = System::Drawing::Size(59, 27);
 			   this->tbKamiLootItem->TabIndex = 9;
 			   this->tbKamiLootItem->Text = L"0";
 			   this->tbKamiLootItem->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5007,9 +5284,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbKamiLootInterval->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbKamiLootInterval->ForeColor = System::Drawing::Color::White;
-			   this->tbKamiLootInterval->Location = System::Drawing::Point(87, 18);
+			   this->tbKamiLootInterval->Location = System::Drawing::Point(130, 25);
+			   this->tbKamiLootInterval->Margin = System::Windows::Forms::Padding(4);
 			   this->tbKamiLootInterval->Name = L"tbKamiLootInterval";
-			   this->tbKamiLootInterval->Size = System::Drawing::Size(40, 21);
+			   this->tbKamiLootInterval->Size = System::Drawing::Size(59, 27);
 			   this->tbKamiLootInterval->TabIndex = 3;
 			   this->tbKamiLootInterval->Text = L"200";
 			   this->tbKamiLootInterval->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5018,21 +5296,23 @@ namespace Timelapse {
 			   // label57
 			   // 
 			   this->label57->AutoSize = true;
-			   this->label57->Location = System::Drawing::Point(12, 46);
+			   this->label57->Location = System::Drawing::Point(18, 64);
+			   this->label57->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label57->Name = L"label57";
-			   this->label57->Size = System::Drawing::Size(76, 13);
+			   this->label57->Size = System::Drawing::Size(112, 21);
 			   this->label57->TabIndex = 10;
-			   this->label57->Text = L"When Items >";
+			   this->label57->Text = L"当物品数量 >";
 			   // 
 			   // label58
 			   // 
 			   this->label58->AutoSize = true;
 			   this->label58->BackColor = System::Drawing::Color::Transparent;
-			   this->label58->Location = System::Drawing::Point(14, 22);
+			   this->label58->Location = System::Drawing::Point(18, 31);
+			   this->label58->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label58->Name = L"label58";
-			   this->label58->Size = System::Drawing::Size(73, 13);
+			   this->label58->Size = System::Drawing::Size(91, 21);
 			   this->label58->TabIndex = 7;
-			   this->label58->Text = L"Interval [ms]:";
+			   this->label58->Text = L"间隔 [ms]:";
 			   // 
 			   // cbKamiLoot
 			   // 
@@ -5040,11 +5320,12 @@ namespace Timelapse {
 			   this->cbKamiLoot->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbKamiLoot->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbKamiLoot->ForeColor = System::Drawing::Color::White;
-			   this->cbKamiLoot->Location = System::Drawing::Point(6, 3);
+			   this->cbKamiLoot->Location = System::Drawing::Point(9, 4);
+			   this->cbKamiLoot->Margin = System::Windows::Forms::Padding(4);
 			   this->cbKamiLoot->Name = L"cbKamiLoot";
-			   this->cbKamiLoot->Size = System::Drawing::Size(69, 17);
+			   this->cbKamiLoot->Size = System::Drawing::Size(107, 25);
 			   this->cbKamiLoot->TabIndex = 1;
-			   this->cbKamiLoot->Text = L"Kami Loot";
+			   this->cbKamiLoot->Text = L"Kami 物品";
 			   this->cbKamiLoot->UseVisualStyleBackColor = false;
 			   this->cbKamiLoot->CheckedChanged += gcnew System::EventHandler(this, &MainForm::cbKamiLoot_CheckedChanged);
 			   // 
@@ -5060,9 +5341,10 @@ namespace Timelapse {
 			   this->panel14->Controls->Add(this->label53);
 			   this->panel14->Controls->Add(this->label54);
 			   this->panel14->Controls->Add(this->cbKami);
-			   this->panel14->Location = System::Drawing::Point(6, 4);
+			   this->panel14->Location = System::Drawing::Point(9, 6);
+			   this->panel14->Margin = System::Windows::Forms::Padding(4);
 			   this->panel14->Name = L"panel14";
-			   this->panel14->Size = System::Drawing::Size(132, 96);
+			   this->panel14->Size = System::Drawing::Size(197, 132);
 			   this->panel14->TabIndex = 6;
 			   // 
 			   // tbKamiY
@@ -5071,9 +5353,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbKamiY->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbKamiY->ForeColor = System::Drawing::Color::White;
-			   this->tbKamiY->Location = System::Drawing::Point(87, 21);
+			   this->tbKamiY->Location = System::Drawing::Point(130, 29);
+			   this->tbKamiY->Margin = System::Windows::Forms::Padding(4);
 			   this->tbKamiY->Name = L"tbKamiY";
-			   this->tbKamiY->Size = System::Drawing::Size(40, 21);
+			   this->tbKamiY->Size = System::Drawing::Size(59, 27);
 			   this->tbKamiY->TabIndex = 13;
 			   this->tbKamiY->Text = L"0";
 			   this->tbKamiY->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5083,9 +5366,10 @@ namespace Timelapse {
 			   // 
 			   this->label56->AutoSize = true;
 			   this->label56->BackColor = System::Drawing::Color::Transparent;
-			   this->label56->Location = System::Drawing::Point(69, 25);
+			   this->label56->Location = System::Drawing::Point(104, 35);
+			   this->label56->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label56->Name = L"label56";
-			   this->label56->Size = System::Drawing::Size(17, 13);
+			   this->label56->Size = System::Drawing::Size(26, 21);
 			   this->label56->TabIndex = 14;
 			   this->label56->Text = L"Y:";
 			   // 
@@ -5095,9 +5379,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbKamiX->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbKamiX->ForeColor = System::Drawing::Color::White;
-			   this->tbKamiX->Location = System::Drawing::Point(23, 21);
+			   this->tbKamiX->Location = System::Drawing::Point(34, 29);
+			   this->tbKamiX->Margin = System::Windows::Forms::Padding(4);
 			   this->tbKamiX->Name = L"tbKamiX";
-			   this->tbKamiX->Size = System::Drawing::Size(40, 21);
+			   this->tbKamiX->Size = System::Drawing::Size(59, 27);
 			   this->tbKamiX->TabIndex = 11;
 			   this->tbKamiX->Text = L"30";
 			   this->tbKamiX->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5107,9 +5392,10 @@ namespace Timelapse {
 			   // 
 			   this->label55->AutoSize = true;
 			   this->label55->BackColor = System::Drawing::Color::Transparent;
-			   this->label55->Location = System::Drawing::Point(5, 25);
+			   this->label55->Location = System::Drawing::Point(8, 35);
+			   this->label55->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label55->Name = L"label55";
-			   this->label55->Size = System::Drawing::Size(17, 13);
+			   this->label55->Size = System::Drawing::Size(26, 21);
 			   this->label55->TabIndex = 12;
 			   this->label55->Text = L"X:";
 			   // 
@@ -5119,9 +5405,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbKamiMob->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbKamiMob->ForeColor = System::Drawing::Color::White;
-			   this->tbKamiMob->Location = System::Drawing::Point(87, 69);
+			   this->tbKamiMob->Location = System::Drawing::Point(130, 96);
+			   this->tbKamiMob->Margin = System::Windows::Forms::Padding(4);
 			   this->tbKamiMob->Name = L"tbKamiMob";
-			   this->tbKamiMob->Size = System::Drawing::Size(40, 21);
+			   this->tbKamiMob->Size = System::Drawing::Size(59, 27);
 			   this->tbKamiMob->TabIndex = 9;
 			   this->tbKamiMob->Text = L"0";
 			   this->tbKamiMob->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5133,9 +5420,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbKamiInterval->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbKamiInterval->ForeColor = System::Drawing::Color::White;
-			   this->tbKamiInterval->Location = System::Drawing::Point(87, 45);
+			   this->tbKamiInterval->Location = System::Drawing::Point(130, 62);
+			   this->tbKamiInterval->Margin = System::Windows::Forms::Padding(4);
 			   this->tbKamiInterval->Name = L"tbKamiInterval";
-			   this->tbKamiInterval->Size = System::Drawing::Size(40, 21);
+			   this->tbKamiInterval->Size = System::Drawing::Size(59, 27);
 			   this->tbKamiInterval->TabIndex = 3;
 			   this->tbKamiInterval->Text = L"200";
 			   this->tbKamiInterval->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5144,21 +5432,23 @@ namespace Timelapse {
 			   // label53
 			   // 
 			   this->label53->AutoSize = true;
-			   this->label53->Location = System::Drawing::Point(14, 73);
+			   this->label53->Location = System::Drawing::Point(21, 101);
+			   this->label53->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label53->Name = L"label53";
-			   this->label53->Size = System::Drawing::Size(74, 13);
+			   this->label53->Size = System::Drawing::Size(112, 21);
 			   this->label53->TabIndex = 10;
-			   this->label53->Text = L"When Mobs >";
+			   this->label53->Text = L"当怪物数量 >";
 			   // 
 			   // label54
 			   // 
 			   this->label54->AutoSize = true;
 			   this->label54->BackColor = System::Drawing::Color::Transparent;
-			   this->label54->Location = System::Drawing::Point(14, 49);
+			   this->label54->Location = System::Drawing::Point(21, 68);
+			   this->label54->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label54->Name = L"label54";
-			   this->label54->Size = System::Drawing::Size(73, 13);
+			   this->label54->Size = System::Drawing::Size(91, 21);
 			   this->label54->TabIndex = 7;
-			   this->label54->Text = L"Interval [ms]:";
+			   this->label54->Text = L"间隔 [ms]:";
 			   // 
 			   // cbKami
 			   // 
@@ -5166,9 +5456,10 @@ namespace Timelapse {
 			   this->cbKami->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbKami->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbKami->ForeColor = System::Drawing::Color::White;
-			   this->cbKami->Location = System::Drawing::Point(6, 1);
+			   this->cbKami->Location = System::Drawing::Point(9, 1);
+			   this->cbKami->Margin = System::Windows::Forms::Padding(4);
 			   this->cbKami->Name = L"cbKami";
-			   this->cbKami->Size = System::Drawing::Size(45, 17);
+			   this->cbKami->Size = System::Drawing::Size(68, 25);
 			   this->cbKami->TabIndex = 1;
 			   this->cbKami->Text = L"Kami";
 			   this->cbKami->UseVisualStyleBackColor = false;
@@ -5180,9 +5471,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->tabPage7->Controls->Add(this->panel21);
 			   this->tabPage7->Controls->Add(this->panel20);
-			   this->tabPage7->Location = System::Drawing::Point(4, 22);
+			   this->tabPage7->Location = System::Drawing::Point(4, 30);
+			   this->tabPage7->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage7->Name = L"tabPage7";
-			   this->tabPage7->Size = System::Drawing::Size(390, 385);
+			   this->tabPage7->Size = System::Drawing::Size(589, 535);
 			   this->tabPage7->TabIndex = 4;
 			   this->tabPage7->Text = L"Filters";
 			   // 
@@ -5202,9 +5494,10 @@ namespace Timelapse {
 			   this->panel21->Controls->Add(this->label76);
 			   this->panel21->Controls->Add(this->label77);
 			   this->panel21->Controls->Add(this->bMobFilter);
-			   this->panel21->Location = System::Drawing::Point(5, 195);
+			   this->panel21->Location = System::Drawing::Point(8, 270);
+			   this->panel21->Margin = System::Windows::Forms::Padding(4);
 			   this->panel21->Name = L"panel21";
-			   this->panel21->Size = System::Drawing::Size(381, 186);
+			   this->panel21->Size = System::Drawing::Size(570, 257);
 			   this->panel21->TabIndex = 30;
 			   // 
 			   // lbMobSearchLog
@@ -5214,9 +5507,11 @@ namespace Timelapse {
 			   this->lbMobSearchLog->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->lbMobSearchLog->ForeColor = System::Drawing::Color::White;
 			   this->lbMobSearchLog->FormattingEnabled = true;
-			   this->lbMobSearchLog->Location = System::Drawing::Point(194, 44);
+			   this->lbMobSearchLog->ItemHeight = 21;
+			   this->lbMobSearchLog->Location = System::Drawing::Point(291, 61);
+			   this->lbMobSearchLog->Margin = System::Windows::Forms::Padding(4);
 			   this->lbMobSearchLog->Name = L"lbMobSearchLog";
-			   this->lbMobSearchLog->Size = System::Drawing::Size(179, 80);
+			   this->lbMobSearchLog->Size = System::Drawing::Size(268, 107);
 			   this->lbMobSearchLog->TabIndex = 53;
 			   this->lbMobSearchLog->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::lbMobSearchLog_MouseDoubleClick);
 			   // 
@@ -5227,9 +5522,11 @@ namespace Timelapse {
 			   this->lbMobFilter->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->lbMobFilter->ForeColor = System::Drawing::Color::White;
 			   this->lbMobFilter->FormattingEnabled = true;
-			   this->lbMobFilter->Location = System::Drawing::Point(7, 8);
+			   this->lbMobFilter->ItemHeight = 21;
+			   this->lbMobFilter->Location = System::Drawing::Point(10, 11);
+			   this->lbMobFilter->Margin = System::Windows::Forms::Padding(4);
 			   this->lbMobFilter->Name = L"lbMobFilter";
-			   this->lbMobFilter->Size = System::Drawing::Size(180, 145);
+			   this->lbMobFilter->Size = System::Drawing::Size(269, 191);
 			   this->lbMobFilter->TabIndex = 34;
 			   this->lbMobFilter->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::lbMobFilter_MouseDoubleClick);
 			   // 
@@ -5239,9 +5536,10 @@ namespace Timelapse {
 			   this->cbMobFilterLog->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbMobFilterLog->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbMobFilterLog->ForeColor = System::Drawing::Color::White;
-			   this->cbMobFilterLog->Location = System::Drawing::Point(194, 5);
+			   this->cbMobFilterLog->Location = System::Drawing::Point(291, 7);
+			   this->cbMobFilterLog->Margin = System::Windows::Forms::Padding(4);
 			   this->cbMobFilterLog->Name = L"cbMobFilterLog";
-			   this->cbMobFilterLog->Size = System::Drawing::Size(68, 17);
+			   this->cbMobFilterLog->Size = System::Drawing::Size(101, 25);
 			   this->cbMobFilterLog->TabIndex = 33;
 			   this->cbMobFilterLog->Text = L"Log Mobs";
 			   this->cbMobFilterLog->UseVisualStyleBackColor = false;
@@ -5253,9 +5551,10 @@ namespace Timelapse {
 			   this->bMobSearchLogClear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->bMobSearchLogClear->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->bMobSearchLogClear->Location = System::Drawing::Point(326, 129);
+			   this->bMobSearchLogClear->Location = System::Drawing::Point(489, 179);
+			   this->bMobSearchLogClear->Margin = System::Windows::Forms::Padding(4);
 			   this->bMobSearchLogClear->Name = L"bMobSearchLogClear";
-			   this->bMobSearchLogClear->Size = System::Drawing::Size(47, 23);
+			   this->bMobSearchLogClear->Size = System::Drawing::Size(70, 32);
 			   this->bMobSearchLogClear->TabIndex = 29;
 			   this->bMobSearchLogClear->Text = L"Clear";
 			   this->bMobSearchLogClear->UseVisualStyleBackColor = true;
@@ -5266,9 +5565,10 @@ namespace Timelapse {
 			   this->rbMobFilterWhiteList->AutoSize = true;
 			   this->rbMobFilterWhiteList->Checked = true;
 			   this->rbMobFilterWhiteList->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->rbMobFilterWhiteList->Location = System::Drawing::Point(208, 26);
+			   this->rbMobFilterWhiteList->Location = System::Drawing::Point(312, 36);
+			   this->rbMobFilterWhiteList->Margin = System::Windows::Forms::Padding(4);
 			   this->rbMobFilterWhiteList->Name = L"rbMobFilterWhiteList";
-			   this->rbMobFilterWhiteList->Size = System::Drawing::Size(68, 17);
+			   this->rbMobFilterWhiteList->Size = System::Drawing::Size(102, 25);
 			   this->rbMobFilterWhiteList->TabIndex = 32;
 			   this->rbMobFilterWhiteList->TabStop = true;
 			   this->rbMobFilterWhiteList->Text = L"WhiteList";
@@ -5281,9 +5581,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbMobFilterSearch->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbMobFilterSearch->ForeColor = System::Drawing::Color::White;
-			   this->tbMobFilterSearch->Location = System::Drawing::Point(233, 130);
+			   this->tbMobFilterSearch->Location = System::Drawing::Point(350, 180);
+			   this->tbMobFilterSearch->Margin = System::Windows::Forms::Padding(4);
 			   this->tbMobFilterSearch->Name = L"tbMobFilterSearch";
-			   this->tbMobFilterSearch->Size = System::Drawing::Size(87, 21);
+			   this->tbMobFilterSearch->Size = System::Drawing::Size(130, 27);
 			   this->tbMobFilterSearch->TabIndex = 27;
 			   this->tbMobFilterSearch->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			   this->tbMobFilterSearch->TextChanged += gcnew System::EventHandler(this, &MainForm::tbMobFilterSearch_TextChanged);
@@ -5292,9 +5593,10 @@ namespace Timelapse {
 			   // 
 			   this->rbMobFilterBlackList->AutoSize = true;
 			   this->rbMobFilterBlackList->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->rbMobFilterBlackList->Location = System::Drawing::Point(301, 26);
+			   this->rbMobFilterBlackList->Location = System::Drawing::Point(452, 36);
+			   this->rbMobFilterBlackList->Margin = System::Windows::Forms::Padding(4);
 			   this->rbMobFilterBlackList->Name = L"rbMobFilterBlackList";
-			   this->rbMobFilterBlackList->Size = System::Drawing::Size(64, 17);
+			   this->rbMobFilterBlackList->Size = System::Drawing::Size(98, 25);
 			   this->rbMobFilterBlackList->TabIndex = 31;
 			   this->rbMobFilterBlackList->Text = L"BlackList";
 			   this->rbMobFilterBlackList->UseVisualStyleBackColor = false;
@@ -5302,9 +5604,10 @@ namespace Timelapse {
 			   // label75
 			   // 
 			   this->label75->AutoSize = true;
-			   this->label75->Location = System::Drawing::Point(191, 134);
+			   this->label75->Location = System::Drawing::Point(286, 186);
+			   this->label75->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label75->Name = L"label75";
-			   this->label75->Size = System::Drawing::Size(44, 13);
+			   this->label75->Size = System::Drawing::Size(66, 21);
 			   this->label75->TabIndex = 28;
 			   this->label75->Text = L"Search:";
 			   // 
@@ -5314,9 +5617,10 @@ namespace Timelapse {
 			   this->bMobFilterAdd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->bMobFilterAdd->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->bMobFilterAdd->Location = System::Drawing::Point(151, 157);
+			   this->bMobFilterAdd->Location = System::Drawing::Point(226, 217);
+			   this->bMobFilterAdd->Margin = System::Windows::Forms::Padding(4);
 			   this->bMobFilterAdd->Name = L"bMobFilterAdd";
-			   this->bMobFilterAdd->Size = System::Drawing::Size(36, 23);
+			   this->bMobFilterAdd->Size = System::Drawing::Size(54, 32);
 			   this->bMobFilterAdd->TabIndex = 26;
 			   this->bMobFilterAdd->Text = L"Add";
 			   this->bMobFilterAdd->UseVisualStyleBackColor = true;
@@ -5328,9 +5632,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbMobFilterID->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbMobFilterID->ForeColor = System::Drawing::Color::White;
-			   this->tbMobFilterID->Location = System::Drawing::Point(65, 158);
+			   this->tbMobFilterID->Location = System::Drawing::Point(98, 219);
+			   this->tbMobFilterID->Margin = System::Windows::Forms::Padding(4);
 			   this->tbMobFilterID->Name = L"tbMobFilterID";
-			   this->tbMobFilterID->Size = System::Drawing::Size(81, 21);
+			   this->tbMobFilterID->Size = System::Drawing::Size(120, 27);
 			   this->tbMobFilterID->TabIndex = 24;
 			   this->tbMobFilterID->Text = L"100101";
 			   this->tbMobFilterID->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5339,9 +5644,10 @@ namespace Timelapse {
 			   // label76
 			   // 
 			   this->label76->AutoSize = true;
-			   this->label76->Location = System::Drawing::Point(6, 162);
+			   this->label76->Location = System::Drawing::Point(9, 224);
+			   this->label76->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label76->Name = L"label76";
-			   this->label76->Size = System::Drawing::Size(59, 13);
+			   this->label76->Size = System::Drawing::Size(90, 21);
 			   this->label76->TabIndex = 25;
 			   this->label76->Text = L"Add by ID:";
 			   // 
@@ -5351,9 +5657,10 @@ namespace Timelapse {
 			   this->label77->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label77->ForeColor = System::Drawing::Color::Lime;
-			   this->label77->Location = System::Drawing::Point(262, 7);
+			   this->label77->Location = System::Drawing::Point(393, 10);
+			   this->label77->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label77->Name = L"label77";
-			   this->label77->Size = System::Drawing::Size(114, 13);
+			   this->label77->Size = System::Drawing::Size(177, 21);
 			   this->label77->TabIndex = 23;
 			   this->label77->Text = L"Filters Mobs on Spawn";
 			   this->label77->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -5364,9 +5671,10 @@ namespace Timelapse {
 			   this->bMobFilter->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->bMobFilter->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->bMobFilter->Location = System::Drawing::Point(194, 157);
+			   this->bMobFilter->Location = System::Drawing::Point(291, 217);
+			   this->bMobFilter->Margin = System::Windows::Forms::Padding(4);
 			   this->bMobFilter->Name = L"bMobFilter";
-			   this->bMobFilter->Size = System::Drawing::Size(180, 23);
+			   this->bMobFilter->Size = System::Drawing::Size(270, 32);
 			   this->bMobFilter->TabIndex = 19;
 			   this->bMobFilter->Text = L"Enable Mob Filter";
 			   this->bMobFilter->UseVisualStyleBackColor = true;
@@ -5389,9 +5697,10 @@ namespace Timelapse {
 			   this->panel20->Controls->Add(this->rbItemFilterWhiteList);
 			   this->panel20->Controls->Add(this->rbItemFilterBlackList);
 			   this->panel20->Controls->Add(this->bItemFilter);
-			   this->panel20->Location = System::Drawing::Point(5, 5);
+			   this->panel20->Location = System::Drawing::Point(8, 7);
+			   this->panel20->Margin = System::Windows::Forms::Padding(4);
 			   this->panel20->Name = L"panel20";
-			   this->panel20->Size = System::Drawing::Size(381, 186);
+			   this->panel20->Size = System::Drawing::Size(570, 257);
 			   this->panel20->TabIndex = 1;
 			   // 
 			   // lbItemSearchLog
@@ -5401,9 +5710,11 @@ namespace Timelapse {
 			   this->lbItemSearchLog->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->lbItemSearchLog->ForeColor = System::Drawing::Color::White;
 			   this->lbItemSearchLog->FormattingEnabled = true;
-			   this->lbItemSearchLog->Location = System::Drawing::Point(194, 44);
+			   this->lbItemSearchLog->ItemHeight = 21;
+			   this->lbItemSearchLog->Location = System::Drawing::Point(291, 61);
+			   this->lbItemSearchLog->Margin = System::Windows::Forms::Padding(4);
 			   this->lbItemSearchLog->Name = L"lbItemSearchLog";
-			   this->lbItemSearchLog->Size = System::Drawing::Size(179, 80);
+			   this->lbItemSearchLog->Size = System::Drawing::Size(268, 107);
 			   this->lbItemSearchLog->TabIndex = 52;
 			   this->lbItemSearchLog->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::lbItemSearchLog_MouseDoubleClick);
 			   // 
@@ -5414,9 +5725,11 @@ namespace Timelapse {
 			   this->lbItemFilter->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->lbItemFilter->ForeColor = System::Drawing::Color::White;
 			   this->lbItemFilter->FormattingEnabled = true;
-			   this->lbItemFilter->Location = System::Drawing::Point(7, 8);
+			   this->lbItemFilter->ItemHeight = 21;
+			   this->lbItemFilter->Location = System::Drawing::Point(10, 11);
+			   this->lbItemFilter->Margin = System::Windows::Forms::Padding(4);
 			   this->lbItemFilter->Name = L"lbItemFilter";
-			   this->lbItemFilter->Size = System::Drawing::Size(180, 145);
+			   this->lbItemFilter->Size = System::Drawing::Size(269, 191);
 			   this->lbItemFilter->TabIndex = 31;
 			   this->lbItemFilter->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::lbItemFilter_MouseDoubleClick);
 			   // 
@@ -5426,9 +5739,10 @@ namespace Timelapse {
 			   this->cbItemFilterLog->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbItemFilterLog->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbItemFilterLog->ForeColor = System::Drawing::Color::White;
-			   this->cbItemFilterLog->Location = System::Drawing::Point(194, 5);
+			   this->cbItemFilterLog->Location = System::Drawing::Point(291, 7);
+			   this->cbItemFilterLog->Margin = System::Windows::Forms::Padding(4);
 			   this->cbItemFilterLog->Name = L"cbItemFilterLog";
-			   this->cbItemFilterLog->Size = System::Drawing::Size(70, 17);
+			   this->cbItemFilterLog->Size = System::Drawing::Size(105, 25);
 			   this->cbItemFilterLog->TabIndex = 30;
 			   this->cbItemFilterLog->Text = L"Log Items";
 			   this->cbItemFilterLog->UseVisualStyleBackColor = false;
@@ -5440,9 +5754,10 @@ namespace Timelapse {
 			   this->bItemSearchLogClear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->bItemSearchLogClear->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->bItemSearchLogClear->Location = System::Drawing::Point(326, 129);
+			   this->bItemSearchLogClear->Location = System::Drawing::Point(489, 179);
+			   this->bItemSearchLogClear->Margin = System::Windows::Forms::Padding(4);
 			   this->bItemSearchLogClear->Name = L"bItemSearchLogClear";
-			   this->bItemSearchLogClear->Size = System::Drawing::Size(47, 23);
+			   this->bItemSearchLogClear->Size = System::Drawing::Size(70, 32);
 			   this->bItemSearchLogClear->TabIndex = 29;
 			   this->bItemSearchLogClear->Text = L"Clear";
 			   this->bItemSearchLogClear->UseVisualStyleBackColor = true;
@@ -5454,9 +5769,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbItemFilterSearch->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbItemFilterSearch->ForeColor = System::Drawing::Color::White;
-			   this->tbItemFilterSearch->Location = System::Drawing::Point(233, 130);
+			   this->tbItemFilterSearch->Location = System::Drawing::Point(350, 180);
+			   this->tbItemFilterSearch->Margin = System::Windows::Forms::Padding(4);
 			   this->tbItemFilterSearch->Name = L"tbItemFilterSearch";
-			   this->tbItemFilterSearch->Size = System::Drawing::Size(87, 21);
+			   this->tbItemFilterSearch->Size = System::Drawing::Size(130, 27);
 			   this->tbItemFilterSearch->TabIndex = 27;
 			   this->tbItemFilterSearch->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			   this->tbItemFilterSearch->TextChanged += gcnew System::EventHandler(this, &MainForm::tbItemFilterSearch_TextChanged);
@@ -5464,9 +5780,10 @@ namespace Timelapse {
 			   // label74
 			   // 
 			   this->label74->AutoSize = true;
-			   this->label74->Location = System::Drawing::Point(191, 134);
+			   this->label74->Location = System::Drawing::Point(286, 186);
+			   this->label74->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label74->Name = L"label74";
-			   this->label74->Size = System::Drawing::Size(44, 13);
+			   this->label74->Size = System::Drawing::Size(66, 21);
 			   this->label74->TabIndex = 28;
 			   this->label74->Text = L"Search:";
 			   // 
@@ -5476,9 +5793,10 @@ namespace Timelapse {
 			   this->bItemFilterAdd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->bItemFilterAdd->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->bItemFilterAdd->Location = System::Drawing::Point(151, 157);
+			   this->bItemFilterAdd->Location = System::Drawing::Point(226, 217);
+			   this->bItemFilterAdd->Margin = System::Windows::Forms::Padding(4);
 			   this->bItemFilterAdd->Name = L"bItemFilterAdd";
-			   this->bItemFilterAdd->Size = System::Drawing::Size(37, 23);
+			   this->bItemFilterAdd->Size = System::Drawing::Size(56, 32);
 			   this->bItemFilterAdd->TabIndex = 26;
 			   this->bItemFilterAdd->Text = L"Add";
 			   this->bItemFilterAdd->UseVisualStyleBackColor = true;
@@ -5490,9 +5808,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbItemFilterID->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbItemFilterID->ForeColor = System::Drawing::Color::White;
-			   this->tbItemFilterID->Location = System::Drawing::Point(65, 158);
+			   this->tbItemFilterID->Location = System::Drawing::Point(98, 219);
+			   this->tbItemFilterID->Margin = System::Windows::Forms::Padding(4);
 			   this->tbItemFilterID->Name = L"tbItemFilterID";
-			   this->tbItemFilterID->Size = System::Drawing::Size(81, 21);
+			   this->tbItemFilterID->Size = System::Drawing::Size(120, 27);
 			   this->tbItemFilterID->TabIndex = 24;
 			   this->tbItemFilterID->Text = L"5070000";
 			   this->tbItemFilterID->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5501,9 +5820,10 @@ namespace Timelapse {
 			   // label73
 			   // 
 			   this->label73->AutoSize = true;
-			   this->label73->Location = System::Drawing::Point(6, 162);
+			   this->label73->Location = System::Drawing::Point(9, 224);
+			   this->label73->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label73->Name = L"label73";
-			   this->label73->Size = System::Drawing::Size(59, 13);
+			   this->label73->Size = System::Drawing::Size(90, 21);
 			   this->label73->TabIndex = 25;
 			   this->label73->Text = L"Add by ID:";
 			   // 
@@ -5513,9 +5833,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbItemFilterMesos->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbItemFilterMesos->ForeColor = System::Drawing::Color::White;
-			   this->tbItemFilterMesos->Location = System::Drawing::Point(334, 4);
+			   this->tbItemFilterMesos->Location = System::Drawing::Point(501, 6);
+			   this->tbItemFilterMesos->Margin = System::Windows::Forms::Padding(4);
 			   this->tbItemFilterMesos->Name = L"tbItemFilterMesos";
-			   this->tbItemFilterMesos->Size = System::Drawing::Size(39, 21);
+			   this->tbItemFilterMesos->Size = System::Drawing::Size(58, 27);
 			   this->tbItemFilterMesos->TabIndex = 22;
 			   this->tbItemFilterMesos->Text = L"0";
 			   this->tbItemFilterMesos->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5526,9 +5847,10 @@ namespace Timelapse {
 			   // 
 			   this->label70->AutoSize = true;
 			   this->label70->ForeColor = System::Drawing::Color::Lime;
-			   this->label70->Location = System::Drawing::Point(276, 7);
+			   this->label70->Location = System::Drawing::Point(414, 10);
+			   this->label70->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label70->Name = L"label70";
-			   this->label70->Size = System::Drawing::Size(56, 13);
+			   this->label70->Size = System::Drawing::Size(86, 21);
 			   this->label70->TabIndex = 23;
 			   this->label70->Text = L"Mesos <=";
 			   // 
@@ -5537,9 +5859,10 @@ namespace Timelapse {
 			   this->rbItemFilterWhiteList->AutoSize = true;
 			   this->rbItemFilterWhiteList->Checked = true;
 			   this->rbItemFilterWhiteList->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->rbItemFilterWhiteList->Location = System::Drawing::Point(208, 26);
+			   this->rbItemFilterWhiteList->Location = System::Drawing::Point(312, 36);
+			   this->rbItemFilterWhiteList->Margin = System::Windows::Forms::Padding(4);
 			   this->rbItemFilterWhiteList->Name = L"rbItemFilterWhiteList";
-			   this->rbItemFilterWhiteList->Size = System::Drawing::Size(68, 17);
+			   this->rbItemFilterWhiteList->Size = System::Drawing::Size(102, 25);
 			   this->rbItemFilterWhiteList->TabIndex = 21;
 			   this->rbItemFilterWhiteList->TabStop = true;
 			   this->rbItemFilterWhiteList->Text = L"WhiteList";
@@ -5550,9 +5873,10 @@ namespace Timelapse {
 			   // 
 			   this->rbItemFilterBlackList->AutoSize = true;
 			   this->rbItemFilterBlackList->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->rbItemFilterBlackList->Location = System::Drawing::Point(301, 27);
+			   this->rbItemFilterBlackList->Location = System::Drawing::Point(452, 37);
+			   this->rbItemFilterBlackList->Margin = System::Windows::Forms::Padding(4);
 			   this->rbItemFilterBlackList->Name = L"rbItemFilterBlackList";
-			   this->rbItemFilterBlackList->Size = System::Drawing::Size(64, 17);
+			   this->rbItemFilterBlackList->Size = System::Drawing::Size(98, 25);
 			   this->rbItemFilterBlackList->TabIndex = 20;
 			   this->rbItemFilterBlackList->Text = L"BlackList";
 			   this->rbItemFilterBlackList->UseVisualStyleBackColor = false;
@@ -5563,9 +5887,10 @@ namespace Timelapse {
 			   this->bItemFilter->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->bItemFilter->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->bItemFilter->Location = System::Drawing::Point(194, 157);
+			   this->bItemFilter->Location = System::Drawing::Point(291, 217);
+			   this->bItemFilter->Margin = System::Windows::Forms::Padding(4);
 			   this->bItemFilter->Name = L"bItemFilter";
-			   this->bItemFilter->Size = System::Drawing::Size(180, 23);
+			   this->bItemFilter->Size = System::Drawing::Size(270, 32);
 			   this->bItemFilter->TabIndex = 19;
 			   this->bItemFilter->Text = L"Enable Item Filter";
 			   this->bItemFilter->UseVisualStyleBackColor = true;
@@ -5576,9 +5901,10 @@ namespace Timelapse {
 			   this->tabPage8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->tabPage8->Controls->Add(this->tabControl5);
-			   this->tabPage8->Location = System::Drawing::Point(4, 22);
+			   this->tabPage8->Location = System::Drawing::Point(4, 30);
+			   this->tabPage8->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage8->Name = L"tabPage8";
-			   this->tabPage8->Size = System::Drawing::Size(390, 385);
+			   this->tabPage8->Size = System::Drawing::Size(589, 535);
 			   this->tabPage8->TabIndex = 5;
 			   this->tabPage8->Text = L"Packets";
 			   // 
@@ -5588,10 +5914,11 @@ namespace Timelapse {
 			   this->tabControl5->Controls->Add(this->tabPage15);
 			   this->tabControl5->Controls->Add(this->tabPage18);
 			   this->tabControl5->Controls->Add(this->tabPage19);
-			   this->tabControl5->Location = System::Drawing::Point(-6, 0);
+			   this->tabControl5->Location = System::Drawing::Point(-9, 0);
+			   this->tabControl5->Margin = System::Windows::Forms::Padding(4);
 			   this->tabControl5->Name = L"tabControl5";
 			   this->tabControl5->SelectedIndex = 0;
-			   this->tabControl5->Size = System::Drawing::Size(402, 389);
+			   this->tabControl5->Size = System::Drawing::Size(603, 539);
 			   this->tabControl5->TabIndex = 3;
 			   // 
 			   // tabPage16
@@ -5609,10 +5936,11 @@ namespace Timelapse {
 			   this->tabPage16->Controls->Add(this->bSendLog);
 			   this->tabPage16->Controls->Add(this->bSendClear);
 			   this->tabPage16->Controls->Add(this->bSendPacket);
-			   this->tabPage16->Location = System::Drawing::Point(4, 22);
+			   this->tabPage16->Location = System::Drawing::Point(4, 30);
+			   this->tabPage16->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage16->Name = L"tabPage16";
-			   this->tabPage16->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage16->Size = System::Drawing::Size(394, 363);
+			   this->tabPage16->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage16->Size = System::Drawing::Size(595, 505);
 			   this->tabPage16->TabIndex = 1;
 			   this->tabPage16->Text = L"Send";
 			   // 
@@ -5622,17 +5950,19 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->tvSendPackets->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tvSendPackets->ForeColor = System::Drawing::Color::White;
-			   this->tvSendPackets->Location = System::Drawing::Point(80, 6);
+			   this->tvSendPackets->Location = System::Drawing::Point(120, 8);
+			   this->tvSendPackets->Margin = System::Windows::Forms::Padding(4);
 			   this->tvSendPackets->Name = L"tvSendPackets";
-			   this->tvSendPackets->Size = System::Drawing::Size(304, 288);
+			   this->tvSendPackets->Size = System::Drawing::Size(455, 398);
 			   this->tvSendPackets->TabIndex = 43;
 			   // 
 			   // label81
 			   // 
 			   this->label81->AutoSize = true;
-			   this->label81->Location = System::Drawing::Point(142, 299);
+			   this->label81->Location = System::Drawing::Point(213, 414);
+			   this->label81->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label81->Name = L"label81";
-			   this->label81->Size = System::Drawing::Size(63, 26);
+			   this->label81->Size = System::Drawing::Size(98, 42);
 			   this->label81->TabIndex = 21;
 			   this->label81->Text = L"Spam Delay\r\n [ms]:";
 			   this->label81->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -5643,9 +5973,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbSendSpamDelay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbSendSpamDelay->ForeColor = System::Drawing::Color::White;
-			   this->tbSendSpamDelay->Location = System::Drawing::Point(210, 301);
+			   this->tbSendSpamDelay->Location = System::Drawing::Point(315, 417);
+			   this->tbSendSpamDelay->Margin = System::Windows::Forms::Padding(4);
 			   this->tbSendSpamDelay->Name = L"tbSendSpamDelay";
-			   this->tbSendSpamDelay->Size = System::Drawing::Size(43, 21);
+			   this->tbSendSpamDelay->Size = System::Drawing::Size(64, 27);
 			   this->tbSendSpamDelay->TabIndex = 20;
 			   this->tbSendSpamDelay->Text = L"100";
 			   this->tbSendSpamDelay->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5657,9 +5988,10 @@ namespace Timelapse {
 			   this->cbSendSpam->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbSendSpam->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbSendSpam->ForeColor = System::Drawing::Color::White;
-			   this->cbSendSpam->Location = System::Drawing::Point(12, 335);
+			   this->cbSendSpam->Location = System::Drawing::Point(18, 464);
+			   this->cbSendSpam->Margin = System::Windows::Forms::Padding(4);
 			   this->cbSendSpam->Name = L"cbSendSpam";
-			   this->cbSendSpam->Size = System::Drawing::Size(49, 17);
+			   this->cbSendSpam->Size = System::Drawing::Size(72, 25);
 			   this->cbSendSpam->TabIndex = 19;
 			   this->cbSendSpam->Text = L"Spam";
 			   this->cbSendSpam->UseVisualStyleBackColor = false;
@@ -5668,9 +6000,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendRemove->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendRemove->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendRemove->Location = System::Drawing::Point(8, 299);
+			   this->bSendRemove->Location = System::Drawing::Point(12, 414);
+			   this->bSendRemove->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendRemove->Name = L"bSendRemove";
-			   this->bSendRemove->Size = System::Drawing::Size(66, 25);
+			   this->bSendRemove->Size = System::Drawing::Size(99, 35);
 			   this->bSendRemove->TabIndex = 18;
 			   this->bSendRemove->Text = L"Remove";
 			   this->bSendRemove->UseVisualStyleBackColor = true;
@@ -5683,9 +6016,10 @@ namespace Timelapse {
 			   this->lvSendBlock->CheckBoxes = true;
 			   this->lvSendBlock->ForeColor = System::Drawing::Color::White;
 			   this->lvSendBlock->HideSelection = false;
-			   this->lvSendBlock->Location = System::Drawing::Point(8, 6);
+			   this->lvSendBlock->Location = System::Drawing::Point(12, 8);
+			   this->lvSendBlock->Margin = System::Windows::Forms::Padding(4);
 			   this->lvSendBlock->Name = L"lvSendBlock";
-			   this->lvSendBlock->Size = System::Drawing::Size(66, 288);
+			   this->lvSendBlock->Size = System::Drawing::Size(98, 398);
 			   this->lvSendBlock->TabIndex = 17;
 			   this->lvSendBlock->UseCompatibleStateImageBehavior = false;
 			   this->lvSendBlock->View = System::Windows::Forms::View::Details;
@@ -5696,9 +6030,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbSendPacket->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbSendPacket->ForeColor = System::Drawing::Color::White;
-			   this->tbSendPacket->Location = System::Drawing::Point(80, 333);
+			   this->tbSendPacket->Location = System::Drawing::Point(120, 461);
+			   this->tbSendPacket->Margin = System::Windows::Forms::Padding(4);
 			   this->tbSendPacket->Name = L"tbSendPacket";
-			   this->tbSendPacket->Size = System::Drawing::Size(201, 21);
+			   this->tbSendPacket->Size = System::Drawing::Size(300, 27);
 			   this->tbSendPacket->TabIndex = 16;
 			   this->tbSendPacket->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			   // 
@@ -5706,9 +6041,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendBlock->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendBlock->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendBlock->Location = System::Drawing::Point(80, 299);
+			   this->bSendBlock->Location = System::Drawing::Point(120, 414);
+			   this->bSendBlock->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendBlock->Name = L"bSendBlock";
-			   this->bSendBlock->Size = System::Drawing::Size(46, 25);
+			   this->bSendBlock->Size = System::Drawing::Size(69, 35);
 			   this->bSendBlock->TabIndex = 15;
 			   this->bSendBlock->Text = L"Block Header";
 			   this->bSendBlock->UseVisualStyleBackColor = true;
@@ -5717,9 +6053,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendLog->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendLog->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendLog->Location = System::Drawing::Point(259, 299);
+			   this->bSendLog->Location = System::Drawing::Point(388, 414);
+			   this->bSendLog->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendLog->Name = L"bSendLog";
-			   this->bSendLog->Size = System::Drawing::Size(72, 25);
+			   this->bSendLog->Size = System::Drawing::Size(108, 35);
 			   this->bSendLog->TabIndex = 14;
 			   this->bSendLog->Text = L"Enable Log";
 			   this->bSendLog->UseVisualStyleBackColor = true;
@@ -5729,9 +6066,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendClear->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendClear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendClear->Location = System::Drawing::Point(334, 299);
+			   this->bSendClear->Location = System::Drawing::Point(501, 414);
+			   this->bSendClear->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendClear->Name = L"bSendClear";
-			   this->bSendClear->Size = System::Drawing::Size(50, 25);
+			   this->bSendClear->Size = System::Drawing::Size(75, 35);
 			   this->bSendClear->TabIndex = 13;
 			   this->bSendClear->Text = L"Clear";
 			   this->bSendClear->UseVisualStyleBackColor = true;
@@ -5740,9 +6078,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendPacket->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendPacket->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendPacket->Location = System::Drawing::Point(287, 331);
+			   this->bSendPacket->Location = System::Drawing::Point(430, 458);
+			   this->bSendPacket->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendPacket->Name = L"bSendPacket";
-			   this->bSendPacket->Size = System::Drawing::Size(97, 25);
+			   this->bSendPacket->Size = System::Drawing::Size(146, 35);
 			   this->bSendPacket->TabIndex = 12;
 			   this->bSendPacket->Text = L"Send Packet";
 			   this->bSendPacket->UseVisualStyleBackColor = true;
@@ -5760,10 +6099,11 @@ namespace Timelapse {
 			   this->tabPage15->Controls->Add(this->bRecvLog);
 			   this->tabPage15->Controls->Add(this->bRecvClear);
 			   this->tabPage15->Controls->Add(this->bRecvPacket);
-			   this->tabPage15->Location = System::Drawing::Point(4, 22);
+			   this->tabPage15->Location = System::Drawing::Point(4, 30);
+			   this->tabPage15->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage15->Name = L"tabPage15";
-			   this->tabPage15->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage15->Size = System::Drawing::Size(394, 363);
+			   this->tabPage15->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage15->Size = System::Drawing::Size(595, 505);
 			   this->tabPage15->TabIndex = 0;
 			   this->tabPage15->Text = L"Recv";
 			   // 
@@ -5773,18 +6113,20 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->tvRecvPackets->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tvRecvPackets->ForeColor = System::Drawing::Color::White;
-			   this->tvRecvPackets->Location = System::Drawing::Point(80, 6);
+			   this->tvRecvPackets->Location = System::Drawing::Point(120, 8);
+			   this->tvRecvPackets->Margin = System::Windows::Forms::Padding(4);
 			   this->tvRecvPackets->Name = L"tvRecvPackets";
-			   this->tvRecvPackets->Size = System::Drawing::Size(304, 288);
+			   this->tvRecvPackets->Size = System::Drawing::Size(455, 398);
 			   this->tvRecvPackets->TabIndex = 44;
 			   // 
 			   // bRecvRemove
 			   // 
 			   this->bRecvRemove->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bRecvRemove->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bRecvRemove->Location = System::Drawing::Point(8, 299);
+			   this->bRecvRemove->Location = System::Drawing::Point(12, 414);
+			   this->bRecvRemove->Margin = System::Windows::Forms::Padding(4);
 			   this->bRecvRemove->Name = L"bRecvRemove";
-			   this->bRecvRemove->Size = System::Drawing::Size(66, 25);
+			   this->bRecvRemove->Size = System::Drawing::Size(99, 35);
 			   this->bRecvRemove->TabIndex = 26;
 			   this->bRecvRemove->Text = L"Remove";
 			   this->bRecvRemove->UseVisualStyleBackColor = true;
@@ -5797,9 +6139,10 @@ namespace Timelapse {
 			   this->lvRecvBlock->CheckBoxes = true;
 			   this->lvRecvBlock->ForeColor = System::Drawing::Color::White;
 			   this->lvRecvBlock->HideSelection = false;
-			   this->lvRecvBlock->Location = System::Drawing::Point(8, 6);
+			   this->lvRecvBlock->Location = System::Drawing::Point(12, 8);
+			   this->lvRecvBlock->Margin = System::Windows::Forms::Padding(4);
 			   this->lvRecvBlock->Name = L"lvRecvBlock";
-			   this->lvRecvBlock->Size = System::Drawing::Size(66, 288);
+			   this->lvRecvBlock->Size = System::Drawing::Size(98, 398);
 			   this->lvRecvBlock->TabIndex = 25;
 			   this->lvRecvBlock->UseCompatibleStateImageBehavior = false;
 			   this->lvRecvBlock->View = System::Windows::Forms::View::Details;
@@ -5810,9 +6153,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbRecvPacket->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbRecvPacket->ForeColor = System::Drawing::Color::White;
-			   this->tbRecvPacket->Location = System::Drawing::Point(11, 333);
+			   this->tbRecvPacket->Location = System::Drawing::Point(16, 461);
+			   this->tbRecvPacket->Margin = System::Windows::Forms::Padding(4);
 			   this->tbRecvPacket->Name = L"tbRecvPacket";
-			   this->tbRecvPacket->Size = System::Drawing::Size(271, 21);
+			   this->tbRecvPacket->Size = System::Drawing::Size(406, 27);
 			   this->tbRecvPacket->TabIndex = 24;
 			   this->tbRecvPacket->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			   // 
@@ -5820,9 +6164,10 @@ namespace Timelapse {
 			   // 
 			   this->bRecvBlock->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bRecvBlock->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bRecvBlock->Location = System::Drawing::Point(80, 299);
+			   this->bRecvBlock->Location = System::Drawing::Point(120, 414);
+			   this->bRecvBlock->Margin = System::Windows::Forms::Padding(4);
 			   this->bRecvBlock->Name = L"bRecvBlock";
-			   this->bRecvBlock->Size = System::Drawing::Size(66, 25);
+			   this->bRecvBlock->Size = System::Drawing::Size(99, 35);
 			   this->bRecvBlock->TabIndex = 23;
 			   this->bRecvBlock->Text = L"Block Header";
 			   this->bRecvBlock->UseVisualStyleBackColor = true;
@@ -5831,9 +6176,10 @@ namespace Timelapse {
 			   // 
 			   this->bRecvLog->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bRecvLog->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bRecvLog->Location = System::Drawing::Point(219, 299);
+			   this->bRecvLog->Location = System::Drawing::Point(328, 414);
+			   this->bRecvLog->Margin = System::Windows::Forms::Padding(4);
 			   this->bRecvLog->Name = L"bRecvLog";
-			   this->bRecvLog->Size = System::Drawing::Size(86, 25);
+			   this->bRecvLog->Size = System::Drawing::Size(129, 35);
 			   this->bRecvLog->TabIndex = 22;
 			   this->bRecvLog->Text = L"Enable Log";
 			   this->bRecvLog->UseVisualStyleBackColor = true;
@@ -5842,9 +6188,10 @@ namespace Timelapse {
 			   // 
 			   this->bRecvClear->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bRecvClear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bRecvClear->Location = System::Drawing::Point(311, 299);
+			   this->bRecvClear->Location = System::Drawing::Point(466, 414);
+			   this->bRecvClear->Margin = System::Windows::Forms::Padding(4);
 			   this->bRecvClear->Name = L"bRecvClear";
-			   this->bRecvClear->Size = System::Drawing::Size(73, 25);
+			   this->bRecvClear->Size = System::Drawing::Size(110, 35);
 			   this->bRecvClear->TabIndex = 21;
 			   this->bRecvClear->Text = L"Clear";
 			   this->bRecvClear->UseVisualStyleBackColor = true;
@@ -5853,9 +6200,10 @@ namespace Timelapse {
 			   // 
 			   this->bRecvPacket->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bRecvPacket->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bRecvPacket->Location = System::Drawing::Point(287, 331);
+			   this->bRecvPacket->Location = System::Drawing::Point(430, 458);
+			   this->bRecvPacket->Margin = System::Windows::Forms::Padding(4);
 			   this->bRecvPacket->Name = L"bRecvPacket";
-			   this->bRecvPacket->Size = System::Drawing::Size(97, 25);
+			   this->bRecvPacket->Size = System::Drawing::Size(146, 35);
 			   this->bRecvPacket->TabIndex = 20;
 			   this->bRecvPacket->Text = L"Receive Packet";
 			   this->bRecvPacket->UseVisualStyleBackColor = true;
@@ -5865,10 +6213,11 @@ namespace Timelapse {
 			   // 
 			   this->tabPage18->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			   this->tabPage18->Location = System::Drawing::Point(4, 22);
+			   this->tabPage18->Location = System::Drawing::Point(4, 30);
+			   this->tabPage18->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage18->Name = L"tabPage18";
-			   this->tabPage18->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage18->Size = System::Drawing::Size(394, 363);
+			   this->tabPage18->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage18->Size = System::Drawing::Size(595, 505);
 			   this->tabPage18->TabIndex = 2;
 			   this->tabPage18->Text = L"Multi Packet";
 			   // 
@@ -5890,10 +6239,11 @@ namespace Timelapse {
 			   this->tabPage19->Controls->Add(this->bSendMount);
 			   this->tabPage19->Controls->Add(this->bSendDrop10);
 			   this->tabPage19->Controls->Add(this->bSendDrop10000);
-			   this->tabPage19->Location = System::Drawing::Point(4, 22);
+			   this->tabPage19->Location = System::Drawing::Point(4, 30);
+			   this->tabPage19->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage19->Name = L"tabPage19";
-			   this->tabPage19->Padding = System::Windows::Forms::Padding(3);
-			   this->tabPage19->Size = System::Drawing::Size(394, 363);
+			   this->tabPage19->Padding = System::Windows::Forms::Padding(4);
+			   this->tabPage19->Size = System::Drawing::Size(595, 505);
 			   this->tabPage19->TabIndex = 3;
 			   this->tabPage19->Text = L"Defined Packets";
 			   // 
@@ -5903,9 +6253,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->comboInUseSlot->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->comboInUseSlot->ForeColor = System::Drawing::Color::White;
-			   this->comboInUseSlot->Location = System::Drawing::Point(90, 252);
+			   this->comboInUseSlot->Location = System::Drawing::Point(135, 349);
+			   this->comboInUseSlot->Margin = System::Windows::Forms::Padding(4);
 			   this->comboInUseSlot->Name = L"comboInUseSlot";
-			   this->comboInUseSlot->Size = System::Drawing::Size(44, 21);
+			   this->comboInUseSlot->Size = System::Drawing::Size(65, 27);
 			   this->comboInUseSlot->TabIndex = 28;
 			   this->comboInUseSlot->Text = L"1";
 			   this->comboInUseSlot->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -5914,9 +6265,10 @@ namespace Timelapse {
 			   // lbInUseSlot
 			   // 
 			   this->lbInUseSlot->AutoSize = true;
-			   this->lbInUseSlot->Location = System::Drawing::Point(19, 254);
+			   this->lbInUseSlot->Location = System::Drawing::Point(28, 352);
+			   this->lbInUseSlot->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbInUseSlot->Name = L"lbInUseSlot";
-			   this->lbInUseSlot->Size = System::Drawing::Size(63, 13);
+			   this->lbInUseSlot->Size = System::Drawing::Size(98, 21);
 			   this->lbInUseSlot->TabIndex = 26;
 			   this->lbInUseSlot->Text = L"In USE slot:";
 			   // 
@@ -5931,9 +6283,10 @@ namespace Timelapse {
 				   L"Nearest", L"LithHarbor", L"Ellinia", L"Perion",
 					   L"Henesys", L"KerningCity", L"Sleepywood", L"DeadMine"
 			   });
-			   this->comboToTown->Location = System::Drawing::Point(73, 225);
+			   this->comboToTown->Location = System::Drawing::Point(110, 312);
+			   this->comboToTown->Margin = System::Windows::Forms::Padding(4);
 			   this->comboToTown->Name = L"comboToTown";
-			   this->comboToTown->Size = System::Drawing::Size(62, 21);
+			   this->comboToTown->Size = System::Drawing::Size(91, 29);
 			   this->comboToTown->TabIndex = 25;
 			   this->comboToTown->Text = L"Nearest";
 			   this->comboToTown->SelectedIndexChanged += gcnew System::EventHandler(this, &MainForm::comboToTown_SelectedIndexChanged);
@@ -5941,18 +6294,20 @@ namespace Timelapse {
 			   // lbToTown
 			   // 
 			   this->lbToTown->AutoSize = true;
-			   this->lbToTown->Location = System::Drawing::Point(17, 225);
+			   this->lbToTown->Location = System::Drawing::Point(26, 312);
+			   this->lbToTown->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbToTown->Name = L"lbToTown";
-			   this->lbToTown->Size = System::Drawing::Size(52, 13);
+			   this->lbToTown->Size = System::Drawing::Size(81, 21);
 			   this->lbToTown->TabIndex = 24;
 			   this->lbToTown->Text = L"To Town:";
 			   // 
 			   // bUseRtrnScroll
 			   // 
 			   this->bUseRtrnScroll->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bUseRtrnScroll->Location = System::Drawing::Point(17, 194);
+			   this->bUseRtrnScroll->Location = System::Drawing::Point(26, 269);
+			   this->bUseRtrnScroll->Margin = System::Windows::Forms::Padding(4);
 			   this->bUseRtrnScroll->Name = L"bUseRtrnScroll";
-			   this->bUseRtrnScroll->Size = System::Drawing::Size(117, 25);
+			   this->bUseRtrnScroll->Size = System::Drawing::Size(176, 35);
 			   this->bUseRtrnScroll->TabIndex = 23;
 			   this->bUseRtrnScroll->Text = L"Use Return Scroll";
 			   this->bUseRtrnScroll->UseVisualStyleBackColor = true;
@@ -5962,9 +6317,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendRevive->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendRevive->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendRevive->Location = System::Drawing::Point(271, 39);
+			   this->bSendRevive->Location = System::Drawing::Point(406, 54);
+			   this->bSendRevive->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendRevive->Name = L"bSendRevive";
-			   this->bSendRevive->Size = System::Drawing::Size(117, 25);
+			   this->bSendRevive->Size = System::Drawing::Size(176, 35);
 			   this->bSendRevive->TabIndex = 22;
 			   this->bSendRevive->Text = L"Revive";
 			   this->bSendRevive->UseVisualStyleBackColor = true;
@@ -5974,9 +6330,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendRestore127Health->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendRestore127Health->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendRestore127Health->Location = System::Drawing::Point(271, 225);
+			   this->bSendRestore127Health->Location = System::Drawing::Point(406, 312);
+			   this->bSendRestore127Health->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendRestore127Health->Name = L"bSendRestore127Health";
-			   this->bSendRestore127Health->Size = System::Drawing::Size(117, 25);
+			   this->bSendRestore127Health->Size = System::Drawing::Size(176, 35);
 			   this->bSendRestore127Health->TabIndex = 21;
 			   this->bSendRestore127Health->Text = L"Restore 127 Health";
 			   this->bSendRestore127Health->UseVisualStyleBackColor = true;
@@ -6001,9 +6358,10 @@ namespace Timelapse {
 			   this->panel6->Controls->Add(this->label32);
 			   this->panel6->Controls->Add(this->tbAPLevel);
 			   this->panel6->Controls->Add(this->cbAP);
-			   this->panel6->Location = System::Drawing::Point(8, 6);
+			   this->panel6->Location = System::Drawing::Point(12, 8);
+			   this->panel6->Margin = System::Windows::Forms::Padding(4);
 			   this->panel6->Name = L"panel6";
-			   this->panel6->Size = System::Drawing::Size(116, 182);
+			   this->panel6->Size = System::Drawing::Size(173, 251);
 			   this->panel6->TabIndex = 8;
 			   // 
 			   // label39
@@ -6013,9 +6371,10 @@ namespace Timelapse {
 			   this->label39->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label39->ForeColor = System::Drawing::Color::DarkGray;
-			   this->label39->Location = System::Drawing::Point(3, 138);
+			   this->label39->Location = System::Drawing::Point(4, 191);
+			   this->label39->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label39->Name = L"label39";
-			   this->label39->Size = System::Drawing::Size(107, 26);
+			   this->label39->Size = System::Drawing::Size(168, 42);
 			   this->label39->TabIndex = 22;
 			   this->label39->Text = L"Auto Distributes Per \r\nEach Level till AP < 5\r\n";
 			   // 
@@ -6025,9 +6384,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAPDEX->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAPDEX->ForeColor = System::Drawing::Color::White;
-			   this->tbAPDEX->Location = System::Drawing::Point(81, 84);
+			   this->tbAPDEX->Location = System::Drawing::Point(122, 116);
+			   this->tbAPDEX->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAPDEX->Name = L"tbAPDEX";
-			   this->tbAPDEX->Size = System::Drawing::Size(26, 21);
+			   this->tbAPDEX->Size = System::Drawing::Size(38, 27);
 			   this->tbAPDEX->TabIndex = 10;
 			   this->tbAPDEX->Text = L"0";
 			   this->tbAPDEX->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -6039,9 +6399,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAPLUK->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAPLUK->ForeColor = System::Drawing::Color::White;
-			   this->tbAPLUK->Location = System::Drawing::Point(81, 108);
+			   this->tbAPLUK->Location = System::Drawing::Point(122, 150);
+			   this->tbAPLUK->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAPLUK->Name = L"tbAPLUK";
-			   this->tbAPLUK->Size = System::Drawing::Size(26, 21);
+			   this->tbAPLUK->Size = System::Drawing::Size(38, 27);
 			   this->tbAPLUK->TabIndex = 14;
 			   this->tbAPLUK->Text = L"0";
 			   this->tbAPLUK->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -6053,9 +6414,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAPINT->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAPINT->ForeColor = System::Drawing::Color::White;
-			   this->tbAPINT->Location = System::Drawing::Point(28, 108);
+			   this->tbAPINT->Location = System::Drawing::Point(42, 150);
+			   this->tbAPINT->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAPINT->Name = L"tbAPINT";
-			   this->tbAPINT->Size = System::Drawing::Size(26, 21);
+			   this->tbAPINT->Size = System::Drawing::Size(38, 27);
 			   this->tbAPINT->TabIndex = 17;
 			   this->tbAPINT->Text = L"0";
 			   this->tbAPINT->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -6065,9 +6427,10 @@ namespace Timelapse {
 			   // 
 			   this->label38->AutoSize = true;
 			   this->label38->BackColor = System::Drawing::Color::Transparent;
-			   this->label38->Location = System::Drawing::Point(57, 110);
+			   this->label38->Location = System::Drawing::Point(86, 152);
+			   this->label38->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label38->Name = L"label38";
-			   this->label38->Size = System::Drawing::Size(25, 13);
+			   this->label38->Size = System::Drawing::Size(39, 21);
 			   this->label38->TabIndex = 21;
 			   this->label38->Text = L"LUK";
 			   // 
@@ -6075,9 +6438,10 @@ namespace Timelapse {
 			   // 
 			   this->label37->AutoSize = true;
 			   this->label37->BackColor = System::Drawing::Color::Transparent;
-			   this->label37->Location = System::Drawing::Point(5, 110);
+			   this->label37->Location = System::Drawing::Point(8, 152);
+			   this->label37->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label37->Name = L"label37";
-			   this->label37->Size = System::Drawing::Size(24, 13);
+			   this->label37->Size = System::Drawing::Size(37, 21);
 			   this->label37->TabIndex = 20;
 			   this->label37->Text = L"INT";
 			   // 
@@ -6085,9 +6449,10 @@ namespace Timelapse {
 			   // 
 			   this->label36->AutoSize = true;
 			   this->label36->BackColor = System::Drawing::Color::Transparent;
-			   this->label36->Location = System::Drawing::Point(57, 86);
+			   this->label36->Location = System::Drawing::Point(86, 119);
+			   this->label36->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label36->Name = L"label36";
-			   this->label36->Size = System::Drawing::Size(26, 13);
+			   this->label36->Size = System::Drawing::Size(42, 21);
 			   this->label36->TabIndex = 19;
 			   this->label36->Text = L"DEX";
 			   // 
@@ -6097,9 +6462,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAPSTR->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAPSTR->ForeColor = System::Drawing::Color::White;
-			   this->tbAPSTR->Location = System::Drawing::Point(28, 84);
+			   this->tbAPSTR->Location = System::Drawing::Point(42, 116);
+			   this->tbAPSTR->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAPSTR->Name = L"tbAPSTR";
-			   this->tbAPSTR->Size = System::Drawing::Size(26, 21);
+			   this->tbAPSTR->Size = System::Drawing::Size(38, 27);
 			   this->tbAPSTR->TabIndex = 12;
 			   this->tbAPSTR->Text = L"0";
 			   this->tbAPSTR->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -6109,9 +6475,10 @@ namespace Timelapse {
 			   // 
 			   this->label35->AutoSize = true;
 			   this->label35->BackColor = System::Drawing::Color::Transparent;
-			   this->label35->Location = System::Drawing::Point(4, 86);
+			   this->label35->Location = System::Drawing::Point(6, 119);
+			   this->label35->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label35->Name = L"label35";
-			   this->label35->Size = System::Drawing::Size(26, 13);
+			   this->label35->Size = System::Drawing::Size(40, 21);
 			   this->label35->TabIndex = 18;
 			   this->label35->Text = L"STR";
 			   // 
@@ -6121,9 +6488,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAPMP->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAPMP->ForeColor = System::Drawing::Color::White;
-			   this->tbAPMP->Location = System::Drawing::Point(81, 60);
+			   this->tbAPMP->Location = System::Drawing::Point(122, 83);
+			   this->tbAPMP->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAPMP->Name = L"tbAPMP";
-			   this->tbAPMP->Size = System::Drawing::Size(26, 21);
+			   this->tbAPMP->Size = System::Drawing::Size(38, 27);
 			   this->tbAPMP->TabIndex = 9;
 			   this->tbAPMP->Text = L"0";
 			   this->tbAPMP->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -6133,9 +6501,10 @@ namespace Timelapse {
 			   // 
 			   this->label34->AutoSize = true;
 			   this->label34->BackColor = System::Drawing::Color::Transparent;
-			   this->label34->Location = System::Drawing::Point(62, 63);
+			   this->label34->Location = System::Drawing::Point(93, 87);
+			   this->label34->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label34->Name = L"label34";
-			   this->label34->Size = System::Drawing::Size(21, 13);
+			   this->label34->Size = System::Drawing::Size(32, 21);
 			   this->label34->TabIndex = 16;
 			   this->label34->Text = L"MP";
 			   // 
@@ -6145,9 +6514,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAPHP->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAPHP->ForeColor = System::Drawing::Color::White;
-			   this->tbAPHP->Location = System::Drawing::Point(28, 60);
+			   this->tbAPHP->Location = System::Drawing::Point(42, 83);
+			   this->tbAPHP->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAPHP->Name = L"tbAPHP";
-			   this->tbAPHP->Size = System::Drawing::Size(26, 21);
+			   this->tbAPHP->Size = System::Drawing::Size(38, 27);
 			   this->tbAPHP->TabIndex = 11;
 			   this->tbAPHP->Text = L"0";
 			   this->tbAPHP->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -6157,9 +6527,10 @@ namespace Timelapse {
 			   // 
 			   this->label33->AutoSize = true;
 			   this->label33->BackColor = System::Drawing::Color::Transparent;
-			   this->label33->Location = System::Drawing::Point(10, 63);
+			   this->label33->Location = System::Drawing::Point(15, 87);
+			   this->label33->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label33->Name = L"label33";
-			   this->label33->Size = System::Drawing::Size(20, 13);
+			   this->label33->Size = System::Drawing::Size(30, 21);
 			   this->label33->TabIndex = 15;
 			   this->label33->Text = L"HP";
 			   // 
@@ -6167,9 +6538,10 @@ namespace Timelapse {
 			   // 
 			   this->label32->AutoSize = true;
 			   this->label32->BackColor = System::Drawing::Color::Transparent;
-			   this->label32->Location = System::Drawing::Point(5, 35);
+			   this->label32->Location = System::Drawing::Point(8, 48);
+			   this->label32->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label32->Name = L"label32";
-			   this->label32->Size = System::Drawing::Size(51, 13);
+			   this->label32->Size = System::Drawing::Size(81, 21);
 			   this->label32->TabIndex = 8;
 			   this->label32->Text = L"Till Level:";
 			   // 
@@ -6179,9 +6551,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbAPLevel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbAPLevel->ForeColor = System::Drawing::Color::White;
-			   this->tbAPLevel->Location = System::Drawing::Point(62, 31);
+			   this->tbAPLevel->Location = System::Drawing::Point(93, 43);
+			   this->tbAPLevel->Margin = System::Windows::Forms::Padding(4);
 			   this->tbAPLevel->Name = L"tbAPLevel";
-			   this->tbAPLevel->Size = System::Drawing::Size(45, 21);
+			   this->tbAPLevel->Size = System::Drawing::Size(66, 27);
 			   this->tbAPLevel->TabIndex = 6;
 			   this->tbAPLevel->Text = L"120";
 			   this->tbAPLevel->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -6194,9 +6567,10 @@ namespace Timelapse {
 			   this->cbAP->FlatAppearance->BorderColor = System::Drawing::Color::Maroon;
 			   this->cbAP->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->cbAP->ForeColor = System::Drawing::Color::White;
-			   this->cbAP->Location = System::Drawing::Point(8, 6);
+			   this->cbAP->Location = System::Drawing::Point(12, 8);
+			   this->cbAP->Margin = System::Windows::Forms::Padding(4);
 			   this->cbAP->Name = L"cbAP";
-			   this->cbAP->Size = System::Drawing::Size(62, 17);
+			   this->cbAP->Size = System::Drawing::Size(91, 25);
 			   this->cbAP->TabIndex = 1;
 			   this->cbAP->Text = L"Auto AP";
 			   this->cbAP->UseVisualStyleBackColor = false;
@@ -6206,9 +6580,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendSuicide->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendSuicide->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendSuicide->Location = System::Drawing::Point(271, 8);
+			   this->bSendSuicide->Location = System::Drawing::Point(406, 11);
+			   this->bSendSuicide->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendSuicide->Name = L"bSendSuicide";
-			   this->bSendSuicide->Size = System::Drawing::Size(117, 25);
+			   this->bSendSuicide->Size = System::Drawing::Size(176, 35);
 			   this->bSendSuicide->TabIndex = 15;
 			   this->bSendSuicide->Text = L"Suicide";
 			   this->bSendSuicide->UseVisualStyleBackColor = true;
@@ -6218,9 +6593,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendDrop50000->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendDrop50000->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendDrop50000->Location = System::Drawing::Point(271, 194);
+			   this->bSendDrop50000->Location = System::Drawing::Point(406, 269);
+			   this->bSendDrop50000->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendDrop50000->Name = L"bSendDrop50000";
-			   this->bSendDrop50000->Size = System::Drawing::Size(117, 25);
+			   this->bSendDrop50000->Size = System::Drawing::Size(176, 35);
 			   this->bSendDrop50000->TabIndex = 20;
 			   this->bSendDrop50000->Text = L"Drop 50,000 Mesos";
 			   this->bSendDrop50000->UseVisualStyleBackColor = true;
@@ -6230,9 +6606,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendDrop1000->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendDrop1000->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendDrop1000->Location = System::Drawing::Point(271, 132);
+			   this->bSendDrop1000->Location = System::Drawing::Point(406, 183);
+			   this->bSendDrop1000->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendDrop1000->Name = L"bSendDrop1000";
-			   this->bSendDrop1000->Size = System::Drawing::Size(117, 25);
+			   this->bSendDrop1000->Size = System::Drawing::Size(176, 35);
 			   this->bSendDrop1000->TabIndex = 18;
 			   this->bSendDrop1000->Text = L"Drop 1000 Mesos";
 			   this->bSendDrop1000->UseVisualStyleBackColor = true;
@@ -6242,9 +6619,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendMount->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendMount->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendMount->Location = System::Drawing::Point(271, 70);
+			   this->bSendMount->Location = System::Drawing::Point(406, 97);
+			   this->bSendMount->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendMount->Name = L"bSendMount";
-			   this->bSendMount->Size = System::Drawing::Size(117, 25);
+			   this->bSendMount->Size = System::Drawing::Size(176, 35);
 			   this->bSendMount->TabIndex = 16;
 			   this->bSendMount->Text = L"Get On Mount";
 			   this->bSendMount->UseVisualStyleBackColor = true;
@@ -6254,9 +6632,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendDrop10->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendDrop10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendDrop10->Location = System::Drawing::Point(271, 101);
+			   this->bSendDrop10->Location = System::Drawing::Point(406, 140);
+			   this->bSendDrop10->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendDrop10->Name = L"bSendDrop10";
-			   this->bSendDrop10->Size = System::Drawing::Size(117, 25);
+			   this->bSendDrop10->Size = System::Drawing::Size(176, 35);
 			   this->bSendDrop10->TabIndex = 17;
 			   this->bSendDrop10->Text = L"Drop 10 Mesos";
 			   this->bSendDrop10->UseVisualStyleBackColor = true;
@@ -6266,9 +6645,10 @@ namespace Timelapse {
 			   // 
 			   this->bSendDrop10000->FlatAppearance->BorderColor = System::Drawing::Color::Gray;
 			   this->bSendDrop10000->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			   this->bSendDrop10000->Location = System::Drawing::Point(271, 163);
+			   this->bSendDrop10000->Location = System::Drawing::Point(406, 226);
+			   this->bSendDrop10000->Margin = System::Windows::Forms::Padding(4);
 			   this->bSendDrop10000->Name = L"bSendDrop10000";
-			   this->bSendDrop10000->Size = System::Drawing::Size(117, 25);
+			   this->bSendDrop10000->Size = System::Drawing::Size(176, 35);
 			   this->bSendDrop10000->TabIndex = 19;
 			   this->bSendDrop10000->Text = L"Drop 10,000 Mesos";
 			   this->bSendDrop10000->UseVisualStyleBackColor = true;
@@ -6286,9 +6666,10 @@ namespace Timelapse {
 			   this->tabPage9->Controls->Add(this->label79);
 			   this->tabPage9->Controls->Add(this->bMapRush);
 			   this->tabPage9->Controls->Add(this->panel30);
-			   this->tabPage9->Location = System::Drawing::Point(4, 22);
+			   this->tabPage9->Location = System::Drawing::Point(4, 30);
+			   this->tabPage9->Margin = System::Windows::Forms::Padding(4);
 			   this->tabPage9->Name = L"tabPage9";
-			   this->tabPage9->Size = System::Drawing::Size(390, 385);
+			   this->tabPage9->Size = System::Drawing::Size(589, 535);
 			   this->tabPage9->TabIndex = 6;
 			   this->tabPage9->Text = L"Map Rusher";
 			   // 
@@ -6296,9 +6677,10 @@ namespace Timelapse {
 			   // 
 			   this->label66->AutoSize = true;
 			   this->label66->BackColor = System::Drawing::Color::Transparent;
-			   this->label66->Location = System::Drawing::Point(198, 345);
+			   this->label66->Location = System::Drawing::Point(297, 478);
+			   this->label66->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label66->Name = L"label66";
-			   this->label66->Size = System::Drawing::Size(62, 13);
+			   this->label66->Size = System::Drawing::Size(99, 21);
 			   this->label66->TabIndex = 45;
 			   this->label66->Text = L"Delay [ms]:";
 			   // 
@@ -6308,9 +6690,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbMapRusherDelay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbMapRusherDelay->ForeColor = System::Drawing::Color::White;
-			   this->tbMapRusherDelay->Location = System::Drawing::Point(260, 342);
+			   this->tbMapRusherDelay->Location = System::Drawing::Point(390, 474);
+			   this->tbMapRusherDelay->Margin = System::Windows::Forms::Padding(4);
 			   this->tbMapRusherDelay->Name = L"tbMapRusherDelay";
-			   this->tbMapRusherDelay->Size = System::Drawing::Size(35, 21);
+			   this->tbMapRusherDelay->Size = System::Drawing::Size(52, 27);
 			   this->tbMapRusherDelay->TabIndex = 44;
 			   this->tbMapRusherDelay->Text = L"500";
 			   this->tbMapRusherDelay->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -6321,9 +6704,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->tvMapRusherSearch->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tvMapRusherSearch->ForeColor = System::Drawing::Color::White;
-			   this->tvMapRusherSearch->Location = System::Drawing::Point(4, 3);
+			   this->tvMapRusherSearch->Location = System::Drawing::Point(6, 4);
+			   this->tvMapRusherSearch->Margin = System::Windows::Forms::Padding(4);
 			   this->tvMapRusherSearch->Name = L"tvMapRusherSearch";
-			   this->tvMapRusherSearch->Size = System::Drawing::Size(188, 360);
+			   this->tvMapRusherSearch->Size = System::Drawing::Size(281, 498);
 			   this->tvMapRusherSearch->TabIndex = 42;
 			   this->tvMapRusherSearch->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::tvMapRusherSearch_MouseDoubleClick);
 			   // 
@@ -6331,9 +6715,10 @@ namespace Timelapse {
 			   // 
 			   this->lbMapRusherStatus->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
 			   this->lbMapRusherStatus->AutoSize = true;
-			   this->lbMapRusherStatus->Location = System::Drawing::Point(3, 366);
+			   this->lbMapRusherStatus->Location = System::Drawing::Point(4, 507);
+			   this->lbMapRusherStatus->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lbMapRusherStatus->Name = L"lbMapRusherStatus";
-			   this->lbMapRusherStatus->Size = System::Drawing::Size(381, 13);
+			   this->lbMapRusherStatus->Size = System::Drawing::Size(619, 21);
 			   this->lbMapRusherStatus->TabIndex = 37;
 			   this->lbMapRusherStatus->Text = L"Status: Waiting...                                                               "
 				   L"                                 \r\n";
@@ -6345,9 +6730,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbMapRusherDestination->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbMapRusherDestination->ForeColor = System::Drawing::Color::White;
-			   this->tbMapRusherDestination->Location = System::Drawing::Point(301, 314);
+			   this->tbMapRusherDestination->Location = System::Drawing::Point(452, 435);
+			   this->tbMapRusherDestination->Margin = System::Windows::Forms::Padding(4);
 			   this->tbMapRusherDestination->Name = L"tbMapRusherDestination";
-			   this->tbMapRusherDestination->Size = System::Drawing::Size(85, 21);
+			   this->tbMapRusherDestination->Size = System::Drawing::Size(126, 27);
 			   this->tbMapRusherDestination->TabIndex = 35;
 			   this->tbMapRusherDestination->Text = L"0";
 			   this->tbMapRusherDestination->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -6356,9 +6742,10 @@ namespace Timelapse {
 			   // 
 			   this->label79->AutoSize = true;
 			   this->label79->BackColor = System::Drawing::Color::Transparent;
-			   this->label79->Location = System::Drawing::Point(200, 318);
+			   this->label79->Location = System::Drawing::Point(300, 440);
+			   this->label79->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label79->Name = L"label79";
-			   this->label79->Size = System::Drawing::Size(102, 13);
+			   this->label79->Size = System::Drawing::Size(160, 21);
 			   this->label79->TabIndex = 36;
 			   this->label79->Text = L"Destination Map ID:";
 			   // 
@@ -6368,9 +6755,10 @@ namespace Timelapse {
 			   this->bMapRush->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->bMapRush->Font = (gcnew System::Drawing::Font(L"Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->bMapRush->Location = System::Drawing::Point(301, 340);
+			   this->bMapRush->Location = System::Drawing::Point(452, 471);
+			   this->bMapRush->Margin = System::Windows::Forms::Padding(4);
 			   this->bMapRush->Name = L"bMapRush";
-			   this->bMapRush->Size = System::Drawing::Size(85, 24);
+			   this->bMapRush->Size = System::Drawing::Size(128, 33);
 			   this->bMapRush->TabIndex = 34;
 			   this->bMapRush->Text = L"Map Rush";
 			   this->bMapRush->UseVisualStyleBackColor = true;
@@ -6382,9 +6770,10 @@ namespace Timelapse {
 			   this->panel30->Controls->Add(this->lvMapRusherSearch);
 			   this->panel30->Controls->Add(this->tbMapRusherSearch);
 			   this->panel30->Controls->Add(this->label78);
-			   this->panel30->Location = System::Drawing::Point(196, 3);
+			   this->panel30->Location = System::Drawing::Point(294, 4);
+			   this->panel30->Margin = System::Windows::Forms::Padding(4);
 			   this->panel30->Name = L"panel30";
-			   this->panel30->Size = System::Drawing::Size(190, 305);
+			   this->panel30->Size = System::Drawing::Size(284, 422);
 			   this->panel30->TabIndex = 43;
 			   // 
 			   // lvMapRusherSearch
@@ -6400,10 +6789,11 @@ namespace Timelapse {
 			   this->lvMapRusherSearch->FullRowSelect = true;
 			   this->lvMapRusherSearch->HeaderStyle = System::Windows::Forms::ColumnHeaderStyle::Nonclickable;
 			   this->lvMapRusherSearch->HideSelection = false;
-			   this->lvMapRusherSearch->Location = System::Drawing::Point(-1, -1);
+			   this->lvMapRusherSearch->Location = System::Drawing::Point(-2, -1);
+			   this->lvMapRusherSearch->Margin = System::Windows::Forms::Padding(4);
 			   this->lvMapRusherSearch->MultiSelect = false;
 			   this->lvMapRusherSearch->Name = L"lvMapRusherSearch";
-			   this->lvMapRusherSearch->Size = System::Drawing::Size(190, 269);
+			   this->lvMapRusherSearch->Size = System::Drawing::Size(284, 372);
 			   this->lvMapRusherSearch->TabIndex = 34;
 			   this->lvMapRusherSearch->UseCompatibleStateImageBehavior = false;
 			   this->lvMapRusherSearch->View = System::Windows::Forms::View::Details;
@@ -6411,12 +6801,12 @@ namespace Timelapse {
 			   // 
 			   // columnHeader7
 			   // 
-			   this->columnHeader7->Text = L"Map Name:";
+			   this->columnHeader7->Text = L"地图名称:";
 			   this->columnHeader7->Width = 105;
 			   // 
 			   // columnHeader8
 			   // 
-			   this->columnHeader8->Text = L"Map ID:";
+			   this->columnHeader8->Text = L"地图ID:";
 			   this->columnHeader8->Width = 67;
 			   // 
 			   // tbMapRusherSearch
@@ -6425,9 +6815,10 @@ namespace Timelapse {
 				   static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)));
 			   this->tbMapRusherSearch->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->tbMapRusherSearch->ForeColor = System::Drawing::Color::White;
-			   this->tbMapRusherSearch->Location = System::Drawing::Point(48, 275);
+			   this->tbMapRusherSearch->Location = System::Drawing::Point(72, 381);
+			   this->tbMapRusherSearch->Margin = System::Windows::Forms::Padding(4);
 			   this->tbMapRusherSearch->Name = L"tbMapRusherSearch";
-			   this->tbMapRusherSearch->Size = System::Drawing::Size(134, 21);
+			   this->tbMapRusherSearch->Size = System::Drawing::Size(200, 27);
 			   this->tbMapRusherSearch->TabIndex = 32;
 			   this->tbMapRusherSearch->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			   this->tbMapRusherSearch->TextChanged += gcnew System::EventHandler(this, &MainForm::tbMapRusherSearch_TextChanged);
@@ -6435,11 +6826,12 @@ namespace Timelapse {
 			   // label78
 			   // 
 			   this->label78->AutoSize = true;
-			   this->label78->Location = System::Drawing::Point(4, 279);
+			   this->label78->Location = System::Drawing::Point(6, 386);
+			   this->label78->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label78->Name = L"label78";
-			   this->label78->Size = System::Drawing::Size(44, 13);
+			   this->label78->Size = System::Drawing::Size(66, 21);
 			   this->label78->TabIndex = 33;
-			   this->label78->Text = L"Search:";
+			   this->label78->Text = L"搜索:";
 			   // 
 			   // btnClose
 			   // 
@@ -6454,9 +6846,10 @@ namespace Timelapse {
 			   this->btnClose->Font = (gcnew System::Drawing::Font(L"Lucida Console", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->btnClose->ForeColor = System::Drawing::Color::Firebrick;
-			   this->btnClose->Location = System::Drawing::Point(520, -1);
+			   this->btnClose->Location = System::Drawing::Point(780, -1);
+			   this->btnClose->Margin = System::Windows::Forms::Padding(4);
 			   this->btnClose->Name = L"btnClose";
-			   this->btnClose->Size = System::Drawing::Size(29, 30);
+			   this->btnClose->Size = System::Drawing::Size(44, 42);
 			   this->btnClose->TabIndex = 8;
 			   this->btnClose->Text = L"x";
 			   this->btnClose->UseVisualStyleBackColor = false;
@@ -6510,15 +6903,16 @@ namespace Timelapse {
 			   // 
 			   // MainForm
 			   // 
-			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			   this->AutoScaleDimensions = System::Drawing::SizeF(9, 18);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(16)), static_cast<System::Int32>(static_cast<System::Byte>(16)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(16)));
-			   this->ClientSize = System::Drawing::Size(560, 500);
+			   this->ClientSize = System::Drawing::Size(840, 692);
 			   this->ControlBox = false;
 			   this->Controls->Add(this->pnlFull);
 			   this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			   this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			   this->Margin = System::Windows::Forms::Padding(4);
 			   this->MaximizeBox = false;
 			   this->MinimizeBox = false;
 			   this->Name = L"MainForm";
