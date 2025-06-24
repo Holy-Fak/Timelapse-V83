@@ -85,7 +85,7 @@ void allocateConsole() {
 		// Redirect stdio streams to the console
 		FILE* pCout;
 		freopen_s(&pCout, "CONOUT$", "w", stdout);
-		printf_s("Console attached\n");
+		printf_s("控制台已连接\n");
 		printf_s("%p\n", GetModuleHandle(NULL));
 	}
 }
@@ -125,8 +125,8 @@ void MainForm::MainForm_Load(Object^ sender, EventArgs^ e)
 	Log::WriteLineToConsole(":::::::::::::::::::::::::::::::::::::::::");
 	Log::WriteLineToConsole(":::         Timelapse Trainer         :::");
 	Log::WriteLineToConsole(":::::::::::::::::::::::::::::::::::::::::");
-	Log::WriteLineToConsole("Use: Maplestory Manager by Knat-Dev");
-	Log::WriteLineToConsole("Initializing...");
+	Log::WriteLineToConsole("使用: 冒险岛管理器 by Knat-Dev");
+	Log::WriteLineToConsole("正在初始化...");
 	RECT msRect;
 	GetWindowRect(GetMSWindowHandle(), &msRect);
 	this->Left = msRect.right;
@@ -147,12 +147,12 @@ void MainForm::MainForm_Shown(Object^ sender, EventArgs^ e)
 	}
 
 	lbTitle->Text = "Timelapse Trainer - PID: " + GetMSProcID();
-	Log::WriteLineToConsole("Creating and starting macro Thread ...");
+	Log::WriteLineToConsole("创建和启动宏线程 ...");
 	Threading::Thread^ macroThread = gcnew Threading::Thread(gcnew Threading::ThreadStart(PriorityQueue::MacroQueueWorker));
 	macroThread->Start();
-	Log::WriteLineToConsole("Loading Maps for mapRusher ......");
+	Log::WriteLineToConsole("正在为地图传送加载地图 ......");
 	loadMaps();
-	Log::WriteLineToConsole("Initialized Timelapse trainer!");
+	Log::WriteLineToConsole("已初始化 Timelapse trainer!");
 
 	if (File::Exists(Settings::GetSettingsPath()))
 	{
@@ -185,7 +185,7 @@ void MainForm::MainForm_FormClosing(Object^ sender, Windows::Forms::FormClosingE
 	}
 
 	Sleep(200);
-	Log::WriteLine("Deinitialized Timelapse trainer!");
+	Log::WriteLine("已取消初始化 Timelapse trainer!");
 }
 
 void MainForm::btnClose_Click(Object^ sender, EventArgs^ e)
@@ -369,14 +369,14 @@ void MainForm::embedMSWindowToolStripMenuItem_Click(System::Object^ sender, Syst
 
 void MainForm::hideMSWindowToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (this->hideMSWindowToolStripMenuItem->Text == "Hide MS Window")
+	if (this->hideMSWindowToolStripMenuItem->Text == "隐藏冒险岛窗口")
 	{
-		this->hideMSWindowToolStripMenuItem->Text = "Show MS Window";
+		this->hideMSWindowToolStripMenuItem->Text = "显示冒险岛窗口";
 		ShowWindow(GlobalVars::mapleWindow, SW_HIDE);
 	}
 	else
 	{
-		this->hideMSWindowToolStripMenuItem->Text = "Hide MS Window";
+		this->hideMSWindowToolStripMenuItem->Text = "隐藏冒险岛窗口";
 		ShowWindow(GlobalVars::mapleWindow, SW_SHOW);
 	}
 }
@@ -448,14 +448,14 @@ void MainForm::pauseMSToolStripMenuItem_Click(System::Object^ sender, System::Ev
 {
 	Diagnostics::ProcessThreadCollection^ threads = Diagnostics::Process::GetCurrentProcess()->Threads;
 
-	if (this->pauseMSToolStripMenuItem->Text == "Pause MS")
+	if (this->pauseMSToolStripMenuItem->Text == "暂停冒险岛")
 	{
-		this->pauseMSToolStripMenuItem->Text = "Resume MS";
+		this->pauseMSToolStripMenuItem->Text = "恢复冒险岛";
 		DoSuspendThread();
 	}
 	else
 	{
-		this->pauseMSToolStripMenuItem->Text = "Pause MS";
+		this->pauseMSToolStripMenuItem->Text = "暂停冒险岛";
 		DoResumeThread();
 	}
 }
@@ -653,7 +653,7 @@ void AutoLogin()
 {
 	if (*(BYTE*)(*(ULONG*)LoginBase + OFS_LoginScreen) == 255)
 	{
-		Log::WriteLineToConsole("AutoLogin: Logging in...");
+		Log::WriteLineToConsole("自动登录: 正在登录...");
 		String^ usernameStr = MainForm::TheInstance->tbAutoLoginUsername->Text;
 		String^ passwordStr = MainForm::TheInstance->tbAutoLoginPassword->Text;
 		SendLoginPacket(usernameStr, passwordStr);
@@ -664,7 +664,7 @@ void AutoLogin()
 		Sleep(10);
 		SendSelectCharPacket(1, false);
 
-		Log::WriteLineToConsole("AutoLogin: Login Completed");
+		Log::WriteLineToConsole("自动登录: 登录完成");
 	}
 }
 
@@ -677,7 +677,7 @@ void AutoLoginMouse()
 		return;
 	}
 	if (!autoLogin || String::IsNullOrEmpty(usernameStr) || String::IsNullOrEmpty(passwordStr)) {
-		Log::WriteLineToConsole("Auto log in requires username and password to be set");
+		Log::WriteLineToConsole("自动登录需要设置用户名和密码");
 		return;
 	}
 
@@ -688,7 +688,7 @@ void AutoLoginMouse()
 			if (loginScreenState == 255) {
 
 				MouseInput::Mouse mouse;
-				Log::WriteLineToConsole("AutoLogin: Logging in...");
+				Log::WriteLineToConsole("自动登录: 正在登录...");
 				Sleep(500);
 				HelperFuncs::SetMapleWindowToForeground();
 				Sleep(500);
@@ -753,7 +753,7 @@ void AutoLoginMouse()
 				mouse.doubleLeftClick();
 				Sleep(1000);
 
-				Log::WriteLineToConsole("AutoLogin: Login Completed");
+				Log::WriteLineToConsole("自动登录: 登录完成");
 
 				Sleep(2000);
 				if (!HelperFuncs::IsInGame() && GlobalRefs::autoLoginRetries > 0) {
@@ -974,7 +974,7 @@ void MainForm::cbAttack_CheckedChanged(Object^ sender, EventArgs^ e)
 		{
 			if (String::IsNullOrWhiteSpace(tbAttackInterval->Text))
 			{
-				MessageBox::Show("Error: Attack Interval textbox cannot be empty");
+				MessageBox::Show("错误: 攻击间隔不能为空");
 				this->cbAttack->Checked = false;
 				return;
 			}
@@ -1010,7 +1010,7 @@ void MainForm::tbAttackInterval_TextChanged(Object^ sender, EventArgs^ e)
 	{
 		if (String::IsNullOrWhiteSpace(tbAttackInterval->Text))
 		{
-			MessageBox::Show("Error: Attack Interval textbox cannot be empty");
+			MessageBox::Show("错误: 攻击间隔不能为空");
 			return;
 		}
 		GlobalRefs::macroAttack->delay = Convert::ToUInt32(tbAttackInterval->Text);
@@ -1039,7 +1039,7 @@ void MainForm::cbLoot_CheckedChanged(Object^ sender, EventArgs^ e)
 		{
 			if (String::IsNullOrWhiteSpace(tbLootInterval->Text))
 			{
-				MessageBox::Show("Error: Loot Interval textbox cannot be empty");
+				MessageBox::Show("错误: 循环间隔不能为空");
 				this->cbLoot->Checked = false;
 				return;
 			}
@@ -1075,7 +1075,7 @@ void MainForm::tbLootInterval_TextChanged(Object^ sender, EventArgs^ e)
 	{
 		if (String::IsNullOrWhiteSpace(tbLootInterval->Text))
 		{
-			MessageBox::Show("Error: Loot Interval textbox cannot be empty");
+			MessageBox::Show("错误: 循环间隔不能为空");
 			return;
 		}
 		GlobalRefs::macroLoot->delay = Convert::ToUInt32(tbLootInterval->Text);
@@ -1100,7 +1100,7 @@ void MainForm::bBuffAdd_Click(Object^ sender, EventArgs^ e)
 {
 	if (String::IsNullOrWhiteSpace(tbBuffInterval->Text))
 	{
-		MessageBox::Show("Error: Buff Interval textbox cannot be empty");
+		MessageBox::Show("错误: Buff 间隔不能为空");
 		return;
 	}
 	ListViewItem^ lvi = gcnew ListViewItem(gcnew array<String^>{tbBuffName->Text, comboBuffKey->Text, tbBuffInterval->Text});
@@ -1646,7 +1646,7 @@ void MainForm::tbAttackDelay_TextChanged(Object^ sender, EventArgs^ e)
 	String^ animDelayStr = tbAttackDelay->Text;
 	if (String::IsNullOrWhiteSpace(animDelayStr))
 	{
-		MessageBox::Show("Error: Attack delay textbox cannot be empty");
+		MessageBox::Show("错误: 攻击延迟不能为空");
 		return;
 	}
 
@@ -1878,7 +1878,7 @@ void MainForm::bTeleportAdd_Click(Object^ sender, EventArgs^ e)
 {
 	if (String::IsNullOrWhiteSpace(tbTeleportX->Text) || String::IsNullOrWhiteSpace(tbTeleportY->Text))
 	{
-		MessageBox::Show("Error: The teleport x and y textboxes cannot be empty");
+		MessageBox::Show("错误: 传送x和y不能为空");
 		return;
 	}
 
@@ -1907,9 +1907,9 @@ void MainForm::lvTeleport_MouseDoubleClick(Object^ sender, Windows::Forms::Mouse
 
 void MainForm::bTeleportLoop_Click(Object^ sender, EventArgs^ e)
 {
-	if (!bTeleportLoop->Text->Equals("Stop Loop"))
+	if (!bTeleportLoop->Text->Equals("停机循环"))
 	{
-		bTeleportLoop->Text = "Stop Loop";
+		bTeleportLoop->Text = "停机循环";
 		bTeleportGetCurrentLocation->Enabled = false;
 		bTeleportAdd->Enabled = false;
 		bTeleportDelete->Enabled = false;
@@ -1920,7 +1920,7 @@ void MainForm::bTeleportLoop_Click(Object^ sender, EventArgs^ e)
 	}
 	else
 	{
-		bTeleportLoop->Text = "Loop";
+		bTeleportLoop->Text = "循环";
 		bTeleportGetCurrentLocation->Enabled = true;
 		bTeleportAdd->Enabled = true;
 		bTeleportDelete->Enabled = true;
@@ -1961,13 +1961,13 @@ void MainForm::bSpawnControlAdd_Click(Object^ sender, EventArgs^ e)
 {
 	if (String::IsNullOrWhiteSpace(tbSpawnControlMapID->Text) || String::IsNullOrWhiteSpace(tbSpawnControlX->Text) || String::IsNullOrWhiteSpace(tbSpawnControlY->Text))
 	{
-		MessageBox::Show("Error: Spawn Control Map ID, x, and y textboxes cannot be empty");
+		MessageBox::Show("错误: 生成控制地图ID, x 和 y 不能为空");
 		return;
 	}
 
 	if (Convert::ToUInt32(tbSpawnControlMapID->Text) == 0)
 	{
-		MessageBox::Show("Error: Map ID cannot be 0");
+		MessageBox::Show("错误: 地图ID不能为0");
 		return;
 	}
 
@@ -1975,7 +1975,7 @@ void MainForm::bSpawnControlAdd_Click(Object^ sender, EventArgs^ e)
 	{
 		if (lvi->SubItems[0]->Text->Equals(tbSpawnControlMapID->Text))
 		{
-			MessageBox::Show("Error: Two spawn points can not exist for the same map ID.");
+			MessageBox::Show("错误: 同一地图ID不能存在两个生成点.");
 			return;
 		}
 	}
@@ -2006,9 +2006,9 @@ void MainForm::bSpawnControlDelete_Click(Object^ sender, EventArgs^ e)
 
 void MainForm::bSpawnControl_Click(Object^ sender, EventArgs^ e)
 {
-	if (!bSpawnControl->Text->Equals("Disable Spawn Control"))
+	if (!bSpawnControl->Text->Equals("关闭生成控制"))
 	{ // Enabled
-		bSpawnControl->Text = "Disable Spawn Control";
+		bSpawnControl->Text = "关闭生成控制";
 		bSpawnControlGetCurrentLocation->Enabled = false;
 		bSpawnControlAdd->Enabled = false;
 		bSpawnControlDelete->Enabled = false;
@@ -2017,7 +2017,7 @@ void MainForm::bSpawnControl_Click(Object^ sender, EventArgs^ e)
 	}
 	else
 	{
-		bSpawnControl->Text = "Enable Spawn Control";
+		bSpawnControl->Text = "启动生成控制";
 		bSpawnControlGetCurrentLocation->Enabled = true;
 		bSpawnControlAdd->Enabled = true;
 		bSpawnControlDelete->Enabled = true;
@@ -2518,11 +2518,11 @@ static void findItemsStartingWithStr(String^ str)
 // Enable Item Filter
 void MainForm::bItemFilter_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (bItemFilter->Text->Equals("Enable Item Filter"))
+	if (bItemFilter->Text->Equals("开启物品过滤"))
 	{
-		bItemFilter->Text = "Disable Item Filter";
+		bItemFilter->Text = "关闭物品过滤";
 		if (Convert::ToUInt32(tbItemFilterMesos->Text) > 50000)
-			MessageBox::Show("Please enter mesos value ranging from 0 to 50,000. Default: 0");
+			MessageBox::Show("请输入介于0到50000之间的金币。默认值：0");
 
 		Assembly::isItemFilterEnabled = 1;
 		if (Assembly::isItemLoggingEnabled == 0)
@@ -2530,7 +2530,7 @@ void MainForm::bItemFilter_Click(System::Object^ sender, System::EventArgs^ e)
 	}
 	else
 	{
-		bItemFilter->Text = "Enable Item Filter";
+		bItemFilter->Text = "开启物品过滤";
 		Assembly::isItemFilterEnabled = 0;
 		if (Assembly::isItemLoggingEnabled == 0)
 			WriteMemory(itemFilterAddr, 6, 0x89, 0x47, 0x34, 0x8B, 0x7D, 0xEC); // mov [edi+34],eax; mov edi,[ebp-14];
@@ -2583,7 +2583,7 @@ void MainForm::bItemFilterAdd_Click(System::Object^ sender, System::EventArgs^ e
 		}
 		catch (...)
 		{
-			MessageBox::Show("Item ID not found");
+			MessageBox::Show("物品ID 未找到");
 		}
 	}
 }
@@ -2701,9 +2701,9 @@ static void findMobsStartingWithStr(String^ str)
 // Enable Mob Filter
 void MainForm::bMobFilter_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (bMobFilter->Text->Equals("Enable Mob Filter"))
+	if (bMobFilter->Text->Equals("开启怪物过滤"))
 	{
-		bMobFilter->Text = "Disable Mob Filter";
+		bMobFilter->Text = "关闭怪物过滤";
 		Assembly::isMobFilterEnabled = 1;
 		if (Assembly::isMobLoggingEnabled == 0)
 		{
@@ -2713,7 +2713,7 @@ void MainForm::bMobFilter_Click(System::Object^ sender, System::EventArgs^ e)
 	}
 	else
 	{
-		bMobFilter->Text = "Enable Mob Filter";
+		bMobFilter->Text = "开启怪物过滤";
 		Assembly::isMobFilterEnabled = 0;
 		if (Assembly::isMobLoggingEnabled == 0)
 		{
@@ -2775,7 +2775,7 @@ void MainForm::bMobFilterAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		}
 		catch (...)
 		{
-			MessageBox::Show("Mob ID not found");
+			MessageBox::Show("怪物ID 未找到");
 		}
 	}
 }
@@ -2850,16 +2850,16 @@ void MainForm::tbSendSpamDelay_KeyPress(Object^ sender, Windows::Forms::KeyPress
 
 void MainForm::bSendLog_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (bSendLog->Text->Equals("Enable Log"))
+	if (bSendLog->Text->Equals("开启日志"))
 	{
-		bSendLog->Text = "Disable Log";
+		bSendLog->Text = "关闭日志";
 		GlobalRefs::bSendPacketLog = true;
 		this->tPacketLog->Enabled = true;
 		Jump(cOutPacketAddr, Assembly::SendPacketLogHook, 0);
 	}
 	else
 	{
-		bSendLog->Text = "Enable Log";
+		bSendLog->Text = "开启日志";
 		GlobalRefs::bSendPacketLog = false;
 		WriteMemory(cOutPacketAddr, 5, 0xB8, 0x6C, 0x12, 0xA8, 0x00);
 	}
@@ -3377,7 +3377,7 @@ int rushNextIsland(int startMapID, int destMapID)
 	case 0: // Rush to Victoria
 		if (PointerFuncs::getCharMesos() < 150)
 		{
-			MainForm::TheInstance->lbMapRusherStatus->Text = "Status: You need 150 mesos to rush out of Maple Island";
+			MainForm::TheInstance->lbMapRusherStatus->Text = "状态: 你需要150金币才能到达枫叶岛";
 			GlobalRefs::isMapRushing = false;
 			return -1;
 		}
@@ -3400,7 +3400,7 @@ int rushNextIsland(int startMapID, int destMapID)
 		{
 			if (PointerFuncs::getCharMesos() < 1500)
 			{
-				MainForm::TheInstance->lbMapRusherStatus->Text = "Status: You need 1500 mesos to rush to Florina Beach";
+				MainForm::TheInstance->lbMapRusherStatus->Text = "状态: 你需要1500金币才能到达黄金海岸";
 				GlobalRefs::isMapRushing = false;
 				return -1;
 			}
@@ -3512,12 +3512,12 @@ static void mapRush(int destMapID)
 	int startMapID = ReadPointer(UIMiniMapBase, OFS_MapID);
 	if (startMapID == destMapID)
 	{
-		MainForm::TheInstance->lbMapRusherStatus->Text = "Status: Cannot Map Rush to same map";
+		MainForm::TheInstance->lbMapRusherStatus->Text = "状态: 无法传送到相同地图";
 		GlobalRefs::isMapRushing = false;
 		return;
 	}
 
-	MainForm::TheInstance->lbMapRusherStatus->Text = "Status: Calculating a path to Destination Map ID";
+	MainForm::TheInstance->lbMapRusherStatus->Text = "状态: 计算目标地图ID的路径";
 	if (getIsland(startMapID) != getIsland(destMapID))
 	{
 		for (int i = 0; i < 5; i++)
@@ -3533,7 +3533,7 @@ static void mapRush(int destMapID)
 			// If first map on new island is the destination, finish
 			if (startMapID == destMapID)
 			{
-				MainForm::TheInstance->lbMapRusherStatus->Text = "Status: Map Rushing Complete";
+				MainForm::TheInstance->lbMapRusherStatus->Text = "状态: 地图传送已完成";
 				GlobalRefs::isMapRushing = false;
 				return;
 			}
@@ -3542,7 +3542,7 @@ static void mapRush(int destMapID)
 		// Couldn't rush to same island as Destination Map
 		if (getIsland(startMapID) != getIsland(destMapID))
 		{
-			MainForm::TheInstance->lbMapRusherStatus->Text = "Status: Cannot find a path to Destination Map ID";
+			MainForm::TheInstance->lbMapRusherStatus->Text = "状态: 找不到目标地图ID的路径";
 			GlobalRefs::isMapRushing = false;
 			return;
 		}
@@ -3551,7 +3551,7 @@ static void mapRush(int destMapID)
 	cliext::vector<MapPath^>^ mapPath = generatePath(startMapID, destMapID);
 	if (mapPath->size() == 0)
 	{
-		MainForm::TheInstance->lbMapRusherStatus->Text = "Status: Cannot find a path to Destination Map ID";
+		MainForm::TheInstance->lbMapRusherStatus->Text = "状态: 找不到目标地图ID的路径";
 		GlobalRefs::isMapRushing = false;
 		return;
 	}
@@ -3632,7 +3632,7 @@ static void mapRush(int destMapID)
 		}*/
 
 		remainingMapCount--;
-		MainForm::TheInstance->lbMapRusherStatus->Text = "Status: Map Rushing, Remaining Maps: " + Convert::ToString(remainingMapCount);
+		MainForm::TheInstance->lbMapRusherStatus->Text = "状态: 地图传送, 剩余地图: " + Convert::ToString(remainingMapCount);
 	}
 
 	Assembly::spawnControl = oldSpawnControl; // Restore old spawn control list
@@ -3641,9 +3641,9 @@ static void mapRush(int destMapID)
 	Sleep(delay);
 
 	if (ReadPointer(UIMiniMapBase, OFS_MapID) != destMapID)
-		MainForm::TheInstance->lbMapRusherStatus->Text = "Status: An error has occurred, try setting delay higher";
+		MainForm::TheInstance->lbMapRusherStatus->Text = "状态: 发生错误，请尝试将延迟设置得更高";
 	else
-		MainForm::TheInstance->lbMapRusherStatus->Text = "Status: Map Rushing Complete";
+		MainForm::TheInstance->lbMapRusherStatus->Text = "状态: 地图传送已完成";
 
 	GlobalRefs::isMapRushing = false;
 }
