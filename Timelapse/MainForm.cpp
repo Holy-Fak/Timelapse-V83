@@ -131,6 +131,7 @@ void MainForm::MainForm_Load(Object^ sender, EventArgs^ e)
 	GetWindowRect(GetMSWindowHandle(), &msRect);
 	this->Left = msRect.right;
 	this->Top = msRect.top;
+	ControlMap->Add("FMA", this->cbFullMapAttack);
 }
 
 
